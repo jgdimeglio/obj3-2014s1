@@ -1,4 +1,4 @@
 obj3-2014s1
 ===========
 
-Programación Orientada a Objetos 3
+Trabajos prácticos para la materia Programación Orientada a Objetos 3.
