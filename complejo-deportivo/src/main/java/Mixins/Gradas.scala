@@ -5,5 +5,5 @@ import org.joda.time.DateTime
 
 trait Gradas extends Caracteristica {
 	
-   def extraPorCaracteristica(pb: Double) = pb
+   override def extraPorCaracteristica(pb: Double) = pb
 }
