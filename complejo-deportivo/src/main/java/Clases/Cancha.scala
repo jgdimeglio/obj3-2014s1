@@ -19,10 +19,10 @@ abstract class Cancha() {
 
 	private def chequearSiPuedeReservar(dia : DateTime, inicio : Int, fin : Int) ={
 	  if(hayReserva(dia,inicio,fin)){
-	    new YaEstaReservada()
+	      throw new YaEstaReservada()
 	  }
 	  if(this.esDeNoche(inicio) & ! this.tieneIluminacion){
-	      new NoTieneIluminacion
+	      throw new NoTieneIluminacion
 	  }
 	}
 
