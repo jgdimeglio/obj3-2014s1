@@ -27,8 +27,12 @@ abstract class Cancha() {
 	}
 
 	private def hayReserva(dia : DateTime, inicio : Int, fin : Int): Boolean = {
-		reservas.exists{r => r.dia.equals(dia) & ((r.inicio <= inicio & inicio >= r.fin) | (r.inicio <= fin & fin >= r.fin)) }
-	}
+          reservas.exists { r => coincidenDias(r.dia,dia) & ((r.inicio <= inicio & inicio >= r.fin) | (r.inicio <= fin & fin >= r.fin)) }
+        }
+  
+        def coincidenDias(diaA:DateTime,diaB:DateTime):Boolean={
+          diaA.getDay().equals(diaB.getDay()) & diaA.getMonth().equals(diaB.getMonth()) & diaA.getYear().equals(diaB.getYear())
+        }
 
 	def tieneIluminacion() = false
 
