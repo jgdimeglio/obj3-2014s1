@@ -15,7 +15,7 @@ abstract class Cancha() {
 	  println(this.precioFinal(dia, inicio, fin, this.precioBase))
 	}
 	
-	private def chequearSiPuedeReservar(dia : DateTime, inicio : Int, fin : Int) : Boolean ={
+	private def chequearSiPuedeReservar(dia : DateTime, inicio : Int, fin : Int) ={
 	  if(hayReserva(dia,inicio,fin)){
 	    new YaEstaReservada()
 	  }
