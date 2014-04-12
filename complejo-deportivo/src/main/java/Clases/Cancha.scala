@@ -27,7 +27,7 @@ abstract class Cancha() {
 	}
 
 	private def hayReserva(dia : DateTime, inicio : Int, fin : Int): Boolean = {
-		reservas.exists{r => r.dia.equals(dia) & (r.inicio <= inicio & r.inicio >= fin) | (r.fin <= inicio & r.fin >= fin) }
+		reservas.exists{r => r.dia.equals(dia) & ((r.inicio <= inicio & r.inicio >= fin) | (r.fin <= inicio & r.fin >= fin)) }
 	}
 
 	def tieneIluminacion() = false
