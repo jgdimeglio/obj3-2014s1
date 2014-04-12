@@ -10,4 +10,14 @@ class Reserva(c : Cancha, d : DateTime, i : Int, f : Int ) {
 	var inicio = i
 	var fin = f
 	
+	//Validando inicio y fin
+        chequearHorarioInvalido(i)
+        chequearHorarioInvalido(f)
+
+        private def chequearHorarioInvalido(horario: Int) = {
+         if (horario < 1 | horario > 24) {
+           throw new HorarioInvalido
+         }
+        }
+	
 }
