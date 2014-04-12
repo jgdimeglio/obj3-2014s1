@@ -10,7 +10,7 @@ abstract class Cancha() {
 	
 	
 	def reservar(dia : DateTime , inicio : Int , fin : Int){
-	  this.sePuedeReservar(dia, inicio, fin)
+	  this.chequearSiPuedeReservar(dia, inicio, fin)
 	  this.reservas+= new Reserva(this,dia,inicio,fin)
 	  println(this.precioFinal(dia, inicio, fin, this.precioBase))
 	}
