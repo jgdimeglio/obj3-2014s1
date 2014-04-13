@@ -12,6 +12,7 @@ import Mixins.Techo
 import Mixins.Gradas
 import Excepciones.NoTieneIluminacion
 import Clases.CanchaDeFutbol
+import Excepciones.HorarioInvalido
 
 
 class TestCanchaDeFutbol extends FunSpec with ShouldMatchers with GivenWhenThen {
@@ -48,6 +49,13 @@ class TestCanchaDeFutbol extends FunSpec with ShouldMatchers with GivenWhenThen 
 	  f.canchaFutbol.reservar(f.dia, 10, 11)
 	  a [YaEstaReservada] should be thrownBy {
 		  f.canchaFutbol.reservar(f.dia, 10.30, 11.30)
+	  } 
+	}
+	
+	it ("Cancha de futbol reservada con horario invalido"){
+	  var f = fixture
+	  a [HorarioInvalido] should be thrownBy {
+		  f.canchaFutbol.reservar(f.dia, 0, 1)
 	  } 
 	}
 	
