@@ -1,11 +1,15 @@
 package Clases
 
 import scala.collection.mutable.ArrayBuffer
+import org.joda.time.DateTime
+import Mixins.Iluminacion
+import Mixins.Techo
 
 object Proronga {
 	def main(args: Array[String]) {
-		val lista : ArrayBuffer[Int] = ArrayBuffer(1,2,3,4,5)
-		
-		println(lista.exists{n => n == 1})
+	  
+		val c=new CanchaDePaddle with Iluminacion with Techo
+        val d=new DateTime()
+        println(c.precioFinal(d, 1, 3))
 	}
 }
