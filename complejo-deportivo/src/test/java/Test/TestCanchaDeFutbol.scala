@@ -25,7 +25,7 @@ class TestCanchaDeFutbol extends FunSpec with ShouldMatchers with GivenWhenThen 
 		var dia = new DateTime("2014-06-11")
 	}
 	
-	it("Cancha de tenis") {
+	it("Cancha de Futbol") {
         given("Una cancha")
         	var f = fixture
         when("Obtenes la cancha")
@@ -35,7 +35,7 @@ class TestCanchaDeFutbol extends FunSpec with ShouldMatchers with GivenWhenThen 
         	f.canchaFutbol.reservas.exists{r => r.dia.equals(f.dia)} should be (true)
      }
 	
-	it ("Cancha de tenis reservada con mismo horario"){
+	it ("Cancha de futbol reservada con mismo horario"){
 	  var f = fixture
 	  f.canchaFutbol.reservar(f.dia, 10, 11)
 	  a [YaEstaReservada] should be thrownBy {
@@ -43,7 +43,7 @@ class TestCanchaDeFutbol extends FunSpec with ShouldMatchers with GivenWhenThen 
 	  } 
 	}
 	
-	it ("Cancha de tenis reservada con horario solapado"){
+	it ("Cancha de futbol reservada con horario solapado"){
 	  var f = fixture
 	  f.canchaFutbol.reservar(f.dia, 10, 11)
 	  a [YaEstaReservada] should be thrownBy {
@@ -51,14 +51,14 @@ class TestCanchaDeFutbol extends FunSpec with ShouldMatchers with GivenWhenThen 
 	  } 
 	}
 	
-	it ("Cancha de tenis reservada de noche sin luz"){
+	it ("Cancha de futbol reservada de noche sin luz"){
 	  var f = fixture
 	  a [NoTieneIluminacion] should be thrownBy {
 		  f.canchaFutbol.reservar(f.dia, 19, 20)
 	  } 
 	}
 	
-	it("Cancha de tenis no se superpone") {
+	it("Cancha de futbol no se superpone") {
         given("Dos canchas")
         	var f = fixture
         when("Obtenes las canchas")
@@ -69,7 +69,7 @@ class TestCanchaDeFutbol extends FunSpec with ShouldMatchers with GivenWhenThen 
         	f.canchaFutbol2.reservas.exists{r => r.dia.equals(f.dia)} should be (true)
      }
 	
-	it("Calculo precio canchas de tenis con las distintas combinaciones") {
+	it("Calculo precio canchas de futbol con las distintas combinaciones") {
         given("Varias canchas")
         	var f = fixture 
         when("Obtenes los precios")
