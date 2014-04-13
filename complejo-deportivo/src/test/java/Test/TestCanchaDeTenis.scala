@@ -12,6 +12,7 @@ import Mixins.Iluminacion
 import Mixins.Techo
 import Mixins.Gradas
 import Excepciones.NoTieneIluminacion
+import org.scalatest.mock.MockitoSugar
 
 
 class TestCanchaDeTenis extends FunSpec with ShouldMatchers with GivenWhenThen {
