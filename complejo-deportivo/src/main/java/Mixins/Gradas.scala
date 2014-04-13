@@ -8,7 +8,7 @@ trait Gradas extends Cancha {
   def extraPorGradas(pb: Double) = pb
    
   override 
-  def calcularExtra(dia : DateTime, inicio : Int, fin : Int, pb : Double) : Double = {
+  def calcularExtra(dia : DateTime, inicio : Double, fin : Double, pb : Double) : Double = {
 		  (this.extraPorGradas(pb) + super.calcularExtra(dia, inicio, fin, pb))
   }
 }

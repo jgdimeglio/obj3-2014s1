@@ -14,7 +14,7 @@ trait Techo extends Cancha {
   }
   
   override 
-  def calcularExtra(dia : DateTime, inicio : Int, fin : Int, pb : Double) : Double = {
+  def calcularExtra(dia : DateTime, inicio : Double, fin : Double, pb : Double) : Double = {
 		  (this.extraPorTecho(pb) + super.calcularExtra(dia, inicio, fin, pb))
   }
 }

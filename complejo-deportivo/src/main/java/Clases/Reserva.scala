@@ -5,7 +5,7 @@ import Excepciones.HorarioInvalido
 
 
 
-class Reserva(c : Cancha, d : DateTime, i : Int, f : Int ) {
+class Reserva(c : Cancha, d : DateTime, i : Double, f : Double) {
 	var cancha = c
 	var dia = d
 	var inicio = i
@@ -15,7 +15,7 @@ class Reserva(c : Cancha, d : DateTime, i : Int, f : Int ) {
         chequearHorarioInvalido(i)
         chequearHorarioInvalido(f)
 
-        private def chequearHorarioInvalido(horario: Int) = {
+        private def chequearHorarioInvalido(horario: Double) = {
          if (horario < 1 | horario > 24) {
            throw new HorarioInvalido
          }

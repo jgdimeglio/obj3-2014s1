@@ -14,7 +14,7 @@ abstract class Cancha() {
 	/*
 	 * Operaciones de Negocio
 	 */
-	def reservar(dia : DateTime , inicio : Int , fin : Int){
+	def reservar(dia : DateTime , inicio : Double , fin : Double){
 	  this.chequearSiPuedeReservar(dia, inicio, fin)
 	  this.reservas+= new Reserva(this,dia,inicio,fin)
 	  println(this.precioFinal(dia, inicio, fin))
@@ -23,7 +23,7 @@ abstract class Cancha() {
 	/*
 	 * Operaciones Internas 
 	 */
-	private def chequearSiPuedeReservar(dia : DateTime, inicio : Int, fin : Int){
+	private def chequearSiPuedeReservar(dia : DateTime, inicio : Double, fin : Double){
 	  if(this.hayReserva(dia,inicio,fin)){
 	      throw new YaEstaReservada()
 	  }
@@ -32,17 +32,17 @@ abstract class Cancha() {
 	  }
 	}
 
-	private def hayReserva(dia : DateTime, inicio : Int, fin : Int) : Boolean ={
+	private def hayReserva(dia : DateTime, inicio : Double, fin : Double) : Boolean ={
 		val existeReserva = reservas.exists{ r => this.sonElMismoDia(r.dia, dia) & this.seSuperponenHorarios(r.inicio, r.fin, inicio, fin) }
 		return(existeReserva)
     }
 	
-	private def seSuperponenHorarios(inicio1 : Int, fin1 : Int, inicio2 : Int, fin2 : Int) : Boolean = {
-	  val seSuperpone = ((inicio1 <= inicio2 & inicio2 >= fin1) | (inicio1 <= fin2 & fin2 >= fin1))
+	private def seSuperponenHorarios(inicio1 : Double, fin1 : Double, inicio2 : Double, fin2 : Double) : Boolean = {
+	  val seSuperpone = ((inicio1 < inicio2 & inicio2 < fin1) | (inicio1 < fin2 & fin2 < fin1) | (inicio1 == inicio2 & fin1 == fin2))
 	  return(seSuperpone)
 	}
 	
-	private def esDeNoche(horaInicio : Int) = (horaInicio >= 18)
+	private def esDeNoche(horaInicio : Double) = (horaInicio >= 18)
 	
 	private def tienenElMismoAño(d1 : DateTime, d2 : DateTime) : Boolean = d1.year().equals(d2.year())
 	
@@ -64,9 +64,9 @@ abstract class Cancha() {
 	def precioBase() : Double 
 
 
-	def precioFinal(dia : DateTime, inicio : Int, fin : Int) : Double ={
+	def precioFinal(dia : DateTime, inicio : Double, fin : Double) : Double ={
 	  this.precioBase() + this.calcularExtra(dia, inicio, fin, this.precioBase)
 	}
 
-	def calcularExtra(dia : DateTime, inicio : Int, fin : Int, pb : Double) : Double = 0
+	def calcularExtra(dia : DateTime, inicio : Double, fin : Double, pb : Double) : Double = 0
 }

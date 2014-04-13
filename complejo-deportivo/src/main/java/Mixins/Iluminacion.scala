@@ -10,7 +10,7 @@ trait Iluminacion extends Cancha{
    override def tieneIluminacion() = true
    
   override 
-  def calcularExtra(dia : DateTime, inicio : Int, fin : Int, pb : Double) : Double = {
+  def calcularExtra(dia : DateTime, inicio : Double, fin : Double, pb : Double) : Double = {
 		  (this.extraPorIluminacion(pb) + super.calcularExtra(dia, inicio, fin, pb))
   }
 }
