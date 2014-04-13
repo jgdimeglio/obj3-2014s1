@@ -1,11 +1,10 @@
 package Clases
 
 import org.joda.time.DateTime
-
 import scala.collection.mutable.ArrayBuffer
-
 import Excepciones.NoTieneIluminacion
 import Excepciones.YaEstaReservada
+import Excepciones.UsadaParaTorneo
 
 abstract class Cancha() {
 	val reservas = new ArrayBuffer[Reserva]
@@ -30,6 +29,10 @@ abstract class Cancha() {
 	  if(this.esDeNoche(inicio) & ! this.tieneIluminacion){
 	      throw new NoTieneIluminacion
 	  }
+	  
+	  if(this.esFinDeSemana(dia) & this.tieneGradas){
+		  throw new UsadaParaTorneo
+	  }
 	}
 
 	private def hayReserva(dia : DateTime, inicio : Double, fin : Double) : Boolean ={
@@ -43,6 +46,8 @@ abstract class Cancha() {
 	}
 	
 	private def esDeNoche(horaInicio : Double) = (horaInicio >= 18)
+	
+	private def esFinDeSemana(dia : DateTime) = (dia.dayOfWeek().getAsText() == "sabado" | dia.dayOfWeek().getAsText() == "domingo")
 	
 	private def tienenElMismoAño(d1 : DateTime, d2 : DateTime) : Boolean = d1.year().equals(d2.year())
 	
@@ -60,10 +65,10 @@ abstract class Cancha() {
   
 	def tieneIluminacion() = false
 
-
+	def tieneGradas() = false
+	
 	def precioBase() : Double 
-
-
+	
 	def precioFinal(dia : DateTime, inicio : Double, fin : Double) : Double ={
 	  this.precioBase() + this.calcularExtra(dia, inicio, fin, this.precioBase)
 	}

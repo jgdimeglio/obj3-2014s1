@@ -13,6 +13,7 @@ import Mixins.Gradas
 import Excepciones.NoTieneIluminacion
 import Excepciones.HorarioInvalido
 import Clases.CanchaDePaddle
+import Excepciones.UsadaParaTorneo
 
 class TestCanchaDePaddle extends FunSpec with ShouldMatchers with GivenWhenThen{
 
@@ -23,6 +24,7 @@ class TestCanchaDePaddle extends FunSpec with ShouldMatchers with GivenWhenThen{
 		var canchaPaddleConGradas = new CanchaDePaddle with Gradas
 		var canchaPaddleConLuzYGradas = new CanchaDePaddle with Iluminacion with Gradas
 		var dia = new DateTime("2014-06-11")
+		var finDeSemana = new DateTime("2014-04-13")
 	}
 	
 	it("Cancha de paddle") {
@@ -55,6 +57,13 @@ class TestCanchaDePaddle extends FunSpec with ShouldMatchers with GivenWhenThen{
 	  var f = fixture
 	  a [HorarioInvalido] should be thrownBy {
 		  f.canchaPaddle.reservar(f.dia, 0, 1)
+	  } 
+	}
+	
+	it ("Cancha de paddle reservada con gradas el fin de semana"){
+	  var f = fixture
+	  a [UsadaParaTorneo] should be thrownBy {
+		  f.canchaPaddleConGradas.reservar(f.finDeSemana, 10, 11)
 	  } 
 	}
 	

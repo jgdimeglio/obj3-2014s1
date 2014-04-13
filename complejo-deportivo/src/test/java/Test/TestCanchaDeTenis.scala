@@ -14,6 +14,7 @@ import Mixins.Gradas
 import Excepciones.NoTieneIluminacion
 import org.scalatest.mock.MockitoSugar
 import Excepciones.HorarioInvalido
+import Excepciones.UsadaParaTorneo
 
 
 class TestCanchaDeTenis extends FunSpec with ShouldMatchers with GivenWhenThen {
@@ -25,6 +26,7 @@ class TestCanchaDeTenis extends FunSpec with ShouldMatchers with GivenWhenThen {
 		var canchaTenisConGradas = new CanchaDeTenis with Gradas
 		var canchaTenisConLuzYGradas = new CanchaDeTenis with Iluminacion with Gradas
 		var dia = new DateTime("2014-06-11")
+		var finDeSemana = new DateTime("2014-04-13")
 	}
 	
 	it("Cancha de tenis") {
@@ -57,6 +59,13 @@ class TestCanchaDeTenis extends FunSpec with ShouldMatchers with GivenWhenThen {
 	  var f = fixture
 	  a [HorarioInvalido] should be thrownBy {
 		  f.canchaTenis.reservar(f.dia, 0, 1)
+	  } 
+	}
+	
+	it ("Cancha de tenis reservada con gradas el fin de semana"){
+	  var f = fixture
+	  a [UsadaParaTorneo] should be thrownBy {
+		  f.canchaTenisConGradas.reservar(f.finDeSemana, 10, 11)
 	  } 
 	}
 	
