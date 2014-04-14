@@ -32,7 +32,7 @@ class TestCanchaDeTenis extends FunSpec with ShouldMatchers with GivenWhenThen {
 	it("Cancha de tenis") {
         given("Una cancha")
         	var f = fixture
-        when("Obtenes la cancha")
+        when("Haces la reserva")
            f.canchaTenis.reservar(f.dia, 10, 11)
            
         then("La reserva tendria que estar realizada")
@@ -79,7 +79,7 @@ class TestCanchaDeTenis extends FunSpec with ShouldMatchers with GivenWhenThen {
 	it("Cancha de tenis no se superpone") {
         given("Dos canchas")
         	var f = fixture
-        when("Obtenes las canchas")
+        when("Reservas las canchas")
            f.canchaTenis.reservar(f.dia, 10, 11)
            f.canchaTenis2.reservar(f.dia, 11, 12)
         then("Las reservas tendrian que estar realizadas")
