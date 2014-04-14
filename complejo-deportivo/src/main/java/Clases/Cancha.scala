@@ -47,7 +47,7 @@ abstract class Cancha() {
 	
 	private def esDeNoche(horaInicio : Double) = (horaInicio >= 18)
 	
-	private def esFinDeSemana(dia : DateTime) = (dia.dayOfWeek().getAsText() == "sabado" | dia.dayOfWeek().getAsText() == "domingo")
+	private def esFinDeSemana(dia : DateTime) = (dia.dayOfWeek().getAsText() == "sábado" | dia.dayOfWeek().getAsText() == "domingo")
 	
 	private def tienenElMismoAño(d1 : DateTime, d2 : DateTime) : Boolean = d1.year().equals(d2.year())
 	
