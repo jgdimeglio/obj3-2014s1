@@ -74,4 +74,25 @@ abstract class Cancha() {
 	}
 
 	def calcularExtra(dia : DateTime, inicio : Double, fin : Double, pb : Double) : Double = 0
+	
+	 /*
+	 * Operaciones de estadistica
+	 */
+        def obtenerReservasPara(dia: DateTime) = {
+	  this.reservas.filter { r => sonElMismoDia(dia, r.dia) }
+	}
+	
+	def cantidadDeReservas(): Int = {
+	  this.reservas.length
+	}
+	
+	def facturacionTotal(): Double = {
+	  var total: Double = 0
+	  this.reservas.foreach { r => total += this.precioFinal(r.dia, r.inicio, r.fin) }
+	  total
+	}
+	
+	def tieneReserva(dia: DateTime): Boolean = {
+	  this.reservas.exists { r => sonElMismoDia(dia, r.dia) }
+	}
 }
