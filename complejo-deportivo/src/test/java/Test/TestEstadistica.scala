@@ -22,7 +22,7 @@ class TestEstadistica extends FunSpec with ShouldMatchers with GivenWhenThen {
   def fixture = new {
     var estadistica = new Estadistica
 
-    var canchaFutbol = new CanchaDeFutbol(5)
+    var canchaFutbol = new CanchaDeFutbol(10)
     var canchaTenis = new CanchaDeTenis
 
     estadistica.agregarNuevaCancha(canchaFutbol)
@@ -58,6 +58,12 @@ class TestEstadistica extends FunSpec with ShouldMatchers with GivenWhenThen {
   it("deberia ser 3 la cantidad de reservas que hay hoy") {
     var reservas = fixture.estadistica.obtenerReservasPara(new DateTime)
     reservas.length should be(3)
+
+  }
+  
+  it("La facturacion total deberia ser:") {
+    var facturacion = fixture.estadistica.obtenerfacturacionTotal
+    facturacion should be(950.0)
 
   }
 
