@@ -35,7 +35,7 @@ abstract class Cancha() {
 	  }
 	}
 
-	private def hayReserva(dia : DateTime, inicio : Double, fin : Double) : Boolean ={
+        def hayReserva(dia : DateTime, inicio : Double, fin : Double) : Boolean ={
 		val existeReserva = reservas.exists{ r => this.sonElMismoDia(r.dia, dia) & this.seSuperponenHorarios(r.inicio, r.fin, inicio, fin) }
 		return(existeReserva)
     }
