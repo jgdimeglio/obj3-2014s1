@@ -22,16 +22,12 @@ abstract class Cancha() {
 	/*
 	 * Operaciones Internas 
 	 */
-	private def chequearSiPuedeReservar(dia : DateTime, inicio : Double, fin : Double){
+	protected def chequearSiPuedeReservar(dia : DateTime, inicio : Double, fin : Double){
 	  if(this.hayReserva(dia,inicio,fin)){
 	      throw new YaEstaReservada()
 	  }
 	  if(this.esDeNoche(inicio) & ! this.tieneIluminacion){
 	      throw new NoTieneIluminacion
-	  }
-	  
-	  if(this.esFinDeSemana(dia) & this.tieneGradas){
-		  throw new UsadaParaTorneo
 	  }
 	}
 
@@ -47,7 +43,7 @@ abstract class Cancha() {
 	
 	private def esDeNoche(horaInicio : Double) = (horaInicio >= 18)
 	
-	private def esFinDeSemana(dia : DateTime) = (dia.dayOfWeek().getAsText() == "sábado" | dia.dayOfWeek().getAsText() == "domingo")
+	protected def esFinDeSemana(dia : DateTime) = (dia.dayOfWeek().getAsText() == "sábado" | dia.dayOfWeek().getAsText() == "domingo")
 	
 	private def tienenElMismoAño(d1 : DateTime, d2 : DateTime) : Boolean = d1.year().equals(d2.year())
 	
@@ -65,8 +61,6 @@ abstract class Cancha() {
   
 	def tieneIluminacion() = false
 
-	def tieneGradas() = false
-	
 	def precioBase() : Double 
 	
 	def precioFinal(dia : DateTime, inicio : Double, fin : Double) : Double ={

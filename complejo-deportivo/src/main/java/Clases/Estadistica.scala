@@ -17,9 +17,7 @@ class Estadistica {
   }
 
   def obtenerReservasPara(dia: DateTime) = {
-    val reservas = new ArrayBuffer[Reserva]
-    this.canchasDisponibles.foreach(c => reservas.appendAll(c.obtenerReservasPara(dia)))
-    reservas
+    this.canchasDisponibles.flatMap(c => c.obtenerReservasPara(dia))
   }
 
   def obtenerCanchasLibres(dia: DateTime, inicio: Double, fin: Double) = {
