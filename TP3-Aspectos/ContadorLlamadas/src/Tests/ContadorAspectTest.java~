@@ -33,7 +33,6 @@ public class ContadorAspectTest {
 		
 		assertEquals(CountAspect.aspectOf(persona).getCounterOf("setNombre"), 2);
 		assertEquals(CountAspect.aspectOf(soldado).getCounterOf("setNombre"), 1);
-		assertEquals(CountAspect.aspectOf(persona).getCounterOf("nombreYApellido"), 0);
 	}
 	
 	@Test

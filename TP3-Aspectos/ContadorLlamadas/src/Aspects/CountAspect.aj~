@@ -24,10 +24,6 @@ public aspect CountAspect pertarget(execution(@Monitored * *(..))){
 	private Map<String, Integer> map = new HashMap<String, Integer>();
 
 	public int getCounterOf(String nameMethod){
-		int ret = 0;
-		if(map.containsKey(nameMethod)){
-			ret = map.get(nameMethod);
-		}
-		return ret;
+		return map.get(nameMethod);
 	}
 }
