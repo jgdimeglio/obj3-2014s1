@@ -40,8 +40,8 @@ public class ContadorAspectTest {
 	public void contadorDeMetodoAspectExceptionTest(){
 		try{
 			soldado.nombreYApellido();
-			assertEquals(CountAspect.aspectOf(soldado).getCounterOf("nombreYApellido"), 1);
-			assertTrue(false);
+			CountAspect.aspectOf(soldado).getCounterOf("nombreYApellido");
+			fail();
 		}catch (NoAspectBoundException ex){
 			System.out.println(ex);
 			assertTrue(true);
