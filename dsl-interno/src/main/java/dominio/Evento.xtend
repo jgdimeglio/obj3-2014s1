@@ -1,17 +1,16 @@
 package dominio
 
 import java.util.ArrayList
-import java.util.Calendar
 import java.util.List
 
 class Evento {
 	
-	@Property Calendar fecha
+	@Property int hora
 	@Property String mensaje
 	@Property List<Recordatorio> recordatorios
 	
-	new(Calendar fecha, String mensaje){
-		this.fecha = fecha
+	new(int hora, String mensaje){
+		this.hora = hora
 		this.mensaje = mensaje
 		this.recordatorios = new ArrayList<Recordatorio>
 	}
@@ -20,21 +19,21 @@ class Evento {
 		this.recordatorios.add(r)
 	}
 	
-	def notificarTick(Calendar fecha, AgendaListener listener){
-		if(!this.notificarEvento(fecha,listener)){
-			this.notificarRecordatorio(fecha,listener)
+	def notificarTick(int hora, AgendaListener listener){
+		if(!this.notificarEvento(hora,listener)){
+			this.notificarRecordatorio(hora,listener)
 		}
 	}
 	
-	def notificarRecordatorio(Calendar fecha, AgendaListener listener){
-		if(fecha.get(Calendar.HOUR).equals(this.fecha.get(Calendar.HOUR) - 1)){
+	def notificarRecordatorio(int hora, AgendaListener listener){
+		if(hora.equals(this.hora - 1)){
 			this.recordatorios.forEach[ r | r.notificar(mensaje, listener)]
 		}
 	}
 	
-	def notificarEvento(Calendar fecha, AgendaListener listener){
+	def notificarEvento(int hora, AgendaListener listener){
 		var ret = false
-		if(fecha.get(Calendar.HOUR).equals(this.fecha.get(Calendar.HOUR))){
+		if(hora.equals(this.hora)){
 			listener.sucedio(this)
 			ret = true
 		}

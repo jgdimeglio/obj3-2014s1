@@ -5,7 +5,6 @@ import dominio.Evento
 import dominio.MockAgendaListener
 import dominio.Recordatorio
 import dominio.RecordatorioSMS
-import java.util.Calendar
 import org.junit.Before
 import org.junit.Test
 
@@ -15,7 +14,7 @@ class testAgenda {
 	
 	var Agenda agenda 
 	var Evento evento 
-	var Calendar fecha
+	var int hora
 	var Recordatorio recordatorio
 	var MockAgendaListener mock
 	var String mensaje
@@ -25,8 +24,8 @@ class testAgenda {
 		
 		this.mensaje="Inicia OBJ3"
 		this.agenda = new Agenda
-		this.fecha = Calendar.getInstance
-		this.evento = new Evento(this.fecha, this.mensaje)
+		this.hora = 14
+		this.evento = new Evento(this.hora, this.mensaje)
 		this.recordatorio = new RecordatorioSMS
 		this.evento.agregarRecordatorio(this.recordatorio)
 		this.agenda.agregarEvento(this.evento)
@@ -35,18 +34,13 @@ class testAgenda {
 	
 	@Test
 	def void testNotificarEvento(){
-		this.agenda.tick(this.fecha, this.mock)
+		this.agenda.tick(this.hora, this.mock)
 		assertEquals(this.evento, this.mock.evento)
 	}
 	
 	@Test
 	def void testNotificarRecordatorioSMS(){
-		//Nueva fecha con una hora antes
-		var nuevaFecha = Calendar.instance
-		nuevaFecha.setTimeInMillis(this.fecha.timeInMillis)
-		nuevaFecha.add(Calendar.HOUR,-1)
-		
-		this.agenda.tick(nuevaFecha, this.mock)
+		this.agenda.tick(13, this.mock)
 		assertEquals(this.mensaje, this.mock.recordatorioSMS)
 	}
 }

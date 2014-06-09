@@ -3,21 +3,20 @@ package dominio;
 import dominio.AgendaListener;
 import dominio.Recordatorio;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
 public class Evento {
-  private Calendar _fecha;
+  private int _hora;
   
-  public Calendar getFecha() {
-    return this._fecha;
+  public int getHora() {
+    return this._hora;
   }
   
-  public void setFecha(final Calendar fecha) {
-    this._fecha = fecha;
+  public void setHora(final int hora) {
+    this._hora = hora;
   }
   
   private String _mensaje;
@@ -40,8 +39,8 @@ public class Evento {
     this._recordatorios = recordatorios;
   }
   
-  public Evento(final Calendar fecha, final String mensaje) {
-    this.setFecha(fecha);
+  public Evento(final int hora, final String mensaje) {
+    this.setHora(hora);
     this.setMensaje(mensaje);
     ArrayList<Recordatorio> _arrayList = new ArrayList<Recordatorio>();
     this.setRecordatorios(_arrayList);
@@ -52,20 +51,18 @@ public class Evento {
     return _recordatorios.add(r);
   }
   
-  public void notificarTick(final Calendar fecha, final AgendaListener listener) {
-    boolean _notificarEvento = this.notificarEvento(fecha, listener);
+  public void notificarTick(final int hora, final AgendaListener listener) {
+    boolean _notificarEvento = this.notificarEvento(hora, listener);
     boolean _not = (!_notificarEvento);
     if (_not) {
-      this.notificarRecordatorio(fecha, listener);
+      this.notificarRecordatorio(hora, listener);
     }
   }
   
-  public void notificarRecordatorio(final Calendar fecha, final AgendaListener listener) {
-    int _get = fecha.get(Calendar.HOUR);
-    Calendar _fecha = this.getFecha();
-    int _get_1 = _fecha.get(Calendar.HOUR);
-    int _minus = (_get_1 - 1);
-    boolean _equals = Integer.valueOf(_get).equals(Integer.valueOf(_minus));
+  public void notificarRecordatorio(final int hora, final AgendaListener listener) {
+    int _hora = this.getHora();
+    int _minus = (_hora - 1);
+    boolean _equals = Integer.valueOf(hora).equals(Integer.valueOf(_minus));
     if (_equals) {
       List<Recordatorio> _recordatorios = this.getRecordatorios();
       final Procedure1<Recordatorio> _function = new Procedure1<Recordatorio>() {
@@ -78,14 +75,12 @@ public class Evento {
     }
   }
   
-  public boolean notificarEvento(final Calendar fecha, final AgendaListener listener) {
+  public boolean notificarEvento(final int hora, final AgendaListener listener) {
     boolean _xblockexpression = false;
     {
       boolean ret = false;
-      int _get = fecha.get(Calendar.HOUR);
-      Calendar _fecha = this.getFecha();
-      int _get_1 = _fecha.get(Calendar.HOUR);
-      boolean _equals = Integer.valueOf(_get).equals(Integer.valueOf(_get_1));
+      int _hora = this.getHora();
+      boolean _equals = Integer.valueOf(hora).equals(Integer.valueOf(_hora));
       if (_equals) {
         listener.sucedio(this);
         ret = true;

@@ -5,7 +5,6 @@ import dominio.Evento;
 import dominio.MockAgendaListener;
 import dominio.Recordatorio;
 import dominio.RecordatorioSMS;
-import java.util.Calendar;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +15,7 @@ public class testAgenda {
   
   private Evento evento;
   
-  private Calendar fecha;
+  private int hora;
   
   private Recordatorio recordatorio;
   
@@ -29,9 +28,8 @@ public class testAgenda {
     this.mensaje = "Inicia OBJ3";
     Agenda _agenda = new Agenda();
     this.agenda = _agenda;
-    Calendar _instance = Calendar.getInstance();
-    this.fecha = _instance;
-    Evento _evento = new Evento(this.fecha, this.mensaje);
+    this.hora = 14;
+    Evento _evento = new Evento(this.hora, this.mensaje);
     this.evento = _evento;
     RecordatorioSMS _recordatorioSMS = new RecordatorioSMS();
     this.recordatorio = _recordatorioSMS;
@@ -43,19 +41,14 @@ public class testAgenda {
   
   @Test
   public void testNotificarEvento() {
-    this.agenda.tick(this.fecha, this.mock);
+    this.agenda.tick(this.hora, this.mock);
     Evento _evento = this.mock.getEvento();
     Assert.assertEquals(this.evento, _evento);
   }
   
   @Test
   public void testNotificarRecordatorioSMS() {
-    Calendar nuevaFecha = Calendar.getInstance();
-    long _timeInMillis = this.fecha.getTimeInMillis();
-    nuevaFecha.setTimeInMillis(_timeInMillis);
-    int _minus = (-1);
-    nuevaFecha.add(Calendar.HOUR, _minus);
-    this.agenda.tick(nuevaFecha, this.mock);
+    this.agenda.tick(13, this.mock);
     String _recordatorioSMS = this.mock.getRecordatorioSMS();
     Assert.assertEquals(this.mensaje, _recordatorioSMS);
   }

@@ -3,7 +3,6 @@ package dominio;
 import dominio.AgendaListener;
 import dominio.Evento;
 import java.util.ArrayList;
-import java.util.Calendar;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
@@ -29,11 +28,11 @@ public class Agenda {
     return _eventos.add(evento);
   }
   
-  public void tick(final Calendar fecha, final AgendaListener listener) {
+  public void tick(final int hora, final AgendaListener listener) {
     ArrayList<Evento> _eventos = this.getEventos();
     final Procedure1<Evento> _function = new Procedure1<Evento>() {
       public void apply(final Evento e) {
-        e.notificarTick(fecha, listener);
+        e.notificarTick(hora, listener);
       }
     };
     IterableExtensions.<Evento>forEach(_eventos, _function);
