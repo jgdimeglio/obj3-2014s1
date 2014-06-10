@@ -2,5 +2,11 @@ package dominio
 
 abstract class Recordatorio {
 	
-	abstract def void notificar(String mensaje, AgendaListener listener)
+	@Property String mensaje
+	
+	new(String mensaje){
+		this.mensaje = mensaje
+	}
+	
+	abstract def void notificar(AgendaListener listener)
 }

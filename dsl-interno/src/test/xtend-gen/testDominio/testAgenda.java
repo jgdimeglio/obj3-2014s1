@@ -31,7 +31,7 @@ public class testAgenda {
     this.hora = 14;
     Evento _evento = new Evento(this.hora, this.mensaje);
     this.evento = _evento;
-    RecordatorioSMS _recordatorioSMS = new RecordatorioSMS();
+    RecordatorioSMS _recordatorioSMS = new RecordatorioSMS("Escribir bitacora");
     this.recordatorio = _recordatorioSMS;
     this.evento.agregarRecordatorio(this.recordatorio);
     this.agenda.agregarEvento(this.evento);
@@ -50,6 +50,6 @@ public class testAgenda {
   public void testNotificarRecordatorioSMS() {
     this.agenda.tick(13, this.mock);
     String _recordatorioSMS = this.mock.getRecordatorioSMS();
-    Assert.assertEquals(this.mensaje, _recordatorioSMS);
+    Assert.assertEquals("Escribir bitacora", _recordatorioSMS);
   }
 }

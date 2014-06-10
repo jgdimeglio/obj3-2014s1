@@ -67,8 +67,7 @@ public class Evento {
       List<Recordatorio> _recordatorios = this.getRecordatorios();
       final Procedure1<Recordatorio> _function = new Procedure1<Recordatorio>() {
         public void apply(final Recordatorio r) {
-          String _mensaje = Evento.this.getMensaje();
-          r.notificar(_mensaje, listener);
+          r.notificar(listener);
         }
       };
       IterableExtensions.<Recordatorio>forEach(_recordatorios, _function);

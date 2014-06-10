@@ -1,7 +1,6 @@
 package dominio
 
-class RecordatorioSMS extends Recordatorio{
-	
+class RecordatorioEMAIL extends Recordatorio{
 	
 	new(String mensaje) {
 		super(mensaje)
@@ -9,6 +8,6 @@ class RecordatorioSMS extends Recordatorio{
 	
 	override def notificar(AgendaListener listener){
 		System.out.println('''Mensaje enviado: «this.mensaje»''')
-		listener.notificarPorSMS(this.mensaje)
+		listener.notificarPorMail(this.mensaje)
 	}
 }

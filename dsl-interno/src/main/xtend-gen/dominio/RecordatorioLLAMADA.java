@@ -5,8 +5,8 @@ import dominio.Recordatorio;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 @SuppressWarnings("all")
-public class RecordatorioSMS extends Recordatorio {
-  public RecordatorioSMS(final String mensaje) {
+public class RecordatorioLLAMADA extends Recordatorio {
+  public RecordatorioLLAMADA(final String mensaje) {
     super(mensaje);
   }
   
@@ -17,6 +17,6 @@ public class RecordatorioSMS extends Recordatorio {
     _builder.append(_mensaje, "");
     System.out.println(_builder);
     String _mensaje_1 = this.getMensaje();
-    listener.notificarPorSMS(_mensaje_1);
+    listener.notificarPorLlamada(_mensaje_1);
   }
 }

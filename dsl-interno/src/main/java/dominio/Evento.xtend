@@ -27,7 +27,7 @@ class Evento {
 	
 	def notificarRecordatorio(int hora, AgendaListener listener){
 		if(hora.equals(this.hora - 1)){
-			this.recordatorios.forEach[ r | r.notificar(mensaje, listener)]
+			this.recordatorios.forEach[ r | r.notificar(listener)]
 		}
 	}
 	

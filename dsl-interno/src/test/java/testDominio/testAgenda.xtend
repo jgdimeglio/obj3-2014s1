@@ -26,7 +26,7 @@ class testAgenda {
 		this.agenda = new Agenda
 		this.hora = 14
 		this.evento = new Evento(this.hora, this.mensaje)
-		this.recordatorio = new RecordatorioSMS
+		this.recordatorio = new RecordatorioSMS("Escribir bitacora")
 		this.evento.agregarRecordatorio(this.recordatorio)
 		this.agenda.agregarEvento(this.evento)
 		this.mock = new MockAgendaListener
@@ -41,6 +41,6 @@ class testAgenda {
 	@Test
 	def void testNotificarRecordatorioSMS(){
 		this.agenda.tick(13, this.mock)
-		assertEquals(this.mensaje, this.mock.recordatorioSMS)
+		assertEquals("Escribir bitacora", this.mock.recordatorioSMS)
 	}
 }
