@@ -2,6 +2,7 @@ package testDominio;
 
 import dominio.Agenda;
 import dominio.Evento;
+import dominio.Hora;
 import dominio.MockAgendaListener;
 import dominio.Recordatorio;
 import dominio.RecordatorioSMS;
@@ -15,7 +16,7 @@ public class testAgenda {
   
   private Evento evento;
   
-  private int hora;
+  private Hora hora;
   
   private Recordatorio recordatorio;
   
@@ -28,7 +29,8 @@ public class testAgenda {
     this.mensaje = "Inicia OBJ3";
     Agenda _agenda = new Agenda();
     this.agenda = _agenda;
-    this.hora = 14;
+    Hora _hora = new Hora(14);
+    this.hora = _hora;
     Evento _evento = new Evento(this.hora, this.mensaje);
     this.evento = _evento;
     RecordatorioSMS _recordatorioSMS = new RecordatorioSMS("Escribir bitacora");
@@ -48,7 +50,8 @@ public class testAgenda {
   
   @Test
   public void testNotificarRecordatorioSMS() {
-    this.agenda.tick(13, this.mock);
+    Hora _hora = new Hora(13);
+    this.agenda.tick(_hora, this.mock);
     String _recordatorioSMS = this.mock.getRecordatorioSMS();
     Assert.assertEquals("Escribir bitacora", _recordatorioSMS);
   }

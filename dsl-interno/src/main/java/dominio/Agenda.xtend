@@ -14,7 +14,7 @@ class Agenda {
 		this.eventos.add(evento)
 	}
 	
-	def tick(int hora, AgendaListener listener){
+	def tick(Hora hora, AgendaListener listener){
 		eventos.forEach[e | e.notificarTick(hora,listener)]
 	}
 }

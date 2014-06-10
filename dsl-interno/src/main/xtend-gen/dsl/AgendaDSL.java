@@ -3,6 +3,7 @@ package dsl;
 import ExtensionMethods.ExtensionMethods;
 import dominio.Agenda;
 import dominio.Evento;
+import dominio.Hora;
 import dominio.MockAgendaListener;
 import dominio.RecordatorioEMAIL;
 import dominio.RecordatorioSMS;
@@ -23,10 +24,11 @@ public class AgendaDSL {
   }
   
   public void run() {
-    Integer _hs = this._extensionMethods.hs(14);
-    Evento _mappedTo = this._extensionMethods.operator_mappedTo((_hs).intValue(), "Inicia objectos 3");
-    Integer _hs_1 = this._extensionMethods.hs(18);
-    Evento _mappedTo_1 = this._extensionMethods.operator_mappedTo((_hs_1).intValue(), "Termina objectos 3");
+    Hora _hs = this._extensionMethods.hs(14);
+    Evento _mappedTo = this._extensionMethods.operator_mappedTo(_hs, "Inicia objectos 3");
+    Hora _divide = this._extensionMethods.operator_divide(18, 25);
+    Hora _hs_1 = this._extensionMethods.hs(_divide);
+    Evento _mappedTo_1 = this._extensionMethods.operator_mappedTo(_hs_1, "Termina objectos 3");
     final Procedure1<Evento> _function = new Procedure1<Evento>() {
       public void apply(final Evento remainMe) {
         String _via = AgendaDSL.this._extensionMethods.via("Escribir bitacora");
@@ -40,14 +42,14 @@ public class AgendaDSL {
     Evento _doubleArrow = ObjectExtensions.<Evento>operator_doubleArrow(_mappedTo_1, _function);
     final Agenda agenda = this._extensionMethods.agenda(_mappedTo, _doubleArrow);
     final MockAgendaListener listener = this._extensionMethods.crearListener();
-    Integer _hs_2 = this._extensionMethods.hs(13);
-    Integer _hs_3 = this._extensionMethods.hs(20);
-    ArrayList<Integer> _doubleGreaterThan = this._extensionMethods.operator_doubleGreaterThan((_hs_2).intValue(), (_hs_3).intValue());
-    final Procedure1<Integer> _function_1 = new Procedure1<Integer>() {
-      public void apply(final Integer hora) {
-        agenda.tick((hora).intValue(), listener);
+    Hora _hs_2 = this._extensionMethods.hs(13);
+    Hora _hs_3 = this._extensionMethods.hs(20);
+    ArrayList<Hora> _doubleGreaterThan = this._extensionMethods.operator_doubleGreaterThan(_hs_2, _hs_3);
+    final Procedure1<Hora> _function_1 = new Procedure1<Hora>() {
+      public void apply(final Hora hora) {
+        agenda.tick(hora, listener);
       }
     };
-    IterableExtensions.<Integer>forEach(_doubleGreaterThan, _function_1);
+    IterableExtensions.<Hora>forEach(_doubleGreaterThan, _function_1);
   }
 }

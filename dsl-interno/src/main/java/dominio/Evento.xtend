@@ -5,11 +5,11 @@ import java.util.List
 
 class Evento {
 	
-	@Property int hora
+	@Property Hora hora
 	@Property String mensaje
 	@Property List<Recordatorio> recordatorios
 	
-	new(int hora, String mensaje){
+	new(Hora hora, String mensaje){
 		this.hora = hora
 		this.mensaje = mensaje
 		this.recordatorios = new ArrayList<Recordatorio>
@@ -19,21 +19,21 @@ class Evento {
 		this.recordatorios.add(r)
 	}
 	
-	def notificarTick(int hora, AgendaListener listener){
+	def notificarTick(Hora hora, AgendaListener listener){
 		if(!this.notificarEvento(hora,listener)){
 			this.notificarRecordatorio(hora,listener)
 		}
 	}
 	
-	def notificarRecordatorio(int hora, AgendaListener listener){
-		if(hora.equals(this.hora - 1)){
+	def notificarRecordatorio(Hora hora, AgendaListener listener){
+		if(hora.hora.equals(this.hora.hora - 1) && (hora.minutos.equals(this.hora.minutos))){
 			this.recordatorios.forEach[ r | r.notificar(listener)]
 		}
 	}
 	
-	def notificarEvento(int hora, AgendaListener listener){
+	def notificarEvento(Hora hora, AgendaListener listener){
 		var ret = false
-		if(hora.equals(this.hora)){
+		if(hora.hora.equals(this.hora.hora) && (hora.minutos.equals(this.hora.minutos))){
 			listener.sucedio(this)
 			ret = true
 		}

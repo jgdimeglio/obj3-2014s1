@@ -2,6 +2,7 @@ package ExtensionMethods;
 
 import dominio.Agenda;
 import dominio.Evento;
+import dominio.Hora;
 import dominio.MockAgendaListener;
 import dominio.Recordatorio;
 import dominio.RecordatorioEMAIL;
@@ -15,22 +16,7 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
 public class ExtensionMethods {
-  public Agenda agenda(final Evento... eventos) {
-    Agenda _xblockexpression = null;
-    {
-      final Agenda a = new Agenda();
-      final Procedure1<Evento> _function = new Procedure1<Evento>() {
-        public void apply(final Evento evento) {
-          a.agregarEvento(evento);
-        }
-      };
-      IterableExtensions.<Evento>forEach(((Iterable<Evento>)Conversions.doWrapArray(eventos)), _function);
-      _xblockexpression = a;
-    }
-    return _xblockexpression;
-  }
-  
-  public Evento operator_mappedTo(final int a, final String b) {
+  public Evento operator_mappedTo(final Hora a, final String b) {
     return new Evento(a, b);
   }
   
@@ -47,24 +33,46 @@ public class ExtensionMethods {
     return _xblockexpression;
   }
   
-  public ArrayList<Integer> operator_doubleGreaterThan(final int a, final int b) {
-    ArrayList<Integer> _xblockexpression = null;
+  public ArrayList<Hora> operator_doubleGreaterThan(final Hora a, final Hora b) {
+    ArrayList<Hora> _xblockexpression = null;
     {
-      int inicio = a;
-      int fin = b;
-      ArrayList<Integer> ret = new ArrayList<Integer>();
-      boolean _notEquals = (inicio != fin);
+      Hora inicio = a;
+      Hora fin = b;
+      ArrayList<Hora> ret = new ArrayList<Hora>();
+      int _hora = inicio.getHora();
+      int _hora_1 = fin.getHora();
+      boolean _notEquals = (_hora != _hora_1);
       boolean _while = _notEquals;
       while (_while) {
         {
-          ret.add(Integer.valueOf(inicio));
-          int _plus = (inicio + 1);
-          inicio = _plus;
+          ret.add(inicio);
+          inicio.aumentarUnaHora();
         }
-        boolean _notEquals_1 = (inicio != fin);
+        int _hora_2 = inicio.getHora();
+        int _hora_3 = fin.getHora();
+        boolean _notEquals_1 = (_hora_2 != _hora_3);
         _while = _notEquals_1;
       }
       _xblockexpression = ret;
+    }
+    return _xblockexpression;
+  }
+  
+  public Hora operator_divide(final int a, final int b) {
+    return new Hora(a, b);
+  }
+  
+  public Agenda agenda(final Evento... eventos) {
+    Agenda _xblockexpression = null;
+    {
+      final Agenda a = new Agenda();
+      final Procedure1<Evento> _function = new Procedure1<Evento>() {
+        public void apply(final Evento evento) {
+          a.agregarEvento(evento);
+        }
+      };
+      IterableExtensions.<Evento>forEach(((Iterable<Evento>)Conversions.doWrapArray(eventos)), _function);
+      _xblockexpression = a;
     }
     return _xblockexpression;
   }
@@ -89,8 +97,12 @@ public class ExtensionMethods {
     return null;
   }
   
-  public Integer hs(final int n) {
-    return new Integer(n);
+  public Hora hs(final int n) {
+    return new Hora(n);
+  }
+  
+  public Hora hs(final Hora n) {
+    return n;
   }
   
   public MockAgendaListener crearListener() {

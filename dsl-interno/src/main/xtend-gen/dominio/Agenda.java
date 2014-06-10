@@ -2,6 +2,7 @@ package dominio;
 
 import dominio.AgendaListener;
 import dominio.Evento;
+import dominio.Hora;
 import java.util.ArrayList;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
@@ -28,7 +29,7 @@ public class Agenda {
     return _eventos.add(evento);
   }
   
-  public void tick(final int hora, final AgendaListener listener) {
+  public void tick(final Hora hora, final AgendaListener listener) {
     ArrayList<Evento> _eventos = this.getEventos();
     final Procedure1<Evento> _function = new Procedure1<Evento>() {
       public void apply(final Evento e) {

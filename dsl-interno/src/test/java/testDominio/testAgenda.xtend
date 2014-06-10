@@ -2,6 +2,7 @@ package testDominio
 
 import dominio.Agenda
 import dominio.Evento
+import dominio.Hora
 import dominio.MockAgendaListener
 import dominio.Recordatorio
 import dominio.RecordatorioSMS
@@ -14,7 +15,7 @@ class testAgenda {
 	
 	var Agenda agenda 
 	var Evento evento 
-	var int hora
+	var Hora hora
 	var Recordatorio recordatorio
 	var MockAgendaListener mock
 	var String mensaje
@@ -24,7 +25,7 @@ class testAgenda {
 		
 		this.mensaje="Inicia OBJ3"
 		this.agenda = new Agenda
-		this.hora = 14
+		this.hora = new Hora(14)
 		this.evento = new Evento(this.hora, this.mensaje)
 		this.recordatorio = new RecordatorioSMS("Escribir bitacora")
 		this.evento.agregarRecordatorio(this.recordatorio)
@@ -40,7 +41,7 @@ class testAgenda {
 	
 	@Test
 	def void testNotificarRecordatorioSMS(){
-		this.agenda.tick(13, this.mock)
+		this.agenda.tick(new Hora(13), this.mock)
 		assertEquals("Escribir bitacora", this.mock.recordatorioSMS)
 	}
 }

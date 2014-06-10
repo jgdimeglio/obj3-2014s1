@@ -2,6 +2,7 @@ package ExtensionMethods
 
 import dominio.Agenda
 import dominio.Evento
+import dominio.Hora
 import dominio.MockAgendaListener
 import dominio.Recordatorio
 import dominio.RecordatorioEMAIL
@@ -12,15 +13,8 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1
 
 class ExtensionMethods {
 	
-	def Agenda agenda(Evento... eventos) {
-		//val l = new ArrayList<Evento>
-		val a = new Agenda
-		eventos.forEach[ evento | a.agregarEvento(evento) ]
-		a
-	}
-	
 	//Sobrecarga de operadores
-	def  operator_mappedTo(int a, String b) {
+	def  operator_mappedTo(Hora a, String b) {
 		new Evento(a,b)
 	}
 	
@@ -33,15 +27,27 @@ class ExtensionMethods {
 		a
 	}
 	
-	def ArrayList<Integer> operator_doubleGreaterThan(int a, int b) {
+	def ArrayList<Hora> operator_doubleGreaterThan(Hora a, Hora b) {
 		var inicio = a
 		var fin = b
-		var ret = new ArrayList<Integer>
-		while(inicio != fin){
+		var ret = new ArrayList<Hora>
+		while(inicio.hora != fin.hora){
 			ret.add(inicio)
-			inicio = inicio + 1
+			inicio.aumentarUnaHora
 		}
 		ret
+	}
+	
+	def Hora operator_divide(int a, int b) {
+		new Hora(a,b)
+	}
+	
+	//**************************************** EXTENSION METHODS *****************************************************
+	
+	def Agenda agenda(Evento... eventos) {
+		val a = new Agenda
+		eventos.forEach[ evento | a.agregarEvento(evento) ]
+		a
 	}
 	
 	def via(String s){
@@ -65,7 +71,11 @@ class ExtensionMethods {
 	}
 	
 	def hs(int n){
-		new Integer(n)
+		new Hora(n)
+	}
+	
+	def hs(Hora n){
+		n
 	}
 	
 	def crearListener(){

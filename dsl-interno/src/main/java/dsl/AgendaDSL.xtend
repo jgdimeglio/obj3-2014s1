@@ -1,8 +1,6 @@
 package dsl
 
 import ExtensionMethods.ExtensionMethods
-import dominio.Agenda
-import dominio.MockAgendaListener
 
 class AgendaDSL {
 	
@@ -16,7 +14,7 @@ class AgendaDSL {
 		val agenda = agenda(
 			14.hs -> "Inicia objectos 3",
 			
-			18.hs -> "Termina objectos 3" => [
+			(18/25).hs -> "Termina objectos 3" => [
 				remainMe | remainMe > "Escribir bitacora".via.SMS
 						   remainMe > "Escribir ejemplos de la clase".via.EMAIL
 			]

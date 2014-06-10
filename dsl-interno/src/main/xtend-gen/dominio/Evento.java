@@ -1,6 +1,7 @@
 package dominio;
 
 import dominio.AgendaListener;
+import dominio.Hora;
 import dominio.Recordatorio;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +10,13 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
 public class Evento {
-  private int _hora;
+  private Hora _hora;
   
-  public int getHora() {
+  public Hora getHora() {
     return this._hora;
   }
   
-  public void setHora(final int hora) {
+  public void setHora(final Hora hora) {
     this._hora = hora;
   }
   
@@ -39,7 +40,7 @@ public class Evento {
     this._recordatorios = recordatorios;
   }
   
-  public Evento(final int hora, final String mensaje) {
+  public Evento(final Hora hora, final String mensaje) {
     this.setHora(hora);
     this.setMensaje(mensaje);
     ArrayList<Recordatorio> _arrayList = new ArrayList<Recordatorio>();
@@ -51,7 +52,7 @@ public class Evento {
     return _recordatorios.add(r);
   }
   
-  public void notificarTick(final int hora, final AgendaListener listener) {
+  public void notificarTick(final Hora hora, final AgendaListener listener) {
     boolean _notificarEvento = this.notificarEvento(hora, listener);
     boolean _not = (!_notificarEvento);
     if (_not) {
@@ -59,11 +60,23 @@ public class Evento {
     }
   }
   
-  public void notificarRecordatorio(final int hora, final AgendaListener listener) {
-    int _hora = this.getHora();
-    int _minus = (_hora - 1);
-    boolean _equals = Integer.valueOf(hora).equals(Integer.valueOf(_minus));
-    if (_equals) {
+  public void notificarRecordatorio(final Hora hora, final AgendaListener listener) {
+    boolean _and = false;
+    int _hora = hora.getHora();
+    Hora _hora_1 = this.getHora();
+    int _hora_2 = _hora_1.getHora();
+    int _minus = (_hora_2 - 1);
+    boolean _equals = Integer.valueOf(_hora).equals(Integer.valueOf(_minus));
+    if (!_equals) {
+      _and = false;
+    } else {
+      int _minutos = hora.getMinutos();
+      Hora _hora_3 = this.getHora();
+      int _minutos_1 = _hora_3.getMinutos();
+      boolean _equals_1 = Integer.valueOf(_minutos).equals(Integer.valueOf(_minutos_1));
+      _and = _equals_1;
+    }
+    if (_and) {
       List<Recordatorio> _recordatorios = this.getRecordatorios();
       final Procedure1<Recordatorio> _function = new Procedure1<Recordatorio>() {
         public void apply(final Recordatorio r) {
@@ -74,13 +87,25 @@ public class Evento {
     }
   }
   
-  public boolean notificarEvento(final int hora, final AgendaListener listener) {
+  public boolean notificarEvento(final Hora hora, final AgendaListener listener) {
     boolean _xblockexpression = false;
     {
       boolean ret = false;
-      int _hora = this.getHora();
-      boolean _equals = Integer.valueOf(hora).equals(Integer.valueOf(_hora));
-      if (_equals) {
+      boolean _and = false;
+      int _hora = hora.getHora();
+      Hora _hora_1 = this.getHora();
+      int _hora_2 = _hora_1.getHora();
+      boolean _equals = Integer.valueOf(_hora).equals(Integer.valueOf(_hora_2));
+      if (!_equals) {
+        _and = false;
+      } else {
+        int _minutos = hora.getMinutos();
+        Hora _hora_3 = this.getHora();
+        int _minutos_1 = _hora_3.getMinutos();
+        boolean _equals_1 = Integer.valueOf(_minutos).equals(Integer.valueOf(_minutos_1));
+        _and = _equals_1;
+      }
+      if (_and) {
         listener.sucedio(this);
         ret = true;
       }

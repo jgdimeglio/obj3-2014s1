@@ -3,6 +3,7 @@ package testDominio;
 import ExtensionMethods.ExtensionMethods;
 import dominio.Agenda;
 import dominio.Evento;
+import dominio.Hora;
 import dominio.MockAgendaListener;
 import dominio.RecordatorioEMAIL;
 import dominio.RecordatorioLLAMADA;
@@ -41,10 +42,10 @@ public class testAgendaDSL {
   
   @Before
   public void setUp() {
-    Integer _hs = this._extensionMethods.hs(14);
-    Evento _mappedTo = this._extensionMethods.operator_mappedTo((_hs).intValue(), "Inicio obj3");
-    Integer _hs_1 = this._extensionMethods.hs(18);
-    Evento _mappedTo_1 = this._extensionMethods.operator_mappedTo((_hs_1).intValue(), "Fin obj3");
+    Hora _hs = this._extensionMethods.hs(14);
+    Evento _mappedTo = this._extensionMethods.operator_mappedTo(_hs, "Inicio obj3");
+    Hora _hs_1 = this._extensionMethods.hs(18);
+    Evento _mappedTo_1 = this._extensionMethods.operator_mappedTo(_hs_1, "Fin obj3");
     final Procedure1<Evento> _function = new Procedure1<Evento>() {
       public void apply(final Evento remainMe) {
         String _via = testAgendaDSL.this._extensionMethods.via("Hacer la tarea");
@@ -68,9 +69,9 @@ public class testAgendaDSL {
   @Test
   public void testNotificarEvento() {
     Agenda _agenda = this.getAgenda();
-    Integer _hs = this._extensionMethods.hs(14);
+    Hora _hs = this._extensionMethods.hs(14);
     MockAgendaListener _listener = this.getListener();
-    _agenda.tick((_hs).intValue(), _listener);
+    _agenda.tick(_hs, _listener);
     MockAgendaListener _listener_1 = this.getListener();
     Evento _evento = _listener_1.getEvento();
     String _mensaje = _evento.getMensaje();
@@ -80,9 +81,9 @@ public class testAgendaDSL {
   @Test
   public void testNotificarRecordatorioEMAIL() {
     Agenda _agenda = this.getAgenda();
-    Integer _hs = this._extensionMethods.hs(17);
+    Hora _hs = this._extensionMethods.hs(17);
     MockAgendaListener _listener = this.getListener();
-    _agenda.tick((_hs).intValue(), _listener);
+    _agenda.tick(_hs, _listener);
     MockAgendaListener _listener_1 = this.getListener();
     String _recordatorioEMAIL = _listener_1.getRecordatorioEMAIL();
     Assert.assertEquals("Hacer la tarea", _recordatorioEMAIL);
@@ -91,9 +92,9 @@ public class testAgendaDSL {
   @Test
   public void testNotificarRecordatorioLLAMADA() {
     Agenda _agenda = this.getAgenda();
-    Integer _hs = this._extensionMethods.hs(17);
+    Hora _hs = this._extensionMethods.hs(17);
     MockAgendaListener _listener = this.getListener();
-    _agenda.tick((_hs).intValue(), _listener);
+    _agenda.tick(_hs, _listener);
     MockAgendaListener _listener_1 = this.getListener();
     String _recordatorioLLAMADA = _listener_1.getRecordatorioLLAMADA();
     Assert.assertEquals("Hacer los ejercicios", _recordatorioLLAMADA);
@@ -102,9 +103,9 @@ public class testAgendaDSL {
   @Test
   public void testNotificarRecordatorioSMS() {
     Agenda _agenda = this.getAgenda();
-    Integer _hs = this._extensionMethods.hs(17);
+    Hora _hs = this._extensionMethods.hs(17);
     MockAgendaListener _listener = this.getListener();
-    _agenda.tick((_hs).intValue(), _listener);
+    _agenda.tick(_hs, _listener);
     MockAgendaListener _listener_1 = this.getListener();
     String _recordatorioSMS = _listener_1.getRecordatorioSMS();
     Assert.assertEquals("Pasar todo a los compañeros", _recordatorioSMS);
