@@ -47,16 +47,19 @@ public class testAgendaDSL {
     Hora _hs_1 = this._extensionMethods.hs(18);
     Evento _mappedTo_1 = this._extensionMethods.operator_mappedTo(_hs_1, "Fin obj3");
     final Procedure1<Evento> _function = new Procedure1<Evento>() {
-      public void apply(final Evento remainMe) {
+      public void apply(final Evento it) {
+        Evento _remainMe = testAgendaDSL.this._extensionMethods.remainMe(it);
         String _via = testAgendaDSL.this._extensionMethods.via("Hacer la tarea");
         RecordatorioEMAIL _EMAIL = testAgendaDSL.this._extensionMethods.EMAIL(_via);
-        testAgendaDSL.this._extensionMethods.operator_greaterThan(remainMe, _EMAIL);
+        testAgendaDSL.this._extensionMethods.operator_greaterThan(_remainMe, _EMAIL);
+        Evento _remainMe_1 = testAgendaDSL.this._extensionMethods.remainMe(it);
         String _via_1 = testAgendaDSL.this._extensionMethods.via("Hacer los ejercicios");
         RecordatorioLLAMADA _LLAMADA = testAgendaDSL.this._extensionMethods.LLAMADA(_via_1);
-        testAgendaDSL.this._extensionMethods.operator_greaterThan(remainMe, _LLAMADA);
+        testAgendaDSL.this._extensionMethods.operator_greaterThan(_remainMe_1, _LLAMADA);
+        Evento _remainMe_2 = testAgendaDSL.this._extensionMethods.remainMe(it);
         String _via_2 = testAgendaDSL.this._extensionMethods.via("Pasar todo a los compañeros");
         RecordatorioSMS _SMS = testAgendaDSL.this._extensionMethods.SMS(_via_2);
-        testAgendaDSL.this._extensionMethods.operator_greaterThan(remainMe, _SMS);
+        testAgendaDSL.this._extensionMethods.operator_greaterThan(_remainMe_2, _SMS);
       }
     };
     Evento _doubleArrow = ObjectExtensions.<Evento>operator_doubleArrow(_mappedTo_1, _function);

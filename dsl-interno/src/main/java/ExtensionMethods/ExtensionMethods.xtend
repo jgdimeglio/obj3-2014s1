@@ -19,6 +19,7 @@ class ExtensionMethods {
 	}
 	
 	def operator_doubleArrow(Evento evento, Function1 block) {
+		
 		block.apply(evento)
 	}
 	
@@ -43,6 +44,10 @@ class ExtensionMethods {
 	}
 	
 	//**************************************** EXTENSION METHODS *****************************************************
+	
+	def Evento remainMe(Evento e){
+		e
+	}
 	
 	def Agenda agenda(Evento... eventos) {
 		val a = new Agenda

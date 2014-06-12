@@ -20,9 +20,9 @@ class testAgendaDSL {
 			14.hs -> "Inicio obj3",
 			
 			18.hs -> "Fin obj3" => [
-				remainMe | remainMe > "Hacer la tarea".via.EMAIL
-						   remainMe > "Hacer los ejercicios".via.LLAMADA
-						   remainMe > "Pasar todo a los compañeros".via.SMS
+						remainMe > "Hacer la tarea".via.EMAIL
+					    remainMe > "Hacer los ejercicios".via.LLAMADA
+				        remainMe > "Pasar todo a los compañeros".via.SMS
 			]
 		)
 		

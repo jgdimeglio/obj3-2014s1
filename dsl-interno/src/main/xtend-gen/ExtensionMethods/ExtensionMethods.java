@@ -62,6 +62,10 @@ public class ExtensionMethods {
     return new Hora(a, b);
   }
   
+  public Evento remainMe(final Evento e) {
+    return e;
+  }
+  
   public Agenda agenda(final Evento... eventos) {
     Agenda _xblockexpression = null;
     {

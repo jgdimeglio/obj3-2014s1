@@ -30,13 +30,15 @@ public class AgendaDSL {
     Hora _hs_1 = this._extensionMethods.hs(_divide);
     Evento _mappedTo_1 = this._extensionMethods.operator_mappedTo(_hs_1, "Termina objectos 3");
     final Procedure1<Evento> _function = new Procedure1<Evento>() {
-      public void apply(final Evento remainMe) {
+      public void apply(final Evento it) {
+        Evento _remainMe = AgendaDSL.this._extensionMethods.remainMe(it);
         String _via = AgendaDSL.this._extensionMethods.via("Escribir bitacora");
         RecordatorioSMS _SMS = AgendaDSL.this._extensionMethods.SMS(_via);
-        AgendaDSL.this._extensionMethods.operator_greaterThan(remainMe, _SMS);
+        AgendaDSL.this._extensionMethods.operator_greaterThan(_remainMe, _SMS);
+        Evento _remainMe_1 = AgendaDSL.this._extensionMethods.remainMe(it);
         String _via_1 = AgendaDSL.this._extensionMethods.via("Escribir ejemplos de la clase");
         RecordatorioEMAIL _EMAIL = AgendaDSL.this._extensionMethods.EMAIL(_via_1);
-        AgendaDSL.this._extensionMethods.operator_greaterThan(remainMe, _EMAIL);
+        AgendaDSL.this._extensionMethods.operator_greaterThan(_remainMe_1, _EMAIL);
       }
     };
     Evento _doubleArrow = ObjectExtensions.<Evento>operator_doubleArrow(_mappedTo_1, _function);
