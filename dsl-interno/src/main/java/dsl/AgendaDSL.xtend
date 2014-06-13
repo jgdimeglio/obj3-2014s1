@@ -15,7 +15,10 @@ class AgendaDSL {
 			14.hs -> "Inicia objectos 3",
 			
 			(18/25).hs -> "Termina objectos 3" => [
-			  		remainMe > "Escribir bitacora".via.SMS
+			  		remainMe > "Escribir bitacora".via.EMAIL => [
+			  			target = "skalic.julian@gmail.com"
+			  			subject = "Tarea"
+			  		]
 					remainMe > "Escribir ejemplos de la clase".via.EMAIL
 			]
 		)

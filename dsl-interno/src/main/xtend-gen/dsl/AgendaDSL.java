@@ -6,7 +6,6 @@ import dominio.Evento;
 import dominio.Hora;
 import dominio.MockAgendaListener;
 import dominio.RecordatorioEMAIL;
-import dominio.RecordatorioSMS;
 import java.util.ArrayList;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -33,12 +32,19 @@ public class AgendaDSL {
       public void apply(final Evento it) {
         Evento _remainMe = AgendaDSL.this._extensionMethods.remainMe(it);
         String _via = AgendaDSL.this._extensionMethods.via("Escribir bitacora");
-        RecordatorioSMS _SMS = AgendaDSL.this._extensionMethods.SMS(_via);
-        AgendaDSL.this._extensionMethods.operator_greaterThan(_remainMe, _SMS);
+        RecordatorioEMAIL _EMAIL = AgendaDSL.this._extensionMethods.EMAIL(_via);
+        final Procedure1<RecordatorioEMAIL> _function = new Procedure1<RecordatorioEMAIL>() {
+          public void apply(final RecordatorioEMAIL it) {
+            it.setTarget("skalic.julian@gmail.com");
+            it.setSubject("Tarea");
+          }
+        };
+        RecordatorioEMAIL _doubleArrow = ObjectExtensions.<RecordatorioEMAIL>operator_doubleArrow(_EMAIL, _function);
+        AgendaDSL.this._extensionMethods.operator_greaterThan(_remainMe, _doubleArrow);
         Evento _remainMe_1 = AgendaDSL.this._extensionMethods.remainMe(it);
         String _via_1 = AgendaDSL.this._extensionMethods.via("Escribir ejemplos de la clase");
-        RecordatorioEMAIL _EMAIL = AgendaDSL.this._extensionMethods.EMAIL(_via_1);
-        AgendaDSL.this._extensionMethods.operator_greaterThan(_remainMe_1, _EMAIL);
+        RecordatorioEMAIL _EMAIL_1 = AgendaDSL.this._extensionMethods.EMAIL(_via_1);
+        AgendaDSL.this._extensionMethods.operator_greaterThan(_remainMe_1, _EMAIL_1);
       }
     };
     Evento _doubleArrow = ObjectExtensions.<Evento>operator_doubleArrow(_mappedTo_1, _function);

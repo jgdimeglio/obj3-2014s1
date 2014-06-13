@@ -6,8 +6,19 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 
 @SuppressWarnings("all")
 public class RecordatorioLLAMADA extends Recordatorio {
+  private String _numero;
+  
+  public String getNumero() {
+    return this._numero;
+  }
+  
+  public void setNumero(final String numero) {
+    this._numero = numero;
+  }
+  
   public RecordatorioLLAMADA(final String mensaje) {
     super(mensaje);
+    this.setNumero(null);
   }
   
   public void notificar(final AgendaListener listener) {
@@ -17,6 +28,7 @@ public class RecordatorioLLAMADA extends Recordatorio {
     _builder.append(_mensaje, "");
     System.out.println(_builder);
     String _mensaje_1 = this.getMensaje();
-    listener.notificarPorLlamada(_mensaje_1);
+    String _numero = this.getNumero();
+    listener.notificarPorLlamada(_mensaje_1, _numero);
   }
 }

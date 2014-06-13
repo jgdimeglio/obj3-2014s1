@@ -20,8 +20,13 @@ class testAgendaDSL {
 			14.hs -> "Inicio obj3",
 			
 			18.hs -> "Fin obj3" => [
-						remainMe > "Hacer la tarea".via.EMAIL
-					    remainMe > "Hacer los ejercicios".via.LLAMADA
+						remainMe > "Hacer la tarea".via.EMAIL => [
+							target = "skalic.julian@gmail.com"
+							subject = "Tarea"
+						]
+					    remainMe > "Hacer los ejercicios".via.LLAMADA => [
+					    	numero = "20567748"
+					    ]
 				        remainMe > "Pasar todo a los compañeros".via.SMS
 			]
 		)
@@ -39,12 +44,15 @@ class testAgendaDSL {
 	def void testNotificarRecordatorioEMAIL(){
 		agenda.tick(17.hs,listener)
 		assertEquals("Hacer la tarea", listener.recordatorioEMAIL)
+		assertEquals("skalic.julian@gmail.com", listener.targetOfEMAIL)
+		assertEquals("Tarea", listener.subjectOfEMAIL)
 	}
 	
 	@Test
 	def void testNotificarRecordatorioLLAMADA(){
 		agenda.tick(17.hs,listener)
 		assertEquals("Hacer los ejercicios", listener.recordatorioLLAMADA)
+		assertEquals("20567748", listener.numeroLLAMADA)
 	}
 	
 	@Test
