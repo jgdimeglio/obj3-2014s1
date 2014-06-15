@@ -37,6 +37,10 @@ public class ExtensionMethods {
     return b.apply(a);
   }
   
+  public Object operator_doubleGreaterThan(final Evento e, final Function1 b) {
+    return b.apply(b);
+  }
+  
   public ArrayList<Hora> operator_doubleGreaterThan(final Hora a, final Hora b) {
     ArrayList<Hora> _xblockexpression = null;
     {

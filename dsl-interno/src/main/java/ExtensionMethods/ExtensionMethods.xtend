@@ -32,6 +32,10 @@ class ExtensionMethods {
 		b.apply(a)
 	}
 	
+	def operator_doubleGreaterThan(Evento e, Function1 b){
+		b.apply(b)
+	}
+	
 	def ArrayList<Hora> operator_doubleGreaterThan(Hora a, Hora b) {
 		var inicio = a
 		var fin = b

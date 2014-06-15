@@ -19,7 +19,13 @@ class AgendaDSL {
 			  			target = "skalic.julian@gmail.com"
 			  			subject = "Tarea"
 			  		]
+			  		println("Coorre")
 					remainMe > "Escribir ejemplos de la clase".via.EMAIL
+					
+					remainMe >> [ 
+						println("Hola mundo!")
+						println("Funciona :D")
+					]
 			]
 		)
 		

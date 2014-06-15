@@ -8,6 +8,8 @@ import dominio.MockAgendaListener;
 import dominio.RecordatorioEMAIL;
 import java.util.ArrayList;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
@@ -41,10 +43,23 @@ public class AgendaDSL {
         };
         RecordatorioEMAIL _doubleArrow = ObjectExtensions.<RecordatorioEMAIL>operator_doubleArrow(_EMAIL, _function);
         AgendaDSL.this._extensionMethods.operator_greaterThan(_remainMe, _doubleArrow);
+        InputOutput.<String>println("Coorre");
         Evento _remainMe_1 = AgendaDSL.this._extensionMethods.remainMe(it);
         String _via_1 = AgendaDSL.this._extensionMethods.via("Escribir ejemplos de la clase");
         RecordatorioEMAIL _EMAIL_1 = AgendaDSL.this._extensionMethods.EMAIL(_via_1);
         AgendaDSL.this._extensionMethods.operator_greaterThan(_remainMe_1, _EMAIL_1);
+        Evento _remainMe_2 = AgendaDSL.this._extensionMethods.remainMe(it);
+        final Function1<Object, String> _function_1 = new Function1<Object, String>() {
+          public String apply(final Object it) {
+            String _xblockexpression = null;
+            {
+              InputOutput.<String>println("Hola mundo!");
+              _xblockexpression = InputOutput.<String>println("Funciona :D");
+            }
+            return _xblockexpression;
+          }
+        };
+        AgendaDSL.this._extensionMethods.operator_doubleGreaterThan(_remainMe_2, _function_1);
       }
     };
     Evento _doubleArrow = ObjectExtensions.<Evento>operator_doubleArrow(_mappedTo_1, _function);
