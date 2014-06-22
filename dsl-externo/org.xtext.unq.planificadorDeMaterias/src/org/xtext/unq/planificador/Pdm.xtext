@@ -17,19 +17,35 @@ Model:
 ;
 
 Profesor:
-	'profesor' nombre+=ID;
+	'profesor' nombre+=ID 'dedicacion' dedicacion+=Dedicacion;
 
 Hora:
 	'hora' hora+=INT;
+	
+Dedicacion:
+	SIMPLE | SEMI | EXCLUSIVA
+;
+
+SIMPLE:
+	'simple'
+;
+
+SEMI:
+	'semi'
+;
+
+EXCLUSIVA:
+	'exclusiva'
+;
 
 Materia:
-	'materia' nombre+=ID;
+	'materia' nombre+=ID 'con' cargaHoraria+=CargaHoraria;
 
 Aula:
 	'aula' nombre+=ID;
 
 CargaHoraria:
-	'cargaHoraria' tipo+=ID;
+	'cargaHoraria' tipo+=ID 'dias' dias+=INT;
 
 CargaHorariaDocente:
 	nombre=Profesor 'tiene' tipo=CargaHoraria;
