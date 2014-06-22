@@ -1,0 +1,55 @@
+grammar org.xtext.unq.planificador.Pdm with org.eclipse.xtext.common.Terminals
+
+generate pdm "http://www.xtext.org/unq/planificador/Pdm"
+
+Model:
+	profesors+=Profesor*
+	horas+=Hora*
+	materias+=Materia*
+	aulas+=Aula*
+	cargasHorarias+=CargaHoraria*
+	cargasHorariasDocentes+=CargaHorariaDocente*
+	horarios+=Horarios*
+	dias+=Dia*
+	semestre+=Semestre*
+	planificaciones+=Planificacion*
+	horarios+=Horario*
+;
+
+Profesor:
+	'profesor' nombre+=ID;
+
+Hora:
+	'hora' hora+=INT;
+
+Materia:
+	'materia' nombre+=ID;
+
+Aula:
+	'aula' nombre+=ID;
+
+CargaHoraria:
+	'cargaHoraria' tipo+=ID;
+
+CargaHorariaDocente:
+	nombre=Profesor 'tiene' tipo=CargaHoraria;
+
+Horario:
+	dia=Dia ':'
+	desde=Hora 'a' hasta=Hora 'hs se dicta' materia=Materia 'en' aula=Aula;
+
+Semestre:
+	anho=INT 'semestre' numero=INT;
+
+Dia:
+	'dia' dia+=ID;
+
+Horarios:
+	'horarios {' (horarios+=Horario)+ '}';
+
+Planificacion:
+	'planificacion' semestre=Semestre '{'
+		'a dictar:' (materias+=Materia)+
+		horarios=Horarios
+	'}';
+	
