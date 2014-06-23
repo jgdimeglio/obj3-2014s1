@@ -22,18 +22,21 @@
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Profesor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Profesor/nombre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Profesor/dedicacion"/>
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Hora">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Hora/hora"/>
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Materia">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Materia/nombre"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Materia/cargaHoraria"/>
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Aula">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Aula/nombre"/>
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//CargaHoraria">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//CargaHoraria/tipo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//CargaHoraria/dias"/>
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//CargaHorariaDocente">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//CargaHorariaDocente/nombre"/>

@@ -23,6 +23,7 @@ import org.xtext.unq.planificador.pdm.PdmPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.unq.planificador.pdm.impl.CargaHorariaImpl#getTipo <em>Tipo</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.pdm.impl.CargaHorariaImpl#getDias <em>Dias</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,6 +40,16 @@ public class CargaHorariaImpl extends MinimalEObjectImpl.Container implements Ca
    * @ordered
    */
   protected EList<String> tipo;
+
+  /**
+   * The cached value of the '{@link #getDias() <em>Dias</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDias()
+   * @generated
+   * @ordered
+   */
+  protected EList<Integer> dias;
 
   /**
    * <!-- begin-user-doc -->
@@ -80,6 +91,20 @@ public class CargaHorariaImpl extends MinimalEObjectImpl.Container implements Ca
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Integer> getDias()
+  {
+    if (dias == null)
+    {
+      dias = new EDataTypeEList<Integer>(Integer.class, this, PdmPackage.CARGA_HORARIA__DIAS);
+    }
+    return dias;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -87,6 +112,8 @@ public class CargaHorariaImpl extends MinimalEObjectImpl.Container implements Ca
     {
       case PdmPackage.CARGA_HORARIA__TIPO:
         return getTipo();
+      case PdmPackage.CARGA_HORARIA__DIAS:
+        return getDias();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -106,6 +133,10 @@ public class CargaHorariaImpl extends MinimalEObjectImpl.Container implements Ca
         getTipo().clear();
         getTipo().addAll((Collection<? extends String>)newValue);
         return;
+      case PdmPackage.CARGA_HORARIA__DIAS:
+        getDias().clear();
+        getDias().addAll((Collection<? extends Integer>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -123,6 +154,9 @@ public class CargaHorariaImpl extends MinimalEObjectImpl.Container implements Ca
       case PdmPackage.CARGA_HORARIA__TIPO:
         getTipo().clear();
         return;
+      case PdmPackage.CARGA_HORARIA__DIAS:
+        getDias().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -139,6 +173,8 @@ public class CargaHorariaImpl extends MinimalEObjectImpl.Container implements Ca
     {
       case PdmPackage.CARGA_HORARIA__TIPO:
         return tipo != null && !tipo.isEmpty();
+      case PdmPackage.CARGA_HORARIA__DIAS:
+        return dias != null && !dias.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -156,6 +192,8 @@ public class CargaHorariaImpl extends MinimalEObjectImpl.Container implements Ca
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (tipo: ");
     result.append(tipo);
+    result.append(", dias: ");
+    result.append(dias);
     result.append(')');
     return result.toString();
   }

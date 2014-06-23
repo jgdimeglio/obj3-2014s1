@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.xtext.unq.planificador.pdm.Materia#getNombre <em>Nombre</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.pdm.Materia#getCargaHoraria <em>Carga Horaria</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,5 +40,21 @@ public interface Materia extends EObject
    * @generated
    */
   EList<String> getNombre();
+
+  /**
+   * Returns the value of the '<em><b>Carga Horaria</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.unq.planificador.pdm.CargaHoraria}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Carga Horaria</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Carga Horaria</em>' containment reference list.
+   * @see org.xtext.unq.planificador.pdm.PdmPackage#getMateria_CargaHoraria()
+   * @model containment="true"
+   * @generated
+   */
+  EList<CargaHoraria> getCargaHoraria();
 
 } // Materia

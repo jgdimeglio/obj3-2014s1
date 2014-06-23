@@ -185,13 +185,22 @@ public interface PdmPackage extends EPackage
   int PROFESOR__NOMBRE = 0;
 
   /**
+   * The feature id for the '<em><b>Dedicacion</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROFESOR__DEDICACION = 1;
+
+  /**
    * The number of structural features of the '<em>Profesor</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROFESOR_FEATURE_COUNT = 1;
+  int PROFESOR_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.unq.planificador.pdm.impl.HoraImpl <em>Hora</em>}' class.
@@ -241,13 +250,22 @@ public interface PdmPackage extends EPackage
   int MATERIA__NOMBRE = 0;
 
   /**
+   * The feature id for the '<em><b>Carga Horaria</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MATERIA__CARGA_HORARIA = 1;
+
+  /**
    * The number of structural features of the '<em>Materia</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MATERIA_FEATURE_COUNT = 1;
+  int MATERIA_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.unq.planificador.pdm.impl.AulaImpl <em>Aula</em>}' class.
@@ -297,13 +315,22 @@ public interface PdmPackage extends EPackage
   int CARGA_HORARIA__TIPO = 0;
 
   /**
+   * The feature id for the '<em><b>Dias</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CARGA_HORARIA__DIAS = 1;
+
+  /**
    * The number of structural features of the '<em>Carga Horaria</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CARGA_HORARIA_FEATURE_COUNT = 1;
+  int CARGA_HORARIA_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.unq.planificador.pdm.impl.CargaHorariaDocenteImpl <em>Carga Horaria Docente</em>}' class.
@@ -688,6 +715,17 @@ public interface PdmPackage extends EPackage
   EAttribute getProfesor_Nombre();
 
   /**
+   * Returns the meta object for the attribute list '{@link org.xtext.unq.planificador.pdm.Profesor#getDedicacion <em>Dedicacion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Dedicacion</em>'.
+   * @see org.xtext.unq.planificador.pdm.Profesor#getDedicacion()
+   * @see #getProfesor()
+   * @generated
+   */
+  EAttribute getProfesor_Dedicacion();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.unq.planificador.pdm.Hora <em>Hora</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -730,6 +768,17 @@ public interface PdmPackage extends EPackage
   EAttribute getMateria_Nombre();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.unq.planificador.pdm.Materia#getCargaHoraria <em>Carga Horaria</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Carga Horaria</em>'.
+   * @see org.xtext.unq.planificador.pdm.Materia#getCargaHoraria()
+   * @see #getMateria()
+   * @generated
+   */
+  EReference getMateria_CargaHoraria();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.unq.planificador.pdm.Aula <em>Aula</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -770,6 +819,17 @@ public interface PdmPackage extends EPackage
    * @generated
    */
   EAttribute getCargaHoraria_Tipo();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.xtext.unq.planificador.pdm.CargaHoraria#getDias <em>Dias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Dias</em>'.
+   * @see org.xtext.unq.planificador.pdm.CargaHoraria#getDias()
+   * @see #getCargaHoraria()
+   * @generated
+   */
+  EAttribute getCargaHoraria_Dias();
 
   /**
    * Returns the meta object for class '{@link org.xtext.unq.planificador.pdm.CargaHorariaDocente <em>Carga Horaria Docente</em>}'.
@@ -1117,6 +1177,14 @@ public interface PdmPackage extends EPackage
     EAttribute PROFESOR__NOMBRE = eINSTANCE.getProfesor_Nombre();
 
     /**
+     * The meta object literal for the '<em><b>Dedicacion</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROFESOR__DEDICACION = eINSTANCE.getProfesor_Dedicacion();
+
+    /**
      * The meta object literal for the '{@link org.xtext.unq.planificador.pdm.impl.HoraImpl <em>Hora</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1153,6 +1221,14 @@ public interface PdmPackage extends EPackage
     EAttribute MATERIA__NOMBRE = eINSTANCE.getMateria_Nombre();
 
     /**
+     * The meta object literal for the '<em><b>Carga Horaria</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MATERIA__CARGA_HORARIA = eINSTANCE.getMateria_CargaHoraria();
+
+    /**
      * The meta object literal for the '{@link org.xtext.unq.planificador.pdm.impl.AulaImpl <em>Aula</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1187,6 +1263,14 @@ public interface PdmPackage extends EPackage
      * @generated
      */
     EAttribute CARGA_HORARIA__TIPO = eINSTANCE.getCargaHoraria_Tipo();
+
+    /**
+     * The meta object literal for the '<em><b>Dias</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CARGA_HORARIA__DIAS = eINSTANCE.getCargaHoraria_Dias();
 
     /**
      * The meta object literal for the '{@link org.xtext.unq.planificador.pdm.impl.CargaHorariaDocenteImpl <em>Carga Horaria Docente</em>}' class.

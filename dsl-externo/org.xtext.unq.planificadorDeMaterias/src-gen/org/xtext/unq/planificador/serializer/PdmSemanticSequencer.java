@@ -142,7 +142,7 @@ public class PdmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     tipo+=ID
+	 *     (tipo+=ID dias+=INT)
 	 */
 	protected void sequence_CargaHoraria(EObject context, CargaHoraria semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -206,7 +206,7 @@ public class PdmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     nombre+=ID
+	 *     (nombre+=ID cargaHoraria+=CargaHoraria)
 	 */
 	protected void sequence_Materia(EObject context, Materia semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -245,7 +245,7 @@ public class PdmSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     nombre+=ID
+	 *     (nombre+=ID dedicacion+=Dedicacion)
 	 */
 	protected void sequence_Profesor(EObject context, Profesor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

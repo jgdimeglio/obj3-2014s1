@@ -1,6 +1,8 @@
-grammar org.xtext.unq.planificador.Pdm with org.eclipse.xtext.common.Terminals
+grammar org.uqbar.paco.dsl.xtext.mapping.MappingDsl with org.eclipse.xtext.xbase.Xbase
 
-generate pdm "http://www.xtext.org/unq/planificador/Pdm"
+generate mappingDsl "http://www.uqbar.org/paco/dsl/xtext/mapping/MappingDsl"
+
+import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
 
 Model:
 	profesors+=Profesor*

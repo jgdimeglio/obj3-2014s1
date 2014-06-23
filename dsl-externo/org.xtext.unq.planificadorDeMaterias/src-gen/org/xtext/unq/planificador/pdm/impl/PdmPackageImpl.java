@@ -314,6 +314,16 @@ public class PdmPackageImpl extends EPackageImpl implements PdmPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getProfesor_Dedicacion()
+  {
+    return (EAttribute)profesorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getHora()
   {
     return horaEClass;
@@ -354,6 +364,16 @@ public class PdmPackageImpl extends EPackageImpl implements PdmPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getMateria_CargaHoraria()
+  {
+    return (EReference)materiaEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getAula()
   {
     return aulaEClass;
@@ -387,6 +407,16 @@ public class PdmPackageImpl extends EPackageImpl implements PdmPackage
   public EAttribute getCargaHoraria_Tipo()
   {
     return (EAttribute)cargaHorariaEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCargaHoraria_Dias()
+  {
+    return (EAttribute)cargaHorariaEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -633,18 +663,21 @@ public class PdmPackageImpl extends EPackageImpl implements PdmPackage
 
     profesorEClass = createEClass(PROFESOR);
     createEAttribute(profesorEClass, PROFESOR__NOMBRE);
+    createEAttribute(profesorEClass, PROFESOR__DEDICACION);
 
     horaEClass = createEClass(HORA);
     createEAttribute(horaEClass, HORA__HORA);
 
     materiaEClass = createEClass(MATERIA);
     createEAttribute(materiaEClass, MATERIA__NOMBRE);
+    createEReference(materiaEClass, MATERIA__CARGA_HORARIA);
 
     aulaEClass = createEClass(AULA);
     createEAttribute(aulaEClass, AULA__NOMBRE);
 
     cargaHorariaEClass = createEClass(CARGA_HORARIA);
     createEAttribute(cargaHorariaEClass, CARGA_HORARIA__TIPO);
+    createEAttribute(cargaHorariaEClass, CARGA_HORARIA__DIAS);
 
     cargaHorariaDocenteEClass = createEClass(CARGA_HORARIA_DOCENTE);
     createEReference(cargaHorariaDocenteEClass, CARGA_HORARIA_DOCENTE__NOMBRE);
@@ -718,18 +751,21 @@ public class PdmPackageImpl extends EPackageImpl implements PdmPackage
 
     initEClass(profesorEClass, Profesor.class, "Profesor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProfesor_Nombre(), ecorePackage.getEString(), "nombre", null, 0, -1, Profesor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getProfesor_Dedicacion(), ecorePackage.getEString(), "dedicacion", null, 0, -1, Profesor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(horaEClass, Hora.class, "Hora", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getHora_Hora(), ecorePackage.getEInt(), "hora", null, 0, -1, Hora.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(materiaEClass, Materia.class, "Materia", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMateria_Nombre(), ecorePackage.getEString(), "nombre", null, 0, -1, Materia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMateria_CargaHoraria(), this.getCargaHoraria(), null, "cargaHoraria", null, 0, -1, Materia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(aulaEClass, Aula.class, "Aula", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAula_Nombre(), ecorePackage.getEString(), "nombre", null, 0, -1, Aula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(cargaHorariaEClass, CargaHoraria.class, "CargaHoraria", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCargaHoraria_Tipo(), ecorePackage.getEString(), "tipo", null, 0, -1, CargaHoraria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCargaHoraria_Dias(), ecorePackage.getEInt(), "dias", null, 0, -1, CargaHoraria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(cargaHorariaDocenteEClass, CargaHorariaDocente.class, "CargaHorariaDocente", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCargaHorariaDocente_Nombre(), this.getProfesor(), null, "nombre", null, 0, 1, CargaHorariaDocente.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

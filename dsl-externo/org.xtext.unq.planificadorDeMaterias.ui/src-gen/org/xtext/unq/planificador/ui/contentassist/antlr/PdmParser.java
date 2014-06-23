@@ -37,6 +37,7 @@ public class PdmParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getDedicacionAccess().getAlternatives(), "rule__Dedicacion__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getProfesorAccess().getGroup(), "rule__Profesor__Group__0");
 					put(grammarAccess.getHoraAccess().getGroup(), "rule__Hora__Group__0");
@@ -61,10 +62,13 @@ public class PdmParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModelAccess().getPlanificacionesAssignment_9(), "rule__Model__PlanificacionesAssignment_9");
 					put(grammarAccess.getModelAccess().getHorariosAssignment_10(), "rule__Model__HorariosAssignment_10");
 					put(grammarAccess.getProfesorAccess().getNombreAssignment_1(), "rule__Profesor__NombreAssignment_1");
+					put(grammarAccess.getProfesorAccess().getDedicacionAssignment_3(), "rule__Profesor__DedicacionAssignment_3");
 					put(grammarAccess.getHoraAccess().getHoraAssignment_1(), "rule__Hora__HoraAssignment_1");
 					put(grammarAccess.getMateriaAccess().getNombreAssignment_1(), "rule__Materia__NombreAssignment_1");
+					put(grammarAccess.getMateriaAccess().getCargaHorariaAssignment_3(), "rule__Materia__CargaHorariaAssignment_3");
 					put(grammarAccess.getAulaAccess().getNombreAssignment_1(), "rule__Aula__NombreAssignment_1");
 					put(grammarAccess.getCargaHorariaAccess().getTipoAssignment_1(), "rule__CargaHoraria__TipoAssignment_1");
+					put(grammarAccess.getCargaHorariaAccess().getDiasAssignment_3(), "rule__CargaHoraria__DiasAssignment_3");
 					put(grammarAccess.getCargaHorariaDocenteAccess().getNombreAssignment_0(), "rule__CargaHorariaDocente__NombreAssignment_0");
 					put(grammarAccess.getCargaHorariaDocenteAccess().getTipoAssignment_2(), "rule__CargaHorariaDocente__TipoAssignment_2");
 					put(grammarAccess.getHorarioAccess().getDiaAssignment_0(), "rule__Horario__DiaAssignment_0");

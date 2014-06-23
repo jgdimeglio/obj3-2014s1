@@ -23,6 +23,7 @@ import org.xtext.unq.planificador.pdm.Profesor;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.unq.planificador.pdm.impl.ProfesorImpl#getNombre <em>Nombre</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.pdm.impl.ProfesorImpl#getDedicacion <em>Dedicacion</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,6 +40,16 @@ public class ProfesorImpl extends MinimalEObjectImpl.Container implements Profes
    * @ordered
    */
   protected EList<String> nombre;
+
+  /**
+   * The cached value of the '{@link #getDedicacion() <em>Dedicacion</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDedicacion()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> dedicacion;
 
   /**
    * <!-- begin-user-doc -->
@@ -80,6 +91,20 @@ public class ProfesorImpl extends MinimalEObjectImpl.Container implements Profes
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<String> getDedicacion()
+  {
+    if (dedicacion == null)
+    {
+      dedicacion = new EDataTypeEList<String>(String.class, this, PdmPackage.PROFESOR__DEDICACION);
+    }
+    return dedicacion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -87,6 +112,8 @@ public class ProfesorImpl extends MinimalEObjectImpl.Container implements Profes
     {
       case PdmPackage.PROFESOR__NOMBRE:
         return getNombre();
+      case PdmPackage.PROFESOR__DEDICACION:
+        return getDedicacion();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -106,6 +133,10 @@ public class ProfesorImpl extends MinimalEObjectImpl.Container implements Profes
         getNombre().clear();
         getNombre().addAll((Collection<? extends String>)newValue);
         return;
+      case PdmPackage.PROFESOR__DEDICACION:
+        getDedicacion().clear();
+        getDedicacion().addAll((Collection<? extends String>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -123,6 +154,9 @@ public class ProfesorImpl extends MinimalEObjectImpl.Container implements Profes
       case PdmPackage.PROFESOR__NOMBRE:
         getNombre().clear();
         return;
+      case PdmPackage.PROFESOR__DEDICACION:
+        getDedicacion().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -139,6 +173,8 @@ public class ProfesorImpl extends MinimalEObjectImpl.Container implements Profes
     {
       case PdmPackage.PROFESOR__NOMBRE:
         return nombre != null && !nombre.isEmpty();
+      case PdmPackage.PROFESOR__DEDICACION:
+        return dedicacion != null && !dedicacion.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -156,6 +192,8 @@ public class ProfesorImpl extends MinimalEObjectImpl.Container implements Profes
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (nombre: ");
     result.append(nombre);
+    result.append(", dedicacion: ");
+    result.append(dedicacion);
     result.append(')');
     return result.toString();
   }
