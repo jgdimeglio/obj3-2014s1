@@ -1,7 +1,6 @@
 grammar org.xtext.unq.planificador.Pdm with org.eclipse.xtext.xbase.Xbase
 
 generate planificadorDsl "http"
-
 import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
 
 Model:
@@ -16,29 +15,26 @@ Model:
 	semestre+=Semestre*
 	planificaciones+=Planificacion*
 	horarios+=Horario*
-;
+	recursos+=Recurso*
+	recursosDeMaterias+=RecursoMateria*;
 
 Profesor:
 	'profesor' nombre=ID 'dedicacion' dedicacion=Dedicacion;
 
 Hora:
 	'hora' hora=INT;
-	
+
 Dedicacion:
-	SIMPLE | SEMI | EXCLUSIVA
-;
+	SIMPLE | SEMI | EXCLUSIVA;
 
 SIMPLE:
-	'simple'
-;
+	'simple';
 
 SEMI:
-	'semi'
-;
+	'semi';
 
 EXCLUSIVA:
-	'exclusiva'
-;
+	'exclusiva';
 
 Materia:
 	'materia' nombre=ID 'con' cargaHoraria=CargaHoraria;
@@ -47,7 +43,7 @@ Aula:
 	'aula' nombre+=ID;
 
 CargaHoraria:
-	'cargaHoraria' tipo=ID 'dias' dias=INT;
+	'cargaHoraria' cantDias=INT 'dias' dias=INT;
 
 CargaHorariaDocente:
 	nombre=Profesor 'tiene' tipo=CargaHoraria;
@@ -67,7 +63,15 @@ Horarios:
 
 Planificacion:
 	'planificacion' semestre=Semestre '{'
-		'a dictar:' (materias+=Materia)+
-		horarios=Horarios
+	'a dictar:' (materias+=Materia)+
+	horarios=Horarios
+	'}';
+
+Recurso:
+	'recurso' nombre+=ID;
+
+RecursoMateria:
+	'materia' materia=Materia '{'
+	'requiere:' (recursos+=Recurso)+
 	'}';
 	
