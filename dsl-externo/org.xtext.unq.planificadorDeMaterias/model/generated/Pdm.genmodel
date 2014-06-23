@@ -6,7 +6,7 @@
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="org.xtext.unq.planificadorDeMaterias.edit"
     editorPluginID="org.xtext.unq.planificadorDeMaterias.editor" runtimeVersion="2.9">
-  <genPackages prefix="Pdm" basePackage="org.xtext.unq.planificador" disposableProviderFactory="true"
+  <genPackages prefix="PlanificadorDsl" basePackage="org.xtext.unq.planificador" disposableProviderFactory="true"
       fileExtensions="pdm" ecorePackage="Pdm.ecore#/">
     <genClasses ecoreClass="Pdm.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Model/profesors"/>

@@ -17,7 +17,7 @@ import com.google.inject.Injector;
 public class PdmStandaloneSetupGenerated implements ISetup {
 
 	public Injector createInjectorAndDoEMFRegistration() {
-		org.eclipse.xtext.common.TerminalsStandaloneSetup.doSetup();
+		org.eclipse.xtext.xbase.XbaseStandaloneSetup.doSetup();
 
 		Injector injector = createInjector();
 		register(injector);
@@ -29,8 +29,8 @@ public class PdmStandaloneSetupGenerated implements ISetup {
 	}
 	
 	public void register(Injector injector) {
-	if (!EPackage.Registry.INSTANCE.containsKey("http://www.xtext.org/unq/planificador/Pdm")) {
-		EPackage.Registry.INSTANCE.put("http://www.xtext.org/unq/planificador/Pdm", org.xtext.unq.planificador.pdm.PdmPackage.eINSTANCE);
+	if (!EPackage.Registry.INSTANCE.containsKey("http")) {
+		EPackage.Registry.INSTANCE.put("http", org.xtext.unq.planificador.planificadorDsl.PlanificadorDslPackage.eINSTANCE);
 	}
 
 		org.eclipse.xtext.resource.IResourceFactory resourceFactory = injector.getInstance(org.eclipse.xtext.resource.IResourceFactory.class);
@@ -38,6 +38,7 @@ public class PdmStandaloneSetupGenerated implements ISetup {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("pdm", resourceFactory);
 		org.eclipse.xtext.resource.IResourceServiceProvider.Registry.INSTANCE.getExtensionToFactoryMap().put("pdm", serviceProvider);
 		
+
 
 
 	}

@@ -1,6 +1,6 @@
-grammar org.uqbar.paco.dsl.xtext.mapping.MappingDsl with org.eclipse.xtext.xbase.Xbase
+grammar org.xtext.unq.planificador.Pdm with org.eclipse.xtext.xbase.Xbase
 
-generate mappingDsl "http://www.uqbar.org/paco/dsl/xtext/mapping/MappingDsl"
+generate planificadorDsl "http"
 
 import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
 
@@ -41,7 +41,7 @@ EXCLUSIVA:
 ;
 
 Materia:
-	'materia' nombre+=ID 'con' cargaHoraria+=CargaHoraria;
+	'materia' nombre=ID 'con' cargaHoraria=CargaHoraria;
 
 Aula:
 	'aula' nombre+=ID;

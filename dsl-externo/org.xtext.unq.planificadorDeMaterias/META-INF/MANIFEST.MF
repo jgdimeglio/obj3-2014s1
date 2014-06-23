@@ -17,19 +17,22 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.emf.common,
  org.antlr.runtime,
  org.eclipse.xtext.common.types,
- org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ org.eclipse.xtext.xbase.lib
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.xtext.unq.planificador,
- org.xtext.unq.planificador.services,
- org.xtext.unq.planificador.pdm,
- org.xtext.unq.planificador.pdm.impl,
- org.xtext.unq.planificador.pdm.util,
  org.xtext.unq.planificador.serializer,
  org.xtext.unq.planificador.parser.antlr,
  org.xtext.unq.planificador.parser.antlr.internal,
  org.xtext.unq.planificador.validation,
  org.xtext.unq.planificador.scoping,
  org.xtext.unq.planificador.generator,
- org.xtext.unq.planificador.formatting
+ org.xtext.unq.planificador.formatting,
+ org.xtext.unq.planificador.planificadorDsl,
+ org.xtext.unq.planificador.planificadorDsl.impl,
+ org.xtext.unq.planificador.planificadorDsl.util,
+ org.xtext.unq.planificador.jvmmodel,
+ org.xtext.unq.planificador.services
+

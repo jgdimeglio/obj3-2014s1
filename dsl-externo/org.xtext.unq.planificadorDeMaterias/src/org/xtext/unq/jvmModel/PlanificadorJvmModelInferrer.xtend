@@ -7,7 +7,7 @@ import org.eclipse.xtext.xbase.compiler.output.ITreeAppendable
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import org.xtext.unq.planificador.pdm.Materia
+import org.xtext.unq.planificador.planificadorDsl.Materia
 
 class PlanificadorJvmModelInferrer extends AbstractModelInferrer{
 	@Inject extension JvmTypesBuilder
@@ -16,7 +16,14 @@ class PlanificadorJvmModelInferrer extends AbstractModelInferrer{
 		acceptor.accept(
 			materia.toClass("Materia")
 		).initializeLater [
-			
+			members += materia.toConstructor [
+				body = [
+					append(
+						'''
+							setNombre("«materia.nombre»");
+						''')
+				]
+			]
 		]
 	}
 }

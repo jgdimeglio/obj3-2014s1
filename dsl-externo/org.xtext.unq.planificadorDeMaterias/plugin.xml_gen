@@ -5,11 +5,12 @@
 
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
-       uri = "http://www.xtext.org/unq/planificador/Pdm" 
-       class = "org.xtext.unq.planificador.pdm.PdmPackage"
+       uri = "http" 
+       class = "org.xtext.unq.planificador.planificadorDsl.PlanificadorDslPackage"
        genModel = "model/generated/Pdm.genmodel" /> 
 	
   </extension>
+
 
 
 
