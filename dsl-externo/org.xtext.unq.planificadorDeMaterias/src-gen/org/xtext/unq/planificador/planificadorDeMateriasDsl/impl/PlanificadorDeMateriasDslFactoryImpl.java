@@ -65,8 +65,13 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
     switch (eClass.getClassifierID())
     {
       case PlanificadorDeMateriasDslPackage.MODEL: return createModel();
+      case PlanificadorDeMateriasDslPackage.IMPORT: return createImport();
       case PlanificadorDeMateriasDslPackage.PROFESOR: return createProfesor();
       case PlanificadorDeMateriasDslPackage.HORA: return createHora();
+      case PlanificadorDeMateriasDslPackage.DEDICACION: return createDedicacion();
+      case PlanificadorDeMateriasDslPackage.SIMPLE: return createSIMPLE();
+      case PlanificadorDeMateriasDslPackage.SEMI: return createSEMI();
+      case PlanificadorDeMateriasDslPackage.EXCLUSIVA: return createEXCLUSIVA();
       case PlanificadorDeMateriasDslPackage.MATERIA: return createMateria();
       case PlanificadorDeMateriasDslPackage.AULA: return createAula();
       case PlanificadorDeMateriasDslPackage.CARGA_HORARIA: return createCargaHoraria();
@@ -74,10 +79,16 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
       case PlanificadorDeMateriasDslPackage.HORARIO: return createHorario();
       case PlanificadorDeMateriasDslPackage.SEMESTRE: return createSemestre();
       case PlanificadorDeMateriasDslPackage.DIA: return createDia();
+      case PlanificadorDeMateriasDslPackage.LUNES: return createLunes();
+      case PlanificadorDeMateriasDslPackage.MARTES: return createMartes();
+      case PlanificadorDeMateriasDslPackage.MIERCOLES: return createMiercoles();
+      case PlanificadorDeMateriasDslPackage.JUEVES: return createJueves();
+      case PlanificadorDeMateriasDslPackage.VIERNES: return createViernes();
+      case PlanificadorDeMateriasDslPackage.SABADO: return createSabado();
+      case PlanificadorDeMateriasDslPackage.DIAS: return createDias();
       case PlanificadorDeMateriasDslPackage.HORARIOS: return createHorarios();
       case PlanificadorDeMateriasDslPackage.PLANIFICACION: return createPlanificacion();
       case PlanificadorDeMateriasDslPackage.RECURSO: return createRecurso();
-      case PlanificadorDeMateriasDslPackage.RECURSO_MATERIA: return createRecursoMateria();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -92,6 +103,17 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
   {
     ModelImpl model = new ModelImpl();
     return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Import createImport()
+  {
+    ImportImpl import_ = new ImportImpl();
+    return import_;
   }
 
   /**
@@ -114,6 +136,50 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
   {
     HoraImpl hora = new HoraImpl();
     return hora;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Dedicacion createDedicacion()
+  {
+    DedicacionImpl dedicacion = new DedicacionImpl();
+    return dedicacion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SIMPLE createSIMPLE()
+  {
+    SIMPLEImpl simple = new SIMPLEImpl();
+    return simple;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SEMI createSEMI()
+  {
+    SEMIImpl semi = new SEMIImpl();
+    return semi;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EXCLUSIVA createEXCLUSIVA()
+  {
+    EXCLUSIVAImpl exclusiva = new EXCLUSIVAImpl();
+    return exclusiva;
   }
 
   /**
@@ -198,6 +264,83 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
    * <!-- end-user-doc -->
    * @generated
    */
+  public Lunes createLunes()
+  {
+    LunesImpl lunes = new LunesImpl();
+    return lunes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Martes createMartes()
+  {
+    MartesImpl martes = new MartesImpl();
+    return martes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Miercoles createMiercoles()
+  {
+    MiercolesImpl miercoles = new MiercolesImpl();
+    return miercoles;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Jueves createJueves()
+  {
+    JuevesImpl jueves = new JuevesImpl();
+    return jueves;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Viernes createViernes()
+  {
+    ViernesImpl viernes = new ViernesImpl();
+    return viernes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Sabado createSabado()
+  {
+    SabadoImpl sabado = new SabadoImpl();
+    return sabado;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Dias createDias()
+  {
+    DiasImpl dias = new DiasImpl();
+    return dias;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Horarios createHorarios()
   {
     HorariosImpl horarios = new HorariosImpl();
@@ -224,17 +367,6 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
   {
     RecursoImpl recurso = new RecursoImpl();
     return recurso;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RecursoMateria createRecursoMateria()
-  {
-    RecursoMateriaImpl recursoMateria = new RecursoMateriaImpl();
-    return recursoMateria;
   }
 
   /**

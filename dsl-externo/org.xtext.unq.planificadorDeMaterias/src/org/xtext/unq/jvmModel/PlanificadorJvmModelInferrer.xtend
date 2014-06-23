@@ -20,7 +20,7 @@ class PlanificadorJvmModelInferrer extends AbstractModelInferrer{
 				body = [
 					append(
 						'''
-							setNombre("«materia.nombre»");
+							
 						''')
 				]
 			]

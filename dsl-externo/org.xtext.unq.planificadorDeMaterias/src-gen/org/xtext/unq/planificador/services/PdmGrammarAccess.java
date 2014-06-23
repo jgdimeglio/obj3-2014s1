@@ -22,148 +22,221 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Model");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cProfesorsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cProfesorsProfesorParserRuleCall_0_0 = (RuleCall)cProfesorsAssignment_0.eContents().get(0);
-		private final Assignment cHorasAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cHorasHoraParserRuleCall_1_0 = (RuleCall)cHorasAssignment_1.eContents().get(0);
-		private final Assignment cMateriasAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMateriasMateriaParserRuleCall_2_0 = (RuleCall)cMateriasAssignment_2.eContents().get(0);
-		private final Assignment cAulasAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cAulasAulaParserRuleCall_3_0 = (RuleCall)cAulasAssignment_3.eContents().get(0);
-		private final Assignment cCargasHorariasAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cCargasHorariasCargaHorariaParserRuleCall_4_0 = (RuleCall)cCargasHorariasAssignment_4.eContents().get(0);
-		private final Assignment cCargasHorariasDocentesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cCargasHorariasDocentesCargaHorariaDocenteParserRuleCall_5_0 = (RuleCall)cCargasHorariasDocentesAssignment_5.eContents().get(0);
-		private final Assignment cHorariosAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cHorariosHorariosParserRuleCall_6_0 = (RuleCall)cHorariosAssignment_6.eContents().get(0);
-		private final Assignment cDiasAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cDiasDiaParserRuleCall_7_0 = (RuleCall)cDiasAssignment_7.eContents().get(0);
-		private final Assignment cSemestreAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cSemestreSemestreParserRuleCall_8_0 = (RuleCall)cSemestreAssignment_8.eContents().get(0);
-		private final Assignment cPlanificacionesAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cPlanificacionesPlanificacionParserRuleCall_9_0 = (RuleCall)cPlanificacionesAssignment_9.eContents().get(0);
-		private final Assignment cHorariosAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cHorariosHorarioParserRuleCall_10_0 = (RuleCall)cHorariosAssignment_10.eContents().get(0);
-		private final Assignment cRecursosAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cRecursosRecursoParserRuleCall_11_0 = (RuleCall)cRecursosAssignment_11.eContents().get(0);
-		private final Assignment cRecursosDeMateriasAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cRecursosDeMateriasRecursoMateriaParserRuleCall_12_0 = (RuleCall)cRecursosDeMateriasAssignment_12.eContents().get(0);
+		private final Assignment cImportsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cImportsImportParserRuleCall_0_0 = (RuleCall)cImportsAssignment_0.eContents().get(0);
+		private final Assignment cProfesorsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cProfesorsProfesorParserRuleCall_1_0 = (RuleCall)cProfesorsAssignment_1.eContents().get(0);
+		private final Assignment cHorasAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cHorasHoraParserRuleCall_2_0 = (RuleCall)cHorasAssignment_2.eContents().get(0);
+		private final Assignment cMateriasAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cMateriasMateriaParserRuleCall_3_0 = (RuleCall)cMateriasAssignment_3.eContents().get(0);
+		private final Assignment cAulasAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cAulasAulaParserRuleCall_4_0 = (RuleCall)cAulasAssignment_4.eContents().get(0);
+		private final Assignment cCargasHorariasAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cCargasHorariasCargaHorariaParserRuleCall_5_0 = (RuleCall)cCargasHorariasAssignment_5.eContents().get(0);
+		private final Assignment cCargasHorariasDocentesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cCargasHorariasDocentesCargaHorariaDocenteParserRuleCall_6_0 = (RuleCall)cCargasHorariasDocentesAssignment_6.eContents().get(0);
+		private final Assignment cHorariosAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cHorariosHorariosParserRuleCall_7_0 = (RuleCall)cHorariosAssignment_7.eContents().get(0);
+		private final Assignment cDiasAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cDiasDiaParserRuleCall_8_0 = (RuleCall)cDiasAssignment_8.eContents().get(0);
+		private final Assignment cSemestreAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cSemestreSemestreParserRuleCall_9_0 = (RuleCall)cSemestreAssignment_9.eContents().get(0);
+		private final Assignment cPlanificacionesAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cPlanificacionesPlanificacionParserRuleCall_10_0 = (RuleCall)cPlanificacionesAssignment_10.eContents().get(0);
+		private final Assignment cHorariosAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cHorariosHorarioParserRuleCall_11_0 = (RuleCall)cHorariosAssignment_11.eContents().get(0);
+		private final Assignment cRecursosAssignment_12 = (Assignment)cGroup.eContents().get(12);
+		private final RuleCall cRecursosRecursoParserRuleCall_12_0 = (RuleCall)cRecursosAssignment_12.eContents().get(0);
 		
 		//Model:
-		//	profesors+=Profesor* horas+=Hora* materias+=Materia* aulas+=Aula* cargasHorarias+=CargaHoraria*
+		//	imports+=Import* profesors+=Profesor* horas+=Hora* materias+=Materia* aulas+=Aula* cargasHorarias+=CargaHoraria*
 		//	cargasHorariasDocentes+=CargaHorariaDocente* horarios+=Horarios* dias+=Dia* semestre+=Semestre*
-		//	planificaciones+=Planificacion* horarios+=Horario* recursos+=Recurso* recursosDeMaterias+=RecursoMateria*;
+		//	planificaciones+=Planificacion* horarios+=Horario* recursos+=Recurso*;
 		public ParserRule getRule() { return rule; }
 
-		//profesors+=Profesor* horas+=Hora* materias+=Materia* aulas+=Aula* cargasHorarias+=CargaHoraria*
+		//imports+=Import* profesors+=Profesor* horas+=Hora* materias+=Materia* aulas+=Aula* cargasHorarias+=CargaHoraria*
 		//cargasHorariasDocentes+=CargaHorariaDocente* horarios+=Horarios* dias+=Dia* semestre+=Semestre*
-		//planificaciones+=Planificacion* horarios+=Horario* recursos+=Recurso* recursosDeMaterias+=RecursoMateria*
+		//planificaciones+=Planificacion* horarios+=Horario* recursos+=Recurso*
 		public Group getGroup() { return cGroup; }
 
+		//imports+=Import*
+		public Assignment getImportsAssignment_0() { return cImportsAssignment_0; }
+
+		//Import
+		public RuleCall getImportsImportParserRuleCall_0_0() { return cImportsImportParserRuleCall_0_0; }
+
 		//profesors+=Profesor*
-		public Assignment getProfesorsAssignment_0() { return cProfesorsAssignment_0; }
+		public Assignment getProfesorsAssignment_1() { return cProfesorsAssignment_1; }
 
 		//Profesor
-		public RuleCall getProfesorsProfesorParserRuleCall_0_0() { return cProfesorsProfesorParserRuleCall_0_0; }
+		public RuleCall getProfesorsProfesorParserRuleCall_1_0() { return cProfesorsProfesorParserRuleCall_1_0; }
 
 		//horas+=Hora*
-		public Assignment getHorasAssignment_1() { return cHorasAssignment_1; }
+		public Assignment getHorasAssignment_2() { return cHorasAssignment_2; }
 
 		//Hora
-		public RuleCall getHorasHoraParserRuleCall_1_0() { return cHorasHoraParserRuleCall_1_0; }
+		public RuleCall getHorasHoraParserRuleCall_2_0() { return cHorasHoraParserRuleCall_2_0; }
 
 		//materias+=Materia*
-		public Assignment getMateriasAssignment_2() { return cMateriasAssignment_2; }
+		public Assignment getMateriasAssignment_3() { return cMateriasAssignment_3; }
 
 		//Materia
-		public RuleCall getMateriasMateriaParserRuleCall_2_0() { return cMateriasMateriaParserRuleCall_2_0; }
+		public RuleCall getMateriasMateriaParserRuleCall_3_0() { return cMateriasMateriaParserRuleCall_3_0; }
 
 		//aulas+=Aula*
-		public Assignment getAulasAssignment_3() { return cAulasAssignment_3; }
+		public Assignment getAulasAssignment_4() { return cAulasAssignment_4; }
 
 		//Aula
-		public RuleCall getAulasAulaParserRuleCall_3_0() { return cAulasAulaParserRuleCall_3_0; }
+		public RuleCall getAulasAulaParserRuleCall_4_0() { return cAulasAulaParserRuleCall_4_0; }
 
 		//cargasHorarias+=CargaHoraria*
-		public Assignment getCargasHorariasAssignment_4() { return cCargasHorariasAssignment_4; }
+		public Assignment getCargasHorariasAssignment_5() { return cCargasHorariasAssignment_5; }
 
 		//CargaHoraria
-		public RuleCall getCargasHorariasCargaHorariaParserRuleCall_4_0() { return cCargasHorariasCargaHorariaParserRuleCall_4_0; }
+		public RuleCall getCargasHorariasCargaHorariaParserRuleCall_5_0() { return cCargasHorariasCargaHorariaParserRuleCall_5_0; }
 
 		//cargasHorariasDocentes+=CargaHorariaDocente*
-		public Assignment getCargasHorariasDocentesAssignment_5() { return cCargasHorariasDocentesAssignment_5; }
+		public Assignment getCargasHorariasDocentesAssignment_6() { return cCargasHorariasDocentesAssignment_6; }
 
 		//CargaHorariaDocente
-		public RuleCall getCargasHorariasDocentesCargaHorariaDocenteParserRuleCall_5_0() { return cCargasHorariasDocentesCargaHorariaDocenteParserRuleCall_5_0; }
+		public RuleCall getCargasHorariasDocentesCargaHorariaDocenteParserRuleCall_6_0() { return cCargasHorariasDocentesCargaHorariaDocenteParserRuleCall_6_0; }
 
 		//horarios+=Horarios*
-		public Assignment getHorariosAssignment_6() { return cHorariosAssignment_6; }
+		public Assignment getHorariosAssignment_7() { return cHorariosAssignment_7; }
 
 		//Horarios
-		public RuleCall getHorariosHorariosParserRuleCall_6_0() { return cHorariosHorariosParserRuleCall_6_0; }
+		public RuleCall getHorariosHorariosParserRuleCall_7_0() { return cHorariosHorariosParserRuleCall_7_0; }
 
 		//dias+=Dia*
-		public Assignment getDiasAssignment_7() { return cDiasAssignment_7; }
+		public Assignment getDiasAssignment_8() { return cDiasAssignment_8; }
 
 		//Dia
-		public RuleCall getDiasDiaParserRuleCall_7_0() { return cDiasDiaParserRuleCall_7_0; }
+		public RuleCall getDiasDiaParserRuleCall_8_0() { return cDiasDiaParserRuleCall_8_0; }
 
 		//semestre+=Semestre*
-		public Assignment getSemestreAssignment_8() { return cSemestreAssignment_8; }
+		public Assignment getSemestreAssignment_9() { return cSemestreAssignment_9; }
 
 		//Semestre
-		public RuleCall getSemestreSemestreParserRuleCall_8_0() { return cSemestreSemestreParserRuleCall_8_0; }
+		public RuleCall getSemestreSemestreParserRuleCall_9_0() { return cSemestreSemestreParserRuleCall_9_0; }
 
 		//planificaciones+=Planificacion*
-		public Assignment getPlanificacionesAssignment_9() { return cPlanificacionesAssignment_9; }
+		public Assignment getPlanificacionesAssignment_10() { return cPlanificacionesAssignment_10; }
 
 		//Planificacion
-		public RuleCall getPlanificacionesPlanificacionParserRuleCall_9_0() { return cPlanificacionesPlanificacionParserRuleCall_9_0; }
+		public RuleCall getPlanificacionesPlanificacionParserRuleCall_10_0() { return cPlanificacionesPlanificacionParserRuleCall_10_0; }
 
 		//horarios+=Horario*
-		public Assignment getHorariosAssignment_10() { return cHorariosAssignment_10; }
+		public Assignment getHorariosAssignment_11() { return cHorariosAssignment_11; }
 
 		//Horario
-		public RuleCall getHorariosHorarioParserRuleCall_10_0() { return cHorariosHorarioParserRuleCall_10_0; }
+		public RuleCall getHorariosHorarioParserRuleCall_11_0() { return cHorariosHorarioParserRuleCall_11_0; }
 
 		//recursos+=Recurso*
-		public Assignment getRecursosAssignment_11() { return cRecursosAssignment_11; }
+		public Assignment getRecursosAssignment_12() { return cRecursosAssignment_12; }
 
 		//Recurso
-		public RuleCall getRecursosRecursoParserRuleCall_11_0() { return cRecursosRecursoParserRuleCall_11_0; }
+		public RuleCall getRecursosRecursoParserRuleCall_12_0() { return cRecursosRecursoParserRuleCall_12_0; }
+	}
 
-		//recursosDeMaterias+=RecursoMateria*
-		public Assignment getRecursosDeMateriasAssignment_12() { return cRecursosDeMateriasAssignment_12; }
+	public class ImportElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Import");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cImportedNamespaceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cImportedNamespaceImportedFQNParserRuleCall_1_0 = (RuleCall)cImportedNamespaceAssignment_1.eContents().get(0);
+		
+		////recursosDeMaterias+=RecursoMateria*
+		//Import:
+		//	"import" importedNamespace=ImportedFQN;
+		public ParserRule getRule() { return rule; }
 
-		//RecursoMateria
-		public RuleCall getRecursosDeMateriasRecursoMateriaParserRuleCall_12_0() { return cRecursosDeMateriasRecursoMateriaParserRuleCall_12_0; }
+		//"import" importedNamespace=ImportedFQN
+		public Group getGroup() { return cGroup; }
+
+		//"import"
+		public Keyword getImportKeyword_0() { return cImportKeyword_0; }
+
+		//importedNamespace=ImportedFQN
+		public Assignment getImportedNamespaceAssignment_1() { return cImportedNamespaceAssignment_1; }
+
+		//ImportedFQN
+		public RuleCall getImportedNamespaceImportedFQNParserRuleCall_1_0() { return cImportedNamespaceImportedFQNParserRuleCall_1_0; }
+	}
+
+	public class ImportedFQNElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ImportedFQN");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cFQNParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Keyword cFullStopAsteriskKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//ImportedFQN:
+		//	FQN ".*"?;
+		public ParserRule getRule() { return rule; }
+
+		//FQN ".*"?
+		public Group getGroup() { return cGroup; }
+
+		//FQN
+		public RuleCall getFQNParserRuleCall_0() { return cFQNParserRuleCall_0; }
+
+		//".*"?
+		public Keyword getFullStopAsteriskKeyword_1() { return cFullStopAsteriskKeyword_1; }
+	}
+
+	public class FQNElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FQN");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//FQN:
+		//	ID ("." ID)*;
+		public ParserRule getRule() { return rule; }
+
+		//ID ("." ID)*
+		public Group getGroup() { return cGroup; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+
+		//("." ID)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"."
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 	}
 
 	public class ProfesorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Profesor");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cProfesorKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNombreAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNombreIDTerminalRuleCall_1_0 = (RuleCall)cNombreAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cDedicacionKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cDedicacionAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cDedicacionDedicacionParserRuleCall_3_0 = (RuleCall)cDedicacionAssignment_3.eContents().get(0);
 		
 		//Profesor:
-		//	"profesor" nombre=ID "dedicacion" dedicacion=Dedicacion;
+		//	"profesor" name=ID "dedicacion" dedicacion=Dedicacion;
 		public ParserRule getRule() { return rule; }
 
-		//"profesor" nombre=ID "dedicacion" dedicacion=Dedicacion
+		//"profesor" name=ID "dedicacion" dedicacion=Dedicacion
 		public Group getGroup() { return cGroup; }
 
 		//"profesor"
 		public Keyword getProfesorKeyword_0() { return cProfesorKeyword_0; }
 
-		//nombre=ID
-		public Assignment getNombreAssignment_1() { return cNombreAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getNombreIDTerminalRuleCall_1_0() { return cNombreIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//"dedicacion"
 		public Keyword getDedicacionKeyword_2() { return cDedicacionKeyword_2; }
@@ -225,65 +298,93 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class SIMPLEElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SIMPLE");
-		private final Keyword cSimpleKeyword = (Keyword)rule.eContents().get(1);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cSIMPLEAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cSimpleKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//SIMPLE:
-		//	"simple";
+		//	{SIMPLE} "simple";
 		public ParserRule getRule() { return rule; }
 
+		//{SIMPLE} "simple"
+		public Group getGroup() { return cGroup; }
+
+		//{SIMPLE}
+		public Action getSIMPLEAction_0() { return cSIMPLEAction_0; }
+
 		//"simple"
-		public Keyword getSimpleKeyword() { return cSimpleKeyword; }
+		public Keyword getSimpleKeyword_1() { return cSimpleKeyword_1; }
 	}
 
 	public class SEMIElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SEMI");
-		private final Keyword cSemiKeyword = (Keyword)rule.eContents().get(1);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cSEMIAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cSemiKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//SEMI:
-		//	"semi";
+		//	{SEMI} "semi";
 		public ParserRule getRule() { return rule; }
 
+		//{SEMI} "semi"
+		public Group getGroup() { return cGroup; }
+
+		//{SEMI}
+		public Action getSEMIAction_0() { return cSEMIAction_0; }
+
 		//"semi"
-		public Keyword getSemiKeyword() { return cSemiKeyword; }
+		public Keyword getSemiKeyword_1() { return cSemiKeyword_1; }
 	}
 
 	public class EXCLUSIVAElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EXCLUSIVA");
-		private final Keyword cExclusivaKeyword = (Keyword)rule.eContents().get(1);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cEXCLUSIVAAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cExclusivaKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//EXCLUSIVA:
-		//	"exclusiva";
+		//	{EXCLUSIVA} "exclusiva";
 		public ParserRule getRule() { return rule; }
 
+		//{EXCLUSIVA} "exclusiva"
+		public Group getGroup() { return cGroup; }
+
+		//{EXCLUSIVA}
+		public Action getEXCLUSIVAAction_0() { return cEXCLUSIVAAction_0; }
+
 		//"exclusiva"
-		public Keyword getExclusivaKeyword() { return cExclusivaKeyword; }
+		public Keyword getExclusivaKeyword_1() { return cExclusivaKeyword_1; }
 	}
 
 	public class MateriaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Materia");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cMateriaKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNombreAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNombreIDTerminalRuleCall_1_0 = (RuleCall)cNombreAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cConKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cCargaHorariaAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cCargaHorariaCargaHorariaParserRuleCall_3_0 = (RuleCall)cCargaHorariaAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cRequiereKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cRecursosAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cRecursosRecursoParserRuleCall_4_1_0 = (RuleCall)cRecursosAssignment_4_1.eContents().get(0);
 		
 		//Materia:
-		//	"materia" nombre=ID "con" cargaHoraria=CargaHoraria;
+		//	"materia" name=ID "con" cargaHoraria=CargaHoraria ("requiere:" recursos+=Recurso+)?;
 		public ParserRule getRule() { return rule; }
 
-		//"materia" nombre=ID "con" cargaHoraria=CargaHoraria
+		//"materia" name=ID "con" cargaHoraria=CargaHoraria ("requiere:" recursos+=Recurso+)?
 		public Group getGroup() { return cGroup; }
 
 		//"materia"
 		public Keyword getMateriaKeyword_0() { return cMateriaKeyword_0; }
 
-		//nombre=ID
-		public Assignment getNombreAssignment_1() { return cNombreAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getNombreIDTerminalRuleCall_1_0() { return cNombreIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//"con"
 		public Keyword getConKeyword_2() { return cConKeyword_2; }
@@ -293,57 +394,85 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 
 		//CargaHoraria
 		public RuleCall getCargaHorariaCargaHorariaParserRuleCall_3_0() { return cCargaHorariaCargaHorariaParserRuleCall_3_0; }
+
+		//("requiere:" recursos+=Recurso+)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"requiere:"
+		public Keyword getRequiereKeyword_4_0() { return cRequiereKeyword_4_0; }
+
+		//recursos+=Recurso+
+		public Assignment getRecursosAssignment_4_1() { return cRecursosAssignment_4_1; }
+
+		//Recurso
+		public RuleCall getRecursosRecursoParserRuleCall_4_1_0() { return cRecursosRecursoParserRuleCall_4_1_0; }
 	}
 
 	public class AulaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Aula");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cAulaKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNombreAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNombreIDTerminalRuleCall_1_0 = (RuleCall)cNombreAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cRecursoKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cRecursosAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cRecursosRecursoParserRuleCall_2_1_0 = (RuleCall)cRecursosAssignment_2_1.eContents().get(0);
 		
 		//Aula:
-		//	"aula" nombre+=ID;
+		//	"aula" name=ID ("recurso" recursos+=Recurso)?;
 		public ParserRule getRule() { return rule; }
 
-		//"aula" nombre+=ID
+		//"aula" name=ID ("recurso" recursos+=Recurso)?
 		public Group getGroup() { return cGroup; }
 
 		//"aula"
 		public Keyword getAulaKeyword_0() { return cAulaKeyword_0; }
 
-		//nombre+=ID
-		public Assignment getNombreAssignment_1() { return cNombreAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getNombreIDTerminalRuleCall_1_0() { return cNombreIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//("recurso" recursos+=Recurso)?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"recurso"
+		public Keyword getRecursoKeyword_2_0() { return cRecursoKeyword_2_0; }
+
+		//recursos+=Recurso
+		public Assignment getRecursosAssignment_2_1() { return cRecursosAssignment_2_1; }
+
+		//Recurso
+		public RuleCall getRecursosRecursoParserRuleCall_2_1_0() { return cRecursosRecursoParserRuleCall_2_1_0; }
 	}
 
 	public class CargaHorariaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CargaHoraria");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cCargaHorariaKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cCantDiasAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cCantDiasINTTerminalRuleCall_1_0 = (RuleCall)cCantDiasAssignment_1.eContents().get(0);
+		private final Assignment cCantHorasAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cCantHorasINTTerminalRuleCall_1_0 = (RuleCall)cCantHorasAssignment_1.eContents().get(0);
 		private final Keyword cDiasKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cDiasAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cDiasINTTerminalRuleCall_3_0 = (RuleCall)cDiasAssignment_3.eContents().get(0);
 		
 		//CargaHoraria:
-		//	"cargaHoraria" cantDias=INT "dias" dias=INT;
+		//	"cargaHoraria" cantHoras=INT "dias" dias=INT;
 		public ParserRule getRule() { return rule; }
 
-		//"cargaHoraria" cantDias=INT "dias" dias=INT
+		//"cargaHoraria" cantHoras=INT "dias" dias=INT
 		public Group getGroup() { return cGroup; }
 
 		//"cargaHoraria"
 		public Keyword getCargaHorariaKeyword_0() { return cCargaHorariaKeyword_0; }
 
-		//cantDias=INT
-		public Assignment getCantDiasAssignment_1() { return cCantDiasAssignment_1; }
+		//cantHoras=INT
+		public Assignment getCantHorasAssignment_1() { return cCantHorasAssignment_1; }
 
 		//INT
-		public RuleCall getCantDiasINTTerminalRuleCall_1_0() { return cCantDiasINTTerminalRuleCall_1_0; }
+		public RuleCall getCantHorasINTTerminalRuleCall_1_0() { return cCantHorasINTTerminalRuleCall_1_0; }
 
 		//"dias"
 		public Keyword getDiasKeyword_2() { return cDiasKeyword_2; }
@@ -358,24 +487,24 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	public class CargaHorariaDocenteElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CargaHorariaDocente");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNombreAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNombreProfesorParserRuleCall_0_0 = (RuleCall)cNombreAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameProfesorParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cTieneKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cTipoAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cTipoCargaHorariaParserRuleCall_2_0 = (RuleCall)cTipoAssignment_2.eContents().get(0);
 		
 		//CargaHorariaDocente:
-		//	nombre=Profesor "tiene" tipo=CargaHoraria;
+		//	name=Profesor "tiene" tipo=CargaHoraria;
 		public ParserRule getRule() { return rule; }
 
-		//nombre=Profesor "tiene" tipo=CargaHoraria
+		//name=Profesor "tiene" tipo=CargaHoraria
 		public Group getGroup() { return cGroup; }
 
-		//nombre=Profesor
-		public Assignment getNombreAssignment_0() { return cNombreAssignment_0; }
+		//name=Profesor
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 
 		//Profesor
-		public RuleCall getNombreProfesorParserRuleCall_0_0() { return cNombreProfesorParserRuleCall_0_0; }
+		public RuleCall getNameProfesorParserRuleCall_0_0() { return cNameProfesorParserRuleCall_0_0; }
 
 		//"tiene"
 		public Keyword getTieneKeyword_1() { return cTieneKeyword_1; }
@@ -489,26 +618,202 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class DiaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Dia");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cDiaKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cDiaAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDiaIDTerminalRuleCall_1_0 = (RuleCall)cDiaAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cLunesParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cMartesParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cMiercolesParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cJuevesParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cViernesParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cSabadoParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//Dia:
-		//	"dia" dia=ID;
+		//	Lunes | Martes | Miercoles | Jueves | Viernes | Sabado;
 		public ParserRule getRule() { return rule; }
 
-		//"dia" dia=ID
+		//Lunes | Martes | Miercoles | Jueves | Viernes | Sabado
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//Lunes
+		public RuleCall getLunesParserRuleCall_0() { return cLunesParserRuleCall_0; }
+
+		//Martes
+		public RuleCall getMartesParserRuleCall_1() { return cMartesParserRuleCall_1; }
+
+		//Miercoles
+		public RuleCall getMiercolesParserRuleCall_2() { return cMiercolesParserRuleCall_2; }
+
+		//Jueves
+		public RuleCall getJuevesParserRuleCall_3() { return cJuevesParserRuleCall_3; }
+
+		//Viernes
+		public RuleCall getViernesParserRuleCall_4() { return cViernesParserRuleCall_4; }
+
+		//Sabado
+		public RuleCall getSabadoParserRuleCall_5() { return cSabadoParserRuleCall_5; }
+	}
+
+	public class LunesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Lunes");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cLunesAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cLunesKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//Lunes:
+		//	{Lunes} "Lunes";
+		public ParserRule getRule() { return rule; }
+
+		//{Lunes} "Lunes"
 		public Group getGroup() { return cGroup; }
 
-		//"dia"
-		public Keyword getDiaKeyword_0() { return cDiaKeyword_0; }
+		//{Lunes}
+		public Action getLunesAction_0() { return cLunesAction_0; }
 
-		//dia=ID
-		public Assignment getDiaAssignment_1() { return cDiaAssignment_1; }
+		//"Lunes"
+		public Keyword getLunesKeyword_1() { return cLunesKeyword_1; }
+	}
 
-		//ID
-		public RuleCall getDiaIDTerminalRuleCall_1_0() { return cDiaIDTerminalRuleCall_1_0; }
+	public class MartesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Martes");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cMartesAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cMartesKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//Martes:
+		//	{Martes} "Martes";
+		public ParserRule getRule() { return rule; }
+
+		//{Martes} "Martes"
+		public Group getGroup() { return cGroup; }
+
+		//{Martes}
+		public Action getMartesAction_0() { return cMartesAction_0; }
+
+		//"Martes"
+		public Keyword getMartesKeyword_1() { return cMartesKeyword_1; }
+	}
+
+	public class MiercolesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Miercoles");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cMiercolesAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cMiercolesKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//Miercoles:
+		//	{Miercoles} "Miercoles";
+		public ParserRule getRule() { return rule; }
+
+		//{Miercoles} "Miercoles"
+		public Group getGroup() { return cGroup; }
+
+		//{Miercoles}
+		public Action getMiercolesAction_0() { return cMiercolesAction_0; }
+
+		//"Miercoles"
+		public Keyword getMiercolesKeyword_1() { return cMiercolesKeyword_1; }
+	}
+
+	public class JuevesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Jueves");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cJuevesAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cJuevesKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//Jueves:
+		//	{Jueves} "Jueves";
+		public ParserRule getRule() { return rule; }
+
+		//{Jueves} "Jueves"
+		public Group getGroup() { return cGroup; }
+
+		//{Jueves}
+		public Action getJuevesAction_0() { return cJuevesAction_0; }
+
+		//"Jueves"
+		public Keyword getJuevesKeyword_1() { return cJuevesKeyword_1; }
+	}
+
+	public class ViernesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Viernes");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cViernesAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cViernesKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//Viernes:
+		//	{Viernes} "Viernes";
+		public ParserRule getRule() { return rule; }
+
+		//{Viernes} "Viernes"
+		public Group getGroup() { return cGroup; }
+
+		//{Viernes}
+		public Action getViernesAction_0() { return cViernesAction_0; }
+
+		//"Viernes"
+		public Keyword getViernesKeyword_1() { return cViernesKeyword_1; }
+	}
+
+	public class SabadoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Sabado");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cSabadoAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cSabadoKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//Sabado:
+		//	{Sabado} "Sabado";
+		public ParserRule getRule() { return rule; }
+
+		//{Sabado} "Sabado"
+		public Group getGroup() { return cGroup; }
+
+		//{Sabado}
+		public Action getSabadoAction_0() { return cSabadoAction_0; }
+
+		//"Sabado"
+		public Keyword getSabadoKeyword_1() { return cSabadoKeyword_1; }
+	}
+
+	public class DiasElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Dias");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cDiaAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cDiaDiaParserRuleCall_0_0 = (RuleCall)cDiaAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cMateriaAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cMateriaMateriaParserRuleCall_1_0_0 = (RuleCall)cMateriaAssignment_1_0.eContents().get(0);
+		private final Keyword cHorarioKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cHorarioAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cHorarioHorarioParserRuleCall_1_2_0 = (RuleCall)cHorarioAssignment_1_2.eContents().get(0);
+		
+		//Dias:
+		//	dia=Dia (materia=Materia "horario" horario=Horario)?;
+		public ParserRule getRule() { return rule; }
+
+		//dia=Dia (materia=Materia "horario" horario=Horario)?
+		public Group getGroup() { return cGroup; }
+
+		//dia=Dia
+		public Assignment getDiaAssignment_0() { return cDiaAssignment_0; }
+
+		//Dia
+		public RuleCall getDiaDiaParserRuleCall_0_0() { return cDiaDiaParserRuleCall_0_0; }
+
+		//(materia=Materia "horario" horario=Horario)?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//materia=Materia
+		public Assignment getMateriaAssignment_1_0() { return cMateriaAssignment_1_0; }
+
+		//Materia
+		public RuleCall getMateriaMateriaParserRuleCall_1_0_0() { return cMateriaMateriaParserRuleCall_1_0_0; }
+
+		//"horario"
+		public Keyword getHorarioKeyword_1_1() { return cHorarioKeyword_1_1; }
+
+		//horario=Horario
+		public Assignment getHorarioAssignment_1_2() { return cHorarioAssignment_1_2; }
+
+		//Horario
+		public RuleCall getHorarioHorarioParserRuleCall_1_2_0() { return cHorarioHorarioParserRuleCall_1_2_0; }
 	}
 
 	public class HorariosElements extends AbstractParserRuleElementFinder {
@@ -595,72 +900,46 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Recurso");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cRecursoKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNombreAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNombreIDTerminalRuleCall_1_0 = (RuleCall)cNombreAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
+		////RecursoMateria:
+		////	'materia' materia=Materia '{'
+		////	'requiere:' (recursos+=Recurso)+
+		////	'}';
 		//Recurso:
-		//	"recurso" nombre+=ID;
+		//	"recurso" name=ID;
 		public ParserRule getRule() { return rule; }
 
-		//"recurso" nombre+=ID
+		//"recurso" name=ID //RecursoMateria:
+		////	'materia' materia=Materia '{'
+		////	'requiere:' (recursos+=Recurso)+
+		////	'}';
 		public Group getGroup() { return cGroup; }
 
 		//"recurso"
 		public Keyword getRecursoKeyword_0() { return cRecursoKeyword_0; }
 
-		//nombre+=ID
-		public Assignment getNombreAssignment_1() { return cNombreAssignment_1; }
+		////RecursoMateria:
+		////	'materia' materia=Materia '{'
+		////	'requiere:' (recursos+=Recurso)+
+		////	'}';
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
+		////RecursoMateria:
+		////	'materia' materia=Materia '{'
+		////	'requiere:' (recursos+=Recurso)+
+		////	'}';
 		//ID
-		public RuleCall getNombreIDTerminalRuleCall_1_0() { return cNombreIDTerminalRuleCall_1_0; }
-	}
-
-	public class RecursoMateriaElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RecursoMateria");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cMateriaKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cMateriaAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cMateriaMateriaParserRuleCall_1_0 = (RuleCall)cMateriaAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cRequiereKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cRecursosAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cRecursosRecursoParserRuleCall_4_0 = (RuleCall)cRecursosAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		
-		//RecursoMateria:
-		//	"materia" materia=Materia "{" "requiere:" recursos+=Recurso+ "}";
-		public ParserRule getRule() { return rule; }
-
-		//"materia" materia=Materia "{" "requiere:" recursos+=Recurso+ "}"
-		public Group getGroup() { return cGroup; }
-
-		//"materia"
-		public Keyword getMateriaKeyword_0() { return cMateriaKeyword_0; }
-
-		//materia=Materia
-		public Assignment getMateriaAssignment_1() { return cMateriaAssignment_1; }
-
-		//Materia
-		public RuleCall getMateriaMateriaParserRuleCall_1_0() { return cMateriaMateriaParserRuleCall_1_0; }
-
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-
-		//"requiere:"
-		public Keyword getRequiereKeyword_3() { return cRequiereKeyword_3; }
-
-		//recursos+=Recurso+
-		public Assignment getRecursosAssignment_4() { return cRecursosAssignment_4; }
-
-		//Recurso
-		public RuleCall getRecursosRecursoParserRuleCall_4_0() { return cRecursosRecursoParserRuleCall_4_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
 	
 	
 	private ModelElements pModel;
+	private ImportElements pImport;
+	private ImportedFQNElements pImportedFQN;
+	private FQNElements pFQN;
 	private ProfesorElements pProfesor;
 	private HoraElements pHora;
 	private DedicacionElements pDedicacion;
@@ -674,10 +953,16 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	private HorarioElements pHorario;
 	private SemestreElements pSemestre;
 	private DiaElements pDia;
+	private LunesElements pLunes;
+	private MartesElements pMartes;
+	private MiercolesElements pMiercoles;
+	private JuevesElements pJueves;
+	private ViernesElements pViernes;
+	private SabadoElements pSabado;
+	private DiasElements pDias;
 	private HorariosElements pHorarios;
 	private PlanificacionElements pPlanificacion;
 	private RecursoElements pRecurso;
-	private RecursoMateriaElements pRecursoMateria;
 	
 	private final Grammar grammar;
 
@@ -718,9 +1003,9 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	profesors+=Profesor* horas+=Hora* materias+=Materia* aulas+=Aula* cargasHorarias+=CargaHoraria*
+	//	imports+=Import* profesors+=Profesor* horas+=Hora* materias+=Materia* aulas+=Aula* cargasHorarias+=CargaHoraria*
 	//	cargasHorariasDocentes+=CargaHorariaDocente* horarios+=Horarios* dias+=Dia* semestre+=Semestre*
-	//	planificaciones+=Planificacion* horarios+=Horario* recursos+=Recurso* recursosDeMaterias+=RecursoMateria*;
+	//	planificaciones+=Planificacion* horarios+=Horario* recursos+=Recurso*;
 	public ModelElements getModelAccess() {
 		return (pModel != null) ? pModel : (pModel = new ModelElements());
 	}
@@ -729,8 +1014,39 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		return getModelAccess().getRule();
 	}
 
+	////recursosDeMaterias+=RecursoMateria*
+	//Import:
+	//	"import" importedNamespace=ImportedFQN;
+	public ImportElements getImportAccess() {
+		return (pImport != null) ? pImport : (pImport = new ImportElements());
+	}
+	
+	public ParserRule getImportRule() {
+		return getImportAccess().getRule();
+	}
+
+	//ImportedFQN:
+	//	FQN ".*"?;
+	public ImportedFQNElements getImportedFQNAccess() {
+		return (pImportedFQN != null) ? pImportedFQN : (pImportedFQN = new ImportedFQNElements());
+	}
+	
+	public ParserRule getImportedFQNRule() {
+		return getImportedFQNAccess().getRule();
+	}
+
+	//FQN:
+	//	ID ("." ID)*;
+	public FQNElements getFQNAccess() {
+		return (pFQN != null) ? pFQN : (pFQN = new FQNElements());
+	}
+	
+	public ParserRule getFQNRule() {
+		return getFQNAccess().getRule();
+	}
+
 	//Profesor:
-	//	"profesor" nombre=ID "dedicacion" dedicacion=Dedicacion;
+	//	"profesor" name=ID "dedicacion" dedicacion=Dedicacion;
 	public ProfesorElements getProfesorAccess() {
 		return (pProfesor != null) ? pProfesor : (pProfesor = new ProfesorElements());
 	}
@@ -760,7 +1076,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SIMPLE:
-	//	"simple";
+	//	{SIMPLE} "simple";
 	public SIMPLEElements getSIMPLEAccess() {
 		return (pSIMPLE != null) ? pSIMPLE : (pSIMPLE = new SIMPLEElements());
 	}
@@ -770,7 +1086,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SEMI:
-	//	"semi";
+	//	{SEMI} "semi";
 	public SEMIElements getSEMIAccess() {
 		return (pSEMI != null) ? pSEMI : (pSEMI = new SEMIElements());
 	}
@@ -780,7 +1096,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//EXCLUSIVA:
-	//	"exclusiva";
+	//	{EXCLUSIVA} "exclusiva";
 	public EXCLUSIVAElements getEXCLUSIVAAccess() {
 		return (pEXCLUSIVA != null) ? pEXCLUSIVA : (pEXCLUSIVA = new EXCLUSIVAElements());
 	}
@@ -790,7 +1106,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Materia:
-	//	"materia" nombre=ID "con" cargaHoraria=CargaHoraria;
+	//	"materia" name=ID "con" cargaHoraria=CargaHoraria ("requiere:" recursos+=Recurso+)?;
 	public MateriaElements getMateriaAccess() {
 		return (pMateria != null) ? pMateria : (pMateria = new MateriaElements());
 	}
@@ -800,7 +1116,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Aula:
-	//	"aula" nombre+=ID;
+	//	"aula" name=ID ("recurso" recursos+=Recurso)?;
 	public AulaElements getAulaAccess() {
 		return (pAula != null) ? pAula : (pAula = new AulaElements());
 	}
@@ -810,7 +1126,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CargaHoraria:
-	//	"cargaHoraria" cantDias=INT "dias" dias=INT;
+	//	"cargaHoraria" cantHoras=INT "dias" dias=INT;
 	public CargaHorariaElements getCargaHorariaAccess() {
 		return (pCargaHoraria != null) ? pCargaHoraria : (pCargaHoraria = new CargaHorariaElements());
 	}
@@ -820,7 +1136,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CargaHorariaDocente:
-	//	nombre=Profesor "tiene" tipo=CargaHoraria;
+	//	name=Profesor "tiene" tipo=CargaHoraria;
 	public CargaHorariaDocenteElements getCargaHorariaDocenteAccess() {
 		return (pCargaHorariaDocente != null) ? pCargaHorariaDocente : (pCargaHorariaDocente = new CargaHorariaDocenteElements());
 	}
@@ -850,13 +1166,83 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Dia:
-	//	"dia" dia=ID;
+	//	Lunes | Martes | Miercoles | Jueves | Viernes | Sabado;
 	public DiaElements getDiaAccess() {
 		return (pDia != null) ? pDia : (pDia = new DiaElements());
 	}
 	
 	public ParserRule getDiaRule() {
 		return getDiaAccess().getRule();
+	}
+
+	//Lunes:
+	//	{Lunes} "Lunes";
+	public LunesElements getLunesAccess() {
+		return (pLunes != null) ? pLunes : (pLunes = new LunesElements());
+	}
+	
+	public ParserRule getLunesRule() {
+		return getLunesAccess().getRule();
+	}
+
+	//Martes:
+	//	{Martes} "Martes";
+	public MartesElements getMartesAccess() {
+		return (pMartes != null) ? pMartes : (pMartes = new MartesElements());
+	}
+	
+	public ParserRule getMartesRule() {
+		return getMartesAccess().getRule();
+	}
+
+	//Miercoles:
+	//	{Miercoles} "Miercoles";
+	public MiercolesElements getMiercolesAccess() {
+		return (pMiercoles != null) ? pMiercoles : (pMiercoles = new MiercolesElements());
+	}
+	
+	public ParserRule getMiercolesRule() {
+		return getMiercolesAccess().getRule();
+	}
+
+	//Jueves:
+	//	{Jueves} "Jueves";
+	public JuevesElements getJuevesAccess() {
+		return (pJueves != null) ? pJueves : (pJueves = new JuevesElements());
+	}
+	
+	public ParserRule getJuevesRule() {
+		return getJuevesAccess().getRule();
+	}
+
+	//Viernes:
+	//	{Viernes} "Viernes";
+	public ViernesElements getViernesAccess() {
+		return (pViernes != null) ? pViernes : (pViernes = new ViernesElements());
+	}
+	
+	public ParserRule getViernesRule() {
+		return getViernesAccess().getRule();
+	}
+
+	//Sabado:
+	//	{Sabado} "Sabado";
+	public SabadoElements getSabadoAccess() {
+		return (pSabado != null) ? pSabado : (pSabado = new SabadoElements());
+	}
+	
+	public ParserRule getSabadoRule() {
+		return getSabadoAccess().getRule();
+	}
+
+	//Dias:
+	//	dia=Dia (materia=Materia "horario" horario=Horario)?;
+	public DiasElements getDiasAccess() {
+		return (pDias != null) ? pDias : (pDias = new DiasElements());
+	}
+	
+	public ParserRule getDiasRule() {
+		return getDiasAccess().getRule();
 	}
 
 	//Horarios:
@@ -879,24 +1265,18 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		return getPlanificacionAccess().getRule();
 	}
 
+	////RecursoMateria:
+	////	'materia' materia=Materia '{'
+	////	'requiere:' (recursos+=Recurso)+
+	////	'}';
 	//Recurso:
-	//	"recurso" nombre+=ID;
+	//	"recurso" name=ID;
 	public RecursoElements getRecursoAccess() {
 		return (pRecurso != null) ? pRecurso : (pRecurso = new RecursoElements());
 	}
 	
 	public ParserRule getRecursoRule() {
 		return getRecursoAccess().getRule();
-	}
-
-	//RecursoMateria:
-	//	"materia" materia=Materia "{" "requiere:" recursos+=Recurso+ "}";
-	public RecursoMateriaElements getRecursoMateriaAccess() {
-		return (pRecursoMateria != null) ? pRecursoMateria : (pRecursoMateria = new RecursoMateriaElements());
-	}
-	
-	public ParserRule getRecursoMateriaRule() {
-		return getRecursoMateriaAccess().getRule();
 	}
 
 	//XExpression:

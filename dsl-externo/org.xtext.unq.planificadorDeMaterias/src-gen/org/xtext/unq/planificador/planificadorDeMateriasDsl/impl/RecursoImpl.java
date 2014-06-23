@@ -2,15 +2,12 @@
  */
 package org.xtext.unq.planificador.planificadorDeMateriasDsl.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso;
@@ -22,7 +19,7 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.RecursoImpl#getNombre <em>Nombre</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.RecursoImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,14 +28,24 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso;
 public class RecursoImpl extends MinimalEObjectImpl.Container implements Recurso
 {
   /**
-   * The cached value of the '{@link #getNombre() <em>Nombre</em>}' attribute list.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNombre()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected EList<String> nombre;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,13 +73,22 @@ public class RecursoImpl extends MinimalEObjectImpl.Container implements Recurso
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getNombre()
+  public String getName()
   {
-    if (nombre == null)
-    {
-      nombre = new EDataTypeEList<String>(String.class, this, PlanificadorDeMateriasDslPackage.RECURSO__NOMBRE);
-    }
-    return nombre;
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.RECURSO__NAME, oldName, name));
   }
 
   /**
@@ -85,8 +101,8 @@ public class RecursoImpl extends MinimalEObjectImpl.Container implements Recurso
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.RECURSO__NOMBRE:
-        return getNombre();
+      case PlanificadorDeMateriasDslPackage.RECURSO__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -96,15 +112,13 @@ public class RecursoImpl extends MinimalEObjectImpl.Container implements Recurso
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.RECURSO__NOMBRE:
-        getNombre().clear();
-        getNombre().addAll((Collection<? extends String>)newValue);
+      case PlanificadorDeMateriasDslPackage.RECURSO__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -120,8 +134,8 @@ public class RecursoImpl extends MinimalEObjectImpl.Container implements Recurso
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.RECURSO__NOMBRE:
-        getNombre().clear();
+      case PlanificadorDeMateriasDslPackage.RECURSO__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -137,8 +151,8 @@ public class RecursoImpl extends MinimalEObjectImpl.Container implements Recurso
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.RECURSO__NOMBRE:
-        return nombre != null && !nombre.isEmpty();
+      case PlanificadorDeMateriasDslPackage.RECURSO__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -154,8 +168,8 @@ public class RecursoImpl extends MinimalEObjectImpl.Container implements Recurso
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (nombre: ");
-    result.append(nombre);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

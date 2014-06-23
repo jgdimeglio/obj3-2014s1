@@ -23,7 +23,7 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.CargaHorariaDocenteImpl#getNombre <em>Nombre</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.CargaHorariaDocenteImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.CargaHorariaDocenteImpl#getTipo <em>Tipo</em>}</li>
  * </ul>
  * </p>
@@ -33,14 +33,14 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor;
 public class CargaHorariaDocenteImpl extends MinimalEObjectImpl.Container implements CargaHorariaDocente
 {
   /**
-   * The cached value of the '{@link #getNombre() <em>Nombre</em>}' containment reference.
+   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNombre()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected Profesor nombre;
+  protected Profesor name;
 
   /**
    * The cached value of the '{@link #getTipo() <em>Tipo</em>}' containment reference.
@@ -78,9 +78,9 @@ public class CargaHorariaDocenteImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public Profesor getNombre()
+  public Profesor getName()
   {
-    return nombre;
+    return name;
   }
 
   /**
@@ -88,13 +88,13 @@ public class CargaHorariaDocenteImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetNombre(Profesor newNombre, NotificationChain msgs)
+  public NotificationChain basicSetName(Profesor newName, NotificationChain msgs)
   {
-    Profesor oldNombre = nombre;
-    nombre = newNombre;
+    Profesor oldName = name;
+    name = newName;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NOMBRE, oldNombre, newNombre);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NAME, oldName, newName);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -105,20 +105,20 @@ public class CargaHorariaDocenteImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setNombre(Profesor newNombre)
+  public void setName(Profesor newName)
   {
-    if (newNombre != nombre)
+    if (newName != name)
     {
       NotificationChain msgs = null;
-      if (nombre != null)
-        msgs = ((InternalEObject)nombre).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NOMBRE, null, msgs);
-      if (newNombre != null)
-        msgs = ((InternalEObject)newNombre).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NOMBRE, null, msgs);
-      msgs = basicSetNombre(newNombre, msgs);
+      if (name != null)
+        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NAME, null, msgs);
+      if (newName != null)
+        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NAME, null, msgs);
+      msgs = basicSetName(newName, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NOMBRE, newNombre, newNombre));
+      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NAME, newName, newName));
   }
 
   /**
@@ -179,8 +179,8 @@ public class CargaHorariaDocenteImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NOMBRE:
-        return basicSetNombre(null, msgs);
+      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NAME:
+        return basicSetName(null, msgs);
       case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__TIPO:
         return basicSetTipo(null, msgs);
     }
@@ -197,8 +197,8 @@ public class CargaHorariaDocenteImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NOMBRE:
-        return getNombre();
+      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NAME:
+        return getName();
       case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__TIPO:
         return getTipo();
     }
@@ -215,8 +215,8 @@ public class CargaHorariaDocenteImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NOMBRE:
-        setNombre((Profesor)newValue);
+      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NAME:
+        setName((Profesor)newValue);
         return;
       case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__TIPO:
         setTipo((CargaHoraria)newValue);
@@ -235,8 +235,8 @@ public class CargaHorariaDocenteImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NOMBRE:
-        setNombre((Profesor)null);
+      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NAME:
+        setName((Profesor)null);
         return;
       case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__TIPO:
         setTipo((CargaHoraria)null);
@@ -255,8 +255,8 @@ public class CargaHorariaDocenteImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NOMBRE:
-        return nombre != null;
+      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__NAME:
+        return name != null;
       case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE__TIPO:
         return tipo != null;
     }

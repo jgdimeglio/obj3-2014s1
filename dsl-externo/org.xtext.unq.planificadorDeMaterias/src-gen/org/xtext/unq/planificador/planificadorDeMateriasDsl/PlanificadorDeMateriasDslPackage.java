@@ -67,13 +67,22 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   int MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Imports</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__IMPORTS = 0;
+
+  /**
    * The feature id for the '<em><b>Profesors</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__PROFESORS = 0;
+  int MODEL__PROFESORS = 1;
 
   /**
    * The feature id for the '<em><b>Horas</b></em>' containment reference list.
@@ -82,7 +91,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__HORAS = 1;
+  int MODEL__HORAS = 2;
 
   /**
    * The feature id for the '<em><b>Materias</b></em>' containment reference list.
@@ -91,7 +100,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__MATERIAS = 2;
+  int MODEL__MATERIAS = 3;
 
   /**
    * The feature id for the '<em><b>Aulas</b></em>' containment reference list.
@@ -100,7 +109,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__AULAS = 3;
+  int MODEL__AULAS = 4;
 
   /**
    * The feature id for the '<em><b>Cargas Horarias</b></em>' containment reference list.
@@ -109,7 +118,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__CARGAS_HORARIAS = 4;
+  int MODEL__CARGAS_HORARIAS = 5;
 
   /**
    * The feature id for the '<em><b>Cargas Horarias Docentes</b></em>' containment reference list.
@@ -118,7 +127,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__CARGAS_HORARIAS_DOCENTES = 5;
+  int MODEL__CARGAS_HORARIAS_DOCENTES = 6;
 
   /**
    * The feature id for the '<em><b>Horarios</b></em>' containment reference list.
@@ -127,7 +136,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__HORARIOS = 6;
+  int MODEL__HORARIOS = 7;
 
   /**
    * The feature id for the '<em><b>Dias</b></em>' containment reference list.
@@ -136,7 +145,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__DIAS = 7;
+  int MODEL__DIAS = 8;
 
   /**
    * The feature id for the '<em><b>Semestre</b></em>' containment reference list.
@@ -145,7 +154,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__SEMESTRE = 8;
+  int MODEL__SEMESTRE = 9;
 
   /**
    * The feature id for the '<em><b>Planificaciones</b></em>' containment reference list.
@@ -154,7 +163,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__PLANIFICACIONES = 9;
+  int MODEL__PLANIFICACIONES = 10;
 
   /**
    * The feature id for the '<em><b>Recursos</b></em>' containment reference list.
@@ -163,16 +172,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__RECURSOS = 10;
-
-  /**
-   * The feature id for the '<em><b>Recursos De Materias</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL__RECURSOS_DE_MATERIAS = 11;
+  int MODEL__RECURSOS = 11;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -184,6 +184,34 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   int MODEL_FEATURE_COUNT = 12;
 
   /**
+   * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ImportImpl <em>Import</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ImportImpl
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getImport()
+   * @generated
+   */
+  int IMPORT = 1;
+
+  /**
+   * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT__IMPORTED_NAMESPACE = 0;
+
+  /**
+   * The number of structural features of the '<em>Import</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ProfesorImpl <em>Profesor</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -191,19 +219,19 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getProfesor()
    * @generated
    */
-  int PROFESOR = 1;
+  int PROFESOR = 2;
 
   /**
-   * The feature id for the '<em><b>Nombre</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROFESOR__NOMBRE = 0;
+  int PROFESOR__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Dedicacion</b></em>' attribute.
+   * The feature id for the '<em><b>Dedicacion</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -228,7 +256,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getHora()
    * @generated
    */
-  int HORA = 2;
+  int HORA = 3;
 
   /**
    * The feature id for the '<em><b>Hora</b></em>' attribute.
@@ -249,6 +277,82 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   int HORA_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.DedicacionImpl <em>Dedicacion</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.DedicacionImpl
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getDedicacion()
+   * @generated
+   */
+  int DEDICACION = 4;
+
+  /**
+   * The number of structural features of the '<em>Dedicacion</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEDICACION_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.SIMPLEImpl <em>SIMPLE</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.SIMPLEImpl
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getSIMPLE()
+   * @generated
+   */
+  int SIMPLE = 5;
+
+  /**
+   * The number of structural features of the '<em>SIMPLE</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FEATURE_COUNT = DEDICACION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.SEMIImpl <em>SEMI</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.SEMIImpl
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getSEMI()
+   * @generated
+   */
+  int SEMI = 6;
+
+  /**
+   * The number of structural features of the '<em>SEMI</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SEMI_FEATURE_COUNT = DEDICACION_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.EXCLUSIVAImpl <em>EXCLUSIVA</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.EXCLUSIVAImpl
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getEXCLUSIVA()
+   * @generated
+   */
+  int EXCLUSIVA = 7;
+
+  /**
+   * The number of structural features of the '<em>EXCLUSIVA</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXCLUSIVA_FEATURE_COUNT = DEDICACION_FEATURE_COUNT + 0;
+
+  /**
    * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.MateriaImpl <em>Materia</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -256,16 +360,16 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getMateria()
    * @generated
    */
-  int MATERIA = 3;
+  int MATERIA = 8;
 
   /**
-   * The feature id for the '<em><b>Nombre</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MATERIA__NOMBRE = 0;
+  int MATERIA__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Carga Horaria</b></em>' containment reference.
@@ -277,13 +381,22 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   int MATERIA__CARGA_HORARIA = 1;
 
   /**
+   * The feature id for the '<em><b>Recursos</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MATERIA__RECURSOS = 2;
+
+  /**
    * The number of structural features of the '<em>Materia</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MATERIA_FEATURE_COUNT = 2;
+  int MATERIA_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.AulaImpl <em>Aula</em>}' class.
@@ -293,16 +406,25 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getAula()
    * @generated
    */
-  int AULA = 4;
+  int AULA = 9;
 
   /**
-   * The feature id for the '<em><b>Nombre</b></em>' attribute list.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AULA__NOMBRE = 0;
+  int AULA__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Recursos</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AULA__RECURSOS = 1;
 
   /**
    * The number of structural features of the '<em>Aula</em>' class.
@@ -311,7 +433,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AULA_FEATURE_COUNT = 1;
+  int AULA_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.CargaHorariaImpl <em>Carga Horaria</em>}' class.
@@ -321,16 +443,16 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getCargaHoraria()
    * @generated
    */
-  int CARGA_HORARIA = 5;
+  int CARGA_HORARIA = 10;
 
   /**
-   * The feature id for the '<em><b>Cant Dias</b></em>' attribute.
+   * The feature id for the '<em><b>Cant Horas</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CARGA_HORARIA__CANT_DIAS = 0;
+  int CARGA_HORARIA__CANT_HORAS = 0;
 
   /**
    * The feature id for the '<em><b>Dias</b></em>' attribute.
@@ -358,16 +480,16 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getCargaHorariaDocente()
    * @generated
    */
-  int CARGA_HORARIA_DOCENTE = 6;
+  int CARGA_HORARIA_DOCENTE = 11;
 
   /**
-   * The feature id for the '<em><b>Nombre</b></em>' containment reference.
+   * The feature id for the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CARGA_HORARIA_DOCENTE__NOMBRE = 0;
+  int CARGA_HORARIA_DOCENTE__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Tipo</b></em>' containment reference.
@@ -395,7 +517,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getHorario()
    * @generated
    */
-  int HORARIO = 7;
+  int HORARIO = 12;
 
   /**
    * The feature id for the '<em><b>Dia</b></em>' containment reference.
@@ -459,7 +581,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getSemestre()
    * @generated
    */
-  int SEMESTRE = 8;
+  int SEMESTRE = 13;
 
   /**
    * The feature id for the '<em><b>Anho</b></em>' attribute.
@@ -496,16 +618,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getDia()
    * @generated
    */
-  int DIA = 9;
-
-  /**
-   * The feature id for the '<em><b>Dia</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DIA__DIA = 0;
+  int DIA = 14;
 
   /**
    * The number of structural features of the '<em>Dia</em>' class.
@@ -514,7 +627,167 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DIA_FEATURE_COUNT = 1;
+  int DIA_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.LunesImpl <em>Lunes</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.LunesImpl
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getLunes()
+   * @generated
+   */
+  int LUNES = 15;
+
+  /**
+   * The number of structural features of the '<em>Lunes</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LUNES_FEATURE_COUNT = DIA_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.MartesImpl <em>Martes</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.MartesImpl
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getMartes()
+   * @generated
+   */
+  int MARTES = 16;
+
+  /**
+   * The number of structural features of the '<em>Martes</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MARTES_FEATURE_COUNT = DIA_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.MiercolesImpl <em>Miercoles</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.MiercolesImpl
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getMiercoles()
+   * @generated
+   */
+  int MIERCOLES = 17;
+
+  /**
+   * The number of structural features of the '<em>Miercoles</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MIERCOLES_FEATURE_COUNT = DIA_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.JuevesImpl <em>Jueves</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.JuevesImpl
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getJueves()
+   * @generated
+   */
+  int JUEVES = 18;
+
+  /**
+   * The number of structural features of the '<em>Jueves</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JUEVES_FEATURE_COUNT = DIA_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ViernesImpl <em>Viernes</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ViernesImpl
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getViernes()
+   * @generated
+   */
+  int VIERNES = 19;
+
+  /**
+   * The number of structural features of the '<em>Viernes</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VIERNES_FEATURE_COUNT = DIA_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.SabadoImpl <em>Sabado</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.SabadoImpl
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getSabado()
+   * @generated
+   */
+  int SABADO = 20;
+
+  /**
+   * The number of structural features of the '<em>Sabado</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SABADO_FEATURE_COUNT = DIA_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.DiasImpl <em>Dias</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.DiasImpl
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getDias()
+   * @generated
+   */
+  int DIAS = 21;
+
+  /**
+   * The feature id for the '<em><b>Dia</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIAS__DIA = 0;
+
+  /**
+   * The feature id for the '<em><b>Materia</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIAS__MATERIA = 1;
+
+  /**
+   * The feature id for the '<em><b>Horario</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIAS__HORARIO = 2;
+
+  /**
+   * The number of structural features of the '<em>Dias</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIAS_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.HorariosImpl <em>Horarios</em>}' class.
@@ -524,7 +797,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getHorarios()
    * @generated
    */
-  int HORARIOS = 10;
+  int HORARIOS = 22;
 
   /**
    * The feature id for the '<em><b>Horarios</b></em>' containment reference list.
@@ -552,7 +825,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getPlanificacion()
    * @generated
    */
-  int PLANIFICACION = 11;
+  int PLANIFICACION = 23;
 
   /**
    * The feature id for the '<em><b>Semestre</b></em>' containment reference.
@@ -598,16 +871,16 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getRecurso()
    * @generated
    */
-  int RECURSO = 12;
+  int RECURSO = 24;
 
   /**
-   * The feature id for the '<em><b>Nombre</b></em>' attribute list.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RECURSO__NOMBRE = 0;
+  int RECURSO__NAME = 0;
 
   /**
    * The number of structural features of the '<em>Recurso</em>' class.
@@ -617,43 +890,6 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @ordered
    */
   int RECURSO_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.RecursoMateriaImpl <em>Recurso Materia</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.RecursoMateriaImpl
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getRecursoMateria()
-   * @generated
-   */
-  int RECURSO_MATERIA = 13;
-
-  /**
-   * The feature id for the '<em><b>Materia</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECURSO_MATERIA__MATERIA = 0;
-
-  /**
-   * The feature id for the '<em><b>Recursos</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECURSO_MATERIA__RECURSOS = 1;
-
-  /**
-   * The number of structural features of the '<em>Recurso Materia</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RECURSO_MATERIA_FEATURE_COUNT = 2;
 
 
   /**
@@ -665,6 +901,17 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @generated
    */
   EClass getModel();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Model#getImports <em>Imports</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Imports</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Model#getImports()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Imports();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Model#getProfesors <em>Profesors</em>}'.
@@ -788,15 +1035,25 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   EReference getModel_Recursos();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Model#getRecursosDeMaterias <em>Recursos De Materias</em>}'.
+   * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Import <em>Import</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Recursos De Materias</em>'.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Model#getRecursosDeMaterias()
-   * @see #getModel()
+   * @return the meta object for class '<em>Import</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Import
    * @generated
    */
-  EReference getModel_RecursosDeMaterias();
+  EClass getImport();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Import#getImportedNamespace <em>Imported Namespace</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Imported Namespace</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Import#getImportedNamespace()
+   * @see #getImport()
+   * @generated
+   */
+  EAttribute getImport_ImportedNamespace();
 
   /**
    * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor <em>Profesor</em>}'.
@@ -809,26 +1066,26 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   EClass getProfesor();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor#getNombre <em>Nombre</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Nombre</em>'.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor#getNombre()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor#getName()
    * @see #getProfesor()
    * @generated
    */
-  EAttribute getProfesor_Nombre();
+  EAttribute getProfesor_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor#getDedicacion <em>Dedicacion</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor#getDedicacion <em>Dedicacion</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Dedicacion</em>'.
+   * @return the meta object for the containment reference '<em>Dedicacion</em>'.
    * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor#getDedicacion()
    * @see #getProfesor()
    * @generated
    */
-  EAttribute getProfesor_Dedicacion();
+  EReference getProfesor_Dedicacion();
 
   /**
    * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Hora <em>Hora</em>}'.
@@ -852,6 +1109,46 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   EAttribute getHora_Hora();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Dedicacion <em>Dedicacion</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Dedicacion</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Dedicacion
+   * @generated
+   */
+  EClass getDedicacion();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.SIMPLE <em>SIMPLE</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>SIMPLE</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.SIMPLE
+   * @generated
+   */
+  EClass getSIMPLE();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.SEMI <em>SEMI</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>SEMI</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.SEMI
+   * @generated
+   */
+  EClass getSEMI();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.EXCLUSIVA <em>EXCLUSIVA</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>EXCLUSIVA</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.EXCLUSIVA
+   * @generated
+   */
+  EClass getEXCLUSIVA();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia <em>Materia</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -862,15 +1159,15 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   EClass getMateria();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia#getNombre <em>Nombre</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Nombre</em>'.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia#getNombre()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia#getName()
    * @see #getMateria()
    * @generated
    */
-  EAttribute getMateria_Nombre();
+  EAttribute getMateria_Name();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia#getCargaHoraria <em>Carga Horaria</em>}'.
@@ -884,6 +1181,17 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   EReference getMateria_CargaHoraria();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia#getRecursos <em>Recursos</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Recursos</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia#getRecursos()
+   * @see #getMateria()
+   * @generated
+   */
+  EReference getMateria_Recursos();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula <em>Aula</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -894,15 +1202,26 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   EClass getAula();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula#getNombre <em>Nombre</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Nombre</em>'.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula#getNombre()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula#getName()
    * @see #getAula()
    * @generated
    */
-  EAttribute getAula_Nombre();
+  EAttribute getAula_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula#getRecursos <em>Recursos</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Recursos</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula#getRecursos()
+   * @see #getAula()
+   * @generated
+   */
+  EReference getAula_Recursos();
 
   /**
    * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria <em>Carga Horaria</em>}'.
@@ -915,15 +1234,15 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   EClass getCargaHoraria();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria#getCantDias <em>Cant Dias</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria#getCantHoras <em>Cant Horas</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Cant Dias</em>'.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria#getCantDias()
+   * @return the meta object for the attribute '<em>Cant Horas</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria#getCantHoras()
    * @see #getCargaHoraria()
    * @generated
    */
-  EAttribute getCargaHoraria_CantDias();
+  EAttribute getCargaHoraria_CantHoras();
 
   /**
    * Returns the meta object for the attribute '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria#getDias <em>Dias</em>}'.
@@ -947,15 +1266,15 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   EClass getCargaHorariaDocente();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHorariaDocente#getNombre <em>Nombre</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHorariaDocente#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Nombre</em>'.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHorariaDocente#getNombre()
+   * @return the meta object for the containment reference '<em>Name</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHorariaDocente#getName()
    * @see #getCargaHorariaDocente()
    * @generated
    */
-  EReference getCargaHorariaDocente_Nombre();
+  EReference getCargaHorariaDocente_Name();
 
   /**
    * Returns the meta object for the containment reference '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHorariaDocente#getTipo <em>Tipo</em>}'.
@@ -1076,15 +1395,107 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   EClass getDia();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Dia#getDia <em>Dia</em>}'.
+   * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Lunes <em>Lunes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Dia</em>'.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Dia#getDia()
-   * @see #getDia()
+   * @return the meta object for class '<em>Lunes</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Lunes
    * @generated
    */
-  EAttribute getDia_Dia();
+  EClass getLunes();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Martes <em>Martes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Martes</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Martes
+   * @generated
+   */
+  EClass getMartes();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Miercoles <em>Miercoles</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Miercoles</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Miercoles
+   * @generated
+   */
+  EClass getMiercoles();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Jueves <em>Jueves</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Jueves</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Jueves
+   * @generated
+   */
+  EClass getJueves();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Viernes <em>Viernes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Viernes</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Viernes
+   * @generated
+   */
+  EClass getViernes();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Sabado <em>Sabado</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Sabado</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Sabado
+   * @generated
+   */
+  EClass getSabado();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Dias <em>Dias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Dias</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Dias
+   * @generated
+   */
+  EClass getDias();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Dias#getDia <em>Dia</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Dia</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Dias#getDia()
+   * @see #getDias()
+   * @generated
+   */
+  EReference getDias_Dia();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Dias#getMateria <em>Materia</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Materia</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Dias#getMateria()
+   * @see #getDias()
+   * @generated
+   */
+  EReference getDias_Materia();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Dias#getHorario <em>Horario</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Horario</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Dias#getHorario()
+   * @see #getDias()
+   * @generated
+   */
+  EReference getDias_Horario();
 
   /**
    * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Horarios <em>Horarios</em>}'.
@@ -1161,47 +1572,15 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   EClass getRecurso();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso#getNombre <em>Nombre</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Nombre</em>'.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso#getNombre()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso#getName()
    * @see #getRecurso()
    * @generated
    */
-  EAttribute getRecurso_Nombre();
-
-  /**
-   * Returns the meta object for class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.RecursoMateria <em>Recurso Materia</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Recurso Materia</em>'.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.RecursoMateria
-   * @generated
-   */
-  EClass getRecursoMateria();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.RecursoMateria#getMateria <em>Materia</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Materia</em>'.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.RecursoMateria#getMateria()
-   * @see #getRecursoMateria()
-   * @generated
-   */
-  EReference getRecursoMateria_Materia();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.RecursoMateria#getRecursos <em>Recursos</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Recursos</em>'.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.RecursoMateria#getRecursos()
-   * @see #getRecursoMateria()
-   * @generated
-   */
-  EReference getRecursoMateria_Recursos();
+  EAttribute getRecurso_Name();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1235,6 +1614,14 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
      * @generated
      */
     EClass MODEL = eINSTANCE.getModel();
+
+    /**
+     * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__IMPORTS = eINSTANCE.getModel_Imports();
 
     /**
      * The meta object literal for the '<em><b>Profesors</b></em>' containment reference list feature.
@@ -1325,12 +1712,22 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
     EReference MODEL__RECURSOS = eINSTANCE.getModel_Recursos();
 
     /**
-     * The meta object literal for the '<em><b>Recursos De Materias</b></em>' containment reference list feature.
+     * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ImportImpl <em>Import</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ImportImpl
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getImport()
+     * @generated
+     */
+    EClass IMPORT = eINSTANCE.getImport();
+
+    /**
+     * The meta object literal for the '<em><b>Imported Namespace</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__RECURSOS_DE_MATERIAS = eINSTANCE.getModel_RecursosDeMaterias();
+    EAttribute IMPORT__IMPORTED_NAMESPACE = eINSTANCE.getImport_ImportedNamespace();
 
     /**
      * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ProfesorImpl <em>Profesor</em>}' class.
@@ -1343,20 +1740,20 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
     EClass PROFESOR = eINSTANCE.getProfesor();
 
     /**
-     * The meta object literal for the '<em><b>Nombre</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PROFESOR__NOMBRE = eINSTANCE.getProfesor_Nombre();
+    EAttribute PROFESOR__NAME = eINSTANCE.getProfesor_Name();
 
     /**
-     * The meta object literal for the '<em><b>Dedicacion</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Dedicacion</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PROFESOR__DEDICACION = eINSTANCE.getProfesor_Dedicacion();
+    EReference PROFESOR__DEDICACION = eINSTANCE.getProfesor_Dedicacion();
 
     /**
      * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.HoraImpl <em>Hora</em>}' class.
@@ -1377,6 +1774,46 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
     EAttribute HORA__HORA = eINSTANCE.getHora_Hora();
 
     /**
+     * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.DedicacionImpl <em>Dedicacion</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.DedicacionImpl
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getDedicacion()
+     * @generated
+     */
+    EClass DEDICACION = eINSTANCE.getDedicacion();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.SIMPLEImpl <em>SIMPLE</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.SIMPLEImpl
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getSIMPLE()
+     * @generated
+     */
+    EClass SIMPLE = eINSTANCE.getSIMPLE();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.SEMIImpl <em>SEMI</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.SEMIImpl
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getSEMI()
+     * @generated
+     */
+    EClass SEMI = eINSTANCE.getSEMI();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.EXCLUSIVAImpl <em>EXCLUSIVA</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.EXCLUSIVAImpl
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getEXCLUSIVA()
+     * @generated
+     */
+    EClass EXCLUSIVA = eINSTANCE.getEXCLUSIVA();
+
+    /**
      * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.MateriaImpl <em>Materia</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1387,12 +1824,12 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
     EClass MATERIA = eINSTANCE.getMateria();
 
     /**
-     * The meta object literal for the '<em><b>Nombre</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MATERIA__NOMBRE = eINSTANCE.getMateria_Nombre();
+    EAttribute MATERIA__NAME = eINSTANCE.getMateria_Name();
 
     /**
      * The meta object literal for the '<em><b>Carga Horaria</b></em>' containment reference feature.
@@ -1401,6 +1838,14 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
      * @generated
      */
     EReference MATERIA__CARGA_HORARIA = eINSTANCE.getMateria_CargaHoraria();
+
+    /**
+     * The meta object literal for the '<em><b>Recursos</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MATERIA__RECURSOS = eINSTANCE.getMateria_Recursos();
 
     /**
      * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.AulaImpl <em>Aula</em>}' class.
@@ -1413,12 +1858,20 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
     EClass AULA = eINSTANCE.getAula();
 
     /**
-     * The meta object literal for the '<em><b>Nombre</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute AULA__NOMBRE = eINSTANCE.getAula_Nombre();
+    EAttribute AULA__NAME = eINSTANCE.getAula_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Recursos</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference AULA__RECURSOS = eINSTANCE.getAula_Recursos();
 
     /**
      * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.CargaHorariaImpl <em>Carga Horaria</em>}' class.
@@ -1431,12 +1884,12 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
     EClass CARGA_HORARIA = eINSTANCE.getCargaHoraria();
 
     /**
-     * The meta object literal for the '<em><b>Cant Dias</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Cant Horas</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CARGA_HORARIA__CANT_DIAS = eINSTANCE.getCargaHoraria_CantDias();
+    EAttribute CARGA_HORARIA__CANT_HORAS = eINSTANCE.getCargaHoraria_CantHoras();
 
     /**
      * The meta object literal for the '<em><b>Dias</b></em>' attribute feature.
@@ -1457,12 +1910,12 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
     EClass CARGA_HORARIA_DOCENTE = eINSTANCE.getCargaHorariaDocente();
 
     /**
-     * The meta object literal for the '<em><b>Nombre</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CARGA_HORARIA_DOCENTE__NOMBRE = eINSTANCE.getCargaHorariaDocente_Nombre();
+    EReference CARGA_HORARIA_DOCENTE__NAME = eINSTANCE.getCargaHorariaDocente_Name();
 
     /**
      * The meta object literal for the '<em><b>Tipo</b></em>' containment reference feature.
@@ -1559,12 +2012,98 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
     EClass DIA = eINSTANCE.getDia();
 
     /**
-     * The meta object literal for the '<em><b>Dia</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.LunesImpl <em>Lunes</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.LunesImpl
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getLunes()
+     * @generated
+     */
+    EClass LUNES = eINSTANCE.getLunes();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.MartesImpl <em>Martes</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.MartesImpl
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getMartes()
+     * @generated
+     */
+    EClass MARTES = eINSTANCE.getMartes();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.MiercolesImpl <em>Miercoles</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.MiercolesImpl
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getMiercoles()
+     * @generated
+     */
+    EClass MIERCOLES = eINSTANCE.getMiercoles();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.JuevesImpl <em>Jueves</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.JuevesImpl
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getJueves()
+     * @generated
+     */
+    EClass JUEVES = eINSTANCE.getJueves();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ViernesImpl <em>Viernes</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ViernesImpl
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getViernes()
+     * @generated
+     */
+    EClass VIERNES = eINSTANCE.getViernes();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.SabadoImpl <em>Sabado</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.SabadoImpl
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getSabado()
+     * @generated
+     */
+    EClass SABADO = eINSTANCE.getSabado();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.DiasImpl <em>Dias</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.DiasImpl
+     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getDias()
+     * @generated
+     */
+    EClass DIAS = eINSTANCE.getDias();
+
+    /**
+     * The meta object literal for the '<em><b>Dia</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DIA__DIA = eINSTANCE.getDia_Dia();
+    EReference DIAS__DIA = eINSTANCE.getDias_Dia();
+
+    /**
+     * The meta object literal for the '<em><b>Materia</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIAS__MATERIA = eINSTANCE.getDias_Materia();
+
+    /**
+     * The meta object literal for the '<em><b>Horario</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DIAS__HORARIO = eINSTANCE.getDias_Horario();
 
     /**
      * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.HorariosImpl <em>Horarios</em>}' class.
@@ -1629,38 +2168,12 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
     EClass RECURSO = eINSTANCE.getRecurso();
 
     /**
-     * The meta object literal for the '<em><b>Nombre</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute RECURSO__NOMBRE = eINSTANCE.getRecurso_Nombre();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.RecursoMateriaImpl <em>Recurso Materia</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.RecursoMateriaImpl
-     * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificadorDeMateriasDslPackageImpl#getRecursoMateria()
-     * @generated
-     */
-    EClass RECURSO_MATERIA = eINSTANCE.getRecursoMateria();
-
-    /**
-     * The meta object literal for the '<em><b>Materia</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference RECURSO_MATERIA__MATERIA = eINSTANCE.getRecursoMateria_Materia();
-
-    /**
-     * The meta object literal for the '<em><b>Recursos</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference RECURSO_MATERIA__RECURSOS = eINSTANCE.getRecursoMateria_Recursos();
+    EAttribute RECURSO__NAME = eINSTANCE.getRecurso_Name();
 
   }
 

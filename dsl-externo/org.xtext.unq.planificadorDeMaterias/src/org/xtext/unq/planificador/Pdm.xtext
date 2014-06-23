@@ -5,6 +5,7 @@ generate planificadorDeMateriasDsl "http://www.xtext.org/unq/planificadorDeMater
 import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
 
 Model:
+	imports+=Import*
 	profesors+=Profesor*
 	horas+=Hora*
 	materias+=Materia*
@@ -16,38 +17,44 @@ Model:
 	semestre+=Semestre*
 	planificaciones+=Planificacion*
 	horarios+=Horario*
-	recursos+=Recurso*
-	recursosDeMaterias+=RecursoMateria*;
+	recursos+=Recurso*;
+	//recursosDeMaterias+=RecursoMateria*
+
+Import:
+  'import' importedNamespace=ImportedFQN;
+
+ImportedFQN:
+  FQN ('.*')?;
+
+FQN:
+  ID ('.' ID)*;
 
 Profesor:
-	'profesor' nombre=ID 'dedicacion' dedicacion=Dedicacion;
+	'profesor' name=ID 'dedicacion' dedicacion=Dedicacion;
 
 Hora:
 	'hora' hora=INT;
 
 Dedicacion:
-	SIMPLE | SEMI | EXCLUSIVA;
-
-SIMPLE:
-	'simple';
-
-SEMI:
-	'semi';
-
-EXCLUSIVA:
-	'exclusiva';
+	{SIMPLE}    'Simple'   | 
+	{SEMI}      'Semi'     | 
+	{EXCLUSIVA} 'Exclusiva'
+;
 
 Materia:
-	'materia' nombre=ID 'con' cargaHoraria=CargaHoraria;
+	'materia' name=ID 'con' cargaHoraria=CargaHoraria
+	('requiere:' (recursos+=Recurso)+)?;
 
 Aula:
-	'aula' nombre+=ID;
+	'aula' name=ID
+	(('recurso' recursos+=Recurso)+)?;
+	
 
 CargaHoraria:
-	'cargaHoraria' cantDias=INT 'dias' dias=INT;
+	'cargaHoraria' cantHoras=INT  'dias' dias=INT;
 
 CargaHorariaDocente:
-	nombre=Profesor 'tiene' tipo=CargaHoraria;
+	name=Profesor 'tiene' tipo=CargaHoraria;
 
 Horario:
 	dia=Dia ':'
@@ -56,8 +63,17 @@ Horario:
 Semestre:
 	anho=INT 'semestre' numero=INT;
 
-Dia:
-	'dia' dia=ID;
+ Dia:
+	{Lunes}     'Lunes'     | 
+	{Martes}    'Martes'    | 
+	{Miercoles} 'Miercoles' | 
+	{Jueves}    'Jueves'    | 
+	{Viernes}   'Viernes'   | 
+	{Sabado}    'Sabado';
+
+Asignacion: // Dias <=> Asignaciones ??
+	dia=Dia (materia=Materia 'horario' horario=Horario)?
+;
 
 Horarios:
 	'horarios {' (horarios+=Horario)+ '}';
@@ -69,10 +85,6 @@ Planificacion:
 	'}';
 
 Recurso:
-	'recurso' nombre+=ID;
+	'recurso' name=ID;
 
-RecursoMateria:
-	'materia' materia=Materia '{'
-	'requiere:' (recursos+=Recurso)+
-	'}';
 	

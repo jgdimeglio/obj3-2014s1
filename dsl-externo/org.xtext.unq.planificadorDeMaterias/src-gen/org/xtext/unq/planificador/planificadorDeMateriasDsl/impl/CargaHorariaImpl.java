@@ -19,7 +19,7 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateri
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.CargaHorariaImpl#getCantDias <em>Cant Dias</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.CargaHorariaImpl#getCantHoras <em>Cant Horas</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.CargaHorariaImpl#getDias <em>Dias</em>}</li>
  * </ul>
  * </p>
@@ -29,24 +29,24 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateri
 public class CargaHorariaImpl extends MinimalEObjectImpl.Container implements CargaHoraria
 {
   /**
-   * The default value of the '{@link #getCantDias() <em>Cant Dias</em>}' attribute.
+   * The default value of the '{@link #getCantHoras() <em>Cant Horas</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCantDias()
+   * @see #getCantHoras()
    * @generated
    * @ordered
    */
-  protected static final int CANT_DIAS_EDEFAULT = 0;
+  protected static final int CANT_HORAS_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getCantDias() <em>Cant Dias</em>}' attribute.
+   * The cached value of the '{@link #getCantHoras() <em>Cant Horas</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCantDias()
+   * @see #getCantHoras()
    * @generated
    * @ordered
    */
-  protected int cantDias = CANT_DIAS_EDEFAULT;
+  protected int cantHoras = CANT_HORAS_EDEFAULT;
 
   /**
    * The default value of the '{@link #getDias() <em>Dias</em>}' attribute.
@@ -94,9 +94,9 @@ public class CargaHorariaImpl extends MinimalEObjectImpl.Container implements Ca
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getCantDias()
+  public int getCantHoras()
   {
-    return cantDias;
+    return cantHoras;
   }
 
   /**
@@ -104,12 +104,12 @@ public class CargaHorariaImpl extends MinimalEObjectImpl.Container implements Ca
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCantDias(int newCantDias)
+  public void setCantHoras(int newCantHoras)
   {
-    int oldCantDias = cantDias;
-    cantDias = newCantDias;
+    int oldCantHoras = cantHoras;
+    cantHoras = newCantHoras;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.CARGA_HORARIA__CANT_DIAS, oldCantDias, cantDias));
+      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.CARGA_HORARIA__CANT_HORAS, oldCantHoras, cantHoras));
   }
 
   /**
@@ -145,8 +145,8 @@ public class CargaHorariaImpl extends MinimalEObjectImpl.Container implements Ca
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA__CANT_DIAS:
-        return getCantDias();
+      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA__CANT_HORAS:
+        return getCantHoras();
       case PlanificadorDeMateriasDslPackage.CARGA_HORARIA__DIAS:
         return getDias();
     }
@@ -163,8 +163,8 @@ public class CargaHorariaImpl extends MinimalEObjectImpl.Container implements Ca
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA__CANT_DIAS:
-        setCantDias((Integer)newValue);
+      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA__CANT_HORAS:
+        setCantHoras((Integer)newValue);
         return;
       case PlanificadorDeMateriasDslPackage.CARGA_HORARIA__DIAS:
         setDias((Integer)newValue);
@@ -183,8 +183,8 @@ public class CargaHorariaImpl extends MinimalEObjectImpl.Container implements Ca
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA__CANT_DIAS:
-        setCantDias(CANT_DIAS_EDEFAULT);
+      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA__CANT_HORAS:
+        setCantHoras(CANT_HORAS_EDEFAULT);
         return;
       case PlanificadorDeMateriasDslPackage.CARGA_HORARIA__DIAS:
         setDias(DIAS_EDEFAULT);
@@ -203,8 +203,8 @@ public class CargaHorariaImpl extends MinimalEObjectImpl.Container implements Ca
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA__CANT_DIAS:
-        return cantDias != CANT_DIAS_EDEFAULT;
+      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA__CANT_HORAS:
+        return cantHoras != CANT_HORAS_EDEFAULT;
       case PlanificadorDeMateriasDslPackage.CARGA_HORARIA__DIAS:
         return dias != DIAS_EDEFAULT;
     }
@@ -222,8 +222,8 @@ public class CargaHorariaImpl extends MinimalEObjectImpl.Container implements Ca
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (cantDias: ");
-    result.append(cantDias);
+    result.append(" (cantHoras: ");
+    result.append(cantHoras);
     result.append(", dias: ");
     result.append(dias);
     result.append(')');

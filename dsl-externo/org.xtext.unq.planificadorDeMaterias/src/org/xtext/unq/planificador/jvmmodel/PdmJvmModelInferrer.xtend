@@ -5,6 +5,10 @@ import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
+import org.eclipse.xtext.common.types.JvmTypeReference
+import org.eclipse.emf.ecore.EEnum
+import org.eclipse.emf.ecore.EClass
 
 /**
  * <p>Infers a JVM model from the source model.</p> 
@@ -44,20 +48,27 @@ class PdmJvmModelInferrer extends AbstractModelInferrer {
 	 *            rely on linking using the index if isPreIndexingPhase is
 	 *            <code>true</code>.
 	 */
-   	def dispatch void infer(Model element, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
+   	def dispatch void infer(Materia materia, IJvmDeclaredTypeAcceptor acceptor, boolean isPreIndexingPhase) {
    		// Here you explain how your model is mapped to Java elements, by writing the actual translation code.
    		
    		// An implementation for the initial hello world example could look like this:
-//   		acceptor.accept(element.toClass("my.company.greeting.MyGreetings"))
-//   			.initializeLater([
-//   				for (greeting : element.greetings) {
-//   					members += greeting.toMethod("hello" + greeting.name, greeting.newTypeRef(typeof(String))) [
-//   						body = [
-//   							append('''return "Hello «greeting.name»";''')
-//   						]
-//   					]
-//   				}
-//   			])
+   		acceptor.accept(
+			materia.toClass("Materia")
+		).initializeLater [
+			documentation = materia.documentation
+			members += materia.toField("horas", materia.newTypeRef(String)
+			)
+			members += materia.toConstructor [
+				body = [
+					append(
+						'''
+							this.nombre ;
+							this.horas = «materia.cargaHoraria.cantHoras»;
+							this.dias = «materia.cargaHoraria.dias»;
+						''')
+				]
+			]
+		]
    	}
 }
 

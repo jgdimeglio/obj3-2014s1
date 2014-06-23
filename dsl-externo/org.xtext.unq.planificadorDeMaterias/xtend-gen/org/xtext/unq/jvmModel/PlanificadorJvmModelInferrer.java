@@ -33,11 +33,8 @@ public class PlanificadorJvmModelInferrer extends AbstractModelInferrer {
             final Procedure1<ITreeAppendable> _function = new Procedure1<ITreeAppendable>() {
               public void apply(final ITreeAppendable it) {
                 StringConcatenation _builder = new StringConcatenation();
-                _builder.append("setNombre(\"");
-                String _nombre = materia.getNombre();
-                _builder.append(_nombre, "");
-                _builder.append("\");");
-                _builder.newLineIfNotEmpty();
+                _builder.append("\t\t\t\t\t\t\t");
+                _builder.newLine();
                 it.append(_builder);
               }
             };

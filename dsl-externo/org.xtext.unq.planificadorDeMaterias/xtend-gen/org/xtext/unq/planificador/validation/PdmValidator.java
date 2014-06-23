@@ -3,6 +3,16 @@
  */
 package org.xtext.unq.planificador.validation;
 
+import java.util.Set;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horarios;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage;
 import org.xtext.unq.planificador.validation.AbstractPdmValidator;
 
 /**
@@ -12,4 +22,26 @@ import org.xtext.unq.planificador.validation.AbstractPdmValidator;
  */
 @SuppressWarnings("all")
 public class PdmValidator extends AbstractPdmValidator {
+  @Check
+  public void validateDayNotRepeated(final Planificacion p) {
+    boolean _tieneMateriasRepetidas = this.tieneMateriasRepetidas(p);
+    if (_tieneMateriasRepetidas) {
+      this.error("Tiene materias repetidas", p, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__MATERIAS);
+    }
+  }
+  
+  public boolean tieneMateriasRepetidas(final Planificacion p) {
+    EList<Materia> _materias = p.getMaterias();
+    Set<Materia> _set = IterableExtensions.<Materia>toSet(_materias);
+    int _size = _set.size();
+    EList<Materia> _materias_1 = p.getMaterias();
+    int _size_1 = _materias_1.size();
+    return (_size < _size_1);
+  }
+  
+  @Check
+  public void validateDayNotRepeateasd(final Horario h) {
+    EObject _eContainer = h.eContainer();
+    final Horarios horarios = ((Horarios) _eContainer);
+  }
 }

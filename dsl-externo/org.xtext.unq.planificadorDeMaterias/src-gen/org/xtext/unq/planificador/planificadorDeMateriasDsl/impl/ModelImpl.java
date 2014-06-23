@@ -22,13 +22,13 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHorariaDocente;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dia;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Hora;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Import;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso;
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.RecursoMateria;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Semestre;
 
 /**
@@ -38,6 +38,7 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Semestre;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ModelImpl#getProfesors <em>Profesors</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ModelImpl#getHoras <em>Horas</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ModelImpl#getMaterias <em>Materias</em>}</li>
@@ -49,7 +50,6 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Semestre;
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ModelImpl#getSemestre <em>Semestre</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ModelImpl#getPlanificaciones <em>Planificaciones</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ModelImpl#getRecursos <em>Recursos</em>}</li>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ModelImpl#getRecursosDeMaterias <em>Recursos De Materias</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,6 +57,16 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Semestre;
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
+  /**
+   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImports()
+   * @generated
+   * @ordered
+   */
+  protected EList<Import> imports;
+
   /**
    * The cached value of the '{@link #getProfesors() <em>Profesors</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -168,16 +178,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EList<Recurso> recursos;
 
   /**
-   * The cached value of the '{@link #getRecursosDeMaterias() <em>Recursos De Materias</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRecursosDeMaterias()
-   * @generated
-   * @ordered
-   */
-  protected EList<RecursoMateria> recursosDeMaterias;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -196,6 +196,20 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EClass eStaticClass()
   {
     return PlanificadorDeMateriasDslPackage.Literals.MODEL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Import> getImports()
+  {
+    if (imports == null)
+    {
+      imports = new EObjectContainmentEList<Import>(Import.class, this, PlanificadorDeMateriasDslPackage.MODEL__IMPORTS);
+    }
+    return imports;
   }
 
   /**
@@ -357,25 +371,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<RecursoMateria> getRecursosDeMaterias()
-  {
-    if (recursosDeMaterias == null)
-    {
-      recursosDeMaterias = new EObjectContainmentEList<RecursoMateria>(RecursoMateria.class, this, PlanificadorDeMateriasDslPackage.MODEL__RECURSOS_DE_MATERIAS);
-    }
-    return recursosDeMaterias;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
+      case PlanificadorDeMateriasDslPackage.MODEL__IMPORTS:
+        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case PlanificadorDeMateriasDslPackage.MODEL__PROFESORS:
         return ((InternalEList<?>)getProfesors()).basicRemove(otherEnd, msgs);
       case PlanificadorDeMateriasDslPackage.MODEL__HORAS:
@@ -398,8 +400,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return ((InternalEList<?>)getPlanificaciones()).basicRemove(otherEnd, msgs);
       case PlanificadorDeMateriasDslPackage.MODEL__RECURSOS:
         return ((InternalEList<?>)getRecursos()).basicRemove(otherEnd, msgs);
-      case PlanificadorDeMateriasDslPackage.MODEL__RECURSOS_DE_MATERIAS:
-        return ((InternalEList<?>)getRecursosDeMaterias()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -414,6 +414,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case PlanificadorDeMateriasDslPackage.MODEL__IMPORTS:
+        return getImports();
       case PlanificadorDeMateriasDslPackage.MODEL__PROFESORS:
         return getProfesors();
       case PlanificadorDeMateriasDslPackage.MODEL__HORAS:
@@ -436,8 +438,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getPlanificaciones();
       case PlanificadorDeMateriasDslPackage.MODEL__RECURSOS:
         return getRecursos();
-      case PlanificadorDeMateriasDslPackage.MODEL__RECURSOS_DE_MATERIAS:
-        return getRecursosDeMaterias();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -453,6 +453,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case PlanificadorDeMateriasDslPackage.MODEL__IMPORTS:
+        getImports().clear();
+        getImports().addAll((Collection<? extends Import>)newValue);
+        return;
       case PlanificadorDeMateriasDslPackage.MODEL__PROFESORS:
         getProfesors().clear();
         getProfesors().addAll((Collection<? extends Profesor>)newValue);
@@ -497,10 +501,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         getRecursos().clear();
         getRecursos().addAll((Collection<? extends Recurso>)newValue);
         return;
-      case PlanificadorDeMateriasDslPackage.MODEL__RECURSOS_DE_MATERIAS:
-        getRecursosDeMaterias().clear();
-        getRecursosDeMaterias().addAll((Collection<? extends RecursoMateria>)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -515,6 +515,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case PlanificadorDeMateriasDslPackage.MODEL__IMPORTS:
+        getImports().clear();
+        return;
       case PlanificadorDeMateriasDslPackage.MODEL__PROFESORS:
         getProfesors().clear();
         return;
@@ -548,9 +551,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case PlanificadorDeMateriasDslPackage.MODEL__RECURSOS:
         getRecursos().clear();
         return;
-      case PlanificadorDeMateriasDslPackage.MODEL__RECURSOS_DE_MATERIAS:
-        getRecursosDeMaterias().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -565,6 +565,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case PlanificadorDeMateriasDslPackage.MODEL__IMPORTS:
+        return imports != null && !imports.isEmpty();
       case PlanificadorDeMateriasDslPackage.MODEL__PROFESORS:
         return profesors != null && !profesors.isEmpty();
       case PlanificadorDeMateriasDslPackage.MODEL__HORAS:
@@ -587,8 +589,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return planificaciones != null && !planificaciones.isEmpty();
       case PlanificadorDeMateriasDslPackage.MODEL__RECURSOS:
         return recursos != null && !recursos.isEmpty();
-      case PlanificadorDeMateriasDslPackage.MODEL__RECURSOS_DE_MATERIAS:
-        return recursosDeMaterias != null && !recursosDeMaterias.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -80,6 +80,11 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
+      public Adapter caseImport(Import object)
+      {
+        return createImportAdapter();
+      }
+      @Override
       public Adapter caseProfesor(Profesor object)
       {
         return createProfesorAdapter();
@@ -88,6 +93,26 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseHora(Hora object)
       {
         return createHoraAdapter();
+      }
+      @Override
+      public Adapter caseDedicacion(Dedicacion object)
+      {
+        return createDedicacionAdapter();
+      }
+      @Override
+      public Adapter caseSIMPLE(SIMPLE object)
+      {
+        return createSIMPLEAdapter();
+      }
+      @Override
+      public Adapter caseSEMI(SEMI object)
+      {
+        return createSEMIAdapter();
+      }
+      @Override
+      public Adapter caseEXCLUSIVA(EXCLUSIVA object)
+      {
+        return createEXCLUSIVAAdapter();
       }
       @Override
       public Adapter caseMateria(Materia object)
@@ -125,6 +150,41 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
         return createDiaAdapter();
       }
       @Override
+      public Adapter caseLunes(Lunes object)
+      {
+        return createLunesAdapter();
+      }
+      @Override
+      public Adapter caseMartes(Martes object)
+      {
+        return createMartesAdapter();
+      }
+      @Override
+      public Adapter caseMiercoles(Miercoles object)
+      {
+        return createMiercolesAdapter();
+      }
+      @Override
+      public Adapter caseJueves(Jueves object)
+      {
+        return createJuevesAdapter();
+      }
+      @Override
+      public Adapter caseViernes(Viernes object)
+      {
+        return createViernesAdapter();
+      }
+      @Override
+      public Adapter caseSabado(Sabado object)
+      {
+        return createSabadoAdapter();
+      }
+      @Override
+      public Adapter caseDias(Dias object)
+      {
+        return createDiasAdapter();
+      }
+      @Override
       public Adapter caseHorarios(Horarios object)
       {
         return createHorariosAdapter();
@@ -138,11 +198,6 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseRecurso(Recurso object)
       {
         return createRecursoAdapter();
-      }
-      @Override
-      public Adapter caseRecursoMateria(RecursoMateria object)
-      {
-        return createRecursoMateriaAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -182,6 +237,21 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Import <em>Import</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Import
+   * @generated
+   */
+  public Adapter createImportAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor <em>Profesor</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -207,6 +277,66 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createHoraAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Dedicacion <em>Dedicacion</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Dedicacion
+   * @generated
+   */
+  public Adapter createDedicacionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.SIMPLE <em>SIMPLE</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.SIMPLE
+   * @generated
+   */
+  public Adapter createSIMPLEAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.SEMI <em>SEMI</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.SEMI
+   * @generated
+   */
+  public Adapter createSEMIAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.EXCLUSIVA <em>EXCLUSIVA</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.EXCLUSIVA
+   * @generated
+   */
+  public Adapter createEXCLUSIVAAdapter()
   {
     return null;
   }
@@ -317,6 +447,111 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Lunes <em>Lunes</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Lunes
+   * @generated
+   */
+  public Adapter createLunesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Martes <em>Martes</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Martes
+   * @generated
+   */
+  public Adapter createMartesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Miercoles <em>Miercoles</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Miercoles
+   * @generated
+   */
+  public Adapter createMiercolesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Jueves <em>Jueves</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Jueves
+   * @generated
+   */
+  public Adapter createJuevesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Viernes <em>Viernes</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Viernes
+   * @generated
+   */
+  public Adapter createViernesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Sabado <em>Sabado</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Sabado
+   * @generated
+   */
+  public Adapter createSabadoAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Dias <em>Dias</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Dias
+   * @generated
+   */
+  public Adapter createDiasAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Horarios <em>Horarios</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -357,21 +592,6 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRecursoAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.RecursoMateria <em>Recurso Materia</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.RecursoMateria
-   * @generated
-   */
-  public Adapter createRecursoMateriaAdapter()
   {
     return null;
   }

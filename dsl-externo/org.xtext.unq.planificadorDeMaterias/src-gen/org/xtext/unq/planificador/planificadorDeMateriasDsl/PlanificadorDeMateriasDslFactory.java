@@ -32,6 +32,15 @@ public interface PlanificadorDeMateriasDslFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Import</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Import</em>'.
+   * @generated
+   */
+  Import createImport();
+
+  /**
    * Returns a new object of class '<em>Profesor</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -48,6 +57,42 @@ public interface PlanificadorDeMateriasDslFactory extends EFactory
    * @generated
    */
   Hora createHora();
+
+  /**
+   * Returns a new object of class '<em>Dedicacion</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dedicacion</em>'.
+   * @generated
+   */
+  Dedicacion createDedicacion();
+
+  /**
+   * Returns a new object of class '<em>SIMPLE</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>SIMPLE</em>'.
+   * @generated
+   */
+  SIMPLE createSIMPLE();
+
+  /**
+   * Returns a new object of class '<em>SEMI</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>SEMI</em>'.
+   * @generated
+   */
+  SEMI createSEMI();
+
+  /**
+   * Returns a new object of class '<em>EXCLUSIVA</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>EXCLUSIVA</em>'.
+   * @generated
+   */
+  EXCLUSIVA createEXCLUSIVA();
 
   /**
    * Returns a new object of class '<em>Materia</em>'.
@@ -113,6 +158,69 @@ public interface PlanificadorDeMateriasDslFactory extends EFactory
   Dia createDia();
 
   /**
+   * Returns a new object of class '<em>Lunes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Lunes</em>'.
+   * @generated
+   */
+  Lunes createLunes();
+
+  /**
+   * Returns a new object of class '<em>Martes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Martes</em>'.
+   * @generated
+   */
+  Martes createMartes();
+
+  /**
+   * Returns a new object of class '<em>Miercoles</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Miercoles</em>'.
+   * @generated
+   */
+  Miercoles createMiercoles();
+
+  /**
+   * Returns a new object of class '<em>Jueves</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Jueves</em>'.
+   * @generated
+   */
+  Jueves createJueves();
+
+  /**
+   * Returns a new object of class '<em>Viernes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Viernes</em>'.
+   * @generated
+   */
+  Viernes createViernes();
+
+  /**
+   * Returns a new object of class '<em>Sabado</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sabado</em>'.
+   * @generated
+   */
+  Sabado createSabado();
+
+  /**
+   * Returns a new object of class '<em>Dias</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dias</em>'.
+   * @generated
+   */
+  Dias createDias();
+
+  /**
    * Returns a new object of class '<em>Horarios</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -138,15 +246,6 @@ public interface PlanificadorDeMateriasDslFactory extends EFactory
    * @generated
    */
   Recurso createRecurso();
-
-  /**
-   * Returns a new object of class '<em>Recurso Materia</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Recurso Materia</em>'.
-   * @generated
-   */
-  RecursoMateria createRecursoMateria();
 
   /**
    * Returns the package supported by this factory.

@@ -4,16 +4,23 @@ package org.xtext.unq.planificador.planificadorDeMateriasDsl.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +29,8 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateri
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.AulaImpl#getNombre <em>Nombre</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.AulaImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.AulaImpl#getRecursos <em>Recursos</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,14 +39,34 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateri
 public class AulaImpl extends MinimalEObjectImpl.Container implements Aula
 {
   /**
-   * The cached value of the '{@link #getNombre() <em>Nombre</em>}' attribute list.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNombre()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected EList<String> nombre;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getRecursos() <em>Recursos</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRecursos()
+   * @generated
+   * @ordered
+   */
+  protected EList<Recurso> recursos;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,13 +94,52 @@ public class AulaImpl extends MinimalEObjectImpl.Container implements Aula
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getNombre()
+  public String getName()
   {
-    if (nombre == null)
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.AULA__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Recurso> getRecursos()
+  {
+    if (recursos == null)
     {
-      nombre = new EDataTypeEList<String>(String.class, this, PlanificadorDeMateriasDslPackage.AULA__NOMBRE);
+      recursos = new EObjectContainmentEList<Recurso>(Recurso.class, this, PlanificadorDeMateriasDslPackage.AULA__RECURSOS);
     }
-    return nombre;
+    return recursos;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case PlanificadorDeMateriasDslPackage.AULA__RECURSOS:
+        return ((InternalEList<?>)getRecursos()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -85,8 +152,10 @@ public class AulaImpl extends MinimalEObjectImpl.Container implements Aula
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.AULA__NOMBRE:
-        return getNombre();
+      case PlanificadorDeMateriasDslPackage.AULA__NAME:
+        return getName();
+      case PlanificadorDeMateriasDslPackage.AULA__RECURSOS:
+        return getRecursos();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -102,9 +171,12 @@ public class AulaImpl extends MinimalEObjectImpl.Container implements Aula
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.AULA__NOMBRE:
-        getNombre().clear();
-        getNombre().addAll((Collection<? extends String>)newValue);
+      case PlanificadorDeMateriasDslPackage.AULA__NAME:
+        setName((String)newValue);
+        return;
+      case PlanificadorDeMateriasDslPackage.AULA__RECURSOS:
+        getRecursos().clear();
+        getRecursos().addAll((Collection<? extends Recurso>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -120,8 +192,11 @@ public class AulaImpl extends MinimalEObjectImpl.Container implements Aula
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.AULA__NOMBRE:
-        getNombre().clear();
+      case PlanificadorDeMateriasDslPackage.AULA__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case PlanificadorDeMateriasDslPackage.AULA__RECURSOS:
+        getRecursos().clear();
         return;
     }
     super.eUnset(featureID);
@@ -137,8 +212,10 @@ public class AulaImpl extends MinimalEObjectImpl.Container implements Aula
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.AULA__NOMBRE:
-        return nombre != null && !nombre.isEmpty();
+      case PlanificadorDeMateriasDslPackage.AULA__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case PlanificadorDeMateriasDslPackage.AULA__RECURSOS:
+        return recursos != null && !recursos.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -154,8 +231,8 @@ public class AulaImpl extends MinimalEObjectImpl.Container implements Aula
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (nombre: ");
-    result.append(nombre);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

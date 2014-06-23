@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHorariaDocente#getNombre <em>Nombre</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHorariaDocente#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHorariaDocente#getTipo <em>Tipo</em>}</li>
  * </ul>
  * </p>
@@ -24,30 +24,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface CargaHorariaDocente extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Nombre</b></em>' containment reference.
+   * Returns the value of the '<em><b>Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Nombre</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Name</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Nombre</em>' containment reference.
-   * @see #setNombre(Profesor)
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage#getCargaHorariaDocente_Nombre()
+   * @return the value of the '<em>Name</em>' containment reference.
+   * @see #setName(Profesor)
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage#getCargaHorariaDocente_Name()
    * @model containment="true"
    * @generated
    */
-  Profesor getNombre();
+  Profesor getName();
 
   /**
-   * Sets the value of the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHorariaDocente#getNombre <em>Nombre</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHorariaDocente#getName <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Nombre</em>' containment reference.
-   * @see #getNombre()
+   * @param value the new value of the '<em>Name</em>' containment reference.
+   * @see #getName()
    * @generated
    */
-  void setNombre(Profesor value);
+  void setName(Profesor value);
 
   /**
    * Returns the value of the '<em><b>Tipo</b></em>' containment reference.

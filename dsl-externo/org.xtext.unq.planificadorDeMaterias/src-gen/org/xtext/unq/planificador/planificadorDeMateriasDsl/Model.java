@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Model#getImports <em>Imports</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Model#getProfesors <em>Profesors</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Model#getHoras <em>Horas</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Model#getMaterias <em>Materias</em>}</li>
@@ -25,7 +26,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Model#getSemestre <em>Semestre</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Model#getPlanificaciones <em>Planificaciones</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Model#getRecursos <em>Recursos</em>}</li>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Model#getRecursosDeMaterias <em>Recursos De Materias</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,6 +35,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Import}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Imports</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Imports</em>' containment reference list.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage#getModel_Imports()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Import> getImports();
+
   /**
    * Returns the value of the '<em><b>Profesors</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor}.
@@ -210,21 +226,5 @@ public interface Model extends EObject
    * @generated
    */
   EList<Recurso> getRecursos();
-
-  /**
-   * Returns the value of the '<em><b>Recursos De Materias</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.unq.planificador.planificadorDeMateriasDsl.RecursoMateria}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Recursos De Materias</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Recursos De Materias</em>' containment reference list.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage#getModel_RecursosDeMaterias()
-   * @model containment="true"
-   * @generated
-   */
-  EList<RecursoMateria> getRecursosDeMaterias();
 
 } // Model

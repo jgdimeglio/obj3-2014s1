@@ -74,6 +74,7 @@ public class InternalPdmLexer extends Lexer {
     public static final int T__65=65;
     public static final int T__62=62;
     public static final int T__63=63;
+    public static final int T__114=114;
     public static final int T__61=61;
     public static final int T__60=60;
     public static final int T__55=55;
@@ -86,12 +87,17 @@ public class InternalPdmLexer extends Lexer {
     public static final int T__54=54;
     public static final int T__107=107;
     public static final int T__108=108;
+    public static final int T__109=109;
     public static final int T__103=103;
     public static final int T__59=59;
     public static final int T__104=104;
     public static final int T__105=105;
     public static final int T__106=106;
+    public static final int T__111=111;
+    public static final int T__110=110;
     public static final int RULE_INT=6;
+    public static final int T__113=113;
+    public static final int T__112=112;
     public static final int T__50=50;
     public static final int T__42=42;
     public static final int T__43=43;
@@ -137,11 +143,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__13;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:11:7: ( 'simple' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:11:9: 'simple'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:11:7: ( '=' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:11:9: '='
             {
-            match("simple"); 
-
+            match('='); 
 
             }
 
@@ -158,10 +163,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:12:7: ( 'semi' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:12:9: 'semi'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:12:7: ( '||' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:12:9: '||'
             {
-            match("semi"); 
+            match("||"); 
 
 
             }
@@ -179,10 +184,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:13:7: ( 'exclusiva' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:13:9: 'exclusiva'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:13:7: ( '&&' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:13:9: '&&'
             {
-            match("exclusiva"); 
+            match("&&"); 
 
 
             }
@@ -200,10 +205,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:14:7: ( '=' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:14:9: '='
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:14:7: ( '+=' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:14:9: '+='
             {
-            match('='); 
+            match("+="); 
+
 
             }
 
@@ -220,10 +226,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:15:7: ( '||' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:15:9: '||'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:15:7: ( '-=' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:15:9: '-='
             {
-            match("||"); 
+            match("-="); 
 
 
             }
@@ -241,10 +247,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:16:7: ( '&&' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:16:9: '&&'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:16:7: ( '*=' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:16:9: '*='
             {
-            match("&&"); 
+            match("*="); 
 
 
             }
@@ -262,10 +268,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:17:7: ( '+=' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:17:9: '+='
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:17:7: ( '/=' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:17:9: '/='
             {
-            match("+="); 
+            match("/="); 
 
 
             }
@@ -283,10 +289,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:18:7: ( '-=' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:18:9: '-='
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:18:7: ( '%=' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:18:9: '%='
             {
-            match("-="); 
+            match("%="); 
 
 
             }
@@ -304,10 +310,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:19:7: ( '*=' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:19:9: '*='
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:19:7: ( '==' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:19:9: '=='
             {
-            match("*="); 
+            match("=="); 
 
 
             }
@@ -325,10 +331,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:20:7: ( '/=' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:20:9: '/='
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:20:7: ( '!=' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:20:9: '!='
             {
-            match("/="); 
+            match("!="); 
 
 
             }
@@ -346,10 +352,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21:7: ( '%=' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21:9: '%='
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21:7: ( '===' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21:9: '==='
             {
-            match("%="); 
+            match("==="); 
 
 
             }
@@ -367,10 +373,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22:7: ( '==' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22:9: '=='
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22:7: ( '!==' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22:9: '!=='
             {
-            match("=="); 
+            match("!=="); 
 
 
             }
@@ -388,10 +394,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:23:7: ( '!=' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:23:9: '!='
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:23:7: ( '>=' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:23:9: '>='
             {
-            match("!="); 
+            match(">="); 
 
 
             }
@@ -409,11 +415,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:24:7: ( '===' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:24:9: '==='
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:24:7: ( '>' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:24:9: '>'
             {
-            match("==="); 
-
+            match('>'); 
 
             }
 
@@ -430,11 +435,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:25:7: ( '!==' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:25:9: '!=='
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:25:7: ( '<' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:25:9: '<'
             {
-            match("!=="); 
-
+            match('<'); 
 
             }
 
@@ -451,10 +455,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:26:7: ( '>=' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:26:9: '>='
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:26:7: ( '->' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:26:9: '->'
             {
-            match(">="); 
+            match("->"); 
 
 
             }
@@ -472,10 +476,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:27:7: ( '>' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:27:9: '>'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:27:7: ( '..<' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:27:9: '..<'
             {
-            match('>'); 
+            match("..<"); 
+
 
             }
 
@@ -492,10 +497,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:28:7: ( '<' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:28:9: '<'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:28:7: ( '..' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:28:9: '..'
             {
-            match('<'); 
+            match(".."); 
+
 
             }
 
@@ -512,10 +518,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:29:7: ( '->' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:29:9: '->'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:29:7: ( '=>' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:29:9: '=>'
             {
-            match("->"); 
+            match("=>"); 
 
 
             }
@@ -533,10 +539,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:30:7: ( '..<' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:30:9: '..<'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:30:7: ( '<>' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:30:9: '<>'
             {
-            match("..<"); 
+            match("<>"); 
 
 
             }
@@ -554,10 +560,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:31:7: ( '..' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:31:9: '..'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:31:7: ( '?:' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:31:9: '?:'
             {
-            match(".."); 
+            match("?:"); 
 
 
             }
@@ -575,11 +581,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:32:7: ( '=>' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:32:9: '=>'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:32:7: ( '+' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:32:9: '+'
             {
-            match("=>"); 
-
+            match('+'); 
 
             }
 
@@ -596,11 +601,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:33:7: ( '<>' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:33:9: '<>'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:33:7: ( '-' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:33:9: '-'
             {
-            match("<>"); 
-
+            match('-'); 
 
             }
 
@@ -617,11 +621,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:34:7: ( '?:' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:34:9: '?:'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:34:7: ( '*' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:34:9: '*'
             {
-            match("?:"); 
-
+            match('*'); 
 
             }
 
@@ -638,10 +641,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:35:7: ( '+' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:35:9: '+'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:35:7: ( '**' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:35:9: '**'
             {
-            match('+'); 
+            match("**"); 
+
 
             }
 
@@ -658,10 +662,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:36:7: ( '-' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:36:9: '-'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:36:7: ( '/' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:36:9: '/'
             {
-            match('-'); 
+            match('/'); 
 
             }
 
@@ -678,10 +682,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:37:7: ( '*' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:37:9: '*'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:37:7: ( '%' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:37:9: '%'
             {
-            match('*'); 
+            match('%'); 
 
             }
 
@@ -698,11 +702,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:38:7: ( '**' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:38:9: '**'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:38:7: ( '!' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:38:9: '!'
             {
-            match("**"); 
-
+            match('!'); 
 
             }
 
@@ -719,10 +722,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:39:7: ( '/' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:39:9: '/'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:39:7: ( '++' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:39:9: '++'
             {
-            match('/'); 
+            match("++"); 
+
 
             }
 
@@ -739,10 +743,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:40:7: ( '%' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:40:9: '%'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:40:7: ( '--' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:40:9: '--'
             {
-            match('%'); 
+            match("--"); 
+
 
             }
 
@@ -759,10 +764,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:41:7: ( '!' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:41:9: '!'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:41:7: ( '.' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:41:9: '.'
             {
-            match('!'); 
+            match('.'); 
 
             }
 
@@ -779,11 +784,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:42:7: ( '++' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:42:9: '++'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:42:7: ( ',' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:42:9: ','
             {
-            match("++"); 
-
+            match(','); 
 
             }
 
@@ -800,10 +804,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:43:7: ( '--' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:43:9: '--'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:43:7: ( 'val' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:43:9: 'val'
             {
-            match("--"); 
+            match("val"); 
 
 
             }
@@ -821,10 +825,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:44:7: ( '.' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:44:9: '.'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:44:7: ( 'extends' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:44:9: 'extends'
             {
-            match('.'); 
+            match("extends"); 
+
 
             }
 
@@ -841,10 +846,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:45:7: ( ',' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:45:9: ','
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:45:7: ( 'static' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:45:9: 'static'
             {
-            match(','); 
+            match("static"); 
+
 
             }
 
@@ -861,10 +867,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:46:7: ( 'val' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:46:9: 'val'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:46:7: ( 'import' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:46:9: 'import'
             {
-            match("val"); 
+            match("import"); 
 
 
             }
@@ -882,10 +888,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:47:7: ( 'extends' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:47:9: 'extends'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:47:7: ( 'extension' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:47:9: 'extension'
             {
-            match("extends"); 
+            match("extension"); 
 
 
             }
@@ -903,10 +909,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:48:7: ( 'static' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:48:9: 'static'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:48:7: ( 'super' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:48:9: 'super'
             {
-            match("static"); 
+            match("super"); 
 
 
             }
@@ -924,10 +930,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:49:7: ( 'import' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:49:9: 'import'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:49:7: ( 'false' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:49:9: 'false'
             {
-            match("import"); 
+            match("false"); 
 
 
             }
@@ -945,10 +951,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:50:7: ( 'extension' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:50:9: 'extension'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:50:7: ( '.*' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:50:9: '.*'
             {
-            match("extension"); 
+            match(".*"); 
 
 
             }
@@ -966,10 +972,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:51:7: ( 'super' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:51:9: 'super'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:51:7: ( 'profesor' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:51:9: 'profesor'
             {
-            match("super"); 
+            match("profesor"); 
 
 
             }
@@ -987,10 +993,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:52:7: ( 'false' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:52:9: 'false'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:52:7: ( 'dedicacion' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:52:9: 'dedicacion'
             {
-            match("false"); 
+            match("dedicacion"); 
 
 
             }
@@ -1008,10 +1014,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:53:7: ( 'profesor' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:53:9: 'profesor'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:53:7: ( 'hora' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:53:9: 'hora'
             {
-            match("profesor"); 
+            match("hora"); 
 
 
             }
@@ -1029,10 +1035,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:54:7: ( 'dedicacion' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:54:9: 'dedicacion'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:54:7: ( 'simple' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:54:9: 'simple'
             {
-            match("dedicacion"); 
+            match("simple"); 
 
 
             }
@@ -1050,10 +1056,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:55:7: ( 'hora' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:55:9: 'hora'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:55:7: ( 'semi' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:55:9: 'semi'
             {
-            match("hora"); 
+            match("semi"); 
 
 
             }
@@ -1071,10 +1077,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:56:7: ( 'materia' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:56:9: 'materia'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:56:7: ( 'exclusiva' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:56:9: 'exclusiva'
             {
-            match("materia"); 
+            match("exclusiva"); 
 
 
             }
@@ -1092,10 +1098,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:57:7: ( 'con' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:57:9: 'con'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:57:7: ( 'materia' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:57:9: 'materia'
             {
-            match("con"); 
+            match("materia"); 
 
 
             }
@@ -1113,10 +1119,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:58:7: ( 'aula' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:58:9: 'aula'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:58:7: ( 'con' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:58:9: 'con'
             {
-            match("aula"); 
+            match("con"); 
 
 
             }
@@ -1134,10 +1140,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:59:7: ( 'cargaHoraria' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:59:9: 'cargaHoraria'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:59:7: ( 'requiere:' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:59:9: 'requiere:'
             {
-            match("cargaHoraria"); 
+            match("requiere:"); 
 
 
             }
@@ -1155,10 +1161,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:60:7: ( 'dias' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:60:9: 'dias'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:60:7: ( 'aula' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:60:9: 'aula'
             {
-            match("dias"); 
+            match("aula"); 
 
 
             }
@@ -1176,10 +1182,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:61:7: ( 'tiene' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:61:9: 'tiene'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:61:7: ( 'recurso' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:61:9: 'recurso'
             {
-            match("tiene"); 
+            match("recurso"); 
 
 
             }
@@ -1197,10 +1203,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:62:7: ( ':' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:62:9: ':'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:62:7: ( 'cargaHoraria' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:62:9: 'cargaHoraria'
             {
-            match(':'); 
+            match("cargaHoraria"); 
+
 
             }
 
@@ -1217,10 +1224,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:63:7: ( 'a' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:63:9: 'a'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:63:7: ( 'dias' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:63:9: 'dias'
             {
-            match('a'); 
+            match("dias"); 
+
 
             }
 
@@ -1237,10 +1245,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:64:7: ( 'hs se dicta' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:64:9: 'hs se dicta'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:64:7: ( 'tiene' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:64:9: 'tiene'
             {
-            match("hs se dicta"); 
+            match("tiene"); 
 
 
             }
@@ -1258,11 +1266,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:65:7: ( 'en' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:65:9: 'en'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:65:7: ( ':' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:65:9: ':'
             {
-            match("en"); 
-
+            match(':'); 
 
             }
 
@@ -1279,11 +1286,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:66:7: ( 'semestre' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:66:9: 'semestre'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:66:7: ( 'a' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:66:9: 'a'
             {
-            match("semestre"); 
-
+            match('a'); 
 
             }
 
@@ -1300,10 +1306,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:67:7: ( 'dia' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:67:9: 'dia'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:67:7: ( 'hs se dicta' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:67:9: 'hs se dicta'
             {
-            match("dia"); 
+            match("hs se dicta"); 
 
 
             }
@@ -1321,10 +1327,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:68:7: ( 'horarios {' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:68:9: 'horarios {'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:68:7: ( 'en' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:68:9: 'en'
             {
-            match("horarios {"); 
+            match("en"); 
 
 
             }
@@ -1342,10 +1348,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:69:7: ( '}' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:69:9: '}'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:69:7: ( 'semestre' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:69:9: 'semestre'
             {
-            match('}'); 
+            match("semestre"); 
+
 
             }
 
@@ -1362,10 +1369,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:70:7: ( 'planificacion' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:70:9: 'planificacion'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:70:7: ( 'Lunes' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:70:9: 'Lunes'
             {
-            match("planificacion"); 
+            match("Lunes"); 
 
 
             }
@@ -1383,10 +1390,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:71:7: ( '{' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:71:9: '{'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:71:7: ( 'Martes' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:71:9: 'Martes'
             {
-            match('{'); 
+            match("Martes"); 
+
 
             }
 
@@ -1403,10 +1411,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:72:7: ( 'a dictar:' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:72:9: 'a dictar:'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:72:7: ( 'Miercoles' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:72:9: 'Miercoles'
             {
-            match("a dictar:"); 
+            match("Miercoles"); 
 
 
             }
@@ -1424,10 +1432,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:73:7: ( 'recurso' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:73:9: 'recurso'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:73:7: ( 'Jueves' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:73:9: 'Jueves'
             {
-            match("recurso"); 
+            match("Jueves"); 
 
 
             }
@@ -1445,10 +1453,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:74:7: ( 'requiere:' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:74:9: 'requiere:'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:74:7: ( 'Viernes' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:74:9: 'Viernes'
             {
-            match("requiere:"); 
+            match("Viernes"); 
 
 
             }
@@ -1466,10 +1474,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:75:7: ( 'instanceof' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:75:9: 'instanceof'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:75:7: ( 'Sabado' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:75:9: 'Sabado'
             {
-            match("instanceof"); 
+            match("Sabado"); 
 
 
             }
@@ -1487,10 +1495,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:76:7: ( 'as' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:76:9: 'as'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:76:7: ( 'horarios {' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:76:9: 'horarios {'
             {
-            match("as"); 
+            match("horarios {"); 
 
 
             }
@@ -1508,10 +1516,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:77:7: ( ')' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:77:9: ')'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:77:7: ( '}' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:77:9: '}'
             {
-            match(')'); 
+            match('}'); 
 
             }
 
@@ -1528,10 +1536,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:78:7: ( '#' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:78:9: '#'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:78:7: ( 'planificacion' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:78:9: 'planificacion'
             {
-            match('#'); 
+            match("planificacion"); 
+
 
             }
 
@@ -1548,10 +1557,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:79:7: ( '[' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:79:9: '['
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:79:7: ( '{' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:79:9: '{'
             {
-            match('['); 
+            match('{'); 
 
             }
 
@@ -1568,10 +1577,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:80:7: ( ']' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:80:9: ']'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:80:7: ( 'a dictar:' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:80:9: 'a dictar:'
             {
-            match(']'); 
+            match("a dictar:"); 
+
 
             }
 
@@ -1588,10 +1598,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__83;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:81:7: ( ';' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:81:9: ';'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:81:7: ( 'instanceof' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:81:9: 'instanceof'
             {
-            match(';'); 
+            match("instanceof"); 
+
 
             }
 
@@ -1608,10 +1619,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__84;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:82:7: ( '(' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:82:9: '('
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:82:7: ( 'as' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:82:9: 'as'
             {
-            match('('); 
+            match("as"); 
+
 
             }
 
@@ -1628,11 +1640,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__85;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:83:7: ( 'if' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:83:9: 'if'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:83:7: ( ')' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:83:9: ')'
             {
-            match("if"); 
-
+            match(')'); 
 
             }
 
@@ -1649,11 +1660,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__86;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:84:7: ( 'else' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:84:9: 'else'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:84:7: ( '#' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:84:9: '#'
             {
-            match("else"); 
-
+            match('#'); 
 
             }
 
@@ -1670,11 +1680,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__87;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:85:7: ( 'switch' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:85:9: 'switch'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:85:7: ( '[' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:85:9: '['
             {
-            match("switch"); 
-
+            match('['); 
 
             }
 
@@ -1691,11 +1700,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__88;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:86:7: ( 'default' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:86:9: 'default'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:86:7: ( ']' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:86:9: ']'
             {
-            match("default"); 
-
+            match(']'); 
 
             }
 
@@ -1712,11 +1720,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__89;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:87:7: ( 'case' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:87:9: 'case'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:87:7: ( ';' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:87:9: ';'
             {
-            match("case"); 
-
+            match(';'); 
 
             }
 
@@ -1733,11 +1740,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__90;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:88:7: ( 'for' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:88:9: 'for'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:88:7: ( '(' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:88:9: '('
             {
-            match("for"); 
-
+            match('('); 
 
             }
 
@@ -1754,10 +1760,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__91;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:89:7: ( 'while' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:89:9: 'while'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:89:7: ( 'if' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:89:9: 'if'
             {
-            match("while"); 
+            match("if"); 
 
 
             }
@@ -1775,10 +1781,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__92;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:90:7: ( 'do' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:90:9: 'do'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:90:7: ( 'else' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:90:9: 'else'
             {
-            match("do"); 
+            match("else"); 
 
 
             }
@@ -1796,10 +1802,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__93;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:91:7: ( 'new' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:91:9: 'new'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:91:7: ( 'switch' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:91:9: 'switch'
             {
-            match("new"); 
+            match("switch"); 
 
 
             }
@@ -1817,10 +1823,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__94;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:92:7: ( 'null' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:92:9: 'null'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:92:7: ( 'default' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:92:9: 'default'
             {
-            match("null"); 
+            match("default"); 
 
 
             }
@@ -1838,10 +1844,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__95;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:93:7: ( 'typeof' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:93:9: 'typeof'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:93:7: ( 'case' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:93:9: 'case'
             {
-            match("typeof"); 
+            match("case"); 
 
 
             }
@@ -1859,10 +1865,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__96;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:94:7: ( 'throw' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:94:9: 'throw'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:94:7: ( 'for' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:94:9: 'for'
             {
-            match("throw"); 
+            match("for"); 
 
 
             }
@@ -1880,10 +1886,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__97;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:95:7: ( 'return' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:95:9: 'return'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:95:7: ( 'while' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:95:9: 'while'
             {
-            match("return"); 
+            match("while"); 
 
 
             }
@@ -1901,10 +1907,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__98;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:96:7: ( 'try' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:96:9: 'try'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:96:7: ( 'do' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:96:9: 'do'
             {
-            match("try"); 
+            match("do"); 
 
 
             }
@@ -1922,10 +1928,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__99;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:97:7: ( 'finally' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:97:9: 'finally'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:97:7: ( 'new' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:97:9: 'new'
             {
-            match("finally"); 
+            match("new"); 
 
 
             }
@@ -1943,10 +1949,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__100;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:98:8: ( 'synchronized' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:98:10: 'synchronized'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:98:8: ( 'null' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:98:10: 'null'
             {
-            match("synchronized"); 
+            match("null"); 
 
 
             }
@@ -1964,10 +1970,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__101;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:99:8: ( 'catch' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:99:10: 'catch'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:99:8: ( 'typeof' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:99:10: 'typeof'
             {
-            match("catch"); 
+            match("typeof"); 
 
 
             }
@@ -1985,10 +1991,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__102;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:100:8: ( '?' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:100:10: '?'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:100:8: ( 'throw' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:100:10: 'throw'
             {
-            match('?'); 
+            match("throw"); 
+
 
             }
 
@@ -2005,10 +2012,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__103;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:101:8: ( '&' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:101:10: '&'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:101:8: ( 'return' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:101:10: 'return'
             {
-            match('&'); 
+            match("return"); 
+
 
             }
 
@@ -2025,10 +2033,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__104;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:102:8: ( '::' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:102:10: '::'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:102:8: ( 'try' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:102:10: 'try'
             {
-            match("::"); 
+            match("try"); 
 
 
             }
@@ -2046,10 +2054,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__105;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:103:8: ( '?.' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:103:10: '?.'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:103:8: ( 'finally' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:103:10: 'finally'
             {
-            match("?."); 
+            match("finally"); 
 
 
             }
@@ -2067,10 +2075,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__106;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:104:8: ( '|' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:104:10: '|'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:104:8: ( 'synchronized' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:104:10: 'synchronized'
             {
-            match('|'); 
+            match("synchronized"); 
+
 
             }
 
@@ -2087,10 +2096,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__107;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:105:8: ( 'var' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:105:10: 'var'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:105:8: ( 'catch' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:105:10: 'catch'
             {
-            match("var"); 
+            match("catch"); 
 
 
             }
@@ -2108,8 +2117,131 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = T__108;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:106:8: ( 'true' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:106:10: 'true'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:106:8: ( '?' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:106:10: '?'
+            {
+            match('?'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__108"
+
+    // $ANTLR start "T__109"
+    public final void mT__109() throws RecognitionException {
+        try {
+            int _type = T__109;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:107:8: ( '&' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:107:10: '&'
+            {
+            match('&'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__109"
+
+    // $ANTLR start "T__110"
+    public final void mT__110() throws RecognitionException {
+        try {
+            int _type = T__110;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:108:8: ( '::' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:108:10: '::'
+            {
+            match("::"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__110"
+
+    // $ANTLR start "T__111"
+    public final void mT__111() throws RecognitionException {
+        try {
+            int _type = T__111;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:109:8: ( '?.' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:109:10: '?.'
+            {
+            match("?."); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__111"
+
+    // $ANTLR start "T__112"
+    public final void mT__112() throws RecognitionException {
+        try {
+            int _type = T__112;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:110:8: ( '|' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:110:10: '|'
+            {
+            match('|'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__112"
+
+    // $ANTLR start "T__113"
+    public final void mT__113() throws RecognitionException {
+        try {
+            int _type = T__113;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:111:8: ( 'var' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:111:10: 'var'
+            {
+            match("var"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__113"
+
+    // $ANTLR start "T__114"
+    public final void mT__114() throws RecognitionException {
+        try {
+            int _type = T__114;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:112:8: ( 'true' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:112:10: 'true'
             {
             match("true"); 
 
@@ -2122,17 +2254,17 @@ public class InternalPdmLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__108"
+    // $ANTLR end "T__114"
 
     // $ANTLR start "RULE_HEX"
     public final void mRULE_HEX() throws RecognitionException {
         try {
             int _type = RULE_HEX;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21634:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )? )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21634:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22672:10: ( ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )? )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22672:12: ( '0x' | '0X' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+ ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
             {
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21634:12: ( '0x' | '0X' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22672:12: ( '0x' | '0X' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -2160,7 +2292,7 @@ public class InternalPdmLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21634:13: '0x'
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22672:13: '0x'
                     {
                     match("0x"); 
 
@@ -2168,7 +2300,7 @@ public class InternalPdmLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21634:18: '0X'
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22672:18: '0X'
                     {
                     match("0X"); 
 
@@ -2178,7 +2310,7 @@ public class InternalPdmLexer extends Lexer {
 
             }
 
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21634:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22672:24: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' | '_' )+
             int cnt2=0;
             loop2:
             do {
@@ -2216,7 +2348,7 @@ public class InternalPdmLexer extends Lexer {
                 cnt2++;
             } while (true);
 
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21634:58: ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22672:58: ( '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) ) )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -2225,10 +2357,10 @@ public class InternalPdmLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21634:59: '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22672:59: '#' ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
                     {
                     match('#'); 
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21634:63: ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22672:63: ( ( 'b' | 'B' ) ( 'i' | 'I' ) | ( 'l' | 'L' ) )
                     int alt3=2;
                     int LA3_0 = input.LA(1);
 
@@ -2246,7 +2378,7 @@ public class InternalPdmLexer extends Lexer {
                     }
                     switch (alt3) {
                         case 1 :
-                            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21634:64: ( 'b' | 'B' ) ( 'i' | 'I' )
+                            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22672:64: ( 'b' | 'B' ) ( 'i' | 'I' )
                             {
                             if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
                                 input.consume();
@@ -2270,7 +2402,7 @@ public class InternalPdmLexer extends Lexer {
                             }
                             break;
                         case 2 :
-                            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21634:84: ( 'l' | 'L' )
+                            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22672:84: ( 'l' | 'L' )
                             {
                             if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
                                 input.consume();
@@ -2309,11 +2441,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21636:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21636:12: '0' .. '9' ( '0' .. '9' | '_' )*
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22674:10: ( '0' .. '9' ( '0' .. '9' | '_' )* )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22674:12: '0' .. '9' ( '0' .. '9' | '_' )*
             {
             matchRange('0','9'); 
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21636:21: ( '0' .. '9' | '_' )*
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22674:21: ( '0' .. '9' | '_' )*
             loop5:
             do {
                 int alt5=2;
@@ -2362,11 +2494,11 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = RULE_DECIMAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21638:14: ( RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )? )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21638:16: RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22676:14: ( RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )? )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22676:16: RULE_INT ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )? ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
             {
             mRULE_INT(); 
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21638:25: ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )?
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22676:25: ( ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2375,7 +2507,7 @@ public class InternalPdmLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21638:26: ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22676:26: ( 'e' | 'E' ) ( '+' | '-' )? RULE_INT
                     {
                     if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                         input.consume();
@@ -2386,7 +2518,7 @@ public class InternalPdmLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21638:36: ( '+' | '-' )?
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22676:36: ( '+' | '-' )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -2419,7 +2551,7 @@ public class InternalPdmLexer extends Lexer {
 
             }
 
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21638:58: ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22676:58: ( ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' ) | ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' ) )?
             int alt8=3;
             int LA8_0 = input.LA(1);
 
@@ -2431,7 +2563,7 @@ public class InternalPdmLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21638:59: ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' )
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22676:59: ( 'b' | 'B' ) ( 'i' | 'I' | 'd' | 'D' )
                     {
                     if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
                         input.consume();
@@ -2455,7 +2587,7 @@ public class InternalPdmLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21638:87: ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' )
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22676:87: ( 'l' | 'L' | 'd' | 'D' | 'f' | 'F' )
                     {
                     if ( input.LA(1)=='D'||input.LA(1)=='F'||input.LA(1)=='L'||input.LA(1)=='d'||input.LA(1)=='f'||input.LA(1)=='l' ) {
                         input.consume();
@@ -2488,10 +2620,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21640:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )* )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21640:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22678:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )* )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22678:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
             {
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21640:11: ( '^' )?
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22678:11: ( '^' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -2500,7 +2632,7 @@ public class InternalPdmLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21640:11: '^'
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22678:11: '^'
                     {
                     match('^'); 
 
@@ -2518,7 +2650,7 @@ public class InternalPdmLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21640:44: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22678:44: ( 'a' .. 'z' | 'A' .. 'Z' | '$' | '_' | '0' .. '9' )*
             loop10:
             do {
                 int alt10=2;
@@ -2567,10 +2699,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21642:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21642:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22680:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22680:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21642:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22680:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -2588,10 +2720,10 @@ public class InternalPdmLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21642:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22680:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21642:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22680:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop11:
                     do {
                         int alt11=3;
@@ -2607,7 +2739,7 @@ public class InternalPdmLexer extends Lexer {
 
                         switch (alt11) {
                     	case 1 :
-                    	    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21642:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22680:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -2623,7 +2755,7 @@ public class InternalPdmLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21642:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22680:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2648,10 +2780,10 @@ public class InternalPdmLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21642:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22680:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21642:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22680:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop12:
                     do {
                         int alt12=3;
@@ -2667,7 +2799,7 @@ public class InternalPdmLexer extends Lexer {
 
                         switch (alt12) {
                     	case 1 :
-                    	    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21642:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22680:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -2683,7 +2815,7 @@ public class InternalPdmLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21642:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22680:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2726,12 +2858,12 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21644:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21644:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22682:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22682:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21644:24: ( options {greedy=false; } : . )*
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22682:24: ( options {greedy=false; } : . )*
             loop14:
             do {
                 int alt14=2;
@@ -2756,7 +2888,7 @@ public class InternalPdmLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21644:52: .
+            	    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22682:52: .
             	    {
             	    matchAny(); 
 
@@ -2786,12 +2918,12 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21646:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21646:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22684:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22684:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21646:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22684:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop15:
             do {
                 int alt15=2;
@@ -2804,7 +2936,7 @@ public class InternalPdmLexer extends Lexer {
 
                 switch (alt15) {
             	case 1 :
-            	    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21646:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22684:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2824,7 +2956,7 @@ public class InternalPdmLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21646:40: ( ( '\\r' )? '\\n' )?
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22684:40: ( ( '\\r' )? '\\n' )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -2833,9 +2965,9 @@ public class InternalPdmLexer extends Lexer {
             }
             switch (alt17) {
                 case 1 :
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21646:41: ( '\\r' )? '\\n'
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22684:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21646:41: ( '\\r' )?
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22684:41: ( '\\r' )?
                     int alt16=2;
                     int LA16_0 = input.LA(1);
 
@@ -2844,7 +2976,7 @@ public class InternalPdmLexer extends Lexer {
                     }
                     switch (alt16) {
                         case 1 :
-                            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21646:41: '\\r'
+                            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22684:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2876,10 +3008,10 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21648:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21648:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22686:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22686:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21648:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22686:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt18=0;
             loop18:
             do {
@@ -2933,8 +3065,8 @@ public class InternalPdmLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21650:16: ( . )
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:21650:18: .
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22688:16: ( . )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:22688:18: .
             {
             matchAny(); 
 
@@ -2949,8 +3081,8 @@ public class InternalPdmLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:8: ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt19=105;
+        // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:8: ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt19=111;
         alt19 = dfa19.predict(input);
         switch (alt19) {
             case 1 :
@@ -3626,63 +3758,105 @@ public class InternalPdmLexer extends Lexer {
                 }
                 break;
             case 97 :
-                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:595: RULE_HEX
+                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:595: T__109
+                {
+                mT__109(); 
+
+                }
+                break;
+            case 98 :
+                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:602: T__110
+                {
+                mT__110(); 
+
+                }
+                break;
+            case 99 :
+                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:609: T__111
+                {
+                mT__111(); 
+
+                }
+                break;
+            case 100 :
+                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:616: T__112
+                {
+                mT__112(); 
+
+                }
+                break;
+            case 101 :
+                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:623: T__113
+                {
+                mT__113(); 
+
+                }
+                break;
+            case 102 :
+                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:630: T__114
+                {
+                mT__114(); 
+
+                }
+                break;
+            case 103 :
+                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:637: RULE_HEX
                 {
                 mRULE_HEX(); 
 
                 }
                 break;
-            case 98 :
-                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:604: RULE_INT
+            case 104 :
+                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:646: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 99 :
-                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:613: RULE_DECIMAL
+            case 105 :
+                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:655: RULE_DECIMAL
                 {
                 mRULE_DECIMAL(); 
 
                 }
                 break;
-            case 100 :
-                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:626: RULE_ID
+            case 106 :
+                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:668: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 101 :
-                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:634: RULE_STRING
+            case 107 :
+                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:676: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 102 :
-                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:646: RULE_ML_COMMENT
+            case 108 :
+                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:688: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 103 :
-                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:662: RULE_SL_COMMENT
+            case 109 :
+                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:704: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 104 :
-                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:678: RULE_WS
+            case 110 :
+                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:720: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 105 :
-                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:686: RULE_ANY_OTHER
+            case 111 :
+                // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:1:728: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -3696,202 +3870,200 @@ public class InternalPdmLexer extends Lexer {
 
     protected DFA19 dfa19 = new DFA19(this);
     static final String DFA19_eotS =
-        "\1\uffff\2\65\1\73\1\75\1\77\1\102\1\106\1\111\1\115\1\117\1\121"+
-        "\1\123\1\125\1\127\1\132\1\uffff\10\65\1\160\1\65\1\166\2\uffff"+
-        "\1\65\6\uffff\2\65\2\u0085\1\56\1\uffff\2\56\2\uffff\6\65\1\uffff"+
-        "\1\65\1\u0091\1\65\1\u0094\26\uffff\1\u0096\5\uffff\1\u0098\5\uffff"+
-        "\3\65\1\u009d\7\65\1\u00a6\6\65\1\uffff\1\u00af\1\uffff\4\65\4\uffff"+
-        "\1\65\6\uffff\3\65\1\uffff\1\u0085\4\uffff\10\65\1\uffff\1\65\6"+
-        "\uffff\1\u00c5\1\u00c6\2\65\1\uffff\1\65\1\u00ca\5\65\1\u00d1\1"+
-        "\uffff\1\65\1\uffff\1\65\1\u00d4\4\65\1\uffff\3\65\1\u00dc\5\65"+
-        "\1\u00e2\2\65\1\u00e5\7\65\1\u00ed\2\uffff\3\65\1\uffff\5\65\1\u00f6"+
-        "\1\uffff\1\u00f8\1\65\1\uffff\1\65\1\u00fb\1\65\1\u00fd\3\65\1\uffff"+
-        "\1\u0101\4\65\1\uffff\1\u0106\1\65\1\uffff\2\65\1\u010a\4\65\1\uffff"+
-        "\2\65\1\u0112\5\65\1\uffff\1\65\1\uffff\2\65\1\uffff\1\u011b\1\uffff"+
-        "\1\u011c\1\65\1\u011e\1\uffff\3\65\1\u0122\1\uffff\1\u0123\1\65"+
-        "\1\u0125\1\uffff\1\u0126\4\65\1\u012b\1\65\1\uffff\10\65\2\uffff"+
-        "\1\u0135\1\uffff\2\65\1\u0138\2\uffff\1\65\2\uffff\2\65\1\u013c"+
-        "\1\65\1\uffff\1\65\1\u013f\3\65\1\u0143\1\65\1\u0145\1\65\1\uffff"+
-        "\1\u0147\1\65\1\uffff\1\u0149\2\65\1\uffff\2\65\1\uffff\1\u014e"+
-        "\2\65\1\uffff\1\65\1\uffff\1\65\1\uffff\1\65\1\uffff\1\65\1\u0155"+
-        "\1\u0156\1\65\1\uffff\2\65\1\uffff\1\65\1\uffff\1\65\2\uffff\1\u015c"+
-        "\1\65\1\u015e\2\65\1\uffff\1\65\1\uffff\1\65\1\u0163\1\65\1\u0165"+
-        "\1\uffff\1\u0166\2\uffff";
+        "\1\uffff\1\66\1\70\1\72\1\75\1\101\1\104\1\110\1\112\1\114\1\116"+
+        "\1\120\1\123\1\126\1\uffff\13\131\1\167\1\131\1\175\5\131\10\uffff"+
+        "\2\131\2\u0090\1\63\1\uffff\2\63\2\uffff\1\u0096\26\uffff\1\u0098"+
+        "\5\uffff\1\u009a\6\uffff\1\131\1\uffff\1\131\1\u009f\11\131\1\u00a9"+
+        "\7\131\1\u00b2\7\131\1\uffff\1\u00be\1\uffff\4\131\2\uffff\6\131"+
+        "\10\uffff\3\131\2\uffff\1\u0090\11\uffff\1\u00cd\1\u00ce\2\131\1"+
+        "\uffff\11\131\1\uffff\1\131\1\u00dc\6\131\1\uffff\1\131\1\uffff"+
+        "\1\131\1\u00e5\7\131\1\uffff\3\131\1\u00f0\10\131\1\u00f9\1\131"+
+        "\2\uffff\2\131\1\u00fd\3\131\1\u0101\6\131\1\uffff\5\131\1\u010d"+
+        "\1\u010f\1\131\1\uffff\1\131\1\u0112\4\131\1\u0117\3\131\1\uffff"+
+        "\1\u011b\7\131\1\uffff\1\u0123\2\131\1\uffff\1\131\1\u0128\1\131"+
+        "\1\uffff\5\131\1\u012f\5\131\1\uffff\1\131\1\uffff\2\131\1\uffff"+
+        "\1\u0138\3\131\1\uffff\1\u013c\1\131\1\u013e\1\uffff\1\u013f\5\131"+
+        "\1\u0145\1\uffff\3\131\1\u0149\1\uffff\1\u014a\1\131\1\u014c\1\131"+
+        "\1\u014e\1\131\1\uffff\10\131\1\uffff\2\131\1\u015a\1\uffff\1\u015b"+
+        "\2\uffff\1\u015c\1\131\1\u015e\1\131\1\u0160\1\uffff\1\u0161\2\131"+
+        "\2\uffff\1\131\1\uffff\1\131\1\uffff\1\131\1\u0167\3\131\1\u016b"+
+        "\1\131\1\u016d\2\131\1\u0170\3\uffff\1\131\1\uffff\1\u0172\2\uffff"+
+        "\2\131\1\u0175\2\131\1\uffff\1\u0178\2\131\1\uffff\1\131\1\uffff"+
+        "\2\131\1\uffff\1\131\1\uffff\1\u017f\1\u0180\1\uffff\2\131\1\uffff"+
+        "\2\131\1\uffff\1\131\1\uffff\1\u0186\2\uffff\1\131\1\u0188\1\131"+
+        "\1\u018a\1\131\1\uffff\1\131\1\uffff\1\131\1\uffff\1\131\1\u018f"+
+        "\1\131\1\u0191\1\uffff\1\u0192\2\uffff";
     static final String DFA19_eofS =
-        "\u0167\uffff";
+        "\u0193\uffff";
     static final String DFA19_minS =
-        "\1\0\1\145\1\154\1\75\1\174\1\46\1\53\1\55\2\52\3\75\1\76\2\56\1"+
-        "\uffff\1\141\1\146\1\141\1\154\1\145\1\157\2\141\1\40\1\150\1\72"+
-        "\2\uffff\1\145\6\uffff\1\150\1\145\2\60\1\44\1\uffff\2\0\2\uffff"+
-        "\2\155\1\141\1\160\1\151\1\156\1\uffff\1\143\1\44\1\163\1\75\26"+
-        "\uffff\1\75\5\uffff\1\74\5\uffff\1\154\1\160\1\163\1\44\1\154\1"+
-        "\162\1\156\1\157\1\141\1\144\1\141\1\44\1\162\1\40\1\164\1\156\1"+
-        "\162\1\154\1\uffff\1\44\1\uffff\1\145\1\160\1\162\1\165\4\uffff"+
-        "\1\143\6\uffff\1\151\1\167\1\154\1\uffff\1\60\4\uffff\1\160\1\145"+
-        "\1\164\1\145\1\164\1\143\1\154\1\145\1\uffff\1\145\6\uffff\2\44"+
-        "\1\157\1\164\1\uffff\1\163\1\44\1\141\1\146\1\156\1\151\1\141\1"+
-        "\44\1\uffff\1\141\1\uffff\1\145\1\44\1\147\1\145\1\143\1\141\1\uffff"+
-        "\1\156\1\145\1\157\1\44\1\145\3\165\1\154\1\44\2\154\1\44\1\163"+
-        "\1\151\1\162\1\143\1\150\1\165\1\156\1\44\2\uffff\1\162\1\141\1"+
-        "\145\1\uffff\1\154\1\145\1\151\1\143\1\165\1\44\1\uffff\1\44\1\162"+
-        "\1\uffff\1\141\1\44\1\150\1\44\1\145\1\157\1\167\1\uffff\1\44\1"+
-        "\162\1\151\1\162\1\145\1\uffff\1\44\1\145\1\uffff\1\164\1\143\1"+
-        "\44\1\150\1\162\1\163\1\144\1\uffff\1\164\1\156\1\44\1\154\1\163"+
-        "\1\146\1\141\1\154\1\uffff\1\151\1\uffff\1\151\1\110\1\uffff\1\44"+
-        "\1\uffff\1\44\1\146\1\44\1\uffff\1\163\1\145\1\156\1\44\1\uffff"+
-        "\1\44\1\162\1\44\1\uffff\1\44\1\157\1\151\1\163\1\151\1\44\1\143"+
-        "\1\uffff\1\171\1\157\1\151\1\143\1\164\1\157\1\141\1\157\2\uffff"+
-        "\1\44\1\uffff\1\157\1\162\1\44\2\uffff\1\145\2\uffff\1\156\1\166"+
-        "\1\44\1\157\1\uffff\1\145\1\44\1\162\1\143\1\151\1\44\1\163\1\44"+
-        "\1\162\1\uffff\1\44\1\145\1\uffff\1\44\1\151\1\141\1\uffff\1\156"+
-        "\1\157\1\uffff\1\44\1\141\1\157\1\uffff\1\40\1\uffff\1\141\1\uffff"+
-        "\1\72\1\uffff\1\172\2\44\1\146\1\uffff\1\143\1\156\1\uffff\1\162"+
-        "\1\uffff\1\145\2\uffff\1\44\1\151\1\44\1\151\1\144\1\uffff\1\157"+
-        "\1\uffff\1\141\1\44\1\156\1\44\1\uffff\1\44\2\uffff";
+        "\1\0\1\75\1\174\1\46\1\53\1\55\2\52\3\75\1\76\1\52\1\56\1\uffff"+
+        "\1\141\1\154\1\145\1\146\1\141\1\154\1\145\1\157\2\141\1\145\1\40"+
+        "\1\150\1\72\1\165\1\141\1\165\1\151\1\141\10\uffff\1\150\1\145\2"+
+        "\60\1\44\1\uffff\2\0\2\uffff\1\75\26\uffff\1\75\5\uffff\1\74\6\uffff"+
+        "\1\154\1\uffff\1\143\1\44\1\163\1\141\1\160\2\155\1\151\1\156\1"+
+        "\160\1\163\1\44\1\154\1\162\1\156\1\157\1\141\1\144\1\141\1\44\1"+
+        "\162\1\40\1\164\1\156\1\162\1\143\1\154\1\uffff\1\44\1\uffff\1\145"+
+        "\1\160\1\162\1\165\2\uffff\1\156\1\162\3\145\1\142\10\uffff\1\151"+
+        "\1\167\1\154\2\uffff\1\60\11\uffff\2\44\1\145\1\154\1\uffff\1\145"+
+        "\1\164\1\145\1\160\1\145\1\164\1\143\1\157\1\164\1\uffff\1\163\1"+
+        "\44\1\141\1\146\1\156\1\151\1\141\1\163\1\uffff\1\141\1\uffff\1"+
+        "\145\1\44\1\147\1\145\1\143\3\165\1\141\1\uffff\1\156\1\145\1\157"+
+        "\1\44\2\145\1\164\1\162\1\166\1\162\1\141\1\154\1\44\1\154\2\uffff"+
+        "\1\156\1\165\1\44\1\151\1\162\1\154\1\44\1\163\1\143\1\150\1\162"+
+        "\1\141\1\145\1\uffff\1\154\1\145\1\151\1\143\1\165\2\44\1\162\1"+
+        "\uffff\1\141\1\44\1\150\1\151\2\162\1\44\1\145\1\157\1\167\1\uffff"+
+        "\1\44\1\163\1\145\1\143\1\145\1\156\1\144\1\145\1\uffff\1\44\1\144"+
+        "\1\163\1\uffff\1\143\1\44\1\145\1\uffff\1\164\1\150\1\162\1\164"+
+        "\1\156\1\44\1\154\1\163\1\146\1\141\1\154\1\uffff\1\151\1\uffff"+
+        "\1\151\1\110\1\uffff\1\44\1\145\1\163\1\156\1\uffff\1\44\1\146\1"+
+        "\44\1\uffff\1\44\1\163\1\157\1\163\1\145\1\157\1\44\1\uffff\1\163"+
+        "\2\151\1\44\1\uffff\1\44\1\162\1\44\1\157\1\44\1\143\1\uffff\1\171"+
+        "\1\157\1\151\1\143\1\164\1\157\1\141\1\157\1\uffff\1\162\1\157\1"+
+        "\44\1\uffff\1\44\2\uffff\1\44\1\154\1\44\1\163\1\44\1\uffff\1\44"+
+        "\1\157\1\166\2\uffff\1\145\1\uffff\1\156\1\uffff\1\145\1\44\1\162"+
+        "\1\143\1\151\1\44\1\163\1\44\1\162\1\145\1\44\3\uffff\1\145\1\uffff"+
+        "\1\44\2\uffff\1\156\1\141\1\44\1\151\1\157\1\uffff\1\44\1\141\1"+
+        "\157\1\uffff\1\40\1\uffff\1\141\1\72\1\uffff\1\163\1\uffff\2\44"+
+        "\1\uffff\1\172\1\146\1\uffff\1\143\1\156\1\uffff\1\162\1\uffff\1"+
+        "\44\2\uffff\1\145\1\44\1\151\1\44\1\151\1\uffff\1\144\1\uffff\1"+
+        "\157\1\uffff\1\141\1\44\1\156\1\44\1\uffff\1\44\2\uffff";
     static final String DFA19_maxS =
-        "\1\uffff\1\171\1\170\1\76\1\174\1\46\1\75\1\76\5\75\1\76\1\56\1"+
-        "\72\1\uffff\1\141\1\156\1\157\1\162\1\157\1\163\1\141\1\157\1\172"+
-        "\1\171\1\72\2\uffff\1\145\6\uffff\1\150\1\165\1\170\1\154\1\172"+
-        "\1\uffff\2\uffff\2\uffff\2\155\1\141\1\160\1\151\1\156\1\uffff\1"+
-        "\164\1\172\1\163\1\75\26\uffff\1\75\5\uffff\1\74\5\uffff\1\162\1"+
-        "\160\1\163\1\172\1\154\1\162\1\156\1\157\1\141\1\146\1\141\1\172"+
-        "\1\162\1\40\1\164\1\156\1\164\1\154\1\uffff\1\172\1\uffff\1\145"+
-        "\1\160\1\162\1\171\4\uffff\1\164\6\uffff\1\151\1\167\1\154\1\uffff"+
-        "\1\154\4\uffff\1\160\1\151\1\164\1\145\1\164\1\143\1\154\1\145\1"+
-        "\uffff\1\145\6\uffff\2\172\1\157\1\164\1\uffff\1\163\1\172\1\141"+
-        "\1\146\1\156\1\151\1\141\1\172\1\uffff\1\141\1\uffff\1\145\1\172"+
-        "\1\147\1\145\1\143\1\141\1\uffff\1\156\1\145\1\157\1\172\1\145\3"+
-        "\165\1\154\1\172\2\154\1\172\1\163\1\151\1\162\1\143\1\150\1\165"+
-        "\1\156\1\172\2\uffff\1\162\1\141\1\145\1\uffff\1\154\1\145\1\151"+
-        "\1\143\1\165\1\172\1\uffff\1\172\1\162\1\uffff\1\141\1\172\1\150"+
-        "\1\172\1\145\1\157\1\167\1\uffff\1\172\1\162\1\151\1\162\1\145\1"+
-        "\uffff\1\172\1\145\1\uffff\1\164\1\143\1\172\1\150\1\162\2\163\1"+
-        "\uffff\1\164\1\156\1\172\1\154\1\163\1\146\1\141\1\154\1\uffff\1"+
-        "\151\1\uffff\1\151\1\110\1\uffff\1\172\1\uffff\1\172\1\146\1\172"+
-        "\1\uffff\1\163\1\145\1\156\1\172\1\uffff\1\172\1\162\1\172\1\uffff"+
-        "\1\172\1\157\1\151\1\163\1\151\1\172\1\143\1\uffff\1\171\1\157\1"+
-        "\151\1\143\1\164\1\157\1\141\1\157\2\uffff\1\172\1\uffff\1\157\1"+
-        "\162\1\172\2\uffff\1\145\2\uffff\1\156\1\166\1\172\1\157\1\uffff"+
-        "\1\145\1\172\1\162\1\143\1\151\1\172\1\163\1\172\1\162\1\uffff\1"+
-        "\172\1\145\1\uffff\1\172\1\151\1\141\1\uffff\1\156\1\157\1\uffff"+
-        "\1\172\1\141\1\157\1\uffff\1\40\1\uffff\1\141\1\uffff\1\72\1\uffff"+
-        "\3\172\1\146\1\uffff\1\143\1\156\1\uffff\1\162\1\uffff\1\145\2\uffff"+
-        "\1\172\1\151\1\172\1\151\1\144\1\uffff\1\157\1\uffff\1\141\1\172"+
-        "\1\156\1\172\1\uffff\1\172\2\uffff";
+        "\1\uffff\1\76\1\174\1\46\1\75\1\76\5\75\1\76\1\56\1\72\1\uffff\1"+
+        "\141\1\170\1\171\1\156\1\157\1\162\1\157\1\163\1\141\1\157\1\145"+
+        "\1\172\1\171\1\72\1\165\1\151\1\165\1\151\1\141\10\uffff\1\150\1"+
+        "\165\1\170\1\154\1\172\1\uffff\2\uffff\2\uffff\1\75\26\uffff\1\75"+
+        "\5\uffff\1\74\6\uffff\1\162\1\uffff\1\164\1\172\1\163\1\141\1\160"+
+        "\2\155\1\151\1\156\1\160\1\163\1\172\1\154\1\162\1\156\1\157\1\141"+
+        "\1\146\1\141\1\172\1\162\1\40\1\164\1\156\2\164\1\154\1\uffff\1"+
+        "\172\1\uffff\1\145\1\160\1\162\1\171\2\uffff\1\156\1\162\3\145\1"+
+        "\142\10\uffff\1\151\1\167\1\154\2\uffff\1\154\11\uffff\2\172\1\145"+
+        "\1\154\1\uffff\1\145\1\164\1\145\1\160\1\151\1\164\1\143\1\157\1"+
+        "\164\1\uffff\1\163\1\172\1\141\1\146\1\156\1\151\1\141\1\163\1\uffff"+
+        "\1\141\1\uffff\1\145\1\172\1\147\1\145\1\143\3\165\1\141\1\uffff"+
+        "\1\156\1\145\1\157\1\172\2\145\1\164\1\162\1\166\1\162\1\141\1\154"+
+        "\1\172\1\154\2\uffff\1\156\1\165\1\172\1\151\1\162\1\154\1\172\1"+
+        "\163\1\143\1\150\1\162\1\141\1\145\1\uffff\1\154\1\145\1\151\1\143"+
+        "\1\165\2\172\1\162\1\uffff\1\141\1\172\1\150\1\151\2\162\1\172\1"+
+        "\145\1\157\1\167\1\uffff\1\172\1\163\1\145\1\143\1\145\1\156\1\144"+
+        "\1\145\1\uffff\1\172\2\163\1\uffff\1\143\1\172\1\145\1\uffff\1\164"+
+        "\1\150\1\162\1\164\1\156\1\172\1\154\1\163\1\146\1\141\1\154\1\uffff"+
+        "\1\151\1\uffff\1\151\1\110\1\uffff\1\172\1\145\1\163\1\156\1\uffff"+
+        "\1\172\1\146\1\172\1\uffff\1\172\1\163\1\157\1\163\1\145\1\157\1"+
+        "\172\1\uffff\1\163\2\151\1\172\1\uffff\1\172\1\162\1\172\1\157\1"+
+        "\172\1\143\1\uffff\1\171\1\157\1\151\1\143\1\164\1\157\1\141\1\157"+
+        "\1\uffff\1\162\1\157\1\172\1\uffff\1\172\2\uffff\1\172\1\154\1\172"+
+        "\1\163\1\172\1\uffff\1\172\1\157\1\166\2\uffff\1\145\1\uffff\1\156"+
+        "\1\uffff\1\145\1\172\1\162\1\143\1\151\1\172\1\163\1\172\1\162\1"+
+        "\145\1\172\3\uffff\1\145\1\uffff\1\172\2\uffff\1\156\1\141\1\172"+
+        "\1\151\1\157\1\uffff\1\172\1\141\1\157\1\uffff\1\40\1\uffff\1\141"+
+        "\1\72\1\uffff\1\163\1\uffff\2\172\1\uffff\1\172\1\146\1\uffff\1"+
+        "\143\1\156\1\uffff\1\162\1\uffff\1\172\2\uffff\1\145\1\172\1\151"+
+        "\1\172\1\151\1\uffff\1\144\1\uffff\1\157\1\uffff\1\141\1\172\1\156"+
+        "\1\172\1\uffff\1\172\2\uffff";
     static final String DFA19_acceptS =
-        "\20\uffff\1\43\13\uffff\1\73\1\75\1\uffff\1\103\1\104\1\105\1\106"+
-        "\1\107\1\110\5\uffff\1\144\2\uffff\1\150\1\151\6\uffff\1\144\4\uffff"+
-        "\1\26\1\4\1\5\1\136\1\6\1\133\1\7\1\40\1\31\1\10\1\23\1\41\1\32"+
-        "\1\11\1\34\1\33\1\12\1\146\1\147\1\35\1\13\1\36\1\uffff\1\37\1\20"+
-        "\1\21\1\27\1\22\1\uffff\1\42\1\30\1\135\1\132\1\43\22\uffff\1\76"+
-        "\1\uffff\1\65\4\uffff\1\134\1\64\1\73\1\75\1\uffff\1\103\1\104\1"+
-        "\105\1\106\1\107\1\110\3\uffff\1\141\1\uffff\1\142\1\143\1\145\1"+
-        "\150\10\uffff\1\67\1\uffff\1\16\1\14\1\17\1\15\1\24\1\25\4\uffff"+
-        "\1\111\10\uffff\1\120\1\uffff\1\66\6\uffff\1\102\25\uffff\1\44\1"+
-        "\137\3\uffff\1\116\6\uffff\1\71\2\uffff\1\57\7\uffff\1\126\5\uffff"+
-        "\1\121\2\uffff\1\2\7\uffff\1\112\10\uffff\1\62\1\uffff\1\55\2\uffff"+
-        "\1\115\1\uffff\1\60\3\uffff\1\140\4\uffff\1\122\3\uffff\1\51\7\uffff"+
-        "\1\52\10\uffff\1\131\1\63\1\uffff\1\124\3\uffff\1\117\1\1\1\uffff"+
-        "\1\46\1\113\4\uffff\1\47\11\uffff\1\123\2\uffff\1\125\3\uffff\1"+
-        "\45\2\uffff\1\127\3\uffff\1\114\1\uffff\1\56\1\uffff\1\77\1\uffff"+
-        "\1\70\4\uffff\1\53\2\uffff\1\72\1\uffff\1\100\1\uffff\1\3\1\50\5"+
-        "\uffff\1\101\1\uffff\1\54\4\uffff\1\130\1\uffff\1\61\1\74";
+        "\16\uffff\1\40\23\uffff\1\103\1\105\1\111\1\112\1\113\1\114\1\115"+
+        "\1\116\5\uffff\1\152\2\uffff\1\156\1\157\1\uffff\1\23\1\1\1\2\1"+
+        "\144\1\3\1\141\1\4\1\35\1\26\1\5\1\20\1\36\1\27\1\6\1\31\1\30\1"+
+        "\7\1\154\1\155\1\32\1\10\1\33\1\uffff\1\34\1\15\1\16\1\24\1\17\1"+
+        "\uffff\1\50\1\37\1\25\1\143\1\140\1\40\1\uffff\1\152\33\uffff\1"+
+        "\106\1\uffff\1\70\4\uffff\1\142\1\67\6\uffff\1\103\1\105\1\111\1"+
+        "\112\1\113\1\114\1\115\1\116\3\uffff\1\147\1\150\1\uffff\1\151\1"+
+        "\153\1\156\1\13\1\11\1\14\1\12\1\21\1\22\4\uffff\1\72\11\uffff\1"+
+        "\117\10\uffff\1\126\1\uffff\1\71\11\uffff\1\110\16\uffff\1\41\1"+
+        "\145\15\uffff\1\124\10\uffff\1\60\12\uffff\1\134\10\uffff\1\127"+
+        "\3\uffff\1\120\3\uffff\1\55\13\uffff\1\65\1\uffff\1\53\2\uffff\1"+
+        "\123\4\uffff\1\62\3\uffff\1\146\7\uffff\1\130\4\uffff\1\46\6\uffff"+
+        "\1\47\10\uffff\1\137\3\uffff\1\66\1\uffff\1\132\1\74\5\uffff\1\125"+
+        "\3\uffff\1\43\1\54\1\uffff\1\121\1\uffff\1\44\13\uffff\1\133\1\131"+
+        "\1\75\1\uffff\1\77\1\uffff\1\101\1\42\5\uffff\1\135\3\uffff\1\122"+
+        "\1\uffff\1\57\2\uffff\1\63\1\uffff\1\100\2\uffff\1\73\2\uffff\1"+
+        "\51\2\uffff\1\102\1\uffff\1\61\1\uffff\1\45\1\56\5\uffff\1\76\1"+
+        "\uffff\1\107\1\uffff\1\52\4\uffff\1\136\1\uffff\1\64\1\104";
     static final String DFA19_specialS =
-        "\1\2\52\uffff\1\1\1\0\u013a\uffff}>";
+        "\1\2\57\uffff\1\1\1\0\u0161\uffff}>";
     static final String[] DFA19_transitionS = {
-            "\11\56\2\55\2\56\1\55\22\56\1\55\1\13\1\53\1\40\1\52\1\12\1"+
-            "\5\1\54\1\44\1\37\1\10\1\6\1\20\1\7\1\16\1\11\1\47\11\50\1\33"+
-            "\1\43\1\15\1\3\1\14\1\17\1\56\32\52\1\41\1\56\1\42\1\51\1\52"+
-            "\1\56\1\31\1\52\1\30\1\25\1\2\1\23\1\52\1\26\1\22\3\52\1\27"+
-            "\1\46\1\52\1\24\1\52\1\36\1\1\1\32\1\52\1\21\1\45\3\52\1\35"+
-            "\1\4\1\34\uff82\56",
-            "\1\60\3\uffff\1\57\12\uffff\1\61\1\62\1\uffff\1\63\1\uffff"+
-            "\1\64",
-            "\1\70\1\uffff\1\67\11\uffff\1\66",
-            "\1\71\1\72",
-            "\1\74",
-            "\1\76",
-            "\1\101\21\uffff\1\100",
-            "\1\105\17\uffff\1\103\1\104",
-            "\1\110\22\uffff\1\107",
-            "\1\113\4\uffff\1\114\15\uffff\1\112",
-            "\1\116",
-            "\1\120",
-            "\1\122",
-            "\1\124",
-            "\1\126",
-            "\1\131\13\uffff\1\130",
+            "\11\63\2\62\2\63\1\62\22\63\1\62\1\11\1\60\1\45\1\57\1\10\1"+
+            "\3\1\61\1\51\1\44\1\6\1\4\1\16\1\5\1\14\1\7\1\54\11\55\1\34"+
+            "\1\50\1\13\1\1\1\12\1\15\1\63\11\57\1\37\1\57\1\35\1\36\5\57"+
+            "\1\41\2\57\1\40\4\57\1\46\1\63\1\47\1\56\1\57\1\63\1\32\1\57"+
+            "\1\30\1\25\1\20\1\23\1\57\1\26\1\22\3\57\1\27\1\53\1\57\1\24"+
+            "\1\57\1\31\1\21\1\33\1\57\1\17\1\52\3\57\1\43\1\2\1\42\uff82"+
+            "\63",
+            "\1\64\1\65",
+            "\1\67",
+            "\1\71",
+            "\1\74\21\uffff\1\73",
+            "\1\100\17\uffff\1\76\1\77",
+            "\1\103\22\uffff\1\102",
+            "\1\106\4\uffff\1\107\15\uffff\1\105",
+            "\1\111",
+            "\1\113",
+            "\1\115",
+            "\1\117",
+            "\1\122\3\uffff\1\121",
+            "\1\125\13\uffff\1\124",
             "",
-            "\1\134",
-            "\1\137\6\uffff\1\135\1\136",
-            "\1\140\7\uffff\1\142\5\uffff\1\141",
-            "\1\144\5\uffff\1\143",
-            "\1\145\3\uffff\1\146\5\uffff\1\147",
-            "\1\150\3\uffff\1\151",
-            "\1\152",
-            "\1\154\15\uffff\1\153",
-            "\1\156\3\uffff\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1"+
-            "\65\1\uffff\22\65\1\157\1\65\1\155\5\65",
-            "\1\163\1\161\10\uffff\1\164\6\uffff\1\162",
-            "\1\165",
-            "",
-            "",
-            "\1\171",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\u0080",
-            "\1\u0081\17\uffff\1\u0082",
-            "\12\u0084\10\uffff\1\u0086\1\uffff\3\u0086\5\uffff\1\u0086"+
-            "\13\uffff\1\u0083\6\uffff\1\u0084\2\uffff\1\u0086\1\uffff\3"+
-            "\u0086\5\uffff\1\u0086\13\uffff\1\u0083",
-            "\12\u0084\10\uffff\1\u0086\1\uffff\3\u0086\5\uffff\1\u0086"+
-            "\22\uffff\1\u0084\2\uffff\1\u0086\1\uffff\3\u0086\5\uffff\1"+
-            "\u0086",
-            "\1\65\34\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "",
-            "\0\u0087",
-            "\0\u0087",
+            "\1\130",
+            "\1\134\1\uffff\1\133\11\uffff\1\132",
+            "\1\140\3\uffff\1\137\12\uffff\1\135\1\136\1\uffff\1\141\1\uffff"+
+            "\1\142",
+            "\1\145\6\uffff\1\143\1\144",
+            "\1\146\7\uffff\1\150\5\uffff\1\147",
+            "\1\152\5\uffff\1\151",
+            "\1\153\3\uffff\1\154\5\uffff\1\155",
+            "\1\156\3\uffff\1\157",
+            "\1\160",
+            "\1\162\15\uffff\1\161",
+            "\1\163",
+            "\1\165\3\uffff\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff"+
+            "\1\131\1\uffff\22\131\1\166\1\131\1\164\5\131",
+            "\1\172\1\170\10\uffff\1\173\6\uffff\1\171",
+            "\1\174",
+            "\1\176",
+            "\1\177\7\uffff\1\u0080",
+            "\1\u0081",
+            "\1\u0082",
+            "\1\u0083",
             "",
             "",
-            "\1\u0089",
-            "\1\u008a",
-            "\1\u008b",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\u008c",
-            "\1\u008d",
-            "\1\u008e",
+            "\1\u008d\17\uffff\1\u008e",
+            "\12\u0091\10\uffff\1\u0092\1\uffff\3\u0092\5\uffff\1\u0092"+
+            "\13\uffff\1\u008f\6\uffff\1\u0091\2\uffff\1\u0092\1\uffff\3"+
+            "\u0092\5\uffff\1\u0092\13\uffff\1\u008f",
+            "\12\u0091\10\uffff\1\u0092\1\uffff\3\u0092\5\uffff\1\u0092"+
+            "\22\uffff\1\u0091\2\uffff\1\u0092\1\uffff\3\u0092\5\uffff\1"+
+            "\u0092",
+            "\1\131\34\uffff\32\131\4\uffff\1\131\1\uffff\32\131",
             "",
-            "\1\u008f\20\uffff\1\u0090",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
-            "\1\u0092",
-            "\1\u0093",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
+            "\0\u0093",
+            "\0\u0093",
             "",
             "",
             "\1\u0095",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "",
             "",
             "",
@@ -3903,116 +4075,118 @@ public class InternalPdmLexer extends Lexer {
             "",
             "",
             "",
-            "\1\u0099\5\uffff\1\u009a",
-            "\1\u009b",
-            "\1\u009c",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
-            "\1\u009e",
-            "\1\u009f",
+            "\1\u0099",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\u009b\5\uffff\1\u009c",
+            "",
+            "\1\u009e\20\uffff\1\u009d",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u00a0",
             "\1\u00a1",
             "\1\u00a2",
-            "\1\u00a3\1\uffff\1\u00a4",
+            "\1\u00a3",
+            "\1\u00a4",
             "\1\u00a5",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\u00a6",
             "\1\u00a7",
             "\1\u00a8",
-            "\1\u00a9",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u00aa",
-            "\1\u00ab\1\u00ac\1\u00ad",
+            "\1\u00ab",
+            "\1\u00ac",
+            "\1\u00ad",
             "\1\u00ae",
-            "",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
-            "",
-            "\1\u00b0",
+            "\1\u00af\1\uffff\1\u00b0",
             "\1\u00b1",
-            "\1\u00b2",
-            "\1\u00b4\3\uffff\1\u00b3",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "\1\u00b3",
+            "\1\u00b4",
+            "\1\u00b5",
+            "\1\u00b6",
+            "\1\u00b7\1\u00b8\1\u00b9",
+            "\1\u00bb\15\uffff\1\u00ba\2\uffff\1\u00bc",
+            "\1\u00bd",
             "",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "",
-            "",
-            "",
-            "\1\u00b5\15\uffff\1\u00b6\2\uffff\1\u00b7",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\u00b8",
-            "\1\u00b9",
-            "\1\u00ba",
-            "",
-            "\12\u0084\10\uffff\1\u0086\1\uffff\3\u0086\5\uffff\1\u0086"+
-            "\22\uffff\1\u0084\2\uffff\1\u0086\1\uffff\3\u0086\5\uffff\1"+
-            "\u0086",
-            "",
-            "",
-            "",
-            "",
-            "\1\u00bb",
-            "\1\u00bd\3\uffff\1\u00bc",
-            "\1\u00be",
             "\1\u00bf",
             "\1\u00c0",
             "\1\u00c1",
-            "\1\u00c2",
-            "\1\u00c3",
+            "\1\u00c3\3\uffff\1\u00c2",
+            "",
             "",
             "\1\u00c4",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\u00c5",
+            "\1\u00c6",
             "\1\u00c7",
             "\1\u00c8",
-            "",
             "\1\u00c9",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\u00ca",
             "\1\u00cb",
             "\1\u00cc",
-            "\1\u00cd",
-            "\1\u00ce",
+            "",
+            "",
+            "\12\u0091\10\uffff\1\u0092\1\uffff\3\u0092\5\uffff\1\u0092"+
+            "\22\uffff\1\u0091\2\uffff\1\u0092\1\uffff\3\u0092\5\uffff\1"+
+            "\u0092",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u00cf",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\22"+
-            "\65\1\u00d0\7\65",
+            "\1\u00d0",
             "",
+            "\1\u00d1",
             "\1\u00d2",
-            "",
             "\1\u00d3",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
-            "\1\u00d5",
-            "\1\u00d6",
+            "\1\u00d4",
+            "\1\u00d6\3\uffff\1\u00d5",
             "\1\u00d7",
             "\1\u00d8",
-            "",
             "\1\u00d9",
             "\1\u00da",
+            "",
             "\1\u00db",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u00dd",
             "\1\u00de",
             "\1\u00df",
             "\1\u00e0",
             "\1\u00e1",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\u00e2",
+            "",
             "\1\u00e3",
+            "",
             "\1\u00e4",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u00e6",
             "\1\u00e7",
             "\1\u00e8",
@@ -4020,200 +4194,259 @@ public class InternalPdmLexer extends Lexer {
             "\1\u00ea",
             "\1\u00eb",
             "\1\u00ec",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
             "",
-            "",
+            "\1\u00ed",
             "\1\u00ee",
             "\1\u00ef",
-            "\1\u00f0",
-            "",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u00f1",
             "\1\u00f2",
             "\1\u00f3",
             "\1\u00f4",
             "\1\u00f5",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
-            "",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\21"+
-            "\65\1\u00f7\10\65",
-            "\1\u00f9",
-            "",
+            "\1\u00f6",
+            "\1\u00f7",
+            "\1\u00f8",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u00fa",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "",
+            "",
+            "\1\u00fb",
             "\1\u00fc",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u00fe",
             "\1\u00ff",
             "\1\u0100",
-            "",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u0102",
             "\1\u0103",
             "\1\u0104",
             "\1\u0105",
-            "",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\u0106",
             "\1\u0107",
             "",
             "\1\u0108",
             "\1\u0109",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\u010a",
             "\1\u010b",
             "\1\u010c",
-            "\1\u010d",
-            "\1\u010e\16\uffff\1\u010f",
-            "",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\21\131\1\u010e\10\131",
             "\1\u0110",
+            "",
             "\1\u0111",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u0113",
             "\1\u0114",
             "\1\u0115",
             "\1\u0116",
-            "\1\u0117",
-            "",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u0118",
-            "",
             "\1\u0119",
             "\1\u011a",
             "",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
-            "",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "\1\u011c",
             "\1\u011d",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
-            "",
+            "\1\u011e",
             "\1\u011f",
             "\1\u0120",
             "\1\u0121",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\u0122",
             "",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
-            "\1\u0124",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "\1\u0124\16\uffff\1\u0125",
+            "\1\u0126",
             "",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
             "\1\u0127",
-            "\1\u0128",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u0129",
-            "\1\u012a",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
-            "\1\u012c",
             "",
+            "\1\u012a",
+            "\1\u012b",
+            "\1\u012c",
             "\1\u012d",
             "\1\u012e",
-            "\1\u012f",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u0130",
             "\1\u0131",
             "\1\u0132",
             "\1\u0133",
             "\1\u0134",
             "",
-            "",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\u0135",
             "",
             "\1\u0136",
             "\1\u0137",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
             "",
-            "",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u0139",
-            "",
-            "",
             "\1\u013a",
             "\1\u013b",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
-            "\1\u013d",
             "",
-            "\1\u013e",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "\1\u013d",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u0140",
             "\1\u0141",
             "\1\u0142",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\u0143",
             "\1\u0144",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "",
             "\1\u0146",
-            "",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\u0147",
             "\1\u0148",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
-            "\1\u014a",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u014b",
-            "",
-            "\1\u014c",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u014d",
-            "",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u014f",
+            "",
             "\1\u0150",
-            "",
             "\1\u0151",
-            "",
             "\1\u0152",
-            "",
             "\1\u0153",
-            "",
             "\1\u0154",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\u0155",
+            "\1\u0156",
             "\1\u0157",
             "",
             "\1\u0158",
             "\1\u0159",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "",
-            "\1\u015a",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "",
-            "\1\u015b",
             "",
-            "",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u015d",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u015f",
-            "\1\u0160",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "",
-            "\1\u0161",
-            "",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "\1\u0162",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
-            "\1\u0164",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "\1\u0163",
             "",
-            "\1\65\13\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32"+
-            "\65",
+            "",
+            "\1\u0164",
+            "",
+            "\1\u0165",
+            "",
+            "\1\u0166",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "\1\u0168",
+            "\1\u0169",
+            "\1\u016a",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "\1\u016c",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "\1\u016e",
+            "\1\u016f",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "",
+            "",
+            "",
+            "\1\u0171",
+            "",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "",
+            "",
+            "\1\u0173",
+            "\1\u0174",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "\1\u0176",
+            "\1\u0177",
+            "",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "\1\u0179",
+            "\1\u017a",
+            "",
+            "\1\u017b",
+            "",
+            "\1\u017c",
+            "\1\u017d",
+            "",
+            "\1\u017e",
+            "",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "",
+            "\1\u0181",
+            "\1\u0182",
+            "",
+            "\1\u0183",
+            "\1\u0184",
+            "",
+            "\1\u0185",
+            "",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "",
+            "",
+            "\1\u0187",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "\1\u0189",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "\1\u018b",
+            "",
+            "\1\u018c",
+            "",
+            "\1\u018d",
+            "",
+            "\1\u018e",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "\1\u0190",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
+            "",
+            "\1\131\13\uffff\12\131\7\uffff\32\131\4\uffff\1\131\1\uffff"+
+            "\32\131",
             "",
             ""
     };
@@ -4248,29 +4481,29 @@ public class InternalPdmLexer extends Lexer {
             this.transition = DFA19_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | RULE_HEX | RULE_INT | RULE_DECIMAL | RULE_ID | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA19_44 = input.LA(1);
+                        int LA19_49 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA19_44>='\u0000' && LA19_44<='\uFFFF')) ) {s = 135;}
+                        if ( ((LA19_49>='\u0000' && LA19_49<='\uFFFF')) ) {s = 147;}
 
-                        else s = 46;
+                        else s = 51;
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA19_43 = input.LA(1);
+                        int LA19_48 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA19_43>='\u0000' && LA19_43<='\uFFFF')) ) {s = 135;}
+                        if ( ((LA19_48>='\u0000' && LA19_48<='\uFFFF')) ) {s = 147;}
 
-                        else s = 46;
+                        else s = 51;
 
                         if ( s>=0 ) return s;
                         break;
@@ -4278,39 +4511,39 @@ public class InternalPdmLexer extends Lexer {
                         int LA19_0 = input.LA(1);
 
                         s = -1;
-                        if ( (LA19_0=='s') ) {s = 1;}
+                        if ( (LA19_0=='=') ) {s = 1;}
 
-                        else if ( (LA19_0=='e') ) {s = 2;}
+                        else if ( (LA19_0=='|') ) {s = 2;}
 
-                        else if ( (LA19_0=='=') ) {s = 3;}
+                        else if ( (LA19_0=='&') ) {s = 3;}
 
-                        else if ( (LA19_0=='|') ) {s = 4;}
+                        else if ( (LA19_0=='+') ) {s = 4;}
 
-                        else if ( (LA19_0=='&') ) {s = 5;}
+                        else if ( (LA19_0=='-') ) {s = 5;}
 
-                        else if ( (LA19_0=='+') ) {s = 6;}
+                        else if ( (LA19_0=='*') ) {s = 6;}
 
-                        else if ( (LA19_0=='-') ) {s = 7;}
+                        else if ( (LA19_0=='/') ) {s = 7;}
 
-                        else if ( (LA19_0=='*') ) {s = 8;}
+                        else if ( (LA19_0=='%') ) {s = 8;}
 
-                        else if ( (LA19_0=='/') ) {s = 9;}
+                        else if ( (LA19_0=='!') ) {s = 9;}
 
-                        else if ( (LA19_0=='%') ) {s = 10;}
+                        else if ( (LA19_0=='>') ) {s = 10;}
 
-                        else if ( (LA19_0=='!') ) {s = 11;}
+                        else if ( (LA19_0=='<') ) {s = 11;}
 
-                        else if ( (LA19_0=='>') ) {s = 12;}
+                        else if ( (LA19_0=='.') ) {s = 12;}
 
-                        else if ( (LA19_0=='<') ) {s = 13;}
+                        else if ( (LA19_0=='?') ) {s = 13;}
 
-                        else if ( (LA19_0=='.') ) {s = 14;}
+                        else if ( (LA19_0==',') ) {s = 14;}
 
-                        else if ( (LA19_0=='?') ) {s = 15;}
+                        else if ( (LA19_0=='v') ) {s = 15;}
 
-                        else if ( (LA19_0==',') ) {s = 16;}
+                        else if ( (LA19_0=='e') ) {s = 16;}
 
-                        else if ( (LA19_0=='v') ) {s = 17;}
+                        else if ( (LA19_0=='s') ) {s = 17;}
 
                         else if ( (LA19_0=='i') ) {s = 18;}
 
@@ -4326,49 +4559,59 @@ public class InternalPdmLexer extends Lexer {
 
                         else if ( (LA19_0=='c') ) {s = 24;}
 
-                        else if ( (LA19_0=='a') ) {s = 25;}
+                        else if ( (LA19_0=='r') ) {s = 25;}
 
-                        else if ( (LA19_0=='t') ) {s = 26;}
+                        else if ( (LA19_0=='a') ) {s = 26;}
 
-                        else if ( (LA19_0==':') ) {s = 27;}
+                        else if ( (LA19_0=='t') ) {s = 27;}
 
-                        else if ( (LA19_0=='}') ) {s = 28;}
+                        else if ( (LA19_0==':') ) {s = 28;}
 
-                        else if ( (LA19_0=='{') ) {s = 29;}
+                        else if ( (LA19_0=='L') ) {s = 29;}
 
-                        else if ( (LA19_0=='r') ) {s = 30;}
+                        else if ( (LA19_0=='M') ) {s = 30;}
 
-                        else if ( (LA19_0==')') ) {s = 31;}
+                        else if ( (LA19_0=='J') ) {s = 31;}
 
-                        else if ( (LA19_0=='#') ) {s = 32;}
+                        else if ( (LA19_0=='V') ) {s = 32;}
 
-                        else if ( (LA19_0=='[') ) {s = 33;}
+                        else if ( (LA19_0=='S') ) {s = 33;}
 
-                        else if ( (LA19_0==']') ) {s = 34;}
+                        else if ( (LA19_0=='}') ) {s = 34;}
 
-                        else if ( (LA19_0==';') ) {s = 35;}
+                        else if ( (LA19_0=='{') ) {s = 35;}
 
-                        else if ( (LA19_0=='(') ) {s = 36;}
+                        else if ( (LA19_0==')') ) {s = 36;}
 
-                        else if ( (LA19_0=='w') ) {s = 37;}
+                        else if ( (LA19_0=='#') ) {s = 37;}
 
-                        else if ( (LA19_0=='n') ) {s = 38;}
+                        else if ( (LA19_0=='[') ) {s = 38;}
 
-                        else if ( (LA19_0=='0') ) {s = 39;}
+                        else if ( (LA19_0==']') ) {s = 39;}
 
-                        else if ( ((LA19_0>='1' && LA19_0<='9')) ) {s = 40;}
+                        else if ( (LA19_0==';') ) {s = 40;}
 
-                        else if ( (LA19_0=='^') ) {s = 41;}
+                        else if ( (LA19_0=='(') ) {s = 41;}
 
-                        else if ( (LA19_0=='$'||(LA19_0>='A' && LA19_0<='Z')||LA19_0=='_'||LA19_0=='b'||LA19_0=='g'||(LA19_0>='j' && LA19_0<='l')||LA19_0=='o'||LA19_0=='q'||LA19_0=='u'||(LA19_0>='x' && LA19_0<='z')) ) {s = 42;}
+                        else if ( (LA19_0=='w') ) {s = 42;}
 
-                        else if ( (LA19_0=='\"') ) {s = 43;}
+                        else if ( (LA19_0=='n') ) {s = 43;}
 
-                        else if ( (LA19_0=='\'') ) {s = 44;}
+                        else if ( (LA19_0=='0') ) {s = 44;}
 
-                        else if ( ((LA19_0>='\t' && LA19_0<='\n')||LA19_0=='\r'||LA19_0==' ') ) {s = 45;}
+                        else if ( ((LA19_0>='1' && LA19_0<='9')) ) {s = 45;}
 
-                        else if ( ((LA19_0>='\u0000' && LA19_0<='\b')||(LA19_0>='\u000B' && LA19_0<='\f')||(LA19_0>='\u000E' && LA19_0<='\u001F')||LA19_0=='@'||LA19_0=='\\'||LA19_0=='`'||(LA19_0>='~' && LA19_0<='\uFFFF')) ) {s = 46;}
+                        else if ( (LA19_0=='^') ) {s = 46;}
+
+                        else if ( (LA19_0=='$'||(LA19_0>='A' && LA19_0<='I')||LA19_0=='K'||(LA19_0>='N' && LA19_0<='R')||(LA19_0>='T' && LA19_0<='U')||(LA19_0>='W' && LA19_0<='Z')||LA19_0=='_'||LA19_0=='b'||LA19_0=='g'||(LA19_0>='j' && LA19_0<='l')||LA19_0=='o'||LA19_0=='q'||LA19_0=='u'||(LA19_0>='x' && LA19_0<='z')) ) {s = 47;}
+
+                        else if ( (LA19_0=='\"') ) {s = 48;}
+
+                        else if ( (LA19_0=='\'') ) {s = 49;}
+
+                        else if ( ((LA19_0>='\t' && LA19_0<='\n')||LA19_0=='\r'||LA19_0==' ') ) {s = 50;}
+
+                        else if ( ((LA19_0>='\u0000' && LA19_0<='\b')||(LA19_0>='\u000B' && LA19_0<='\f')||(LA19_0>='\u000E' && LA19_0<='\u001F')||LA19_0=='@'||LA19_0=='\\'||LA19_0=='`'||(LA19_0>='~' && LA19_0<='\uFFFF')) ) {s = 51;}
 
                         if ( s>=0 ) return s;
                         break;
