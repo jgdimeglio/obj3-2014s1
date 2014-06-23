@@ -29,8 +29,8 @@ public class PdmStandaloneSetupGenerated implements ISetup {
 	}
 	
 	public void register(Injector injector) {
-	if (!EPackage.Registry.INSTANCE.containsKey("http")) {
-		EPackage.Registry.INSTANCE.put("http", org.xtext.unq.planificador.planificadorDsl.PlanificadorDslPackage.eINSTANCE);
+	if (!EPackage.Registry.INSTANCE.containsKey("http://www.xtext.org/unq/planificadorDeMaterias/Pdm")) {
+		EPackage.Registry.INSTANCE.put("http://www.xtext.org/unq/planificadorDeMaterias/Pdm", org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage.eINSTANCE);
 	}
 
 		org.eclipse.xtext.resource.IResourceFactory resourceFactory = injector.getInstance(org.eclipse.xtext.resource.IResourceFactory.class);

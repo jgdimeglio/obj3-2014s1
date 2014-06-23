@@ -7,7 +7,7 @@ import org.eclipse.xtext.xbase.compiler.output.ITreeAppendable
 import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder
-import org.xtext.unq.planificador.planificadorDsl.Materia
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
 
 class PlanificadorJvmModelInferrer extends AbstractModelInferrer{
 	@Inject extension JvmTypesBuilder

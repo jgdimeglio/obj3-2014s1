@@ -57,19 +57,21 @@ import org.eclipse.xtext.xtype.XFunctionTypeRef;
 import org.eclipse.xtext.xtype.XImportDeclaration;
 import org.eclipse.xtext.xtype.XImportSection;
 import org.eclipse.xtext.xtype.XtypePackage;
-import org.xtext.unq.planificador.planificadorDsl.Aula;
-import org.xtext.unq.planificador.planificadorDsl.CargaHoraria;
-import org.xtext.unq.planificador.planificadorDsl.CargaHorariaDocente;
-import org.xtext.unq.planificador.planificadorDsl.Dia;
-import org.xtext.unq.planificador.planificadorDsl.Hora;
-import org.xtext.unq.planificador.planificadorDsl.Horario;
-import org.xtext.unq.planificador.planificadorDsl.Horarios;
-import org.xtext.unq.planificador.planificadorDsl.Materia;
-import org.xtext.unq.planificador.planificadorDsl.Model;
-import org.xtext.unq.planificador.planificadorDsl.Planificacion;
-import org.xtext.unq.planificador.planificadorDsl.PlanificadorDslPackage;
-import org.xtext.unq.planificador.planificadorDsl.Profesor;
-import org.xtext.unq.planificador.planificadorDsl.Semestre;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHorariaDocente;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dia;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Hora;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horarios;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.RecursoMateria;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Semestre;
 import org.xtext.unq.planificador.services.PdmGrammarAccess;
 
 @SuppressWarnings("all")
@@ -79,74 +81,86 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	private PdmGrammarAccess grammarAccess;
 	
 	public void createSequence(EObject context, EObject semanticObject) {
-		if(semanticObject.eClass().getEPackage() == PlanificadorDslPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case PlanificadorDslPackage.AULA:
+		if(semanticObject.eClass().getEPackage() == PlanificadorDeMateriasDslPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case PlanificadorDeMateriasDslPackage.AULA:
 				if(context == grammarAccess.getAulaRule()) {
 					sequence_Aula(context, (Aula) semanticObject); 
 					return; 
 				}
 				else break;
-			case PlanificadorDslPackage.CARGA_HORARIA:
+			case PlanificadorDeMateriasDslPackage.CARGA_HORARIA:
 				if(context == grammarAccess.getCargaHorariaRule()) {
 					sequence_CargaHoraria(context, (CargaHoraria) semanticObject); 
 					return; 
 				}
 				else break;
-			case PlanificadorDslPackage.CARGA_HORARIA_DOCENTE:
+			case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE:
 				if(context == grammarAccess.getCargaHorariaDocenteRule()) {
 					sequence_CargaHorariaDocente(context, (CargaHorariaDocente) semanticObject); 
 					return; 
 				}
 				else break;
-			case PlanificadorDslPackage.DIA:
+			case PlanificadorDeMateriasDslPackage.DIA:
 				if(context == grammarAccess.getDiaRule()) {
 					sequence_Dia(context, (Dia) semanticObject); 
 					return; 
 				}
 				else break;
-			case PlanificadorDslPackage.HORA:
+			case PlanificadorDeMateriasDslPackage.HORA:
 				if(context == grammarAccess.getHoraRule()) {
 					sequence_Hora(context, (Hora) semanticObject); 
 					return; 
 				}
 				else break;
-			case PlanificadorDslPackage.HORARIO:
+			case PlanificadorDeMateriasDslPackage.HORARIO:
 				if(context == grammarAccess.getHorarioRule()) {
 					sequence_Horario(context, (Horario) semanticObject); 
 					return; 
 				}
 				else break;
-			case PlanificadorDslPackage.HORARIOS:
+			case PlanificadorDeMateriasDslPackage.HORARIOS:
 				if(context == grammarAccess.getHorariosRule()) {
 					sequence_Horarios(context, (Horarios) semanticObject); 
 					return; 
 				}
 				else break;
-			case PlanificadorDslPackage.MATERIA:
+			case PlanificadorDeMateriasDslPackage.MATERIA:
 				if(context == grammarAccess.getMateriaRule()) {
 					sequence_Materia(context, (Materia) semanticObject); 
 					return; 
 				}
 				else break;
-			case PlanificadorDslPackage.MODEL:
+			case PlanificadorDeMateriasDslPackage.MODEL:
 				if(context == grammarAccess.getModelRule()) {
 					sequence_Model(context, (Model) semanticObject); 
 					return; 
 				}
 				else break;
-			case PlanificadorDslPackage.PLANIFICACION:
+			case PlanificadorDeMateriasDslPackage.PLANIFICACION:
 				if(context == grammarAccess.getPlanificacionRule()) {
 					sequence_Planificacion(context, (Planificacion) semanticObject); 
 					return; 
 				}
 				else break;
-			case PlanificadorDslPackage.PROFESOR:
+			case PlanificadorDeMateriasDslPackage.PROFESOR:
 				if(context == grammarAccess.getProfesorRule()) {
 					sequence_Profesor(context, (Profesor) semanticObject); 
 					return; 
 				}
 				else break;
-			case PlanificadorDslPackage.SEMESTRE:
+			case PlanificadorDeMateriasDslPackage.RECURSO:
+				if(context == grammarAccess.getRecursoRule()) {
+					sequence_Recurso(context, (Recurso) semanticObject); 
+					return; 
+				}
+				else break;
+			case PlanificadorDeMateriasDslPackage.RECURSO_MATERIA:
+				if(context == grammarAccess.getRecursoMateriaRule()) {
+					sequence_RecursoMateria(context, (RecursoMateria) semanticObject); 
+					return; 
+				}
+				else break;
+			case PlanificadorDeMateriasDslPackage.SEMESTRE:
 				if(context == grammarAccess.getSemestreRule()) {
 					sequence_Semestre(context, (Semestre) semanticObject); 
 					return; 
@@ -1263,10 +1277,10 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_CargaHorariaDocente(EObject context, CargaHorariaDocente semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDslPackage.Literals.CARGA_HORARIA_DOCENTE__NOMBRE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDslPackage.Literals.CARGA_HORARIA_DOCENTE__NOMBRE));
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDslPackage.Literals.CARGA_HORARIA_DOCENTE__TIPO) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDslPackage.Literals.CARGA_HORARIA_DOCENTE__TIPO));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.CARGA_HORARIA_DOCENTE__NOMBRE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.CARGA_HORARIA_DOCENTE__NOMBRE));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.CARGA_HORARIA_DOCENTE__TIPO) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.CARGA_HORARIA_DOCENTE__TIPO));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
@@ -1278,28 +1292,52 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (tipo+=ID dias+=INT)
+	 *     (cantDias=INT dias=INT)
 	 */
 	protected void sequence_CargaHoraria(EObject context, CargaHoraria semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.CARGA_HORARIA__CANT_DIAS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.CARGA_HORARIA__CANT_DIAS));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.CARGA_HORARIA__DIAS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.CARGA_HORARIA__DIAS));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getCargaHorariaAccess().getCantDiasINTTerminalRuleCall_1_0(), semanticObject.getCantDias());
+		feeder.accept(grammarAccess.getCargaHorariaAccess().getDiasINTTerminalRuleCall_3_0(), semanticObject.getDias());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     dia+=ID
+	 *     dia=ID
 	 */
 	protected void sequence_Dia(EObject context, Dia semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.DIA__DIA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.DIA__DIA));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getDiaAccess().getDiaIDTerminalRuleCall_1_0(), semanticObject.getDia());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     hora+=INT
+	 *     hora=INT
 	 */
 	protected void sequence_Hora(EObject context, Hora semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORA__HORA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORA__HORA));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getHoraAccess().getHoraINTTerminalRuleCall_1_0(), semanticObject.getHora());
+		feeder.finish();
 	}
 	
 	
@@ -1309,16 +1347,16 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_Horario(EObject context, Horario semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDslPackage.Literals.HORARIO__DIA) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDslPackage.Literals.HORARIO__DIA));
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDslPackage.Literals.HORARIO__DESDE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDslPackage.Literals.HORARIO__DESDE));
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDslPackage.Literals.HORARIO__HASTA) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDslPackage.Literals.HORARIO__HASTA));
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDslPackage.Literals.HORARIO__MATERIA) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDslPackage.Literals.HORARIO__MATERIA));
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDslPackage.Literals.HORARIO__AULA) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDslPackage.Literals.HORARIO__AULA));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__DIA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__DIA));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__DESDE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__DESDE));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__HASTA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__HASTA));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__MATERIA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__MATERIA));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__AULA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__AULA));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
@@ -1346,10 +1384,10 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_Materia(EObject context, Materia semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDslPackage.Literals.MATERIA__NOMBRE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDslPackage.Literals.MATERIA__NOMBRE));
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDslPackage.Literals.MATERIA__CARGA_HORARIA) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDslPackage.Literals.MATERIA__CARGA_HORARIA));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.MATERIA__NOMBRE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.MATERIA__NOMBRE));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.MATERIA__CARGA_HORARIA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.MATERIA__CARGA_HORARIA));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
@@ -1372,7 +1410,9 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	 *         dias+=Dia* 
 	 *         semestre+=Semestre* 
 	 *         planificaciones+=Planificacion* 
-	 *         horarios+=Horario*
+	 *         horarios+=Horario* 
+	 *         recursos+=Recurso* 
+	 *         recursosDeMaterias+=RecursoMateria*
 	 *     )
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
@@ -1391,9 +1431,37 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (nombre+=ID dedicacion+=Dedicacion)
+	 *     (nombre=ID dedicacion=Dedicacion)
 	 */
 	protected void sequence_Profesor(EObject context, Profesor semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NOMBRE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NOMBRE));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.PROFESOR__DEDICACION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.PROFESOR__DEDICACION));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getProfesorAccess().getNombreIDTerminalRuleCall_1_0(), semanticObject.getNombre());
+		feeder.accept(grammarAccess.getProfesorAccess().getDedicacionDedicacionParserRuleCall_3_0(), semanticObject.getDedicacion());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (materia=Materia recursos+=Recurso+)
+	 */
+	protected void sequence_RecursoMateria(EObject context, RecursoMateria semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     nombre+=ID
+	 */
+	protected void sequence_Recurso(EObject context, Recurso semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -1404,10 +1472,10 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_Semestre(EObject context, Semestre semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDslPackage.Literals.SEMESTRE__ANHO) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDslPackage.Literals.SEMESTRE__ANHO));
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDslPackage.Literals.SEMESTRE__NUMERO) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDslPackage.Literals.SEMESTRE__NUMERO));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.SEMESTRE__ANHO) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.SEMESTRE__ANHO));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.SEMESTRE__NUMERO) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.SEMESTRE__NUMERO));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);

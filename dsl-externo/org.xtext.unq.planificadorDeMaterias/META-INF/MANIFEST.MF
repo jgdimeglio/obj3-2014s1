@@ -30,9 +30,9 @@ Export-Package: org.xtext.unq.planificador,
  org.xtext.unq.planificador.scoping,
  org.xtext.unq.planificador.generator,
  org.xtext.unq.planificador.formatting,
- org.xtext.unq.planificador.planificadorDsl,
- org.xtext.unq.planificador.planificadorDsl.impl,
- org.xtext.unq.planificador.planificadorDsl.util,
  org.xtext.unq.planificador.jvmmodel,
- org.xtext.unq.planificador.services
+ org.xtext.unq.planificador.services,
+ org.xtext.unq.planificador.planificadorDeMateriasDsl,
+ org.xtext.unq.planificador.planificadorDeMateriasDsl.impl,
+ org.xtext.unq.planificador.planificadorDeMateriasDsl.util
 

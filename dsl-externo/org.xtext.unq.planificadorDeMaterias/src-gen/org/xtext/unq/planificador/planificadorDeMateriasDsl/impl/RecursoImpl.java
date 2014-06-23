@@ -1,0 +1,163 @@
+/**
+ */
+package org.xtext.unq.planificador.planificadorDeMateriasDsl.impl;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Recurso</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.RecursoImpl#getNombre <em>Nombre</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @generated
+ */
+public class RecursoImpl extends MinimalEObjectImpl.Container implements Recurso
+{
+  /**
+   * The cached value of the '{@link #getNombre() <em>Nombre</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNombre()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> nombre;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected RecursoImpl()
+  {
+    super();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  protected EClass eStaticClass()
+  {
+    return PlanificadorDeMateriasDslPackage.Literals.RECURSO;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getNombre()
+  {
+    if (nombre == null)
+    {
+      nombre = new EDataTypeEList<String>(String.class, this, PlanificadorDeMateriasDslPackage.RECURSO__NOMBRE);
+    }
+    return nombre;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case PlanificadorDeMateriasDslPackage.RECURSO__NOMBRE:
+        return getNombre();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @SuppressWarnings("unchecked")
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case PlanificadorDeMateriasDslPackage.RECURSO__NOMBRE:
+        getNombre().clear();
+        getNombre().addAll((Collection<? extends String>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case PlanificadorDeMateriasDslPackage.RECURSO__NOMBRE:
+        getNombre().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case PlanificadorDeMateriasDslPackage.RECURSO__NOMBRE:
+        return nombre != null && !nombre.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (nombre: ");
+    result.append(nombre);
+    result.append(')');
+    return result.toString();
+  }
+
+} //RecursoImpl

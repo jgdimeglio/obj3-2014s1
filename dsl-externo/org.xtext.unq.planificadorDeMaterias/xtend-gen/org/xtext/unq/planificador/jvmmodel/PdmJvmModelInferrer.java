@@ -7,7 +7,7 @@ import org.eclipse.xtext.xbase.jvmmodel.AbstractModelInferrer;
 import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor;
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.xtext.unq.planificador.planificadorDsl.Model;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model;
 
 /**
  * <p>Infers a JVM model from the source model.</p>

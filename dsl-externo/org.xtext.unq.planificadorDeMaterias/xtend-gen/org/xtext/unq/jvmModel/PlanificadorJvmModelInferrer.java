@@ -14,7 +14,7 @@ import org.eclipse.xtext.xbase.jvmmodel.IJvmDeclaredTypeAcceptor;
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypesBuilder;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
-import org.xtext.unq.planificador.planificadorDsl.Materia;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia;
 
 @SuppressWarnings("all")
 public class PlanificadorJvmModelInferrer extends AbstractModelInferrer {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="planificadorDsl" nsURI="http" nsPrefix="planificadorDsl">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="planificadorDeMateriasDsl" nsURI="http://www.xtext.org/unq/planificadorDeMaterias/Pdm"
+    nsPrefix="planificadorDeMateriasDsl">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
     <eStructuralFeatures xsi:type="ecore:EReference" name="profesors" upperBound="-1"
         eType="#//Profesor" containment="true"/>
@@ -22,16 +23,17 @@
         eType="#//Semestre" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="planificaciones" upperBound="-1"
         eType="#//Planificacion" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recursos" upperBound="-1"
+        eType="#//Recurso" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recursosDeMaterias" upperBound="-1"
+        eType="#//RecursoMateria" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Profesor">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dedicacion" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dedicacion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Hora">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hora" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hora" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Materia">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -43,10 +45,8 @@
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CargaHoraria">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dias" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cantDias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CargaHorariaDocente">
     <eStructuralFeatures xsi:type="ecore:EReference" name="nombre" eType="#//Profesor"
@@ -69,8 +69,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numero" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dia">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dia" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dia" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Horarios">
     <eStructuralFeatures xsi:type="ecore:EReference" name="horarios" upperBound="-1"
@@ -83,5 +82,15 @@
         eType="#//Materia" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="horarios" eType="#//Horarios"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Recurso">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RecursoMateria">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="materia" eType="#//Materia"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recursos" upperBound="-1"
+        eType="#//Recurso" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
