@@ -19,10 +19,10 @@ Model:
 ;
 
 Profesor:
-	'profesor' nombre+=ID 'dedicacion' dedicacion+=Dedicacion;
+	'profesor' nombre=ID 'dedicacion' dedicacion=Dedicacion;
 
 Hora:
-	'hora' hora+=INT;
+	'hora' hora=INT;
 	
 Dedicacion:
 	SIMPLE | SEMI | EXCLUSIVA
@@ -47,7 +47,7 @@ Aula:
 	'aula' nombre+=ID;
 
 CargaHoraria:
-	'cargaHoraria' tipo+=ID 'dias' dias+=INT;
+	'cargaHoraria' tipo=ID 'dias' dias=INT;
 
 CargaHorariaDocente:
 	nombre=Profesor 'tiene' tipo=CargaHoraria;
@@ -60,10 +60,10 @@ Semestre:
 	anho=INT 'semestre' numero=INT;
 
 Dia:
-	'dia' dia+=ID;
+	'dia' dia=ID;
 
 Horarios:
-	'horarios {' (horarios+=Horario)+ '}';
+	'horarios {' (horarios=Horario)+ '}';
 
 Planificacion:
 	'planificacion' semestre=Semestre '{'
