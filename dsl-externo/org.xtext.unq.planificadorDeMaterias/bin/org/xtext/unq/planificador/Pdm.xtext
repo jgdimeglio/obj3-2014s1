@@ -30,7 +30,16 @@ FQN:
   ID ('.' ID)*;
 
 Profesor:
-	'profesor' name=ID 'dedicacion' dedicacion=Dedicacion;
+	'profesor' name=ID 
+	'dedicacion' dedicacion=Dedicacion
+	('materias' (materias+=Materia)+)?
+	('disponibilidad' (disponibilidad=Disponibilidad))?
+;
+
+Disponibilidad:
+	('no puede' (dias+=Dia))?
+	('puede' (dias+=Dia))?
+;
 
 Hora:
 	'hora' hora=INT;
@@ -42,16 +51,20 @@ Dedicacion:
 ;
 
 Materia:
-	'materia' name=ID 'con' cargaHoraria=CargaHoraria
+	'materia' name=ID 
+	'con' cargaHoraria=CargaHoraria
 	('requiere:' (recursos+=Recurso)+)?;
 
 Aula:
 	'aula' name=ID
-	(('recurso' recursos+=Recurso)+)?;
+	(('recurso' recursos+=Recurso)+)?
+	'capacidad' capacidad=INT	
+;
 	
-
 CargaHoraria:
-	'cargaHoraria' cantHoras=INT  'dias' dias=INT;
+	'horasSemanales' cantHoras=INT  
+	'cantidadDeDias' dias=INT
+;
 
 CargaHorariaDocente:
 	name=Profesor 'tiene' tipo=CargaHoraria;
