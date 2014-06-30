@@ -33,7 +33,7 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Semestre;
  * <ul>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificacionImpl#getSemestre <em>Semestre</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificacionImpl#getMaterias <em>Materias</em>}</li>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificacionImpl#getHorarios <em>Horarios</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificacionImpl#getHorario <em>Horario</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,14 +62,14 @@ public class PlanificacionImpl extends MinimalEObjectImpl.Container implements P
   protected EList<Materia> materias;
 
   /**
-   * The cached value of the '{@link #getHorarios() <em>Horarios</em>}' containment reference.
+   * The cached value of the '{@link #getHorario() <em>Horario</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getHorarios()
+   * @see #getHorario()
    * @generated
    * @ordered
    */
-  protected Horarios horarios;
+  protected Horarios horario;
 
   /**
    * <!-- begin-user-doc -->
@@ -159,9 +159,9 @@ public class PlanificacionImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public Horarios getHorarios()
+  public Horarios getHorario()
   {
-    return horarios;
+    return horario;
   }
 
   /**
@@ -169,13 +169,13 @@ public class PlanificacionImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetHorarios(Horarios newHorarios, NotificationChain msgs)
+  public NotificationChain basicSetHorario(Horarios newHorario, NotificationChain msgs)
   {
-    Horarios oldHorarios = horarios;
-    horarios = newHorarios;
+    Horarios oldHorario = horario;
+    horario = newHorario;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIOS, oldHorarios, newHorarios);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO, oldHorario, newHorario);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -186,20 +186,20 @@ public class PlanificacionImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setHorarios(Horarios newHorarios)
+  public void setHorario(Horarios newHorario)
   {
-    if (newHorarios != horarios)
+    if (newHorario != horario)
     {
       NotificationChain msgs = null;
-      if (horarios != null)
-        msgs = ((InternalEObject)horarios).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIOS, null, msgs);
-      if (newHorarios != null)
-        msgs = ((InternalEObject)newHorarios).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIOS, null, msgs);
-      msgs = basicSetHorarios(newHorarios, msgs);
+      if (horario != null)
+        msgs = ((InternalEObject)horario).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO, null, msgs);
+      if (newHorario != null)
+        msgs = ((InternalEObject)newHorario).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO, null, msgs);
+      msgs = basicSetHorario(newHorario, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIOS, newHorarios, newHorarios));
+      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO, newHorario, newHorario));
   }
 
   /**
@@ -216,8 +216,8 @@ public class PlanificacionImpl extends MinimalEObjectImpl.Container implements P
         return basicSetSemestre(null, msgs);
       case PlanificadorDeMateriasDslPackage.PLANIFICACION__MATERIAS:
         return ((InternalEList<?>)getMaterias()).basicRemove(otherEnd, msgs);
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIOS:
-        return basicSetHorarios(null, msgs);
+      case PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO:
+        return basicSetHorario(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -236,8 +236,8 @@ public class PlanificacionImpl extends MinimalEObjectImpl.Container implements P
         return getSemestre();
       case PlanificadorDeMateriasDslPackage.PLANIFICACION__MATERIAS:
         return getMaterias();
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIOS:
-        return getHorarios();
+      case PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO:
+        return getHorario();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -260,8 +260,8 @@ public class PlanificacionImpl extends MinimalEObjectImpl.Container implements P
         getMaterias().clear();
         getMaterias().addAll((Collection<? extends Materia>)newValue);
         return;
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIOS:
-        setHorarios((Horarios)newValue);
+      case PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO:
+        setHorario((Horarios)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -283,8 +283,8 @@ public class PlanificacionImpl extends MinimalEObjectImpl.Container implements P
       case PlanificadorDeMateriasDslPackage.PLANIFICACION__MATERIAS:
         getMaterias().clear();
         return;
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIOS:
-        setHorarios((Horarios)null);
+      case PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO:
+        setHorario((Horarios)null);
         return;
     }
     super.eUnset(featureID);
@@ -304,8 +304,8 @@ public class PlanificacionImpl extends MinimalEObjectImpl.Container implements P
         return semestre != null;
       case PlanificadorDeMateriasDslPackage.PLANIFICACION__MATERIAS:
         return materias != null && !materias.isEmpty();
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIOS:
-        return horarios != null;
+      case PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO:
+        return horario != null;
     }
     return super.eIsSet(featureID);
   }

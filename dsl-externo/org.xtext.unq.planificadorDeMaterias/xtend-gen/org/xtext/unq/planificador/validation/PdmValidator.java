@@ -5,14 +5,20 @@ package org.xtext.unq.planificador.validation;
 
 import java.util.Set;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dedicacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horarios;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor;
 import org.xtext.unq.planificador.validation.AbstractPdmValidator;
 
 /**
@@ -22,6 +28,120 @@ import org.xtext.unq.planificador.validation.AbstractPdmValidator;
  */
 @SuppressWarnings("all")
 public class PdmValidator extends AbstractPdmValidator {
+  @Check
+  public void validateMateriasAsignadas(final Planificacion p) {
+    boolean exist = true;
+    EList<Materia> _materias = p.getMaterias();
+    for (final Materia m : _materias) {
+      boolean _and = false;
+      if (!exist) {
+        _and = false;
+      } else {
+        boolean _estaAsignado = this.estaAsignado(m, p);
+        _and = _estaAsignado;
+      }
+      exist = _and;
+    }
+    if ((!exist)) {
+      this.error("Falta asignar una materia", p, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__HORARIO);
+    }
+  }
+  
+  public boolean estaAsignado(final Materia m, final Planificacion p) {
+    Horarios _horario = p.getHorario();
+    EList<Horario> _horarios = _horario.getHorarios();
+    final Function1<Horario, Boolean> _function = new Function1<Horario, Boolean>() {
+      public Boolean apply(final Horario h) {
+        Materia _materia = h.getMateria();
+        String _name = _materia.getName();
+        String _name_1 = m.getName();
+        return Boolean.valueOf(_name.equals(_name_1));
+      }
+    };
+    return IterableExtensions.<Horario>exists(_horarios, _function);
+  }
+  
+  @Check
+  public void validateDedicacion(final Profesor p) {
+    Dedicacion _dedicacion = p.getDedicacion();
+    InputOutput.<Dedicacion>println(_dedicacion);
+    boolean _and = false;
+    Dedicacion _dedicacion_1 = p.getDedicacion();
+    EClass _eClass = _dedicacion_1.eClass();
+    String _name = _eClass.getName();
+    boolean _equals = _name.equals("EXCLUSIVA");
+    if (!_equals) {
+      _and = false;
+    } else {
+      boolean _or = false;
+      EList<Materia> _materias = p.getMaterias();
+      int _size = _materias.size();
+      boolean _lessThan = (_size < 2);
+      if (_lessThan) {
+        _or = true;
+      } else {
+        EList<Materia> _materias_1 = p.getMaterias();
+        int _size_1 = _materias_1.size();
+        boolean _greaterThan = (_size_1 > 5);
+        _or = _greaterThan;
+      }
+      _and = _or;
+    }
+    if (_and) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Tiene ");
+      EList<Materia> _materias_2 = p.getMaterias();
+      int _size_2 = _materias_2.size();
+      _builder.append(_size_2, "");
+      _builder.append(" y necesita de 2 hasta 5 materias");
+      this.error(_builder.toString(), p, PlanificadorDeMateriasDslPackage.Literals.PROFESOR__DEDICACION);
+    }
+    boolean _and_1 = false;
+    Dedicacion _dedicacion_2 = p.getDedicacion();
+    EClass _eClass_1 = _dedicacion_2.eClass();
+    String _name_1 = _eClass_1.getName();
+    boolean _equals_1 = _name_1.equals("SEMI");
+    if (!_equals_1) {
+      _and_1 = false;
+    } else {
+      EList<Materia> _materias_3 = p.getMaterias();
+      int _size_3 = _materias_3.size();
+      boolean _notEquals = (_size_3 != 2);
+      _and_1 = _notEquals;
+    }
+    if (_and_1) {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Tiene ");
+      EList<Materia> _materias_4 = p.getMaterias();
+      int _size_4 = _materias_4.size();
+      _builder_1.append(_size_4, "");
+      _builder_1.append(" y necesita de 2 materias");
+      this.error(_builder_1.toString(), p, PlanificadorDeMateriasDslPackage.Literals.PROFESOR__DEDICACION);
+    }
+    boolean _and_2 = false;
+    Dedicacion _dedicacion_3 = p.getDedicacion();
+    EClass _eClass_2 = _dedicacion_3.eClass();
+    String _name_2 = _eClass_2.getName();
+    boolean _equals_2 = _name_2.equals("SIMPLE");
+    if (!_equals_2) {
+      _and_2 = false;
+    } else {
+      EList<Materia> _materias_5 = p.getMaterias();
+      int _size_5 = _materias_5.size();
+      boolean _notEquals_1 = (_size_5 != 1);
+      _and_2 = _notEquals_1;
+    }
+    if (_and_2) {
+      StringConcatenation _builder_2 = new StringConcatenation();
+      _builder_2.append("Tiene ");
+      EList<Materia> _materias_6 = p.getMaterias();
+      int _size_6 = _materias_6.size();
+      _builder_2.append(_size_6, "");
+      _builder_2.append(" y necesita de 1 materia");
+      this.error(_builder_2.toString(), p, PlanificadorDeMateriasDslPackage.Literals.PROFESOR__DEDICACION);
+    }
+  }
+  
   @Check
   public void validateDayNotRepeated(final Planificacion p) {
     boolean _tieneMateriasRepetidas = this.tieneMateriasRepetidas(p);

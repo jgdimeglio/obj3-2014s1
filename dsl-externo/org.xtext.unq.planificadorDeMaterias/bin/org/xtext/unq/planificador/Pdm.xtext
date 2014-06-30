@@ -32,7 +32,7 @@ FQN:
 Profesor:
 	'profesor' name=ID 
 	'dedicacion' dedicacion=Dedicacion
-	('materias' (materias+=Materia)+)?
+	('materias' (materias+=Materia)*)?
 	('disponibilidad' (disponibilidad=Disponibilidad))?
 ;
 
@@ -63,7 +63,7 @@ Aula:
 	
 CargaHoraria:
 	'horasSemanales' cantHoras=INT  
-	'cantidadDeDias' dias=INT
+	'cantidadDeDias' diasSemanales=INT
 ;
 
 CargaHorariaDocente:
@@ -71,7 +71,7 @@ CargaHorariaDocente:
 
 Horario:
 	dia=Dia ':'
-	desde=Hora 'a' hasta=Hora 'hs se dicta' materia=Materia 'en' aula=Aula;
+	desde=Hora 'a' hasta=Hora 'se dicta' materia=Materia 'en' aula=Aula;
 
 Semestre:
 	anho=INT 'semestre' numero=INT;
@@ -85,7 +85,7 @@ Semestre:
 	{Sabado}    'Sabado';
 
 Asignacion: // Dias <=> Asignaciones ??
-	dia=Dia (materia=Materia 'horario' horario=Horario)?
+	dia=Dia materia=Materia 
 ;
 
 Horarios:
@@ -94,7 +94,7 @@ Horarios:
 Planificacion:
 	'planificacion' semestre=Semestre '{'
 	'a dictar:' (materias+=Materia)+
-	horarios=Horarios
+		horario=Horarios
 	'}';
 
 Recurso:

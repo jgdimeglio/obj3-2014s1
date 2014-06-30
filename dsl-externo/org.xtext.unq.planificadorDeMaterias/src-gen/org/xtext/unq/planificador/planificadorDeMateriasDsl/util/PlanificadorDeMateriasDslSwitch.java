@@ -93,6 +93,13 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD:
+      {
+        Disponibilidad disponibilidad = (Disponibilidad)theEObject;
+        T result = caseDisponibilidad(disponibilidad);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PlanificadorDeMateriasDslPackage.HORA:
       {
         Hora hora = (Hora)theEObject;
@@ -104,30 +111,6 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
       {
         Dedicacion dedicacion = (Dedicacion)theEObject;
         T result = caseDedicacion(dedicacion);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PlanificadorDeMateriasDslPackage.SIMPLE:
-      {
-        SIMPLE simple = (SIMPLE)theEObject;
-        T result = caseSIMPLE(simple);
-        if (result == null) result = caseDedicacion(simple);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PlanificadorDeMateriasDslPackage.SEMI:
-      {
-        SEMI semi = (SEMI)theEObject;
-        T result = caseSEMI(semi);
-        if (result == null) result = caseDedicacion(semi);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PlanificadorDeMateriasDslPackage.EXCLUSIVA:
-      {
-        EXCLUSIVA exclusiva = (EXCLUSIVA)theEObject;
-        T result = caseEXCLUSIVA(exclusiva);
-        if (result == null) result = caseDedicacion(exclusiva);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -180,6 +163,58 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PlanificadorDeMateriasDslPackage.ASIGNACION:
+      {
+        Asignacion asignacion = (Asignacion)theEObject;
+        T result = caseAsignacion(asignacion);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PlanificadorDeMateriasDslPackage.HORARIOS:
+      {
+        Horarios horarios = (Horarios)theEObject;
+        T result = caseHorarios(horarios);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PlanificadorDeMateriasDslPackage.PLANIFICACION:
+      {
+        Planificacion planificacion = (Planificacion)theEObject;
+        T result = casePlanificacion(planificacion);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PlanificadorDeMateriasDslPackage.RECURSO:
+      {
+        Recurso recurso = (Recurso)theEObject;
+        T result = caseRecurso(recurso);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PlanificadorDeMateriasDslPackage.SIMPLE:
+      {
+        SIMPLE simple = (SIMPLE)theEObject;
+        T result = caseSIMPLE(simple);
+        if (result == null) result = caseDedicacion(simple);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PlanificadorDeMateriasDslPackage.SEMI:
+      {
+        SEMI semi = (SEMI)theEObject;
+        T result = caseSEMI(semi);
+        if (result == null) result = caseDedicacion(semi);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PlanificadorDeMateriasDslPackage.EXCLUSIVA:
+      {
+        EXCLUSIVA exclusiva = (EXCLUSIVA)theEObject;
+        T result = caseEXCLUSIVA(exclusiva);
+        if (result == null) result = caseDedicacion(exclusiva);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PlanificadorDeMateriasDslPackage.LUNES:
       {
         Lunes lunes = (Lunes)theEObject;
@@ -225,34 +260,6 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
         Sabado sabado = (Sabado)theEObject;
         T result = caseSabado(sabado);
         if (result == null) result = caseDia(sabado);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PlanificadorDeMateriasDslPackage.DIAS:
-      {
-        Dias dias = (Dias)theEObject;
-        T result = caseDias(dias);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PlanificadorDeMateriasDslPackage.HORARIOS:
-      {
-        Horarios horarios = (Horarios)theEObject;
-        T result = caseHorarios(horarios);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION:
-      {
-        Planificacion planificacion = (Planificacion)theEObject;
-        T result = casePlanificacion(planificacion);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PlanificadorDeMateriasDslPackage.RECURSO:
-      {
-        Recurso recurso = (Recurso)theEObject;
-        T result = caseRecurso(recurso);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -309,6 +316,22 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Disponibilidad</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Disponibilidad</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDisponibilidad(Disponibilidad object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Hora</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -336,54 +359,6 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDedicacion(Dedicacion object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>SIMPLE</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>SIMPLE</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSIMPLE(SIMPLE object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>SEMI</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>SEMI</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSEMI(SEMI object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>EXCLUSIVA</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>EXCLUSIVA</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEXCLUSIVA(EXCLUSIVA object)
   {
     return null;
   }
@@ -501,6 +476,118 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Asignacion</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Asignacion</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAsignacion(Asignacion object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Horarios</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Horarios</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHorarios(Horarios object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Planificacion</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Planificacion</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePlanificacion(Planificacion object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Recurso</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Recurso</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRecurso(Recurso object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>SIMPLE</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>SIMPLE</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSIMPLE(SIMPLE object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>SEMI</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>SEMI</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSEMI(SEMI object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>EXCLUSIVA</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>EXCLUSIVA</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEXCLUSIVA(EXCLUSIVA object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Lunes</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -592,70 +679,6 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSabado(Sabado object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Dias</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Dias</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDias(Dias object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Horarios</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Horarios</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseHorarios(Horarios object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Planificacion</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Planificacion</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePlanificacion(Planificacion object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Recurso</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Recurso</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRecurso(Recurso object)
   {
     return null;
   }

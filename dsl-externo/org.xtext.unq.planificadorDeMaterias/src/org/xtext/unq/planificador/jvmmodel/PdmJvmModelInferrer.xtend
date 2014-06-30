@@ -64,7 +64,7 @@ class PdmJvmModelInferrer extends AbstractModelInferrer {
 						'''
 							this.nombre ;
 							this.horas = «materia.cargaHoraria.cantHoras»;
-							this.dias = «materia.cargaHoraria.dias»;
+							
 						''')
 				]
 			]

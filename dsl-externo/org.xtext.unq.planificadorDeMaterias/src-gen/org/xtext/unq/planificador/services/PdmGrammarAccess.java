@@ -221,12 +221,22 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDedicacionKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cDedicacionAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cDedicacionDedicacionParserRuleCall_3_0 = (RuleCall)cDedicacionAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cMateriasKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cMateriasAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cMateriasMateriaParserRuleCall_4_1_0 = (RuleCall)cMateriasAssignment_4_1.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cDisponibilidadKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cDisponibilidadAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cDisponibilidadDisponibilidadParserRuleCall_5_1_0 = (RuleCall)cDisponibilidadAssignment_5_1.eContents().get(0);
 		
 		//Profesor:
-		//	"profesor" name=ID "dedicacion" dedicacion=Dedicacion;
+		//	"profesor" name=ID "dedicacion" dedicacion=Dedicacion ("materias" materias+=Materia*)? ("disponibilidad"
+		//	disponibilidad=Disponibilidad)?;
 		public ParserRule getRule() { return rule; }
 
-		//"profesor" name=ID "dedicacion" dedicacion=Dedicacion
+		//"profesor" name=ID "dedicacion" dedicacion=Dedicacion ("materias" materias+=Materia*)? ("disponibilidad"
+		//disponibilidad=Disponibilidad)?
 		public Group getGroup() { return cGroup; }
 
 		//"profesor"
@@ -246,6 +256,74 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Dedicacion
 		public RuleCall getDedicacionDedicacionParserRuleCall_3_0() { return cDedicacionDedicacionParserRuleCall_3_0; }
+
+		//("materias" materias+=Materia*)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"materias"
+		public Keyword getMateriasKeyword_4_0() { return cMateriasKeyword_4_0; }
+
+		//materias+=Materia*
+		public Assignment getMateriasAssignment_4_1() { return cMateriasAssignment_4_1; }
+
+		//Materia
+		public RuleCall getMateriasMateriaParserRuleCall_4_1_0() { return cMateriasMateriaParserRuleCall_4_1_0; }
+
+		//("disponibilidad" disponibilidad=Disponibilidad)?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//"disponibilidad"
+		public Keyword getDisponibilidadKeyword_5_0() { return cDisponibilidadKeyword_5_0; }
+
+		//disponibilidad=Disponibilidad
+		public Assignment getDisponibilidadAssignment_5_1() { return cDisponibilidadAssignment_5_1; }
+
+		//Disponibilidad
+		public RuleCall getDisponibilidadDisponibilidadParserRuleCall_5_1_0() { return cDisponibilidadDisponibilidadParserRuleCall_5_1_0; }
+	}
+
+	public class DisponibilidadElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Disponibilidad");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cNoPuedeKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cDiasAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cDiasDiaParserRuleCall_0_1_0 = (RuleCall)cDiasAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cPuedeKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cDiasAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cDiasDiaParserRuleCall_1_1_0 = (RuleCall)cDiasAssignment_1_1.eContents().get(0);
+		
+		//Disponibilidad:
+		//	("no puede" dias+=Dia)? ("puede" dias+=Dia)?;
+		public ParserRule getRule() { return rule; }
+
+		//("no puede" dias+=Dia)? ("puede" dias+=Dia)?
+		public Group getGroup() { return cGroup; }
+
+		//("no puede" dias+=Dia)?
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"no puede"
+		public Keyword getNoPuedeKeyword_0_0() { return cNoPuedeKeyword_0_0; }
+
+		//dias+=Dia
+		public Assignment getDiasAssignment_0_1() { return cDiasAssignment_0_1; }
+
+		//Dia
+		public RuleCall getDiasDiaParserRuleCall_0_1_0() { return cDiasDiaParserRuleCall_0_1_0; }
+
+		//("puede" dias+=Dia)?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"puede"
+		public Keyword getPuedeKeyword_1_0() { return cPuedeKeyword_1_0; }
+
+		//dias+=Dia
+		public Assignment getDiasAssignment_1_1() { return cDiasAssignment_1_1; }
+
+		//Dia
+		public RuleCall getDiasDiaParserRuleCall_1_1_0() { return cDiasDiaParserRuleCall_1_1_0; }
 	}
 
 	public class HoraElements extends AbstractParserRuleElementFinder {
@@ -275,85 +353,49 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	public class DedicacionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Dedicacion");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSIMPLEParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSEMIParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cEXCLUSIVAParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cSIMPLEAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Keyword cSimpleKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Action cSEMIAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cSemiKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cEXCLUSIVAAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Keyword cExclusivaKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
 		
 		//Dedicacion:
-		//	SIMPLE | SEMI | EXCLUSIVA;
+		//	{SIMPLE} "Simple" | {SEMI} "Semi" | {EXCLUSIVA} "Exclusiva";
 		public ParserRule getRule() { return rule; }
 
-		//SIMPLE | SEMI | EXCLUSIVA
+		//{SIMPLE} "Simple" | {SEMI} "Semi" | {EXCLUSIVA} "Exclusiva"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//SIMPLE
-		public RuleCall getSIMPLEParserRuleCall_0() { return cSIMPLEParserRuleCall_0; }
-
-		//SEMI
-		public RuleCall getSEMIParserRuleCall_1() { return cSEMIParserRuleCall_1; }
-
-		//EXCLUSIVA
-		public RuleCall getEXCLUSIVAParserRuleCall_2() { return cEXCLUSIVAParserRuleCall_2; }
-	}
-
-	public class SIMPLEElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SIMPLE");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSIMPLEAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cSimpleKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//SIMPLE:
-		//	{SIMPLE} "simple";
-		public ParserRule getRule() { return rule; }
-
-		//{SIMPLE} "simple"
-		public Group getGroup() { return cGroup; }
+		//{SIMPLE} "Simple"
+		public Group getGroup_0() { return cGroup_0; }
 
 		//{SIMPLE}
-		public Action getSIMPLEAction_0() { return cSIMPLEAction_0; }
+		public Action getSIMPLEAction_0_0() { return cSIMPLEAction_0_0; }
 
-		//"simple"
-		public Keyword getSimpleKeyword_1() { return cSimpleKeyword_1; }
-	}
+		//"Simple"
+		public Keyword getSimpleKeyword_0_1() { return cSimpleKeyword_0_1; }
 
-	public class SEMIElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SEMI");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSEMIAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cSemiKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//SEMI:
-		//	{SEMI} "semi";
-		public ParserRule getRule() { return rule; }
-
-		//{SEMI} "semi"
-		public Group getGroup() { return cGroup; }
+		//{SEMI} "Semi"
+		public Group getGroup_1() { return cGroup_1; }
 
 		//{SEMI}
-		public Action getSEMIAction_0() { return cSEMIAction_0; }
+		public Action getSEMIAction_1_0() { return cSEMIAction_1_0; }
 
-		//"semi"
-		public Keyword getSemiKeyword_1() { return cSemiKeyword_1; }
-	}
+		//"Semi"
+		public Keyword getSemiKeyword_1_1() { return cSemiKeyword_1_1; }
 
-	public class EXCLUSIVAElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EXCLUSIVA");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cEXCLUSIVAAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cExclusivaKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//EXCLUSIVA:
-		//	{EXCLUSIVA} "exclusiva";
-		public ParserRule getRule() { return rule; }
-
-		//{EXCLUSIVA} "exclusiva"
-		public Group getGroup() { return cGroup; }
+		//{EXCLUSIVA} "Exclusiva"
+		public Group getGroup_2() { return cGroup_2; }
 
 		//{EXCLUSIVA}
-		public Action getEXCLUSIVAAction_0() { return cEXCLUSIVAAction_0; }
+		public Action getEXCLUSIVAAction_2_0() { return cEXCLUSIVAAction_2_0; }
 
-		//"exclusiva"
-		public Keyword getExclusivaKeyword_1() { return cExclusivaKeyword_1; }
+		//"Exclusiva"
+		public Keyword getExclusivaKeyword_2_1() { return cExclusivaKeyword_2_1; }
 	}
 
 	public class MateriaElements extends AbstractParserRuleElementFinder {
@@ -418,12 +460,15 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRecursoKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cRecursosAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cRecursosRecursoParserRuleCall_2_1_0 = (RuleCall)cRecursosAssignment_2_1.eContents().get(0);
+		private final Keyword cCapacidadKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cCapacidadAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cCapacidadINTTerminalRuleCall_4_0 = (RuleCall)cCapacidadAssignment_4.eContents().get(0);
 		
 		//Aula:
-		//	"aula" name=ID ("recurso" recursos+=Recurso)?;
+		//	"aula" name=ID ("recurso" recursos+=Recurso)? "capacidad" capacidad=INT;
 		public ParserRule getRule() { return rule; }
 
-		//"aula" name=ID ("recurso" recursos+=Recurso)?
+		//"aula" name=ID ("recurso" recursos+=Recurso)? "capacidad" capacidad=INT
 		public Group getGroup() { return cGroup; }
 
 		//"aula"
@@ -446,27 +491,36 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Recurso
 		public RuleCall getRecursosRecursoParserRuleCall_2_1_0() { return cRecursosRecursoParserRuleCall_2_1_0; }
+
+		//"capacidad"
+		public Keyword getCapacidadKeyword_3() { return cCapacidadKeyword_3; }
+
+		//capacidad=INT
+		public Assignment getCapacidadAssignment_4() { return cCapacidadAssignment_4; }
+
+		//INT
+		public RuleCall getCapacidadINTTerminalRuleCall_4_0() { return cCapacidadINTTerminalRuleCall_4_0; }
 	}
 
 	public class CargaHorariaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CargaHoraria");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCargaHorariaKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cHorasSemanalesKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cCantHorasAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cCantHorasINTTerminalRuleCall_1_0 = (RuleCall)cCantHorasAssignment_1.eContents().get(0);
-		private final Keyword cDiasKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cDiasAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDiasINTTerminalRuleCall_3_0 = (RuleCall)cDiasAssignment_3.eContents().get(0);
+		private final Keyword cCantidadDeDiasKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cDiasSemanalesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDiasSemanalesINTTerminalRuleCall_3_0 = (RuleCall)cDiasSemanalesAssignment_3.eContents().get(0);
 		
 		//CargaHoraria:
-		//	"cargaHoraria" cantHoras=INT "dias" dias=INT;
+		//	"horasSemanales" cantHoras=INT "cantidadDeDias" diasSemanales=INT;
 		public ParserRule getRule() { return rule; }
 
-		//"cargaHoraria" cantHoras=INT "dias" dias=INT
+		//"horasSemanales" cantHoras=INT "cantidadDeDias" diasSemanales=INT
 		public Group getGroup() { return cGroup; }
 
-		//"cargaHoraria"
-		public Keyword getCargaHorariaKeyword_0() { return cCargaHorariaKeyword_0; }
+		//"horasSemanales"
+		public Keyword getHorasSemanalesKeyword_0() { return cHorasSemanalesKeyword_0; }
 
 		//cantHoras=INT
 		public Assignment getCantHorasAssignment_1() { return cCantHorasAssignment_1; }
@@ -474,14 +528,14 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getCantHorasINTTerminalRuleCall_1_0() { return cCantHorasINTTerminalRuleCall_1_0; }
 
-		//"dias"
-		public Keyword getDiasKeyword_2() { return cDiasKeyword_2; }
+		//"cantidadDeDias"
+		public Keyword getCantidadDeDiasKeyword_2() { return cCantidadDeDiasKeyword_2; }
 
-		//dias=INT
-		public Assignment getDiasAssignment_3() { return cDiasAssignment_3; }
+		//diasSemanales=INT
+		public Assignment getDiasSemanalesAssignment_3() { return cDiasSemanalesAssignment_3; }
 
 		//INT
-		public RuleCall getDiasINTTerminalRuleCall_3_0() { return cDiasINTTerminalRuleCall_3_0; }
+		public RuleCall getDiasSemanalesINTTerminalRuleCall_3_0() { return cDiasSemanalesINTTerminalRuleCall_3_0; }
 	}
 
 	public class CargaHorariaDocenteElements extends AbstractParserRuleElementFinder {
@@ -527,7 +581,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cHastaAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cHastaHoraParserRuleCall_4_0 = (RuleCall)cHastaAssignment_4.eContents().get(0);
-		private final Keyword cHsSeDictaKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cSeDictaKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cMateriaAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cMateriaMateriaParserRuleCall_6_0 = (RuleCall)cMateriaAssignment_6.eContents().get(0);
 		private final Keyword cEnKeyword_7 = (Keyword)cGroup.eContents().get(7);
@@ -535,10 +589,10 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAulaAulaParserRuleCall_8_0 = (RuleCall)cAulaAssignment_8.eContents().get(0);
 		
 		//Horario:
-		//	dia=Dia ":" desde=Hora "a" hasta=Hora "hs se dicta" materia=Materia "en" aula=Aula;
+		//	dia=Dia ":" desde=Hora "a" hasta=Hora "se dicta" materia=Materia "en" aula=Aula;
 		public ParserRule getRule() { return rule; }
 
-		//dia=Dia ":" desde=Hora "a" hasta=Hora "hs se dicta" materia=Materia "en" aula=Aula
+		//dia=Dia ":" desde=Hora "a" hasta=Hora "se dicta" materia=Materia "en" aula=Aula
 		public Group getGroup() { return cGroup; }
 
 		//dia=Dia
@@ -565,8 +619,8 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		//Hora
 		public RuleCall getHastaHoraParserRuleCall_4_0() { return cHastaHoraParserRuleCall_4_0; }
 
-		//"hs se dicta"
-		public Keyword getHsSeDictaKeyword_5() { return cHsSeDictaKeyword_5; }
+		//"se dicta"
+		public Keyword getSeDictaKeyword_5() { return cSeDictaKeyword_5; }
 
 		//materia=Materia
 		public Assignment getMateriaAssignment_6() { return cMateriaAssignment_6; }
@@ -619,176 +673,103 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	public class DiaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Dia");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cLunesParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cMartesParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cMiercolesParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cJuevesParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cViernesParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cSabadoParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cLunesAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Keyword cLunesKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Action cMartesAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cMartesKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cMiercolesAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Keyword cMiercolesKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Action cJuevesAction_3_0 = (Action)cGroup_3.eContents().get(0);
+		private final Keyword cJuevesKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
+		private final Action cViernesAction_4_0 = (Action)cGroup_4.eContents().get(0);
+		private final Keyword cViernesKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
+		private final Action cSabadoAction_5_0 = (Action)cGroup_5.eContents().get(0);
+		private final Keyword cSabadoKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
 		
 		//Dia:
-		//	Lunes | Martes | Miercoles | Jueves | Viernes | Sabado;
+		//	{Lunes} "Lunes" | {Martes} "Martes" | {Miercoles} "Miercoles" | {Jueves} "Jueves" | {Viernes} "Viernes" | {Sabado}
+		//	"Sabado";
 		public ParserRule getRule() { return rule; }
 
-		//Lunes | Martes | Miercoles | Jueves | Viernes | Sabado
+		//{Lunes} "Lunes" | {Martes} "Martes" | {Miercoles} "Miercoles" | {Jueves} "Jueves" | {Viernes} "Viernes" | {Sabado}
+		//"Sabado"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//Lunes
-		public RuleCall getLunesParserRuleCall_0() { return cLunesParserRuleCall_0; }
-
-		//Martes
-		public RuleCall getMartesParserRuleCall_1() { return cMartesParserRuleCall_1; }
-
-		//Miercoles
-		public RuleCall getMiercolesParserRuleCall_2() { return cMiercolesParserRuleCall_2; }
-
-		//Jueves
-		public RuleCall getJuevesParserRuleCall_3() { return cJuevesParserRuleCall_3; }
-
-		//Viernes
-		public RuleCall getViernesParserRuleCall_4() { return cViernesParserRuleCall_4; }
-
-		//Sabado
-		public RuleCall getSabadoParserRuleCall_5() { return cSabadoParserRuleCall_5; }
-	}
-
-	public class LunesElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Lunes");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cLunesAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cLunesKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//Lunes:
-		//	{Lunes} "Lunes";
-		public ParserRule getRule() { return rule; }
-
 		//{Lunes} "Lunes"
-		public Group getGroup() { return cGroup; }
+		public Group getGroup_0() { return cGroup_0; }
 
 		//{Lunes}
-		public Action getLunesAction_0() { return cLunesAction_0; }
+		public Action getLunesAction_0_0() { return cLunesAction_0_0; }
 
 		//"Lunes"
-		public Keyword getLunesKeyword_1() { return cLunesKeyword_1; }
-	}
-
-	public class MartesElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Martes");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cMartesAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cMartesKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//Martes:
-		//	{Martes} "Martes";
-		public ParserRule getRule() { return rule; }
+		public Keyword getLunesKeyword_0_1() { return cLunesKeyword_0_1; }
 
 		//{Martes} "Martes"
-		public Group getGroup() { return cGroup; }
+		public Group getGroup_1() { return cGroup_1; }
 
 		//{Martes}
-		public Action getMartesAction_0() { return cMartesAction_0; }
+		public Action getMartesAction_1_0() { return cMartesAction_1_0; }
 
 		//"Martes"
-		public Keyword getMartesKeyword_1() { return cMartesKeyword_1; }
-	}
-
-	public class MiercolesElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Miercoles");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cMiercolesAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cMiercolesKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//Miercoles:
-		//	{Miercoles} "Miercoles";
-		public ParserRule getRule() { return rule; }
+		public Keyword getMartesKeyword_1_1() { return cMartesKeyword_1_1; }
 
 		//{Miercoles} "Miercoles"
-		public Group getGroup() { return cGroup; }
+		public Group getGroup_2() { return cGroup_2; }
 
 		//{Miercoles}
-		public Action getMiercolesAction_0() { return cMiercolesAction_0; }
+		public Action getMiercolesAction_2_0() { return cMiercolesAction_2_0; }
 
 		//"Miercoles"
-		public Keyword getMiercolesKeyword_1() { return cMiercolesKeyword_1; }
-	}
-
-	public class JuevesElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Jueves");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cJuevesAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cJuevesKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//Jueves:
-		//	{Jueves} "Jueves";
-		public ParserRule getRule() { return rule; }
+		public Keyword getMiercolesKeyword_2_1() { return cMiercolesKeyword_2_1; }
 
 		//{Jueves} "Jueves"
-		public Group getGroup() { return cGroup; }
+		public Group getGroup_3() { return cGroup_3; }
 
 		//{Jueves}
-		public Action getJuevesAction_0() { return cJuevesAction_0; }
+		public Action getJuevesAction_3_0() { return cJuevesAction_3_0; }
 
 		//"Jueves"
-		public Keyword getJuevesKeyword_1() { return cJuevesKeyword_1; }
-	}
-
-	public class ViernesElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Viernes");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cViernesAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cViernesKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//Viernes:
-		//	{Viernes} "Viernes";
-		public ParserRule getRule() { return rule; }
+		public Keyword getJuevesKeyword_3_1() { return cJuevesKeyword_3_1; }
 
 		//{Viernes} "Viernes"
-		public Group getGroup() { return cGroup; }
+		public Group getGroup_4() { return cGroup_4; }
 
 		//{Viernes}
-		public Action getViernesAction_0() { return cViernesAction_0; }
+		public Action getViernesAction_4_0() { return cViernesAction_4_0; }
 
 		//"Viernes"
-		public Keyword getViernesKeyword_1() { return cViernesKeyword_1; }
-	}
-
-	public class SabadoElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Sabado");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSabadoAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cSabadoKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//Sabado:
-		//	{Sabado} "Sabado";
-		public ParserRule getRule() { return rule; }
+		public Keyword getViernesKeyword_4_1() { return cViernesKeyword_4_1; }
 
 		//{Sabado} "Sabado"
-		public Group getGroup() { return cGroup; }
+		public Group getGroup_5() { return cGroup_5; }
 
 		//{Sabado}
-		public Action getSabadoAction_0() { return cSabadoAction_0; }
+		public Action getSabadoAction_5_0() { return cSabadoAction_5_0; }
 
 		//"Sabado"
-		public Keyword getSabadoKeyword_1() { return cSabadoKeyword_1; }
+		public Keyword getSabadoKeyword_5_1() { return cSabadoKeyword_5_1; }
 	}
 
-	public class DiasElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Dias");
+	public class AsignacionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Asignacion");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cDiaAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cDiaDiaParserRuleCall_0_0 = (RuleCall)cDiaAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cMateriaAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cMateriaMateriaParserRuleCall_1_0_0 = (RuleCall)cMateriaAssignment_1_0.eContents().get(0);
-		private final Keyword cHorarioKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cHorarioAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cHorarioHorarioParserRuleCall_1_2_0 = (RuleCall)cHorarioAssignment_1_2.eContents().get(0);
+		private final Assignment cMateriaAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cMateriaMateriaParserRuleCall_1_0 = (RuleCall)cMateriaAssignment_1.eContents().get(0);
 		
-		//Dias:
-		//	dia=Dia (materia=Materia "horario" horario=Horario)?;
+		//// Dias <=> Asignaciones ??
+		//Asignacion:
+		//	dia=Dia materia=Materia;
 		public ParserRule getRule() { return rule; }
 
-		//dia=Dia (materia=Materia "horario" horario=Horario)?
+		//dia=Dia materia=Materia
 		public Group getGroup() { return cGroup; }
 
 		//dia=Dia
@@ -797,23 +778,11 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		//Dia
 		public RuleCall getDiaDiaParserRuleCall_0_0() { return cDiaDiaParserRuleCall_0_0; }
 
-		//(materia=Materia "horario" horario=Horario)?
-		public Group getGroup_1() { return cGroup_1; }
-
 		//materia=Materia
-		public Assignment getMateriaAssignment_1_0() { return cMateriaAssignment_1_0; }
+		public Assignment getMateriaAssignment_1() { return cMateriaAssignment_1; }
 
 		//Materia
-		public RuleCall getMateriaMateriaParserRuleCall_1_0_0() { return cMateriaMateriaParserRuleCall_1_0_0; }
-
-		//"horario"
-		public Keyword getHorarioKeyword_1_1() { return cHorarioKeyword_1_1; }
-
-		//horario=Horario
-		public Assignment getHorarioAssignment_1_2() { return cHorarioAssignment_1_2; }
-
-		//Horario
-		public RuleCall getHorarioHorarioParserRuleCall_1_2_0() { return cHorarioHorarioParserRuleCall_1_2_0; }
+		public RuleCall getMateriaMateriaParserRuleCall_1_0() { return cMateriaMateriaParserRuleCall_1_0; }
 	}
 
 	public class HorariosElements extends AbstractParserRuleElementFinder {
@@ -854,15 +823,15 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cADictarKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cMateriasAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cMateriasMateriaParserRuleCall_4_0 = (RuleCall)cMateriasAssignment_4.eContents().get(0);
-		private final Assignment cHorariosAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cHorariosHorariosParserRuleCall_5_0 = (RuleCall)cHorariosAssignment_5.eContents().get(0);
+		private final Assignment cHorarioAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cHorarioHorariosParserRuleCall_5_0 = (RuleCall)cHorarioAssignment_5.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Planificacion:
-		//	"planificacion" semestre=Semestre "{" "a dictar:" materias+=Materia+ horarios=Horarios "}";
+		//	"planificacion" semestre=Semestre "{" "a dictar:" materias+=Materia+ horario=Horarios "}";
 		public ParserRule getRule() { return rule; }
 
-		//"planificacion" semestre=Semestre "{" "a dictar:" materias+=Materia+ horarios=Horarios "}"
+		//"planificacion" semestre=Semestre "{" "a dictar:" materias+=Materia+ horario=Horarios "}"
 		public Group getGroup() { return cGroup; }
 
 		//"planificacion"
@@ -886,11 +855,11 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		//Materia
 		public RuleCall getMateriasMateriaParserRuleCall_4_0() { return cMateriasMateriaParserRuleCall_4_0; }
 
-		//horarios=Horarios
-		public Assignment getHorariosAssignment_5() { return cHorariosAssignment_5; }
+		//horario=Horarios
+		public Assignment getHorarioAssignment_5() { return cHorarioAssignment_5; }
 
 		//Horarios
-		public RuleCall getHorariosHorariosParserRuleCall_5_0() { return cHorariosHorariosParserRuleCall_5_0; }
+		public RuleCall getHorarioHorariosParserRuleCall_5_0() { return cHorarioHorariosParserRuleCall_5_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
@@ -903,34 +872,19 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
-		////RecursoMateria:
-		////	'materia' materia=Materia '{'
-		////	'requiere:' (recursos+=Recurso)+
-		////	'}';
 		//Recurso:
 		//	"recurso" name=ID;
 		public ParserRule getRule() { return rule; }
 
-		//"recurso" name=ID //RecursoMateria:
-		////	'materia' materia=Materia '{'
-		////	'requiere:' (recursos+=Recurso)+
-		////	'}';
+		//"recurso" name=ID
 		public Group getGroup() { return cGroup; }
 
 		//"recurso"
 		public Keyword getRecursoKeyword_0() { return cRecursoKeyword_0; }
 
-		////RecursoMateria:
-		////	'materia' materia=Materia '{'
-		////	'requiere:' (recursos+=Recurso)+
-		////	'}';
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
-		////RecursoMateria:
-		////	'materia' materia=Materia '{'
-		////	'requiere:' (recursos+=Recurso)+
-		////	'}';
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
@@ -941,11 +895,9 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	private ImportedFQNElements pImportedFQN;
 	private FQNElements pFQN;
 	private ProfesorElements pProfesor;
+	private DisponibilidadElements pDisponibilidad;
 	private HoraElements pHora;
 	private DedicacionElements pDedicacion;
-	private SIMPLEElements pSIMPLE;
-	private SEMIElements pSEMI;
-	private EXCLUSIVAElements pEXCLUSIVA;
 	private MateriaElements pMateria;
 	private AulaElements pAula;
 	private CargaHorariaElements pCargaHoraria;
@@ -953,13 +905,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	private HorarioElements pHorario;
 	private SemestreElements pSemestre;
 	private DiaElements pDia;
-	private LunesElements pLunes;
-	private MartesElements pMartes;
-	private MiercolesElements pMiercoles;
-	private JuevesElements pJueves;
-	private ViernesElements pViernes;
-	private SabadoElements pSabado;
-	private DiasElements pDias;
+	private AsignacionElements pAsignacion;
 	private HorariosElements pHorarios;
 	private PlanificacionElements pPlanificacion;
 	private RecursoElements pRecurso;
@@ -1046,13 +992,24 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Profesor:
-	//	"profesor" name=ID "dedicacion" dedicacion=Dedicacion;
+	//	"profesor" name=ID "dedicacion" dedicacion=Dedicacion ("materias" materias+=Materia*)? ("disponibilidad"
+	//	disponibilidad=Disponibilidad)?;
 	public ProfesorElements getProfesorAccess() {
 		return (pProfesor != null) ? pProfesor : (pProfesor = new ProfesorElements());
 	}
 	
 	public ParserRule getProfesorRule() {
 		return getProfesorAccess().getRule();
+	}
+
+	//Disponibilidad:
+	//	("no puede" dias+=Dia)? ("puede" dias+=Dia)?;
+	public DisponibilidadElements getDisponibilidadAccess() {
+		return (pDisponibilidad != null) ? pDisponibilidad : (pDisponibilidad = new DisponibilidadElements());
+	}
+	
+	public ParserRule getDisponibilidadRule() {
+		return getDisponibilidadAccess().getRule();
 	}
 
 	//Hora:
@@ -1066,43 +1023,13 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Dedicacion:
-	//	SIMPLE | SEMI | EXCLUSIVA;
+	//	{SIMPLE} "Simple" | {SEMI} "Semi" | {EXCLUSIVA} "Exclusiva";
 	public DedicacionElements getDedicacionAccess() {
 		return (pDedicacion != null) ? pDedicacion : (pDedicacion = new DedicacionElements());
 	}
 	
 	public ParserRule getDedicacionRule() {
 		return getDedicacionAccess().getRule();
-	}
-
-	//SIMPLE:
-	//	{SIMPLE} "simple";
-	public SIMPLEElements getSIMPLEAccess() {
-		return (pSIMPLE != null) ? pSIMPLE : (pSIMPLE = new SIMPLEElements());
-	}
-	
-	public ParserRule getSIMPLERule() {
-		return getSIMPLEAccess().getRule();
-	}
-
-	//SEMI:
-	//	{SEMI} "semi";
-	public SEMIElements getSEMIAccess() {
-		return (pSEMI != null) ? pSEMI : (pSEMI = new SEMIElements());
-	}
-	
-	public ParserRule getSEMIRule() {
-		return getSEMIAccess().getRule();
-	}
-
-	//EXCLUSIVA:
-	//	{EXCLUSIVA} "exclusiva";
-	public EXCLUSIVAElements getEXCLUSIVAAccess() {
-		return (pEXCLUSIVA != null) ? pEXCLUSIVA : (pEXCLUSIVA = new EXCLUSIVAElements());
-	}
-	
-	public ParserRule getEXCLUSIVARule() {
-		return getEXCLUSIVAAccess().getRule();
 	}
 
 	//Materia:
@@ -1116,7 +1043,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Aula:
-	//	"aula" name=ID ("recurso" recursos+=Recurso)?;
+	//	"aula" name=ID ("recurso" recursos+=Recurso)? "capacidad" capacidad=INT;
 	public AulaElements getAulaAccess() {
 		return (pAula != null) ? pAula : (pAula = new AulaElements());
 	}
@@ -1126,7 +1053,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CargaHoraria:
-	//	"cargaHoraria" cantHoras=INT "dias" dias=INT;
+	//	"horasSemanales" cantHoras=INT "cantidadDeDias" diasSemanales=INT;
 	public CargaHorariaElements getCargaHorariaAccess() {
 		return (pCargaHoraria != null) ? pCargaHoraria : (pCargaHoraria = new CargaHorariaElements());
 	}
@@ -1146,7 +1073,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Horario:
-	//	dia=Dia ":" desde=Hora "a" hasta=Hora "hs se dicta" materia=Materia "en" aula=Aula;
+	//	dia=Dia ":" desde=Hora "a" hasta=Hora "se dicta" materia=Materia "en" aula=Aula;
 	public HorarioElements getHorarioAccess() {
 		return (pHorario != null) ? pHorario : (pHorario = new HorarioElements());
 	}
@@ -1166,7 +1093,8 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Dia:
-	//	Lunes | Martes | Miercoles | Jueves | Viernes | Sabado;
+	//	{Lunes} "Lunes" | {Martes} "Martes" | {Miercoles} "Miercoles" | {Jueves} "Jueves" | {Viernes} "Viernes" | {Sabado}
+	//	"Sabado";
 	public DiaElements getDiaAccess() {
 		return (pDia != null) ? pDia : (pDia = new DiaElements());
 	}
@@ -1175,74 +1103,15 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		return getDiaAccess().getRule();
 	}
 
-	//Lunes:
-	//	{Lunes} "Lunes";
-	public LunesElements getLunesAccess() {
-		return (pLunes != null) ? pLunes : (pLunes = new LunesElements());
+	//// Dias <=> Asignaciones ??
+	//Asignacion:
+	//	dia=Dia materia=Materia;
+	public AsignacionElements getAsignacionAccess() {
+		return (pAsignacion != null) ? pAsignacion : (pAsignacion = new AsignacionElements());
 	}
 	
-	public ParserRule getLunesRule() {
-		return getLunesAccess().getRule();
-	}
-
-	//Martes:
-	//	{Martes} "Martes";
-	public MartesElements getMartesAccess() {
-		return (pMartes != null) ? pMartes : (pMartes = new MartesElements());
-	}
-	
-	public ParserRule getMartesRule() {
-		return getMartesAccess().getRule();
-	}
-
-	//Miercoles:
-	//	{Miercoles} "Miercoles";
-	public MiercolesElements getMiercolesAccess() {
-		return (pMiercoles != null) ? pMiercoles : (pMiercoles = new MiercolesElements());
-	}
-	
-	public ParserRule getMiercolesRule() {
-		return getMiercolesAccess().getRule();
-	}
-
-	//Jueves:
-	//	{Jueves} "Jueves";
-	public JuevesElements getJuevesAccess() {
-		return (pJueves != null) ? pJueves : (pJueves = new JuevesElements());
-	}
-	
-	public ParserRule getJuevesRule() {
-		return getJuevesAccess().getRule();
-	}
-
-	//Viernes:
-	//	{Viernes} "Viernes";
-	public ViernesElements getViernesAccess() {
-		return (pViernes != null) ? pViernes : (pViernes = new ViernesElements());
-	}
-	
-	public ParserRule getViernesRule() {
-		return getViernesAccess().getRule();
-	}
-
-	//Sabado:
-	//	{Sabado} "Sabado";
-	public SabadoElements getSabadoAccess() {
-		return (pSabado != null) ? pSabado : (pSabado = new SabadoElements());
-	}
-	
-	public ParserRule getSabadoRule() {
-		return getSabadoAccess().getRule();
-	}
-
-	//Dias:
-	//	dia=Dia (materia=Materia "horario" horario=Horario)?;
-	public DiasElements getDiasAccess() {
-		return (pDias != null) ? pDias : (pDias = new DiasElements());
-	}
-	
-	public ParserRule getDiasRule() {
-		return getDiasAccess().getRule();
+	public ParserRule getAsignacionRule() {
+		return getAsignacionAccess().getRule();
 	}
 
 	//Horarios:
@@ -1256,7 +1125,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Planificacion:
-	//	"planificacion" semestre=Semestre "{" "a dictar:" materias+=Materia+ horarios=Horarios "}";
+	//	"planificacion" semestre=Semestre "{" "a dictar:" materias+=Materia+ horario=Horarios "}";
 	public PlanificacionElements getPlanificacionAccess() {
 		return (pPlanificacion != null) ? pPlanificacion : (pPlanificacion = new PlanificacionElements());
 	}
@@ -1265,10 +1134,6 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		return getPlanificacionAccess().getRule();
 	}
 
-	////RecursoMateria:
-	////	'materia' materia=Materia '{'
-	////	'requiere:' (recursos+=Recurso)+
-	////	'}';
 	//Recurso:
 	//	"recurso" name=ID;
 	public RecursoElements getRecursoAccess() {

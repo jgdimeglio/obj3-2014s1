@@ -2,8 +2,12 @@
  */
 package org.xtext.unq.planificador.planificadorDeMateriasDsl.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -11,7 +15,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dedicacion;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Disponibilidad;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor;
 
@@ -24,6 +33,8 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor;
  * <ul>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ProfesorImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ProfesorImpl#getDedicacion <em>Dedicacion</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ProfesorImpl#getMaterias <em>Materias</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.ProfesorImpl#getDisponibilidad <em>Disponibilidad</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,6 +71,26 @@ public class ProfesorImpl extends MinimalEObjectImpl.Container implements Profes
    * @ordered
    */
   protected Dedicacion dedicacion;
+
+  /**
+   * The cached value of the '{@link #getMaterias() <em>Materias</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMaterias()
+   * @generated
+   * @ordered
+   */
+  protected EList<Materia> materias;
+
+  /**
+   * The cached value of the '{@link #getDisponibilidad() <em>Disponibilidad</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDisponibilidad()
+   * @generated
+   * @ordered
+   */
+  protected Disponibilidad disponibilidad;
 
   /**
    * <!-- begin-user-doc -->
@@ -158,6 +189,68 @@ public class ProfesorImpl extends MinimalEObjectImpl.Container implements Profes
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Materia> getMaterias()
+  {
+    if (materias == null)
+    {
+      materias = new EObjectContainmentEList<Materia>(Materia.class, this, PlanificadorDeMateriasDslPackage.PROFESOR__MATERIAS);
+    }
+    return materias;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Disponibilidad getDisponibilidad()
+  {
+    return disponibilidad;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDisponibilidad(Disponibilidad newDisponibilidad, NotificationChain msgs)
+  {
+    Disponibilidad oldDisponibilidad = disponibilidad;
+    disponibilidad = newDisponibilidad;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.PROFESOR__DISPONIBILIDAD, oldDisponibilidad, newDisponibilidad);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDisponibilidad(Disponibilidad newDisponibilidad)
+  {
+    if (newDisponibilidad != disponibilidad)
+    {
+      NotificationChain msgs = null;
+      if (disponibilidad != null)
+        msgs = ((InternalEObject)disponibilidad).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.PROFESOR__DISPONIBILIDAD, null, msgs);
+      if (newDisponibilidad != null)
+        msgs = ((InternalEObject)newDisponibilidad).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.PROFESOR__DISPONIBILIDAD, null, msgs);
+      msgs = basicSetDisponibilidad(newDisponibilidad, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.PROFESOR__DISPONIBILIDAD, newDisponibilidad, newDisponibilidad));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -165,6 +258,10 @@ public class ProfesorImpl extends MinimalEObjectImpl.Container implements Profes
     {
       case PlanificadorDeMateriasDslPackage.PROFESOR__DEDICACION:
         return basicSetDedicacion(null, msgs);
+      case PlanificadorDeMateriasDslPackage.PROFESOR__MATERIAS:
+        return ((InternalEList<?>)getMaterias()).basicRemove(otherEnd, msgs);
+      case PlanificadorDeMateriasDslPackage.PROFESOR__DISPONIBILIDAD:
+        return basicSetDisponibilidad(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -183,6 +280,10 @@ public class ProfesorImpl extends MinimalEObjectImpl.Container implements Profes
         return getName();
       case PlanificadorDeMateriasDslPackage.PROFESOR__DEDICACION:
         return getDedicacion();
+      case PlanificadorDeMateriasDslPackage.PROFESOR__MATERIAS:
+        return getMaterias();
+      case PlanificadorDeMateriasDslPackage.PROFESOR__DISPONIBILIDAD:
+        return getDisponibilidad();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -192,6 +293,7 @@ public class ProfesorImpl extends MinimalEObjectImpl.Container implements Profes
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -202,6 +304,13 @@ public class ProfesorImpl extends MinimalEObjectImpl.Container implements Profes
         return;
       case PlanificadorDeMateriasDslPackage.PROFESOR__DEDICACION:
         setDedicacion((Dedicacion)newValue);
+        return;
+      case PlanificadorDeMateriasDslPackage.PROFESOR__MATERIAS:
+        getMaterias().clear();
+        getMaterias().addAll((Collection<? extends Materia>)newValue);
+        return;
+      case PlanificadorDeMateriasDslPackage.PROFESOR__DISPONIBILIDAD:
+        setDisponibilidad((Disponibilidad)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -223,6 +332,12 @@ public class ProfesorImpl extends MinimalEObjectImpl.Container implements Profes
       case PlanificadorDeMateriasDslPackage.PROFESOR__DEDICACION:
         setDedicacion((Dedicacion)null);
         return;
+      case PlanificadorDeMateriasDslPackage.PROFESOR__MATERIAS:
+        getMaterias().clear();
+        return;
+      case PlanificadorDeMateriasDslPackage.PROFESOR__DISPONIBILIDAD:
+        setDisponibilidad((Disponibilidad)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -241,6 +356,10 @@ public class ProfesorImpl extends MinimalEObjectImpl.Container implements Profes
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case PlanificadorDeMateriasDslPackage.PROFESOR__DEDICACION:
         return dedicacion != null;
+      case PlanificadorDeMateriasDslPackage.PROFESOR__MATERIAS:
+        return materias != null && !materias.isEmpty();
+      case PlanificadorDeMateriasDslPackage.PROFESOR__DISPONIBILIDAD:
+        return disponibilidad != null;
     }
     return super.eIsSet(featureID);
   }

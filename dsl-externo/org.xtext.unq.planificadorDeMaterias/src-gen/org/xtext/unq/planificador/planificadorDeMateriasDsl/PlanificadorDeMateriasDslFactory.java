@@ -50,6 +50,15 @@ public interface PlanificadorDeMateriasDslFactory extends EFactory
   Profesor createProfesor();
 
   /**
+   * Returns a new object of class '<em>Disponibilidad</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Disponibilidad</em>'.
+   * @generated
+   */
+  Disponibilidad createDisponibilidad();
+
+  /**
    * Returns a new object of class '<em>Hora</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -66,33 +75,6 @@ public interface PlanificadorDeMateriasDslFactory extends EFactory
    * @generated
    */
   Dedicacion createDedicacion();
-
-  /**
-   * Returns a new object of class '<em>SIMPLE</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>SIMPLE</em>'.
-   * @generated
-   */
-  SIMPLE createSIMPLE();
-
-  /**
-   * Returns a new object of class '<em>SEMI</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>SEMI</em>'.
-   * @generated
-   */
-  SEMI createSEMI();
-
-  /**
-   * Returns a new object of class '<em>EXCLUSIVA</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>EXCLUSIVA</em>'.
-   * @generated
-   */
-  EXCLUSIVA createEXCLUSIVA();
 
   /**
    * Returns a new object of class '<em>Materia</em>'.
@@ -158,6 +140,69 @@ public interface PlanificadorDeMateriasDslFactory extends EFactory
   Dia createDia();
 
   /**
+   * Returns a new object of class '<em>Asignacion</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Asignacion</em>'.
+   * @generated
+   */
+  Asignacion createAsignacion();
+
+  /**
+   * Returns a new object of class '<em>Horarios</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Horarios</em>'.
+   * @generated
+   */
+  Horarios createHorarios();
+
+  /**
+   * Returns a new object of class '<em>Planificacion</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Planificacion</em>'.
+   * @generated
+   */
+  Planificacion createPlanificacion();
+
+  /**
+   * Returns a new object of class '<em>Recurso</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Recurso</em>'.
+   * @generated
+   */
+  Recurso createRecurso();
+
+  /**
+   * Returns a new object of class '<em>SIMPLE</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>SIMPLE</em>'.
+   * @generated
+   */
+  SIMPLE createSIMPLE();
+
+  /**
+   * Returns a new object of class '<em>SEMI</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>SEMI</em>'.
+   * @generated
+   */
+  SEMI createSEMI();
+
+  /**
+   * Returns a new object of class '<em>EXCLUSIVA</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>EXCLUSIVA</em>'.
+   * @generated
+   */
+  EXCLUSIVA createEXCLUSIVA();
+
+  /**
    * Returns a new object of class '<em>Lunes</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -210,42 +255,6 @@ public interface PlanificadorDeMateriasDslFactory extends EFactory
    * @generated
    */
   Sabado createSabado();
-
-  /**
-   * Returns a new object of class '<em>Dias</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Dias</em>'.
-   * @generated
-   */
-  Dias createDias();
-
-  /**
-   * Returns a new object of class '<em>Horarios</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Horarios</em>'.
-   * @generated
-   */
-  Horarios createHorarios();
-
-  /**
-   * Returns a new object of class '<em>Planificacion</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Planificacion</em>'.
-   * @generated
-   */
-  Planificacion createPlanificacion();
-
-  /**
-   * Returns a new object of class '<em>Recurso</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Recurso</em>'.
-   * @generated
-   */
-  Recurso createRecurso();
 
   /**
    * Returns the package supported by this factory.

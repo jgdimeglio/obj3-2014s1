@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria#getCantHoras <em>Cant Horas</em>}</li>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria#getDias <em>Dias</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria#getDiasSemanales <em>Dias Semanales</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,29 +50,29 @@ public interface CargaHoraria extends EObject
   void setCantHoras(int value);
 
   /**
-   * Returns the value of the '<em><b>Dias</b></em>' attribute.
+   * Returns the value of the '<em><b>Dias Semanales</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Dias</em>' attribute isn't clear,
+   * If the meaning of the '<em>Dias Semanales</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Dias</em>' attribute.
-   * @see #setDias(int)
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage#getCargaHoraria_Dias()
+   * @return the value of the '<em>Dias Semanales</em>' attribute.
+   * @see #setDiasSemanales(int)
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage#getCargaHoraria_DiasSemanales()
    * @model
    * @generated
    */
-  int getDias();
+  int getDiasSemanales();
 
   /**
-   * Sets the value of the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria#getDias <em>Dias</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria#getDiasSemanales <em>Dias Semanales</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Dias</em>' attribute.
-   * @see #getDias()
+   * @param value the new value of the '<em>Dias Semanales</em>' attribute.
+   * @see #getDiasSemanales()
    * @generated
    */
-  void setDias(int value);
+  void setDiasSemanales(int value);
 
 } // CargaHoraria

@@ -6,9 +6,10 @@ package org.xtext.unq.planificador.validation
 import org.eclipse.xtext.validation.Check
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horarios
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -29,6 +30,36 @@ class PdmValidator extends AbstractPdmValidator {
 	//		}
 	//	}
 	//}
+	@Check
+	def validateMateriasAsignadas(Planificacion p){
+		var exist = true;
+		for(Materia m : p.materias){
+			exist = exist && estaAsignado(m,p)
+		}
+		if(!exist){
+			error("Falta asignar una materia", p, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__HORARIO)
+		}
+	}
+	
+	def estaAsignado(Materia m, Planificacion p) {
+		p.horario.horarios.exists[ h | (h.materia.name.equals(m.name))]
+	}
+	
+	@Check
+	def validateDedicacion(Profesor p){
+		println(p.dedicacion)
+		if((p.dedicacion.eClass.name.equals("EXCLUSIVA")) && (p.materias.size < 2 || p.materias.size > 5)){
+			error('''Tiene «p.materias.size» y necesita de 2 hasta 5 materias''', p, PlanificadorDeMateriasDslPackage.Literals.PROFESOR__DEDICACION )
+		}
+		if((p.dedicacion.eClass.name.equals("SEMI")) && (p.materias.size != 2)){
+			error('''Tiene «p.materias.size» y necesita de 2 materias''', p, PlanificadorDeMateriasDslPackage.Literals.PROFESOR__DEDICACION )
+		}
+		if(p.dedicacion.eClass.name.equals("SIMPLE") && (p.materias.size != 1)){
+			error('''Tiene «p.materias.size» y necesita de 1 materia''', p, PlanificadorDeMateriasDslPackage.Literals.PROFESOR__DEDICACION )
+		}
+		
+	}
+	
 	@Check
 	def validateDayNotRepeated(Planificacion p) {
 		if (p.tieneMateriasRepetidas)

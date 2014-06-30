@@ -31,6 +31,7 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso;
  * <ul>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.AulaImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.AulaImpl#getRecursos <em>Recursos</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.AulaImpl#getCapacidad <em>Capacidad</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,6 +68,26 @@ public class AulaImpl extends MinimalEObjectImpl.Container implements Aula
    * @ordered
    */
   protected EList<Recurso> recursos;
+
+  /**
+   * The default value of the '{@link #getCapacidad() <em>Capacidad</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCapacidad()
+   * @generated
+   * @ordered
+   */
+  protected static final int CAPACIDAD_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getCapacidad() <em>Capacidad</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCapacidad()
+   * @generated
+   * @ordered
+   */
+  protected int capacidad = CAPACIDAD_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -131,6 +152,29 @@ public class AulaImpl extends MinimalEObjectImpl.Container implements Aula
    * <!-- end-user-doc -->
    * @generated
    */
+  public int getCapacidad()
+  {
+    return capacidad;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCapacidad(int newCapacidad)
+  {
+    int oldCapacidad = capacidad;
+    capacidad = newCapacidad;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.AULA__CAPACIDAD, oldCapacidad, capacidad));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -156,6 +200,8 @@ public class AulaImpl extends MinimalEObjectImpl.Container implements Aula
         return getName();
       case PlanificadorDeMateriasDslPackage.AULA__RECURSOS:
         return getRecursos();
+      case PlanificadorDeMateriasDslPackage.AULA__CAPACIDAD:
+        return getCapacidad();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -178,6 +224,9 @@ public class AulaImpl extends MinimalEObjectImpl.Container implements Aula
         getRecursos().clear();
         getRecursos().addAll((Collection<? extends Recurso>)newValue);
         return;
+      case PlanificadorDeMateriasDslPackage.AULA__CAPACIDAD:
+        setCapacidad((Integer)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -198,6 +247,9 @@ public class AulaImpl extends MinimalEObjectImpl.Container implements Aula
       case PlanificadorDeMateriasDslPackage.AULA__RECURSOS:
         getRecursos().clear();
         return;
+      case PlanificadorDeMateriasDslPackage.AULA__CAPACIDAD:
+        setCapacidad(CAPACIDAD_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -216,6 +268,8 @@ public class AulaImpl extends MinimalEObjectImpl.Container implements Aula
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case PlanificadorDeMateriasDslPackage.AULA__RECURSOS:
         return recursos != null && !recursos.isEmpty();
+      case PlanificadorDeMateriasDslPackage.AULA__CAPACIDAD:
+        return capacidad != CAPACIDAD_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -233,6 +287,8 @@ public class AulaImpl extends MinimalEObjectImpl.Container implements Aula
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", capacidad: ");
+    result.append(capacidad);
     result.append(')');
     return result.toString();
   }

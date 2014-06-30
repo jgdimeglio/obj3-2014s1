@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion#getSemestre <em>Semestre</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion#getMaterias <em>Materias</em>}</li>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion#getHorarios <em>Horarios</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion#getHorario <em>Horario</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,29 +69,29 @@ public interface Planificacion extends EObject
   EList<Materia> getMaterias();
 
   /**
-   * Returns the value of the '<em><b>Horarios</b></em>' containment reference.
+   * Returns the value of the '<em><b>Horario</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Horarios</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Horario</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Horarios</em>' containment reference.
-   * @see #setHorarios(Horarios)
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage#getPlanificacion_Horarios()
+   * @return the value of the '<em>Horario</em>' containment reference.
+   * @see #setHorario(Horarios)
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage#getPlanificacion_Horario()
    * @model containment="true"
    * @generated
    */
-  Horarios getHorarios();
+  Horarios getHorario();
 
   /**
-   * Sets the value of the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion#getHorarios <em>Horarios</em>}' containment reference.
+   * Sets the value of the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion#getHorario <em>Horario</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Horarios</em>' containment reference.
-   * @see #getHorarios()
+   * @param value the new value of the '<em>Horario</em>' containment reference.
+   * @see #getHorario()
    * @generated
    */
-  void setHorarios(Horarios value);
+  void setHorario(Horarios value);
 
 } // Planificacion

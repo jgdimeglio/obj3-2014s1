@@ -84,12 +84,7 @@ public class PdmJvmModelInferrer extends AbstractModelInferrer {
                 _builder.append(_cantHoras, "");
                 _builder.append(";");
                 _builder.newLineIfNotEmpty();
-                _builder.append("this.dias = ");
-                CargaHoraria _cargaHoraria_1 = materia.getCargaHoraria();
-                int _dias = _cargaHoraria_1.getDias();
-                _builder.append(_dias, "");
-                _builder.append(";");
-                _builder.newLineIfNotEmpty();
+                _builder.newLine();
                 it.append(_builder);
               }
             };

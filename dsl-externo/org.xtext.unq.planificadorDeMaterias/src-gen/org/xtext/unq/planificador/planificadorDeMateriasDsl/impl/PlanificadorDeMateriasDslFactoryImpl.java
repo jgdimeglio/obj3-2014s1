@@ -67,11 +67,9 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
       case PlanificadorDeMateriasDslPackage.MODEL: return createModel();
       case PlanificadorDeMateriasDslPackage.IMPORT: return createImport();
       case PlanificadorDeMateriasDslPackage.PROFESOR: return createProfesor();
+      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD: return createDisponibilidad();
       case PlanificadorDeMateriasDslPackage.HORA: return createHora();
       case PlanificadorDeMateriasDslPackage.DEDICACION: return createDedicacion();
-      case PlanificadorDeMateriasDslPackage.SIMPLE: return createSIMPLE();
-      case PlanificadorDeMateriasDslPackage.SEMI: return createSEMI();
-      case PlanificadorDeMateriasDslPackage.EXCLUSIVA: return createEXCLUSIVA();
       case PlanificadorDeMateriasDslPackage.MATERIA: return createMateria();
       case PlanificadorDeMateriasDslPackage.AULA: return createAula();
       case PlanificadorDeMateriasDslPackage.CARGA_HORARIA: return createCargaHoraria();
@@ -79,16 +77,19 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
       case PlanificadorDeMateriasDslPackage.HORARIO: return createHorario();
       case PlanificadorDeMateriasDslPackage.SEMESTRE: return createSemestre();
       case PlanificadorDeMateriasDslPackage.DIA: return createDia();
+      case PlanificadorDeMateriasDslPackage.ASIGNACION: return createAsignacion();
+      case PlanificadorDeMateriasDslPackage.HORARIOS: return createHorarios();
+      case PlanificadorDeMateriasDslPackage.PLANIFICACION: return createPlanificacion();
+      case PlanificadorDeMateriasDslPackage.RECURSO: return createRecurso();
+      case PlanificadorDeMateriasDslPackage.SIMPLE: return createSIMPLE();
+      case PlanificadorDeMateriasDslPackage.SEMI: return createSEMI();
+      case PlanificadorDeMateriasDslPackage.EXCLUSIVA: return createEXCLUSIVA();
       case PlanificadorDeMateriasDslPackage.LUNES: return createLunes();
       case PlanificadorDeMateriasDslPackage.MARTES: return createMartes();
       case PlanificadorDeMateriasDslPackage.MIERCOLES: return createMiercoles();
       case PlanificadorDeMateriasDslPackage.JUEVES: return createJueves();
       case PlanificadorDeMateriasDslPackage.VIERNES: return createViernes();
       case PlanificadorDeMateriasDslPackage.SABADO: return createSabado();
-      case PlanificadorDeMateriasDslPackage.DIAS: return createDias();
-      case PlanificadorDeMateriasDslPackage.HORARIOS: return createHorarios();
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION: return createPlanificacion();
-      case PlanificadorDeMateriasDslPackage.RECURSO: return createRecurso();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -132,6 +133,17 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
    * <!-- end-user-doc -->
    * @generated
    */
+  public Disponibilidad createDisponibilidad()
+  {
+    DisponibilidadImpl disponibilidad = new DisponibilidadImpl();
+    return disponibilidad;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Hora createHora()
   {
     HoraImpl hora = new HoraImpl();
@@ -147,39 +159,6 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
   {
     DedicacionImpl dedicacion = new DedicacionImpl();
     return dedicacion;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SIMPLE createSIMPLE()
-  {
-    SIMPLEImpl simple = new SIMPLEImpl();
-    return simple;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SEMI createSEMI()
-  {
-    SEMIImpl semi = new SEMIImpl();
-    return semi;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EXCLUSIVA createEXCLUSIVA()
-  {
-    EXCLUSIVAImpl exclusiva = new EXCLUSIVAImpl();
-    return exclusiva;
   }
 
   /**
@@ -264,6 +243,83 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
    * <!-- end-user-doc -->
    * @generated
    */
+  public Asignacion createAsignacion()
+  {
+    AsignacionImpl asignacion = new AsignacionImpl();
+    return asignacion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Horarios createHorarios()
+  {
+    HorariosImpl horarios = new HorariosImpl();
+    return horarios;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Planificacion createPlanificacion()
+  {
+    PlanificacionImpl planificacion = new PlanificacionImpl();
+    return planificacion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Recurso createRecurso()
+  {
+    RecursoImpl recurso = new RecursoImpl();
+    return recurso;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SIMPLE createSIMPLE()
+  {
+    SIMPLEImpl simple = new SIMPLEImpl();
+    return simple;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SEMI createSEMI()
+  {
+    SEMIImpl semi = new SEMIImpl();
+    return semi;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EXCLUSIVA createEXCLUSIVA()
+  {
+    EXCLUSIVAImpl exclusiva = new EXCLUSIVAImpl();
+    return exclusiva;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Lunes createLunes()
   {
     LunesImpl lunes = new LunesImpl();
@@ -323,50 +379,6 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
   {
     SabadoImpl sabado = new SabadoImpl();
     return sabado;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Dias createDias()
-  {
-    DiasImpl dias = new DiasImpl();
-    return dias;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Horarios createHorarios()
-  {
-    HorariosImpl horarios = new HorariosImpl();
-    return horarios;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Planificacion createPlanificacion()
-  {
-    PlanificacionImpl planificacion = new PlanificacionImpl();
-    return planificacion;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Recurso createRecurso()
-  {
-    RecursoImpl recurso = new RecursoImpl();
-    return recurso;
   }
 
   /**
