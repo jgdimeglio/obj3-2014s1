@@ -18,7 +18,7 @@ import org.xtext.unq.planificador.services.PdmGrammarAccess;
 public class PdmSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected PdmGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Profesor_MateriasKeyword_4_0_q;
+	protected AbstractElementAlias match_Disponibilidad_NoPuedeKeyword_0_0_q;
 	protected AbstractElementAlias match_XBlockExpression_SemicolonKeyword_2_1_q;
 	protected AbstractElementAlias match_XExpressionInClosure_SemicolonKeyword_1_1_q;
 	protected AbstractElementAlias match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q;
@@ -29,7 +29,7 @@ public class PdmSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (PdmGrammarAccess) access;
-		match_Profesor_MateriasKeyword_4_0_q = new TokenAlias(false, true, grammarAccess.getProfesorAccess().getMateriasKeyword_4_0());
+		match_Disponibilidad_NoPuedeKeyword_0_0_q = new TokenAlias(false, true, grammarAccess.getDisponibilidadAccess().getNoPuedeKeyword_0_0());
 		match_XBlockExpression_SemicolonKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getXBlockExpressionAccess().getSemicolonKeyword_2_1());
 		match_XExpressionInClosure_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getXExpressionInClosureAccess().getSemicolonKeyword_1_1());
 		match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getXFunctionTypeRefAccess().getLeftParenthesisKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getXFunctionTypeRefAccess().getRightParenthesisKeyword_0_2()));
@@ -75,8 +75,8 @@ public class PdmSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_Profesor_MateriasKeyword_4_0_q.equals(syntax))
-				emit_Profesor_MateriasKeyword_4_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if(match_Disponibilidad_NoPuedeKeyword_0_0_q.equals(syntax))
+				emit_Disponibilidad_NoPuedeKeyword_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_XBlockExpression_SemicolonKeyword_2_1_q.equals(syntax))
 				emit_XBlockExpression_SemicolonKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_XExpressionInClosure_SemicolonKeyword_1_1_q.equals(syntax))
@@ -95,9 +95,9 @@ public class PdmSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
-	 *     'materias'?
+	 *     'no puede'?
 	 */
-	protected void emit_Profesor_MateriasKeyword_4_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Disponibilidad_NoPuedeKeyword_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

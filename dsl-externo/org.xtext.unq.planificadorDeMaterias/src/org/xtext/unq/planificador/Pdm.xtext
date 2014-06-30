@@ -5,44 +5,33 @@ generate planificadorDeMateriasDsl "http://www.xtext.org/unq/planificadorDeMater
 import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
 
 Model:
-	imports+=Import*
-	profesors+=Profesor*
-	horas+=Hora*
-	materias+=Materia*
-	aulas+=Aula*
-	cargasHorarias+=CargaHoraria*
-	cargasHorariasDocentes+=CargaHorariaDocente*
-	horarios+=Horarios*
-	dias+=Dia*
-	semestre+=Semestre*
-	planificaciones+=Planificacion*
-	horarios+=Horario*
-	recursos+=Recurso*;
-	//recursosDeMaterias+=RecursoMateria*
+	
+	elementosPrimarios+= ElementosPrimarios
+	elementosSecundarios+=ElementosSecundarios
+	planificacion+= Planificacion
+;
 
-Import:
-  'import' importedNamespace=ImportedFQN;
+ElementosPrimarios:
+	Profesor   |
+	Asignacion |
+	Materia
+;
 
-ImportedFQN:
-  FQN ('.*')?;
-
-FQN:
-  ID ('.' ID)*;
+ElementosSecundarios:
+	Aula           |
+	Recurso
+;
 
 Profesor:
 	'profesor' name=ID 
 	'dedicacion' dedicacion=Dedicacion
-	('materias' (materias+=Materia)*)?
 	('disponibilidad' (disponibilidad=Disponibilidad))?
 ;
 
 Disponibilidad:
-	('no puede' (dias+=Dia))?
-	('puede' (dias+=Dia))?
+	('no puede' (dias+=Dia)*)?
+	('puede' (dias+=Dia)* 'de' inicio=INT 'a' fin=INT)
 ;
-
-Hora:
-	'hora' hora=INT;
 
 Dedicacion:
 	{SIMPLE}    'Simple'   | 
@@ -66,12 +55,9 @@ CargaHoraria:
 	'cantidadDeDias' diasSemanales=INT
 ;
 
-CargaHorariaDocente:
-	name=Profesor 'tiene' tipo=CargaHoraria;
-
 Horario:
-	dia=Dia ':'
-	desde=Hora 'a' hasta=Hora 'se dicta' materia=Materia 'en' aula=Aula;
+	desde=INT 'a' hasta=INT 
+;
 
 Semestre:
 	anho=INT 'semestre' numero=INT;
@@ -82,22 +68,24 @@ Semestre:
 	{Miercoles} 'Miercoles' | 
 	{Jueves}    'Jueves'    | 
 	{Viernes}   'Viernes'   | 
-	{Sabado}    'Sabado';
-
-Asignacion: // Dias <=> Asignaciones ??
-	dia=Dia materia=Materia 
+	{Sabado}    'Sabado'
 ;
 
-Horarios:
-	'horarios {' (horarios+=Horario)+ '}';
+Asignacion:
+	materia=[Materia] 'la dicta' profesores+=[Profesor]+ 	
+	'se dicta:' aulaHorarios+=AulaHorario+ 
+;
+
+AulaHorario:
+	'los' dia=Dia 'en el horario' horario=Horario 'en' aula=Aula
+;
 
 Planificacion:
 	'planificacion' semestre=Semestre '{'
-	'a dictar:' (materias+=Materia)+
-		horario=Horarios
-	'}';
+	'asignaciones' (asignaciones+=Asignacion)*
+	'}'
+;
 
 Recurso:
 	'recurso' name=ID;
-
 	

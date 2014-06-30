@@ -32,13 +32,22 @@ public interface PlanificadorDeMateriasDslFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>Import</em>'.
+   * Returns a new object of class '<em>Elementos Primarios</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Import</em>'.
+   * @return a new object of class '<em>Elementos Primarios</em>'.
    * @generated
    */
-  Import createImport();
+  ElementosPrimarios createElementosPrimarios();
+
+  /**
+   * Returns a new object of class '<em>Elementos Secundarios</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Elementos Secundarios</em>'.
+   * @generated
+   */
+  ElementosSecundarios createElementosSecundarios();
 
   /**
    * Returns a new object of class '<em>Profesor</em>'.
@@ -57,15 +66,6 @@ public interface PlanificadorDeMateriasDslFactory extends EFactory
    * @generated
    */
   Disponibilidad createDisponibilidad();
-
-  /**
-   * Returns a new object of class '<em>Hora</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Hora</em>'.
-   * @generated
-   */
-  Hora createHora();
 
   /**
    * Returns a new object of class '<em>Dedicacion</em>'.
@@ -104,15 +104,6 @@ public interface PlanificadorDeMateriasDslFactory extends EFactory
   CargaHoraria createCargaHoraria();
 
   /**
-   * Returns a new object of class '<em>Carga Horaria Docente</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Carga Horaria Docente</em>'.
-   * @generated
-   */
-  CargaHorariaDocente createCargaHorariaDocente();
-
-  /**
    * Returns a new object of class '<em>Horario</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -149,13 +140,13 @@ public interface PlanificadorDeMateriasDslFactory extends EFactory
   Asignacion createAsignacion();
 
   /**
-   * Returns a new object of class '<em>Horarios</em>'.
+   * Returns a new object of class '<em>Aula Horario</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Horarios</em>'.
+   * @return a new object of class '<em>Aula Horario</em>'.
    * @generated
    */
-  Horarios createHorarios();
+  AulaHorario createAulaHorario();
 
   /**
    * Returns a new object of class '<em>Planificacion</em>'.

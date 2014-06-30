@@ -80,9 +80,14 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
-      public Adapter caseImport(Import object)
+      public Adapter caseElementosPrimarios(ElementosPrimarios object)
       {
-        return createImportAdapter();
+        return createElementosPrimariosAdapter();
+      }
+      @Override
+      public Adapter caseElementosSecundarios(ElementosSecundarios object)
+      {
+        return createElementosSecundariosAdapter();
       }
       @Override
       public Adapter caseProfesor(Profesor object)
@@ -93,11 +98,6 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDisponibilidad(Disponibilidad object)
       {
         return createDisponibilidadAdapter();
-      }
-      @Override
-      public Adapter caseHora(Hora object)
-      {
-        return createHoraAdapter();
       }
       @Override
       public Adapter caseDedicacion(Dedicacion object)
@@ -120,11 +120,6 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
         return createCargaHorariaAdapter();
       }
       @Override
-      public Adapter caseCargaHorariaDocente(CargaHorariaDocente object)
-      {
-        return createCargaHorariaDocenteAdapter();
-      }
-      @Override
       public Adapter caseHorario(Horario object)
       {
         return createHorarioAdapter();
@@ -145,9 +140,9 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
         return createAsignacionAdapter();
       }
       @Override
-      public Adapter caseHorarios(Horarios object)
+      public Adapter caseAulaHorario(AulaHorario object)
       {
-        return createHorariosAdapter();
+        return createAulaHorarioAdapter();
       }
       @Override
       public Adapter casePlanificacion(Planificacion object)
@@ -242,16 +237,31 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Import <em>Import</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosPrimarios <em>Elementos Primarios</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Import
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosPrimarios
    * @generated
    */
-  public Adapter createImportAdapter()
+  public Adapter createElementosPrimariosAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosSecundarios <em>Elementos Secundarios</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosSecundarios
+   * @generated
+   */
+  public Adapter createElementosSecundariosAdapter()
   {
     return null;
   }
@@ -282,21 +292,6 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDisponibilidadAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Hora <em>Hora</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Hora
-   * @generated
-   */
-  public Adapter createHoraAdapter()
   {
     return null;
   }
@@ -362,21 +357,6 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHorariaDocente <em>Carga Horaria Docente</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHorariaDocente
-   * @generated
-   */
-  public Adapter createCargaHorariaDocenteAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario <em>Horario</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -437,16 +417,16 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Horarios <em>Horarios</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario <em>Aula Horario</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Horarios
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario
    * @generated
    */
-  public Adapter createHorariosAdapter()
+  public Adapter createAulaHorarioAdapter()
   {
     return null;
   }

@@ -18,8 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horarios;
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Semestre;
@@ -32,8 +31,7 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Semestre;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificacionImpl#getSemestre <em>Semestre</em>}</li>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificacionImpl#getMaterias <em>Materias</em>}</li>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificacionImpl#getHorario <em>Horario</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.PlanificacionImpl#getAsignaciones <em>Asignaciones</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,24 +50,14 @@ public class PlanificacionImpl extends MinimalEObjectImpl.Container implements P
   protected Semestre semestre;
 
   /**
-   * The cached value of the '{@link #getMaterias() <em>Materias</em>}' containment reference list.
+   * The cached value of the '{@link #getAsignaciones() <em>Asignaciones</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMaterias()
+   * @see #getAsignaciones()
    * @generated
    * @ordered
    */
-  protected EList<Materia> materias;
-
-  /**
-   * The cached value of the '{@link #getHorario() <em>Horario</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getHorario()
-   * @generated
-   * @ordered
-   */
-  protected Horarios horario;
+  protected EList<Asignacion> asignaciones;
 
   /**
    * <!-- begin-user-doc -->
@@ -145,61 +133,13 @@ public class PlanificacionImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Materia> getMaterias()
+  public EList<Asignacion> getAsignaciones()
   {
-    if (materias == null)
+    if (asignaciones == null)
     {
-      materias = new EObjectContainmentEList<Materia>(Materia.class, this, PlanificadorDeMateriasDslPackage.PLANIFICACION__MATERIAS);
+      asignaciones = new EObjectContainmentEList<Asignacion>(Asignacion.class, this, PlanificadorDeMateriasDslPackage.PLANIFICACION__ASIGNACIONES);
     }
-    return materias;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Horarios getHorario()
-  {
-    return horario;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetHorario(Horarios newHorario, NotificationChain msgs)
-  {
-    Horarios oldHorario = horario;
-    horario = newHorario;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO, oldHorario, newHorario);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setHorario(Horarios newHorario)
-  {
-    if (newHorario != horario)
-    {
-      NotificationChain msgs = null;
-      if (horario != null)
-        msgs = ((InternalEObject)horario).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO, null, msgs);
-      if (newHorario != null)
-        msgs = ((InternalEObject)newHorario).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO, null, msgs);
-      msgs = basicSetHorario(newHorario, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO, newHorario, newHorario));
+    return asignaciones;
   }
 
   /**
@@ -214,10 +154,8 @@ public class PlanificacionImpl extends MinimalEObjectImpl.Container implements P
     {
       case PlanificadorDeMateriasDslPackage.PLANIFICACION__SEMESTRE:
         return basicSetSemestre(null, msgs);
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION__MATERIAS:
-        return ((InternalEList<?>)getMaterias()).basicRemove(otherEnd, msgs);
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO:
-        return basicSetHorario(null, msgs);
+      case PlanificadorDeMateriasDslPackage.PLANIFICACION__ASIGNACIONES:
+        return ((InternalEList<?>)getAsignaciones()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -234,10 +172,8 @@ public class PlanificacionImpl extends MinimalEObjectImpl.Container implements P
     {
       case PlanificadorDeMateriasDslPackage.PLANIFICACION__SEMESTRE:
         return getSemestre();
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION__MATERIAS:
-        return getMaterias();
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO:
-        return getHorario();
+      case PlanificadorDeMateriasDslPackage.PLANIFICACION__ASIGNACIONES:
+        return getAsignaciones();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -256,12 +192,9 @@ public class PlanificacionImpl extends MinimalEObjectImpl.Container implements P
       case PlanificadorDeMateriasDslPackage.PLANIFICACION__SEMESTRE:
         setSemestre((Semestre)newValue);
         return;
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION__MATERIAS:
-        getMaterias().clear();
-        getMaterias().addAll((Collection<? extends Materia>)newValue);
-        return;
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO:
-        setHorario((Horarios)newValue);
+      case PlanificadorDeMateriasDslPackage.PLANIFICACION__ASIGNACIONES:
+        getAsignaciones().clear();
+        getAsignaciones().addAll((Collection<? extends Asignacion>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -280,11 +213,8 @@ public class PlanificacionImpl extends MinimalEObjectImpl.Container implements P
       case PlanificadorDeMateriasDslPackage.PLANIFICACION__SEMESTRE:
         setSemestre((Semestre)null);
         return;
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION__MATERIAS:
-        getMaterias().clear();
-        return;
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO:
-        setHorario((Horarios)null);
+      case PlanificadorDeMateriasDslPackage.PLANIFICACION__ASIGNACIONES:
+        getAsignaciones().clear();
         return;
     }
     super.eUnset(featureID);
@@ -302,10 +232,8 @@ public class PlanificacionImpl extends MinimalEObjectImpl.Container implements P
     {
       case PlanificadorDeMateriasDslPackage.PLANIFICACION__SEMESTRE:
         return semestre != null;
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION__MATERIAS:
-        return materias != null && !materias.isEmpty();
-      case PlanificadorDeMateriasDslPackage.PLANIFICACION__HORARIO:
-        return horario != null;
+      case PlanificadorDeMateriasDslPackage.PLANIFICACION__ASIGNACIONES:
+        return asignaciones != null && !asignaciones.isEmpty();
     }
     return super.eIsSet(featureID);
   }

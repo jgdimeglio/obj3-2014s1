@@ -3,19 +3,13 @@
 package org.xtext.unq.planificador.planificadorDeMateriasDsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula;
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dia;
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Hora;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario;
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage;
 
 /**
@@ -25,11 +19,8 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateri
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.HorarioImpl#getDia <em>Dia</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.HorarioImpl#getDesde <em>Desde</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.HorarioImpl#getHasta <em>Hasta</em>}</li>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.HorarioImpl#getMateria <em>Materia</em>}</li>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.HorarioImpl#getAula <em>Aula</em>}</li>
  * </ul>
  * </p>
  *
@@ -38,54 +29,44 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateri
 public class HorarioImpl extends MinimalEObjectImpl.Container implements Horario
 {
   /**
-   * The cached value of the '{@link #getDia() <em>Dia</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDia()
-   * @generated
-   * @ordered
-   */
-  protected Dia dia;
-
-  /**
-   * The cached value of the '{@link #getDesde() <em>Desde</em>}' containment reference.
+   * The default value of the '{@link #getDesde() <em>Desde</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getDesde()
    * @generated
    * @ordered
    */
-  protected Hora desde;
+  protected static final int DESDE_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getHasta() <em>Hasta</em>}' containment reference.
+   * The cached value of the '{@link #getDesde() <em>Desde</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDesde()
+   * @generated
+   * @ordered
+   */
+  protected int desde = DESDE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getHasta() <em>Hasta</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getHasta()
    * @generated
    * @ordered
    */
-  protected Hora hasta;
+  protected static final int HASTA_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getMateria() <em>Materia</em>}' containment reference.
+   * The cached value of the '{@link #getHasta() <em>Hasta</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMateria()
+   * @see #getHasta()
    * @generated
    * @ordered
    */
-  protected Materia materia;
-
-  /**
-   * The cached value of the '{@link #getAula() <em>Aula</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAula()
-   * @generated
-   * @ordered
-   */
-  protected Aula aula;
+  protected int hasta = HASTA_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,55 +94,7 @@ public class HorarioImpl extends MinimalEObjectImpl.Container implements Horario
    * <!-- end-user-doc -->
    * @generated
    */
-  public Dia getDia()
-  {
-    return dia;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetDia(Dia newDia, NotificationChain msgs)
-  {
-    Dia oldDia = dia;
-    dia = newDia;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.HORARIO__DIA, oldDia, newDia);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDia(Dia newDia)
-  {
-    if (newDia != dia)
-    {
-      NotificationChain msgs = null;
-      if (dia != null)
-        msgs = ((InternalEObject)dia).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.HORARIO__DIA, null, msgs);
-      if (newDia != null)
-        msgs = ((InternalEObject)newDia).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.HORARIO__DIA, null, msgs);
-      msgs = basicSetDia(newDia, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.HORARIO__DIA, newDia, newDia));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Hora getDesde()
+  public int getDesde()
   {
     return desde;
   }
@@ -171,16 +104,12 @@ public class HorarioImpl extends MinimalEObjectImpl.Container implements Horario
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDesde(Hora newDesde, NotificationChain msgs)
+  public void setDesde(int newDesde)
   {
-    Hora oldDesde = desde;
+    int oldDesde = desde;
     desde = newDesde;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.HORARIO__DESDE, oldDesde, newDesde);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.HORARIO__DESDE, oldDesde, desde));
   }
 
   /**
@@ -188,28 +117,7 @@ public class HorarioImpl extends MinimalEObjectImpl.Container implements Horario
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDesde(Hora newDesde)
-  {
-    if (newDesde != desde)
-    {
-      NotificationChain msgs = null;
-      if (desde != null)
-        msgs = ((InternalEObject)desde).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.HORARIO__DESDE, null, msgs);
-      if (newDesde != null)
-        msgs = ((InternalEObject)newDesde).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.HORARIO__DESDE, null, msgs);
-      msgs = basicSetDesde(newDesde, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.HORARIO__DESDE, newDesde, newDesde));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Hora getHasta()
+  public int getHasta()
   {
     return hasta;
   }
@@ -219,157 +127,12 @@ public class HorarioImpl extends MinimalEObjectImpl.Container implements Horario
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetHasta(Hora newHasta, NotificationChain msgs)
+  public void setHasta(int newHasta)
   {
-    Hora oldHasta = hasta;
+    int oldHasta = hasta;
     hasta = newHasta;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.HORARIO__HASTA, oldHasta, newHasta);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setHasta(Hora newHasta)
-  {
-    if (newHasta != hasta)
-    {
-      NotificationChain msgs = null;
-      if (hasta != null)
-        msgs = ((InternalEObject)hasta).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.HORARIO__HASTA, null, msgs);
-      if (newHasta != null)
-        msgs = ((InternalEObject)newHasta).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.HORARIO__HASTA, null, msgs);
-      msgs = basicSetHasta(newHasta, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.HORARIO__HASTA, newHasta, newHasta));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Materia getMateria()
-  {
-    return materia;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetMateria(Materia newMateria, NotificationChain msgs)
-  {
-    Materia oldMateria = materia;
-    materia = newMateria;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.HORARIO__MATERIA, oldMateria, newMateria);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setMateria(Materia newMateria)
-  {
-    if (newMateria != materia)
-    {
-      NotificationChain msgs = null;
-      if (materia != null)
-        msgs = ((InternalEObject)materia).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.HORARIO__MATERIA, null, msgs);
-      if (newMateria != null)
-        msgs = ((InternalEObject)newMateria).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.HORARIO__MATERIA, null, msgs);
-      msgs = basicSetMateria(newMateria, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.HORARIO__MATERIA, newMateria, newMateria));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Aula getAula()
-  {
-    return aula;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAula(Aula newAula, NotificationChain msgs)
-  {
-    Aula oldAula = aula;
-    aula = newAula;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.HORARIO__AULA, oldAula, newAula);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAula(Aula newAula)
-  {
-    if (newAula != aula)
-    {
-      NotificationChain msgs = null;
-      if (aula != null)
-        msgs = ((InternalEObject)aula).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.HORARIO__AULA, null, msgs);
-      if (newAula != null)
-        msgs = ((InternalEObject)newAula).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.HORARIO__AULA, null, msgs);
-      msgs = basicSetAula(newAula, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.HORARIO__AULA, newAula, newAula));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case PlanificadorDeMateriasDslPackage.HORARIO__DIA:
-        return basicSetDia(null, msgs);
-      case PlanificadorDeMateriasDslPackage.HORARIO__DESDE:
-        return basicSetDesde(null, msgs);
-      case PlanificadorDeMateriasDslPackage.HORARIO__HASTA:
-        return basicSetHasta(null, msgs);
-      case PlanificadorDeMateriasDslPackage.HORARIO__MATERIA:
-        return basicSetMateria(null, msgs);
-      case PlanificadorDeMateriasDslPackage.HORARIO__AULA:
-        return basicSetAula(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.HORARIO__HASTA, oldHasta, hasta));
   }
 
   /**
@@ -382,16 +145,10 @@ public class HorarioImpl extends MinimalEObjectImpl.Container implements Horario
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.HORARIO__DIA:
-        return getDia();
       case PlanificadorDeMateriasDslPackage.HORARIO__DESDE:
         return getDesde();
       case PlanificadorDeMateriasDslPackage.HORARIO__HASTA:
         return getHasta();
-      case PlanificadorDeMateriasDslPackage.HORARIO__MATERIA:
-        return getMateria();
-      case PlanificadorDeMateriasDslPackage.HORARIO__AULA:
-        return getAula();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -406,20 +163,11 @@ public class HorarioImpl extends MinimalEObjectImpl.Container implements Horario
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.HORARIO__DIA:
-        setDia((Dia)newValue);
-        return;
       case PlanificadorDeMateriasDslPackage.HORARIO__DESDE:
-        setDesde((Hora)newValue);
+        setDesde((Integer)newValue);
         return;
       case PlanificadorDeMateriasDslPackage.HORARIO__HASTA:
-        setHasta((Hora)newValue);
-        return;
-      case PlanificadorDeMateriasDslPackage.HORARIO__MATERIA:
-        setMateria((Materia)newValue);
-        return;
-      case PlanificadorDeMateriasDslPackage.HORARIO__AULA:
-        setAula((Aula)newValue);
+        setHasta((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -435,20 +183,11 @@ public class HorarioImpl extends MinimalEObjectImpl.Container implements Horario
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.HORARIO__DIA:
-        setDia((Dia)null);
-        return;
       case PlanificadorDeMateriasDslPackage.HORARIO__DESDE:
-        setDesde((Hora)null);
+        setDesde(DESDE_EDEFAULT);
         return;
       case PlanificadorDeMateriasDslPackage.HORARIO__HASTA:
-        setHasta((Hora)null);
-        return;
-      case PlanificadorDeMateriasDslPackage.HORARIO__MATERIA:
-        setMateria((Materia)null);
-        return;
-      case PlanificadorDeMateriasDslPackage.HORARIO__AULA:
-        setAula((Aula)null);
+        setHasta(HASTA_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -464,18 +203,31 @@ public class HorarioImpl extends MinimalEObjectImpl.Container implements Horario
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.HORARIO__DIA:
-        return dia != null;
       case PlanificadorDeMateriasDslPackage.HORARIO__DESDE:
-        return desde != null;
+        return desde != DESDE_EDEFAULT;
       case PlanificadorDeMateriasDslPackage.HORARIO__HASTA:
-        return hasta != null;
-      case PlanificadorDeMateriasDslPackage.HORARIO__MATERIA:
-        return materia != null;
-      case PlanificadorDeMateriasDslPackage.HORARIO__AULA:
-        return aula != null;
+        return hasta != HASTA_EDEFAULT;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (desde: ");
+    result.append(desde);
+    result.append(", hasta: ");
+    result.append(hasta);
+    result.append(')');
+    return result.toString();
   }
 
 } //HorarioImpl

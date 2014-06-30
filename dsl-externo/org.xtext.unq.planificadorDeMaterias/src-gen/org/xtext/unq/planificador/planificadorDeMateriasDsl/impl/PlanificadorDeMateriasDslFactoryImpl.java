@@ -65,20 +65,19 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
     switch (eClass.getClassifierID())
     {
       case PlanificadorDeMateriasDslPackage.MODEL: return createModel();
-      case PlanificadorDeMateriasDslPackage.IMPORT: return createImport();
+      case PlanificadorDeMateriasDslPackage.ELEMENTOS_PRIMARIOS: return createElementosPrimarios();
+      case PlanificadorDeMateriasDslPackage.ELEMENTOS_SECUNDARIOS: return createElementosSecundarios();
       case PlanificadorDeMateriasDslPackage.PROFESOR: return createProfesor();
       case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD: return createDisponibilidad();
-      case PlanificadorDeMateriasDslPackage.HORA: return createHora();
       case PlanificadorDeMateriasDslPackage.DEDICACION: return createDedicacion();
       case PlanificadorDeMateriasDslPackage.MATERIA: return createMateria();
       case PlanificadorDeMateriasDslPackage.AULA: return createAula();
       case PlanificadorDeMateriasDslPackage.CARGA_HORARIA: return createCargaHoraria();
-      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE: return createCargaHorariaDocente();
       case PlanificadorDeMateriasDslPackage.HORARIO: return createHorario();
       case PlanificadorDeMateriasDslPackage.SEMESTRE: return createSemestre();
       case PlanificadorDeMateriasDslPackage.DIA: return createDia();
       case PlanificadorDeMateriasDslPackage.ASIGNACION: return createAsignacion();
-      case PlanificadorDeMateriasDslPackage.HORARIOS: return createHorarios();
+      case PlanificadorDeMateriasDslPackage.AULA_HORARIO: return createAulaHorario();
       case PlanificadorDeMateriasDslPackage.PLANIFICACION: return createPlanificacion();
       case PlanificadorDeMateriasDslPackage.RECURSO: return createRecurso();
       case PlanificadorDeMateriasDslPackage.SIMPLE: return createSIMPLE();
@@ -111,10 +110,21 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public Import createImport()
+  public ElementosPrimarios createElementosPrimarios()
   {
-    ImportImpl import_ = new ImportImpl();
-    return import_;
+    ElementosPrimariosImpl elementosPrimarios = new ElementosPrimariosImpl();
+    return elementosPrimarios;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ElementosSecundarios createElementosSecundarios()
+  {
+    ElementosSecundariosImpl elementosSecundarios = new ElementosSecundariosImpl();
+    return elementosSecundarios;
   }
 
   /**
@@ -137,17 +147,6 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
   {
     DisponibilidadImpl disponibilidad = new DisponibilidadImpl();
     return disponibilidad;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Hora createHora()
-  {
-    HoraImpl hora = new HoraImpl();
-    return hora;
   }
 
   /**
@@ -199,17 +198,6 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public CargaHorariaDocente createCargaHorariaDocente()
-  {
-    CargaHorariaDocenteImpl cargaHorariaDocente = new CargaHorariaDocenteImpl();
-    return cargaHorariaDocente;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Horario createHorario()
   {
     HorarioImpl horario = new HorarioImpl();
@@ -254,10 +242,10 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public Horarios createHorarios()
+  public AulaHorario createAulaHorario()
   {
-    HorariosImpl horarios = new HorariosImpl();
-    return horarios;
+    AulaHorarioImpl aulaHorario = new AulaHorarioImpl();
+    return aulaHorario;
   }
 
   /**

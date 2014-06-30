@@ -2,19 +2,27 @@
  */
 package org.xtext.unq.planificador.planificadorDeMateriasDsl.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion;
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dia;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,27 +31,18 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateri
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.AsignacionImpl#getDia <em>Dia</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.AsignacionImpl#getMateria <em>Materia</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.AsignacionImpl#getProfesores <em>Profesores</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.AsignacionImpl#getAulaHorarios <em>Aula Horarios</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AsignacionImpl extends MinimalEObjectImpl.Container implements Asignacion
+public class AsignacionImpl extends ElementosPrimariosImpl implements Asignacion
 {
   /**
-   * The cached value of the '{@link #getDia() <em>Dia</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDia()
-   * @generated
-   * @ordered
-   */
-  protected Dia dia;
-
-  /**
-   * The cached value of the '{@link #getMateria() <em>Materia</em>}' containment reference.
+   * The cached value of the '{@link #getMateria() <em>Materia</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMateria()
@@ -51,6 +50,26 @@ public class AsignacionImpl extends MinimalEObjectImpl.Container implements Asig
    * @ordered
    */
   protected Materia materia;
+
+  /**
+   * The cached value of the '{@link #getProfesores() <em>Profesores</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProfesores()
+   * @generated
+   * @ordered
+   */
+  protected EList<Profesor> profesores;
+
+  /**
+   * The cached value of the '{@link #getAulaHorarios() <em>Aula Horarios</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAulaHorarios()
+   * @generated
+   * @ordered
+   */
+  protected EList<AulaHorario> aulaHorarios;
 
   /**
    * <!-- begin-user-doc -->
@@ -78,55 +97,27 @@ public class AsignacionImpl extends MinimalEObjectImpl.Container implements Asig
    * <!-- end-user-doc -->
    * @generated
    */
-  public Dia getDia()
-  {
-    return dia;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetDia(Dia newDia, NotificationChain msgs)
-  {
-    Dia oldDia = dia;
-    dia = newDia;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.ASIGNACION__DIA, oldDia, newDia);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDia(Dia newDia)
-  {
-    if (newDia != dia)
-    {
-      NotificationChain msgs = null;
-      if (dia != null)
-        msgs = ((InternalEObject)dia).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.ASIGNACION__DIA, null, msgs);
-      if (newDia != null)
-        msgs = ((InternalEObject)newDia).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.ASIGNACION__DIA, null, msgs);
-      msgs = basicSetDia(newDia, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.ASIGNACION__DIA, newDia, newDia));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Materia getMateria()
+  {
+    if (materia != null && materia.eIsProxy())
+    {
+      InternalEObject oldMateria = (InternalEObject)materia;
+      materia = (Materia)eResolveProxy(oldMateria);
+      if (materia != oldMateria)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, PlanificadorDeMateriasDslPackage.ASIGNACION__MATERIA, oldMateria, materia));
+      }
+    }
+    return materia;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Materia basicGetMateria()
   {
     return materia;
   }
@@ -136,16 +127,12 @@ public class AsignacionImpl extends MinimalEObjectImpl.Container implements Asig
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetMateria(Materia newMateria, NotificationChain msgs)
+  public void setMateria(Materia newMateria)
   {
     Materia oldMateria = materia;
     materia = newMateria;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.ASIGNACION__MATERIA, oldMateria, newMateria);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.ASIGNACION__MATERIA, oldMateria, materia));
   }
 
   /**
@@ -153,20 +140,27 @@ public class AsignacionImpl extends MinimalEObjectImpl.Container implements Asig
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMateria(Materia newMateria)
+  public EList<Profesor> getProfesores()
   {
-    if (newMateria != materia)
+    if (profesores == null)
     {
-      NotificationChain msgs = null;
-      if (materia != null)
-        msgs = ((InternalEObject)materia).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.ASIGNACION__MATERIA, null, msgs);
-      if (newMateria != null)
-        msgs = ((InternalEObject)newMateria).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PlanificadorDeMateriasDslPackage.ASIGNACION__MATERIA, null, msgs);
-      msgs = basicSetMateria(newMateria, msgs);
-      if (msgs != null) msgs.dispatch();
+      profesores = new EObjectResolvingEList<Profesor>(Profesor.class, this, PlanificadorDeMateriasDslPackage.ASIGNACION__PROFESORES);
     }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.ASIGNACION__MATERIA, newMateria, newMateria));
+    return profesores;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<AulaHorario> getAulaHorarios()
+  {
+    if (aulaHorarios == null)
+    {
+      aulaHorarios = new EObjectContainmentEList<AulaHorario>(AulaHorario.class, this, PlanificadorDeMateriasDslPackage.ASIGNACION__AULA_HORARIOS);
+    }
+    return aulaHorarios;
   }
 
   /**
@@ -179,10 +173,8 @@ public class AsignacionImpl extends MinimalEObjectImpl.Container implements Asig
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.ASIGNACION__DIA:
-        return basicSetDia(null, msgs);
-      case PlanificadorDeMateriasDslPackage.ASIGNACION__MATERIA:
-        return basicSetMateria(null, msgs);
+      case PlanificadorDeMateriasDslPackage.ASIGNACION__AULA_HORARIOS:
+        return ((InternalEList<?>)getAulaHorarios()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -197,10 +189,13 @@ public class AsignacionImpl extends MinimalEObjectImpl.Container implements Asig
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.ASIGNACION__DIA:
-        return getDia();
       case PlanificadorDeMateriasDslPackage.ASIGNACION__MATERIA:
-        return getMateria();
+        if (resolve) return getMateria();
+        return basicGetMateria();
+      case PlanificadorDeMateriasDslPackage.ASIGNACION__PROFESORES:
+        return getProfesores();
+      case PlanificadorDeMateriasDslPackage.ASIGNACION__AULA_HORARIOS:
+        return getAulaHorarios();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -210,16 +205,22 @@ public class AsignacionImpl extends MinimalEObjectImpl.Container implements Asig
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.ASIGNACION__DIA:
-        setDia((Dia)newValue);
-        return;
       case PlanificadorDeMateriasDslPackage.ASIGNACION__MATERIA:
         setMateria((Materia)newValue);
+        return;
+      case PlanificadorDeMateriasDslPackage.ASIGNACION__PROFESORES:
+        getProfesores().clear();
+        getProfesores().addAll((Collection<? extends Profesor>)newValue);
+        return;
+      case PlanificadorDeMateriasDslPackage.ASIGNACION__AULA_HORARIOS:
+        getAulaHorarios().clear();
+        getAulaHorarios().addAll((Collection<? extends AulaHorario>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -235,11 +236,14 @@ public class AsignacionImpl extends MinimalEObjectImpl.Container implements Asig
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.ASIGNACION__DIA:
-        setDia((Dia)null);
-        return;
       case PlanificadorDeMateriasDslPackage.ASIGNACION__MATERIA:
         setMateria((Materia)null);
+        return;
+      case PlanificadorDeMateriasDslPackage.ASIGNACION__PROFESORES:
+        getProfesores().clear();
+        return;
+      case PlanificadorDeMateriasDslPackage.ASIGNACION__AULA_HORARIOS:
+        getAulaHorarios().clear();
         return;
     }
     super.eUnset(featureID);
@@ -255,10 +259,12 @@ public class AsignacionImpl extends MinimalEObjectImpl.Container implements Asig
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.ASIGNACION__DIA:
-        return dia != null;
       case PlanificadorDeMateriasDslPackage.ASIGNACION__MATERIA:
         return materia != null;
+      case PlanificadorDeMateriasDslPackage.ASIGNACION__PROFESORES:
+        return profesores != null && !profesores.isEmpty();
+      case PlanificadorDeMateriasDslPackage.ASIGNACION__AULA_HORARIOS:
+        return aulaHorarios != null && !aulaHorarios.isEmpty();
     }
     return super.eIsSet(featureID);
   }

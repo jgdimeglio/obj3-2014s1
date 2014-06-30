@@ -9,33 +9,23 @@
   <genPackages prefix="PlanificadorDeMateriasDsl" basePackage="org.xtext.unq.planificador"
       disposableProviderFactory="true" fileExtensions="pdm" ecorePackage="Pdm.ecore#/">
     <genClasses ecoreClass="Pdm.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Model/imports"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Model/profesors"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Model/horas"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Model/materias"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Model/aulas"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Model/cargasHorarias"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Model/cargasHorariasDocentes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Model/horarios"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Model/dias"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Model/semestre"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Model/planificaciones"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Model/recursos"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Model/elementosPrimarios"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Model/elementosSecundarios"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Model/planificacion"/>
     </genClasses>
-    <genClasses ecoreClass="Pdm.ecore#//Import">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Import/importedNamespace"/>
+    <genClasses ecoreClass="Pdm.ecore#//ElementosPrimarios"/>
+    <genClasses ecoreClass="Pdm.ecore#//ElementosSecundarios">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//ElementosSecundarios/name"/>
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Profesor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Profesor/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Profesor/dedicacion"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Profesor/materias"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Profesor/disponibilidad"/>
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Disponibilidad">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Disponibilidad/dias"/>
-    </genClasses>
-    <genClasses ecoreClass="Pdm.ecore#//Hora">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Hora/hora"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Disponibilidad/inicio"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Disponibilidad/fin"/>
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Dedicacion"/>
     <genClasses ecoreClass="Pdm.ecore#//Materia">
@@ -44,7 +34,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Materia/recursos"/>
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Aula">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Aula/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Aula/recursos"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Aula/capacidad"/>
     </genClasses>
@@ -52,16 +41,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//CargaHoraria/cantHoras"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//CargaHoraria/diasSemanales"/>
     </genClasses>
-    <genClasses ecoreClass="Pdm.ecore#//CargaHorariaDocente">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//CargaHorariaDocente/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//CargaHorariaDocente/tipo"/>
-    </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Horario">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Horario/dia"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Horario/desde"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Horario/hasta"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Horario/materia"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Horario/aula"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Horario/desde"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Horario/hasta"/>
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Semestre">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Semestre/anho"/>
@@ -69,20 +51,20 @@
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Dia"/>
     <genClasses ecoreClass="Pdm.ecore#//Asignacion">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Asignacion/dia"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Asignacion/materia"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pdm.ecore#//Asignacion/materia"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pdm.ecore#//Asignacion/profesores"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Asignacion/aulaHorarios"/>
     </genClasses>
-    <genClasses ecoreClass="Pdm.ecore#//Horarios">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Horarios/horarios"/>
+    <genClasses ecoreClass="Pdm.ecore#//AulaHorario">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//AulaHorario/dia"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//AulaHorario/horario"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//AulaHorario/aula"/>
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Planificacion">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Planificacion/semestre"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Planificacion/materias"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Planificacion/horario"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Planificacion/asignaciones"/>
     </genClasses>
-    <genClasses ecoreClass="Pdm.ecore#//Recurso">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Recurso/name"/>
-    </genClasses>
+    <genClasses ecoreClass="Pdm.ecore#//Recurso"/>
     <genClasses ecoreClass="Pdm.ecore#//SIMPLE"/>
     <genClasses ecoreClass="Pdm.ecore#//SEMI"/>
     <genClasses ecoreClass="Pdm.ecore#//EXCLUSIVA"/>

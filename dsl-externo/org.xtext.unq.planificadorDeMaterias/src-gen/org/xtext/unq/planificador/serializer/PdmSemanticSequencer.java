@@ -59,14 +59,11 @@ import org.eclipse.xtext.xtype.XImportSection;
 import org.eclipse.xtext.xtype.XtypePackage;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria;
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHorariaDocente;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Disponibilidad;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.EXCLUSIVA;
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Hora;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario;
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horarios;
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Import;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Jueves;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Lunes;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Martes;
@@ -93,26 +90,28 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == PlanificadorDeMateriasDslPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
 			case PlanificadorDeMateriasDslPackage.ASIGNACION:
-				if(context == grammarAccess.getAsignacionRule()) {
+				if(context == grammarAccess.getAsignacionRule() ||
+				   context == grammarAccess.getElementosPrimariosRule()) {
 					sequence_Asignacion(context, (Asignacion) semanticObject); 
 					return; 
 				}
 				else break;
 			case PlanificadorDeMateriasDslPackage.AULA:
-				if(context == grammarAccess.getAulaRule()) {
+				if(context == grammarAccess.getAulaRule() ||
+				   context == grammarAccess.getElementosSecundariosRule()) {
 					sequence_Aula(context, (Aula) semanticObject); 
+					return; 
+				}
+				else break;
+			case PlanificadorDeMateriasDslPackage.AULA_HORARIO:
+				if(context == grammarAccess.getAulaHorarioRule()) {
+					sequence_AulaHorario(context, (AulaHorario) semanticObject); 
 					return; 
 				}
 				else break;
 			case PlanificadorDeMateriasDslPackage.CARGA_HORARIA:
 				if(context == grammarAccess.getCargaHorariaRule()) {
 					sequence_CargaHoraria(context, (CargaHoraria) semanticObject); 
-					return; 
-				}
-				else break;
-			case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE:
-				if(context == grammarAccess.getCargaHorariaDocenteRule()) {
-					sequence_CargaHorariaDocente(context, (CargaHorariaDocente) semanticObject); 
 					return; 
 				}
 				else break;
@@ -128,27 +127,9 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
-			case PlanificadorDeMateriasDslPackage.HORA:
-				if(context == grammarAccess.getHoraRule()) {
-					sequence_Hora(context, (Hora) semanticObject); 
-					return; 
-				}
-				else break;
 			case PlanificadorDeMateriasDslPackage.HORARIO:
 				if(context == grammarAccess.getHorarioRule()) {
 					sequence_Horario(context, (Horario) semanticObject); 
-					return; 
-				}
-				else break;
-			case PlanificadorDeMateriasDslPackage.HORARIOS:
-				if(context == grammarAccess.getHorariosRule()) {
-					sequence_Horarios(context, (Horarios) semanticObject); 
-					return; 
-				}
-				else break;
-			case PlanificadorDeMateriasDslPackage.IMPORT:
-				if(context == grammarAccess.getImportRule()) {
-					sequence_Import(context, (Import) semanticObject); 
 					return; 
 				}
 				else break;
@@ -171,7 +152,8 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 				}
 				else break;
 			case PlanificadorDeMateriasDslPackage.MATERIA:
-				if(context == grammarAccess.getMateriaRule()) {
+				if(context == grammarAccess.getElementosPrimariosRule() ||
+				   context == grammarAccess.getMateriaRule()) {
 					sequence_Materia(context, (Materia) semanticObject); 
 					return; 
 				}
@@ -195,13 +177,15 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 				}
 				else break;
 			case PlanificadorDeMateriasDslPackage.PROFESOR:
-				if(context == grammarAccess.getProfesorRule()) {
+				if(context == grammarAccess.getElementosPrimariosRule() ||
+				   context == grammarAccess.getProfesorRule()) {
 					sequence_Profesor(context, (Profesor) semanticObject); 
 					return; 
 				}
 				else break;
 			case PlanificadorDeMateriasDslPackage.RECURSO:
-				if(context == grammarAccess.getRecursoRule()) {
+				if(context == grammarAccess.getElementosSecundariosRule() ||
+				   context == grammarAccess.getRecursoRule()) {
 					sequence_Recurso(context, (Recurso) semanticObject); 
 					return; 
 				}
@@ -1334,19 +1318,31 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (dia=Dia materia=Materia)
+	 *     (materia=[Materia|ID] profesores+=[Profesor|ID]+ aulaHorarios+=AulaHorario+)
 	 */
 	protected void sequence_Asignacion(EObject context, Asignacion semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (dia=Dia horario=Horario aula=Aula)
+	 */
+	protected void sequence_AulaHorario(EObject context, AulaHorario semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.ASIGNACION__DIA) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.ASIGNACION__DIA));
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.ASIGNACION__MATERIA) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.ASIGNACION__MATERIA));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__DIA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__DIA));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__HORARIO) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__HORARIO));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__AULA) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__AULA));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAsignacionAccess().getDiaDiaParserRuleCall_0_0(), semanticObject.getDia());
-		feeder.accept(grammarAccess.getAsignacionAccess().getMateriaMateriaParserRuleCall_1_0(), semanticObject.getMateria());
+		feeder.accept(grammarAccess.getAulaHorarioAccess().getDiaDiaParserRuleCall_1_0(), semanticObject.getDia());
+		feeder.accept(grammarAccess.getAulaHorarioAccess().getHorarioHorarioParserRuleCall_3_0(), semanticObject.getHorario());
+		feeder.accept(grammarAccess.getAulaHorarioAccess().getAulaAulaParserRuleCall_5_0(), semanticObject.getAula());
 		feeder.finish();
 	}
 	
@@ -1357,25 +1353,6 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_Aula(EObject context, Aula semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (name=Profesor tipo=CargaHoraria)
-	 */
-	protected void sequence_CargaHorariaDocente(EObject context, CargaHorariaDocente semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.CARGA_HORARIA_DOCENTE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.CARGA_HORARIA_DOCENTE__NAME));
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.CARGA_HORARIA_DOCENTE__TIPO) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.CARGA_HORARIA_DOCENTE__TIPO));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getCargaHorariaDocenteAccess().getNameProfesorParserRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getCargaHorariaDocenteAccess().getTipoCargaHorariaParserRuleCall_2_0(), semanticObject.getTipo());
-		feeder.finish();
 	}
 	
 	
@@ -1481,7 +1458,7 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (dias+=Dia? dias+=Dia?)
+	 *     (dias+=Dia* dias+=Dia* inicio=INT fin=INT)
 	 */
 	protected void sequence_Disponibilidad(EObject context, Disponibilidad semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1490,69 +1467,19 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     hora=INT
-	 */
-	protected void sequence_Hora(EObject context, Hora semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORA__HORA) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORA__HORA));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getHoraAccess().getHoraINTTerminalRuleCall_1_0(), semanticObject.getHora());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (dia=Dia desde=Hora hasta=Hora materia=Materia aula=Aula)
+	 *     (desde=INT hasta=INT)
 	 */
 	protected void sequence_Horario(EObject context, Horario semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__DIA) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__DIA));
 			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__DESDE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__DESDE));
 			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__HASTA) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__HASTA));
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__MATERIA) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__MATERIA));
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__AULA) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.HORARIO__AULA));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getHorarioAccess().getDiaDiaParserRuleCall_0_0(), semanticObject.getDia());
-		feeder.accept(grammarAccess.getHorarioAccess().getDesdeHoraParserRuleCall_2_0(), semanticObject.getDesde());
-		feeder.accept(grammarAccess.getHorarioAccess().getHastaHoraParserRuleCall_4_0(), semanticObject.getHasta());
-		feeder.accept(grammarAccess.getHorarioAccess().getMateriaMateriaParserRuleCall_6_0(), semanticObject.getMateria());
-		feeder.accept(grammarAccess.getHorarioAccess().getAulaAulaParserRuleCall_8_0(), semanticObject.getAula());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     horarios+=Horario+
-	 */
-	protected void sequence_Horarios(EObject context, Horarios semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     importedNamespace=ImportedFQN
-	 */
-	protected void sequence_Import(EObject context, Import semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.IMPORT__IMPORTED_NAMESPACE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.IMPORT__IMPORTED_NAMESPACE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getImportAccess().getImportedNamespaceImportedFQNParserRuleCall_1_0(), semanticObject.getImportedNamespace());
+		feeder.accept(grammarAccess.getHorarioAccess().getDesdeINTTerminalRuleCall_0_0(), semanticObject.getDesde());
+		feeder.accept(grammarAccess.getHorarioAccess().getHastaINTTerminalRuleCall_2_0(), semanticObject.getHasta());
 		feeder.finish();
 	}
 	
@@ -1568,21 +1495,7 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         imports+=Import* 
-	 *         profesors+=Profesor* 
-	 *         horas+=Hora* 
-	 *         materias+=Materia* 
-	 *         aulas+=Aula* 
-	 *         cargasHorarias+=CargaHoraria* 
-	 *         cargasHorariasDocentes+=CargaHorariaDocente* 
-	 *         horarios+=Horarios* 
-	 *         dias+=Dia* 
-	 *         semestre+=Semestre* 
-	 *         planificaciones+=Planificacion* 
-	 *         horarios+=Horario* 
-	 *         recursos+=Recurso*
-	 *     )
+	 *     (elementosPrimarios+=ElementosPrimarios elementosSecundarios+=ElementosSecundarios planificacion+=Planificacion)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1591,7 +1504,7 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (semestre=Semestre materias+=Materia+ horario=Horarios)
+	 *     (semestre=Semestre asignaciones+=Asignacion*)
 	 */
 	protected void sequence_Planificacion(EObject context, Planificacion semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1600,7 +1513,7 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID dedicacion=Dedicacion materias+=Materia* disponibilidad=Disponibilidad?)
+	 *     (name=ID dedicacion=Dedicacion disponibilidad=Disponibilidad?)
 	 */
 	protected void sequence_Profesor(EObject context, Profesor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1613,8 +1526,8 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	 */
 	protected void sequence_Recurso(EObject context, Recurso semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.RECURSO__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.RECURSO__NAME));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.ELEMENTOS_SECUNDARIOS__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.ELEMENTOS_SECUNDARIOS__NAME));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);

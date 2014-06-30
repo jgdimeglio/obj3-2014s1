@@ -79,10 +79,17 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PlanificadorDeMateriasDslPackage.IMPORT:
+      case PlanificadorDeMateriasDslPackage.ELEMENTOS_PRIMARIOS:
       {
-        Import import_ = (Import)theEObject;
-        T result = caseImport(import_);
+        ElementosPrimarios elementosPrimarios = (ElementosPrimarios)theEObject;
+        T result = caseElementosPrimarios(elementosPrimarios);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PlanificadorDeMateriasDslPackage.ELEMENTOS_SECUNDARIOS:
+      {
+        ElementosSecundarios elementosSecundarios = (ElementosSecundarios)theEObject;
+        T result = caseElementosSecundarios(elementosSecundarios);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -90,6 +97,7 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
       {
         Profesor profesor = (Profesor)theEObject;
         T result = caseProfesor(profesor);
+        if (result == null) result = caseElementosPrimarios(profesor);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -97,13 +105,6 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
       {
         Disponibilidad disponibilidad = (Disponibilidad)theEObject;
         T result = caseDisponibilidad(disponibilidad);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PlanificadorDeMateriasDslPackage.HORA:
-      {
-        Hora hora = (Hora)theEObject;
-        T result = caseHora(hora);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -118,6 +119,7 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
       {
         Materia materia = (Materia)theEObject;
         T result = caseMateria(materia);
+        if (result == null) result = caseElementosPrimarios(materia);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -125,6 +127,7 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
       {
         Aula aula = (Aula)theEObject;
         T result = caseAula(aula);
+        if (result == null) result = caseElementosSecundarios(aula);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -132,13 +135,6 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
       {
         CargaHoraria cargaHoraria = (CargaHoraria)theEObject;
         T result = caseCargaHoraria(cargaHoraria);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PlanificadorDeMateriasDslPackage.CARGA_HORARIA_DOCENTE:
-      {
-        CargaHorariaDocente cargaHorariaDocente = (CargaHorariaDocente)theEObject;
-        T result = caseCargaHorariaDocente(cargaHorariaDocente);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -167,13 +163,14 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
       {
         Asignacion asignacion = (Asignacion)theEObject;
         T result = caseAsignacion(asignacion);
+        if (result == null) result = caseElementosPrimarios(asignacion);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PlanificadorDeMateriasDslPackage.HORARIOS:
+      case PlanificadorDeMateriasDslPackage.AULA_HORARIO:
       {
-        Horarios horarios = (Horarios)theEObject;
-        T result = caseHorarios(horarios);
+        AulaHorario aulaHorario = (AulaHorario)theEObject;
+        T result = caseAulaHorario(aulaHorario);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -188,6 +185,7 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
       {
         Recurso recurso = (Recurso)theEObject;
         T result = caseRecurso(recurso);
+        if (result == null) result = caseElementosSecundarios(recurso);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -284,17 +282,33 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Import</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Elementos Primarios</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Import</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Elementos Primarios</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseImport(Import object)
+  public T caseElementosPrimarios(ElementosPrimarios object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Elementos Secundarios</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Elementos Secundarios</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseElementosSecundarios(ElementosSecundarios object)
   {
     return null;
   }
@@ -327,22 +341,6 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDisponibilidad(Disponibilidad object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Hora</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Hora</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseHora(Hora object)
   {
     return null;
   }
@@ -412,22 +410,6 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Carga Horaria Docente</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Carga Horaria Docente</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCargaHorariaDocente(CargaHorariaDocente object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Horario</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -492,17 +474,17 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Horarios</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Aula Horario</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Horarios</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Aula Horario</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseHorarios(Horarios object)
+  public T caseAulaHorario(AulaHorario object)
   {
     return null;
   }
