@@ -51,7 +51,7 @@ public class PdmValidator extends AbstractPdmValidator {
       }
     }
     if ((count >= 2)) {
-      this.error("Materias repetidas", materia, PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME);
+      this.error("Materia repetida", materia, PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME);
     }
   }
   

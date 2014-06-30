@@ -51,8 +51,8 @@ Aula:
 ;
 	
 CargaHoraria:
-	'horasSemanales' cantHoras=INT  
-	'cantidadDeDias' diasSemanales=INT
+	'horas semanales' cantHoras=INT  
+	'cantidad de dias' diasSemanales=INT
 ;
 
 Horario:
