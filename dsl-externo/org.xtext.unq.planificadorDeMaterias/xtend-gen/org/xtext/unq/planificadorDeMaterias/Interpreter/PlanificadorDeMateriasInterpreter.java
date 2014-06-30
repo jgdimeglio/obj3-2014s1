@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.Functions.Function2;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.xtext.unq.planificador.PdmStandaloneSetup;
@@ -32,27 +33,32 @@ public class PlanificadorDeMateriasInterpreter {
   /**
    * Extension methods ElementosPrimarios
    */
-  public Iterable<Materia> materias(final List<ElementosPrimarios> elementos) {
-    return Iterables.<Materia>filter(elementos, Materia.class);
+  public Iterable<Materia> materias(final Model m) {
+    EList<ElementosPrimarios> _elementosPrimarios = m.getElementosPrimarios();
+    return Iterables.<Materia>filter(_elementosPrimarios, Materia.class);
   }
   
-  public Iterable<Asignacion> asignaciones(final List<ElementosPrimarios> elementos) {
-    return Iterables.<Asignacion>filter(elementos, Asignacion.class);
+  public Iterable<Asignacion> asignaciones(final Model m) {
+    EList<ElementosPrimarios> _elementosPrimarios = m.getElementosPrimarios();
+    return Iterables.<Asignacion>filter(_elementosPrimarios, Asignacion.class);
   }
   
-  public Iterable<Profesor> profesores(final List<ElementosPrimarios> elementos) {
-    return Iterables.<Profesor>filter(elementos, Profesor.class);
+  public Iterable<Profesor> profesores(final Model m) {
+    EList<ElementosPrimarios> _elementosPrimarios = m.getElementosPrimarios();
+    return Iterables.<Profesor>filter(_elementosPrimarios, Profesor.class);
   }
   
   /**
    * Extension methods ElementosSecundarios
    */
-  public Iterable<Aula> aulas(final List<ElementosSecundarios> elementos) {
-    return Iterables.<Aula>filter(elementos, Aula.class);
+  public Iterable<Aula> aulas(final Model m) {
+    EList<ElementosSecundarios> _elementosSecundarios = m.getElementosSecundarios();
+    return Iterables.<Aula>filter(_elementosSecundarios, Aula.class);
   }
   
-  public Iterable<Recurso> recursos(final List<ElementosSecundarios> elementos) {
-    return Iterables.<Recurso>filter(elementos, Recurso.class);
+  public Iterable<Recurso> recursos(final Model m) {
+    EList<ElementosSecundarios> _elementosSecundarios = m.getElementosSecundarios();
+    return Iterables.<Recurso>filter(_elementosSecundarios, Recurso.class);
   }
   
   public static void main(final String[] args) {
@@ -86,16 +92,54 @@ public class PlanificadorDeMateriasInterpreter {
   }
   
   public Object interpret(final Model m) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method horariosLibres is undefined for the type PlanificadorDeMateriasInterpreter"
-      + "\nThe method porcentajeDeAsignacionesPorTurno is undefined for the type PlanificadorDeMateriasInterpreter"
-      + "\nThe method profesoresYMaterias is undefined for the type PlanificadorDeMateriasInterpreter");
+    Object _xblockexpression = null;
+    {
+      this.aulaMasUtilizada(m);
+      this.horariosLibres(m);
+      this.porcentajeDeAsignacionesPorTurno(m);
+      _xblockexpression = this.profesoresYMaterias(m);
+    }
+    return _xblockexpression;
   }
   
-  public void aulaMasUtilizada(final Model m) {
+  public Aula aulaMasUtilizada(final Model m) {
+    HashMap<Aula, Integer> _generarMapDeOcurrenciasDeAulas = this.generarMapDeOcurrenciasDeAulas(m);
+    return this.getMax(_generarMapDeOcurrenciasDeAulas);
+  }
+  
+  public Object horariosLibres(final Model m) {
+    return null;
+  }
+  
+  public Object porcentajeDeAsignacionesPorTurno(final Model m) {
+    return null;
+  }
+  
+  public Object profesoresYMaterias(final Model m) {
+    return null;
+  }
+  
+  private Aula getMax(final Map<Aula, Integer> aulas) {
+    Set<Map.Entry<Aula, Integer>> _entrySet = aulas.entrySet();
+    final Function2<Map.Entry<Aula, Integer>, Map.Entry<Aula, Integer>, Map.Entry<Aula, Integer>> _function = new Function2<Map.Entry<Aula, Integer>, Map.Entry<Aula, Integer>, Map.Entry<Aula, Integer>>() {
+      public Map.Entry<Aula, Integer> apply(final Map.Entry<Aula, Integer> x, final Map.Entry<Aula, Integer> y) {
+        Integer _value = x.getValue();
+        Integer _value_1 = y.getValue();
+        boolean _greaterThan = (_value.compareTo(_value_1) > 0);
+        if (_greaterThan) {
+          return x;
+        } else {
+          return y;
+        }
+      }
+    };
+    final Map.Entry<Aula, Integer> l = IterableExtensions.<Map.Entry<Aula, Integer>, Map.Entry<Aula, Integer>>fold(_entrySet, null, _function);
+    return l.getKey();
+  }
+  
+  private HashMap<Aula, Integer> generarMapDeOcurrenciasDeAulas(final Model m) {
     final HashMap<Aula, Integer> aulas = new HashMap<Aula, Integer>();
-    EList<ElementosSecundarios> _elementosSecundarios = m.getElementosSecundarios();
-    Iterable<Aula> _aulas = this.aulas(_elementosSecundarios);
+    Iterable<Aula> _aulas = this.aulas(m);
     final Procedure1<Aula> _function = new Procedure1<Aula>() {
       public void apply(final Aula e) {
         boolean _containsKey = aulas.containsKey(e);
@@ -110,16 +154,6 @@ public class PlanificadorDeMateriasInterpreter {
       }
     };
     IterableExtensions.<Aula>forEach(_aulas, _function);
-    final HashMap<Aula, Integer> max = aulas;
-    final Object aula = null;
-  }
-  
-  public Set<Map.Entry<Aula, Integer>> getMax(final Map<Aula, Integer> aulas) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nmismatched input \':\' expecting \';\'"
-      + "\nmismatched input \')\' expecting \'}\'"
-      + "\nThe method or field Entry is undefined for the type PlanificadorDeMateriasInterpreter"
-      + "\nThe method or field e is undefined for the type PlanificadorDeMateriasInterpreter"
-      + "\n<> cannot be resolved");
+    return aulas;
   }
 }

@@ -10,6 +10,10 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso
+import java.util.List
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -30,6 +34,52 @@ class PdmValidator extends AbstractPdmValidator {
 	//		}
 	//	}
 	//}
+	@Check
+	def validateMateriasRepetidas(Model m){
+		for(Materia materia : m.materiasModel){
+			if(estaRepetido(materia, m.materiasModel)){
+				error("Materias repetidas", m, PlanificadorDeMateriasDslPackage.Literals.MODEL__MATERIAS)
+			} 
+		}
+	}
+	
+	def estaRepetido(Materia materia, List<Materia> m){
+		var count = 0
+		var ret = false
+		for(Materia mat : m){
+			if(mat.name.equals(materia.name)){
+				count = count + 1
+			}
+		}
+		if(count >= 2){
+			ret = true
+		}
+		ret
+	}	
+	
+	@Check
+	def validateTieneLosRecursosNecesarios(Planificacion p){
+		for(Horario h : p.horario.horarios){
+			if(h.materia.tieneRecursos){
+				if(!h.materia.verificarRecursos(h.aula)){
+					error("No tiene los recursos necesarios",p, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__HORARIO)
+				}
+			}
+		}
+	}
+	
+	def verificarRecursos(Materia m, Aula a){
+		var exist = true
+		for(Recurso r : m.recursosMateria){
+			exist = exist && a.recursosAula.exists[rec | rec.name.equals(r.name)]
+		}
+		exist
+	}
+	
+	def tieneRecursos(Materia m){
+		m.recursosMateria.size > 0
+	}
+	
 	@Check
 	def validateMateriasAsignadas(Planificacion p){
 		var exist = true;
@@ -61,9 +111,12 @@ class PdmValidator extends AbstractPdmValidator {
 	}
 	
 	@Check
-	def validateDayNotRepeated(Planificacion p) {
-		if (p.tieneMateriasRepetidas)
-			error("Tiene materias repetidas", p, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__MATERIAS)
+	def validateMateriasRepetidas(Planificacion m){
+		for(Materia materia : m.materias){
+			if(estaRepetido(materia, m.materias)){
+				error("Materias repetidas", m, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__MATERIAS)
+			} 
+		}
 	}
 	
 	def tieneMateriasRepetidas(Planificacion p) {
