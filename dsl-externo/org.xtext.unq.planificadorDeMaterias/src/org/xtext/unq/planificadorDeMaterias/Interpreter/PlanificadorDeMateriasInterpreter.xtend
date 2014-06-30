@@ -65,35 +65,11 @@ class PlanificadorDeMateriasInterpreter {
 		this.profesoresYMaterias(m)
 	}
 	
-	def profesoresYMaterias(Model model) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
-	def porcentajeDeAsignacionesPorTurno(Model model) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
-	def horariosLibres(Model model) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
 	def aulaMasUtilizada(Model m){
 		return this.getMax(generarMapDeOcurrenciasDeAulas(m))
 	}
 	
-<<<<<<< HEAD
-	def getMax(Map<Aula,Integer> aulas){
-		var aulasSet = aulas.entrySet
-		var Integer repeticiones
-		var tupla = aulasSet.get(0)
-		for(Entry<> e : aulasSet){
-			
-		}
-			if(tupla.value < t.value)
-		]
-	}
 
-=======
 	
 	def horariosLibres(Model m){
 		
@@ -124,7 +100,5 @@ class PlanificadorDeMateriasInterpreter {
 		]
 		return aulas
 	}
-	
->>>>>>> 0d34dfcd51303e9ae9956376b74d6e3fc2a0d961
-   
+
 }

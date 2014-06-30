@@ -91,25 +91,6 @@ public class PlanificadorDeMateriasInterpreter {
     }
   }
   
-<<<<<<< HEAD
-  public void interpret(final Model m) {
-    this.aulaMasUtilizada(m);
-    this.horariosLibres(m);
-    this.porcentajeDeAsignacionesPorTurno(m);
-    this.profesoresYMaterias(m);
-  }
-  
-  public void profesoresYMaterias(final Model model) {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
-  }
-  
-  public void porcentajeDeAsignacionesPorTurno(final Model model) {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
-  }
-  
-  public void horariosLibres(final Model model) {
-    throw new UnsupportedOperationException("TODO: auto-generated method stub");
-=======
   public Object interpret(final Model m) {
     Object _xblockexpression = null;
     {
@@ -154,7 +135,6 @@ public class PlanificadorDeMateriasInterpreter {
     };
     final Map.Entry<Aula, Integer> l = IterableExtensions.<Map.Entry<Aula, Integer>, Map.Entry<Aula, Integer>>fold(_entrySet, null, _function);
     return l.getKey();
->>>>>>> 0d34dfcd51303e9ae9956376b74d6e3fc2a0d961
   }
   
   private HashMap<Aula, Integer> generarMapDeOcurrenciasDeAulas(final Model m) {

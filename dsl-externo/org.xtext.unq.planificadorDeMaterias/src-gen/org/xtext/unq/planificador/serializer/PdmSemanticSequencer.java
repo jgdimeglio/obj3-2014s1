@@ -1495,7 +1495,7 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (elementosPrimarios+=ElementosPrimarios elementosSecundarios+=ElementosSecundarios planificacion+=Planificacion)
+	 *     (elementosPrimarios+=ElementosPrimarios* elementosSecundarios+=ElementosSecundarios* planificacion+=Planificacion*)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -3950,7 +3950,7 @@ rule__Model__Group__0__Impl
 :
 (
 { before(grammarAccess.getModelAccess().getElementosPrimariosAssignment_0()); }
-(rule__Model__ElementosPrimariosAssignment_0)
+(rule__Model__ElementosPrimariosAssignment_0)*
 { after(grammarAccess.getModelAccess().getElementosPrimariosAssignment_0()); }
 )
 
@@ -3979,7 +3979,7 @@ rule__Model__Group__1__Impl
 :
 (
 { before(grammarAccess.getModelAccess().getElementosSecundariosAssignment_1()); }
-(rule__Model__ElementosSecundariosAssignment_1)
+(rule__Model__ElementosSecundariosAssignment_1)*
 { after(grammarAccess.getModelAccess().getElementosSecundariosAssignment_1()); }
 )
 
@@ -4007,7 +4007,7 @@ rule__Model__Group__2__Impl
 :
 (
 { before(grammarAccess.getModelAccess().getPlanificacionAssignment_2()); }
-(rule__Model__PlanificacionAssignment_2)
+(rule__Model__PlanificacionAssignment_2)*
 { after(grammarAccess.getModelAccess().getPlanificacionAssignment_2()); }
 )
 

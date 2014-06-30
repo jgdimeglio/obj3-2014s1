@@ -3,6 +3,7 @@
  */
 package org.xtext.unq.planificador.validation;
 
+import com.google.common.collect.Iterables;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -12,6 +13,8 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dedicacion;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosPrimarios;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage;
@@ -25,6 +28,33 @@ import org.xtext.unq.planificador.validation.AbstractPdmValidator;
  */
 @SuppressWarnings("all")
 public class PdmValidator extends AbstractPdmValidator {
+  @Check
+  public void validateMateriasRepetidas(final Model m) {
+    EList<ElementosPrimarios> _elementosPrimarios = m.getElementosPrimarios();
+    Iterable<Materia> _filter = Iterables.<Materia>filter(_elementosPrimarios, Materia.class);
+    for (final Materia materia : _filter) {
+      EList<ElementosPrimarios> _elementosPrimarios_1 = m.getElementosPrimarios();
+      Iterable<Materia> _filter_1 = Iterables.<Materia>filter(_elementosPrimarios_1, Materia.class);
+      this.estaRepetido(materia, _filter_1);
+    }
+  }
+  
+  public void estaRepetido(final Materia materia, final Iterable<Materia> m) {
+    int count = 0;
+    boolean ret = false;
+    for (final Materia mat : m) {
+      String _name = mat.getName();
+      String _name_1 = materia.getName();
+      boolean _equals = _name.equals(_name_1);
+      if (_equals) {
+        count = (count + 1);
+      }
+    }
+    if ((count >= 2)) {
+      this.error("Materias repetidas", materia, PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME);
+    }
+  }
+  
   @Check
   public void validateDedicacion(final Profesor p) {
     EObject _eContainer = p.eContainer();

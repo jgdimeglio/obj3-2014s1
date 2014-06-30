@@ -95,7 +95,7 @@ ruleModel returns [EObject current=null]
 	    }
 
 )
-)(
+)*(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getModelAccess().getElementosSecundariosElementosSecundariosParserRuleCall_1_0()); 
@@ -113,7 +113,7 @@ ruleModel returns [EObject current=null]
 	    }
 
 )
-)(
+)*(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getModelAccess().getPlanificacionPlanificacionParserRuleCall_2_0()); 
@@ -131,7 +131,7 @@ ruleModel returns [EObject current=null]
 	    }
 
 )
-))
+)*)
 ;
 
 

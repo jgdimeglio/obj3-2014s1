@@ -30,25 +30,25 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPlanificacionPlanificacionParserRuleCall_2_0 = (RuleCall)cPlanificacionAssignment_2.eContents().get(0);
 		
 		//Model:
-		//	elementosPrimarios+=ElementosPrimarios elementosSecundarios+=ElementosSecundarios planificacion+=Planificacion;
+		//	elementosPrimarios+=ElementosPrimarios* elementosSecundarios+=ElementosSecundarios* planificacion+=Planificacion*;
 		public ParserRule getRule() { return rule; }
 
-		//elementosPrimarios+=ElementosPrimarios elementosSecundarios+=ElementosSecundarios planificacion+=Planificacion
+		//elementosPrimarios+=ElementosPrimarios* elementosSecundarios+=ElementosSecundarios* planificacion+=Planificacion*
 		public Group getGroup() { return cGroup; }
 
-		//elementosPrimarios+=ElementosPrimarios
+		//elementosPrimarios+=ElementosPrimarios*
 		public Assignment getElementosPrimariosAssignment_0() { return cElementosPrimariosAssignment_0; }
 
 		//ElementosPrimarios
 		public RuleCall getElementosPrimariosElementosPrimariosParserRuleCall_0_0() { return cElementosPrimariosElementosPrimariosParserRuleCall_0_0; }
 
-		//elementosSecundarios+=ElementosSecundarios
+		//elementosSecundarios+=ElementosSecundarios*
 		public Assignment getElementosSecundariosAssignment_1() { return cElementosSecundariosAssignment_1; }
 
 		//ElementosSecundarios
 		public RuleCall getElementosSecundariosElementosSecundariosParserRuleCall_1_0() { return cElementosSecundariosElementosSecundariosParserRuleCall_1_0; }
 
-		//planificacion+=Planificacion
+		//planificacion+=Planificacion*
 		public Assignment getPlanificacionAssignment_2() { return cPlanificacionAssignment_2; }
 
 		//Planificacion
@@ -782,7 +782,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	elementosPrimarios+=ElementosPrimarios elementosSecundarios+=ElementosSecundarios planificacion+=Planificacion;
+	//	elementosPrimarios+=ElementosPrimarios* elementosSecundarios+=ElementosSecundarios* planificacion+=Planificacion*;
 	public ModelElements getModelAccess() {
 		return (pModel != null) ? pModel : (pModel = new ModelElements());
 	}

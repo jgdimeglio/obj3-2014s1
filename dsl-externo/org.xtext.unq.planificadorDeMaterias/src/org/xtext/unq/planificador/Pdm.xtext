@@ -6,9 +6,9 @@ import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
 
 Model:
 	
-	elementosPrimarios+= ElementosPrimarios
-	elementosSecundarios+=ElementosSecundarios
-	planificacion+= Planificacion
+	(elementosPrimarios+= ElementosPrimarios)*
+	(elementosSecundarios+=ElementosSecundarios)*
+	(planificacion+= Planificacion)*
 ;
 
 ElementosPrimarios:
