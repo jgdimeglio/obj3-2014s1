@@ -68,6 +68,18 @@ class PlanificadorDeMateriasInterpreter {
 		this.profesoresYMaterias(m)
 	}
 	
+	def profesoresYMaterias(Model model) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	def porcentajeDeAsignacionesPorTurno(Model model) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	def horariosLibres(Model model) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
 	def aulaMasUtilizada(Model m){
 		val aulas = new HashMap<Aula,Integer>()
 		m.elementosSecundarios.aulas.forEach[ e |
@@ -93,17 +105,6 @@ class PlanificadorDeMateriasInterpreter {
 			if(tupla.value < t.value)
 		]
 	}
-	
-	def horariosLibres(Model m){
-		
-	}
-	
-	def porcentajeDeAsignacionesPorTurno(Model m){
-		
-	}
-	
-	def profesoresYMaterias(Model m){
-		
-	}
+
    
 }

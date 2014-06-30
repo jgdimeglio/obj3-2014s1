@@ -85,11 +85,23 @@ public class PlanificadorDeMateriasInterpreter {
     }
   }
   
-  public Object interpret(final Model m) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method horariosLibres is undefined for the type PlanificadorDeMateriasInterpreter"
-      + "\nThe method porcentajeDeAsignacionesPorTurno is undefined for the type PlanificadorDeMateriasInterpreter"
-      + "\nThe method profesoresYMaterias is undefined for the type PlanificadorDeMateriasInterpreter");
+  public void interpret(final Model m) {
+    this.aulaMasUtilizada(m);
+    this.horariosLibres(m);
+    this.porcentajeDeAsignacionesPorTurno(m);
+    this.profesoresYMaterias(m);
+  }
+  
+  public void profesoresYMaterias(final Model model) {
+    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+  }
+  
+  public void porcentajeDeAsignacionesPorTurno(final Model model) {
+    throw new UnsupportedOperationException("TODO: auto-generated method stub");
+  }
+  
+  public void horariosLibres(final Model model) {
+    throw new UnsupportedOperationException("TODO: auto-generated method stub");
   }
   
   public void aulaMasUtilizada(final Model m) {

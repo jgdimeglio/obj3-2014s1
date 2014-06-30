@@ -3,10 +3,18 @@
  */
 package org.xtext.unq.planificador.validation;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.validation.Check;
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario;
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dedicacion;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor;
 import org.xtext.unq.planificador.validation.AbstractPdmValidator;
 
@@ -18,66 +26,90 @@ import org.xtext.unq.planificador.validation.AbstractPdmValidator;
 @SuppressWarnings("all")
 public class PdmValidator extends AbstractPdmValidator {
   @Check
-  public void validateMateriasAsignadas(final Planificacion p) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method materias is undefined for the type PdmValidator"
-      + "\nThe method PLANIFICACION__HORARIO is undefined for the type PdmValidator");
-  }
-  
-  public Object estaAsignado(final Materia m, final Planificacion p) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method horario is undefined for the type PdmValidator"
-      + "\nThe method materia is undefined for the type PdmValidator"
-      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
-      + "\nhorarios cannot be resolved"
-      + "\nexists cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nequals cannot be resolved");
-  }
-  
-  @Check
   public void validateDedicacion(final Profesor p) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method materias is undefined for the type PdmValidator"
-      + "\nThe method materias is undefined for the type PdmValidator"
-      + "\nThe method materias is undefined for the type PdmValidator"
-      + "\nThe method materias is undefined for the type PdmValidator"
-      + "\nThe method materias is undefined for the type PdmValidator"
-      + "\nThe method materias is undefined for the type PdmValidator"
-      + "\nThe method materias is undefined for the type PdmValidator"
-      + "\nsize cannot be resolved"
-      + "\n< cannot be resolved"
-      + "\n|| cannot be resolved"
-      + "\nsize cannot be resolved"
-      + "\n> cannot be resolved"
-      + "\nsize cannot be resolved"
-      + "\nsize cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nsize cannot be resolved"
-      + "\nsize cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nsize cannot be resolved");
+    EObject _eContainer = p.eContainer();
+    this.materiasQueDicta(p, ((Model) _eContainer));
   }
   
-  @Check
-  public void validateDayNotRepeated(final Planificacion p) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method PLANIFICACION__MATERIAS is undefined for the type PdmValidator");
+  public void validarDedicacion(final Profesor p, final Planificacion planificacion, final int materiasQueDicta) {
+    boolean _and = false;
+    Dedicacion _dedicacion = p.getDedicacion();
+    EClass _eClass = _dedicacion.eClass();
+    String _name = _eClass.getName();
+    boolean _equals = _name.equals("EXCLUSIVA");
+    if (!_equals) {
+      _and = false;
+    } else {
+      _and = ((materiasQueDicta < 2) || (materiasQueDicta > 5));
+    }
+    if (_and) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Tiene ");
+      _builder.append(materiasQueDicta, "");
+      _builder.append(" y necesita de 2 hasta 5 materias");
+      this.error(_builder.toString(), planificacion, 
+        PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES);
+    }
+    boolean _and_1 = false;
+    Dedicacion _dedicacion_1 = p.getDedicacion();
+    EClass _eClass_1 = _dedicacion_1.eClass();
+    String _name_1 = _eClass_1.getName();
+    boolean _equals_1 = _name_1.equals("SEMI");
+    if (!_equals_1) {
+      _and_1 = false;
+    } else {
+      _and_1 = (materiasQueDicta != 2);
+    }
+    if (_and_1) {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Tiene ");
+      _builder_1.append(materiasQueDicta, "");
+      _builder_1.append(" y necesita de 2 materias");
+      this.error(_builder_1.toString(), planificacion, 
+        PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES);
+    }
+    boolean _and_2 = false;
+    Dedicacion _dedicacion_2 = p.getDedicacion();
+    EClass _eClass_2 = _dedicacion_2.eClass();
+    String _name_2 = _eClass_2.getName();
+    boolean _equals_2 = _name_2.equals("SIMPLE");
+    if (!_equals_2) {
+      _and_2 = false;
+    } else {
+      _and_2 = (materiasQueDicta != 1);
+    }
+    if (_and_2) {
+      StringConcatenation _builder_2 = new StringConcatenation();
+      _builder_2.append("Tiene ");
+      _builder_2.append(materiasQueDicta, "");
+      _builder_2.append(" y necesita de 1 materia");
+      this.error(_builder_2.toString(), planificacion, 
+        PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES);
+    }
   }
   
-  public Object tieneMateriasRepetidas(final Planificacion p) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method materias is undefined for the type PdmValidator"
-      + "\nThe method materias is undefined for the type PdmValidator"
-      + "\ntoSet cannot be resolved"
-      + "\nsize cannot be resolved"
-      + "\n< cannot be resolved"
-      + "\nsize cannot be resolved");
-  }
-  
-  @Check
-  public void validateDayNotRepeateasd(final Horario h) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nHorarios cannot be resolved to a type.");
+  public void materiasQueDicta(final Profesor p, final Model model) {
+    EList<Planificacion> planificaciones = model.getPlanificacion();
+    int count = 0;
+    for (final Planificacion planificacion : planificaciones) {
+      {
+        EList<Asignacion> _asignaciones = planificacion.getAsignaciones();
+        for (final Asignacion a : _asignaciones) {
+          EList<Profesor> _profesores = a.getProfesores();
+          final Function1<Profesor, Boolean> _function = new Function1<Profesor, Boolean>() {
+            public Boolean apply(final Profesor profe) {
+              String _name = profe.getName();
+              String _name_1 = p.getName();
+              return Boolean.valueOf(_name.equals(_name_1));
+            }
+          };
+          boolean _exists = IterableExtensions.<Profesor>exists(_profesores, _function);
+          if (_exists) {
+            count = (count + 1);
+          }
+        }
+        this.validarDedicacion(p, planificacion, count);
+      }
+    }
   }
 }

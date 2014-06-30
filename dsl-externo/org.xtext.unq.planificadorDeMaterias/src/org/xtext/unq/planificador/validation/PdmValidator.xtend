@@ -4,12 +4,11 @@
 package org.xtext.unq.planificador.validation
 
 import org.eclipse.xtext.validation.Check
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horarios
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -30,48 +29,66 @@ class PdmValidator extends AbstractPdmValidator {
 	//		}
 	//	}
 	//}
-	@Check
-	def validateMateriasAsignadas(Planificacion p){
-		var exist = true;
-		for(Materia m : p.materias){
-			exist = exist && estaAsignado(m,p)
-		}
-		if(!exist){
-			error("Falta asignar una materia", p, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__HORARIO)
-		}
-	}
-	
-	def estaAsignado(Materia m, Planificacion p) {
-		p.horario.horarios.exists[ h | (h.materia.name.equals(m.name))]
-	}
-	
+//	@Check
+//	def validateMateriasAsignadas(Planificacion p){
+//		var exist = true;
+//		for(Materia m : p.materias){
+//			exist = exist && estaAsignado(m,p)
+//		}
+//		if(!exist){
+//			error("Falta asignar una materia", p, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__HORARIO)
+//		}
+//	}
+//	
+//	def estaAsignado(Materia m, Planificacion p) {
+//		p.horario.horarios.exists[ h | (h.materia.name.equals(m.name))]
+//	}
+//	
 	@Check
 	def validateDedicacion(Profesor p){
-		println(p.dedicacion)
-		if((p.dedicacion.eClass.name.equals("EXCLUSIVA")) && (p.materias.size < 2 || p.materias.size > 5)){
-			error('''Tiene «p.materias.size» y necesita de 2 hasta 5 materias''', p, PlanificadorDeMateriasDslPackage.Literals.PROFESOR__DEDICACION )
-		}
-		if((p.dedicacion.eClass.name.equals("SEMI")) && (p.materias.size != 2)){
-			error('''Tiene «p.materias.size» y necesita de 2 materias''', p, PlanificadorDeMateriasDslPackage.Literals.PROFESOR__DEDICACION )
-		}
-		if(p.dedicacion.eClass.name.equals("SIMPLE") && (p.materias.size != 1)){
-			error('''Tiene «p.materias.size» y necesita de 1 materia''', p, PlanificadorDeMateriasDslPackage.Literals.PROFESOR__DEDICACION )
-		}
-		
+		p.materiasQueDicta(p.eContainer as Model)
 	}
 	
-	@Check
-	def validateDayNotRepeated(Planificacion p) {
-		if (p.tieneMateriasRepetidas)
-			error("Tiene materias repetidas", p, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__MATERIAS)
+	def validarDedicacion(Profesor p, Planificacion planificacion, int materiasQueDicta){
+		if ((p.dedicacion.eClass.name.equals("EXCLUSIVA")) && (materiasQueDicta < 2 || materiasQueDicta > 5)) {
+			error('''Tiene «materiasQueDicta» y necesita de 2 hasta 5 materias''', planificacion,
+			PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES)
+		}
+		if ((p.dedicacion.eClass.name.equals("SEMI")) && (materiasQueDicta != 2)) {
+			error('''Tiene «materiasQueDicta» y necesita de 2 materias''', planificacion,
+				PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES)
+		}
+		if (p.dedicacion.eClass.name.equals("SIMPLE") && (materiasQueDicta != 1)) {
+			error('''Tiene «materiasQueDicta» y necesita de 1 materia''', planificacion,
+				PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES)
+		}
 	}
 	
-	def tieneMateriasRepetidas(Planificacion p) {
-		p.materias.toSet.size < p.materias.size
+	def materiasQueDicta(Profesor p , Model model) {
+		var planificaciones = model.planificacion
+		var count = 0
+		for (Planificacion planificacion : planificaciones) {
+			for (Asignacion a : planificacion.asignaciones) {
+				if (a.profesores.exists[profe|profe.name.equals(p.name)]) {
+					count = count + 1
+				}
+			}
+			p.validarDedicacion(planificacion, count)
+		}
 	}
-
-	@Check
-	def validateDayNotRepeateasd(Horario h) {
-		val horarios = h.eContainer as Horarios
-	}
+	
+//	@Check
+//	def validateDayNotRepeated(Planificacion p) {
+//		if (p.tieneMateriasRepetidas)
+//			error("Tiene materias repetidas", p, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__MATERIAS)
+//	}
+//	
+//	def tieneMateriasRepetidas(Planificacion p) {
+//		p.materias.toSet.size < p.materias.size
+//	}
+//
+//	@Check
+//	def validateDayNotRepeateasd(Horario h) {
+//		val horarios = h.eContainer as Horarios
+//	}
 }
