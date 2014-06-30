@@ -1,15 +1,13 @@
 package org.xtext.unq.planificadorDeMaterias.Interpreter
 
 import java.util.HashMap
-import java.util.List
 import java.util.Map
+import java.util.Map.Entry
 import org.eclipse.emf.common.util.URI
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.xtext.unq.planificador.PdmStandaloneSetup
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosPrimarios
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosSecundarios
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor
@@ -20,30 +18,29 @@ class PlanificadorDeMateriasInterpreter {
 	/*
 	 * Extension methods ElementosPrimarios
 	 */
-	def materias(List<ElementosPrimarios> elementos){
-		elementos.filter(Materia)
+	def materias(Model m){
+		m.elementosPrimarios.filter(Materia)
 	}
 	
-	def asignaciones(List<ElementosPrimarios> elementos){
-		elementos.filter(Asignacion)
+	def asignaciones(Model m){
+		m.elementosPrimarios.filter(Asignacion)
 	}
 	
-	def profesores(List<ElementosPrimarios> elementos){
-		elementos.filter(Profesor)
+	def profesores(Model m){
+		m.elementosPrimarios.filter(Profesor)
 	}
 	
 	/*
 	 * Extension methods ElementosSecundarios
 	 */
 	
-	def aulas(List<ElementosSecundarios> elementos){
-		elementos.filter(Aula)
+	def aulas(Model m){
+		m.elementosSecundarios.filter(Aula)
 	}
 	
-	def recursos(List<ElementosSecundarios>elementos){
-		elementos.filter(Recurso)
+	def recursos(Model m){
+		m.elementosSecundarios.filter(Recurso)
 	}
-	
 	
 	def static void main(String[] args) {
 		
@@ -81,20 +78,10 @@ class PlanificadorDeMateriasInterpreter {
 	}
 	
 	def aulaMasUtilizada(Model m){
-		val aulas = new HashMap<Aula,Integer>()
-		m.elementosSecundarios.aulas.forEach[ e |
-			if(! aulas.containsKey(e)){
-				aulas.put(e,1)
-			}
-			else{
-				aulas.put(e,(aulas.get(e) + 1))
-			}
-		]
-		val max = aulas
-		val aula = null
-		// get max
+		return this.getMax(generarMapDeOcurrenciasDeAulas(m))
 	}
 	
+<<<<<<< HEAD
 	def getMax(Map<Aula,Integer> aulas){
 		var aulasSet = aulas.entrySet
 		var Integer repeticiones
@@ -106,5 +93,38 @@ class PlanificadorDeMateriasInterpreter {
 		]
 	}
 
+=======
+	
+	def horariosLibres(Model m){
+		
+	}
+	
+	def porcentajeDeAsignacionesPorTurno(Model m){
+		
+	}
+	
+	def profesoresYMaterias(Model m){
+		
+	}
+	
+	def private getMax(Map<Aula,Integer> aulas){
+		val l = aulas.entrySet.fold(null) [Entry<Aula,Integer> x,y | if(x.value > y.value) return x else return y]
+		return l.key
+	}
+	
+	def private generarMapDeOcurrenciasDeAulas(Model  m){
+		val aulas = new HashMap<Aula,Integer>()
+		m.aulas.forEach[ e |
+			if(! aulas.containsKey(e)){
+				aulas.put(e,1)
+			}
+			else{
+				aulas.put(e,(aulas.get(e) + 1))
+			}
+		]
+		return aulas
+	}
+	
+>>>>>>> 0d34dfcd51303e9ae9956376b74d6e3fc2a0d961
    
 }

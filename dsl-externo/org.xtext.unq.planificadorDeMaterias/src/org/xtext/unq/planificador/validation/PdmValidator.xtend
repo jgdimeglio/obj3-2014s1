@@ -9,6 +9,14 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor
+<<<<<<< HEAD
+=======
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso
+import java.util.List
+>>>>>>> 0d34dfcd51303e9ae9956376b74d6e3fc2a0d961
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -45,8 +53,69 @@ class PdmValidator extends AbstractPdmValidator {
 //	}
 //	
 	@Check
+<<<<<<< HEAD
 	def validateDedicacion(Profesor p){
 		p.materiasQueDicta(p.eContainer as Model)
+=======
+	def validateMateriasRepetidas(Model m){
+		for(Materia materia : m.materiasModel){
+			if(estaRepetido(materia, m.materiasModel)){
+				error("Materias repetidas", m, PlanificadorDeMateriasDslPackage.Literals.MODEL__MATERIAS)
+			} 
+		}
+	}
+	
+	def estaRepetido(Materia materia, List<Materia> m){
+		var count = 0
+		var ret = false
+		for(Materia mat : m){
+			if(mat.name.equals(materia.name)){
+				count = count + 1
+			}
+		}
+		if(count >= 2){
+			ret = true
+		}
+		ret
+	}	
+	
+	@Check
+	def validateTieneLosRecursosNecesarios(Planificacion p){
+		for(Horario h : p.horario.horarios){
+			if(h.materia.tieneRecursos){
+				if(!h.materia.verificarRecursos(h.aula)){
+					error("No tiene los recursos necesarios",p, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__HORARIO)
+				}
+			}
+		}
+	}
+	
+	def verificarRecursos(Materia m, Aula a){
+		var exist = true
+		for(Recurso r : m.recursosMateria){
+			exist = exist && a.recursosAula.exists[rec | rec.name.equals(r.name)]
+		}
+		exist
+	}
+	
+	def tieneRecursos(Materia m){
+		m.recursosMateria.size > 0
+	}
+	
+	@Check
+	def validateMateriasAsignadas(Planificacion p){
+		var exist = true;
+		for(Materia m : p.materias){
+			exist = exist && estaAsignado(m,p)
+		}
+		if(!exist){
+			error("Falta asignar una materia", p, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__HORARIO)
+		}
+	}
+	
+	def estaAsignado(Materia m, Planificacion p) {
+		p.horario.horarios.exists[ h | (h.materia.name.equals(m.name))]
+>>>>>>> 0d34dfcd51303e9ae9956376b74d6e3fc2a0d961
 	}
 	
 	def validarDedicacion(Profesor p, Planificacion planificacion, int materiasQueDicta){
@@ -64,6 +133,7 @@ class PdmValidator extends AbstractPdmValidator {
 		}
 	}
 	
+<<<<<<< HEAD
 	def materiasQueDicta(Profesor p , Model model) {
 		var planificaciones = model.planificacion
 		var count = 0
@@ -74,6 +144,14 @@ class PdmValidator extends AbstractPdmValidator {
 				}
 			}
 			p.validarDedicacion(planificacion, count)
+=======
+	@Check
+	def validateMateriasRepetidas(Planificacion m){
+		for(Materia materia : m.materias){
+			if(estaRepetido(materia, m.materias)){
+				error("Materias repetidas", m, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__MATERIAS)
+			} 
+>>>>>>> 0d34dfcd51303e9ae9956376b74d6e3fc2a0d961
 		}
 	}
 	
