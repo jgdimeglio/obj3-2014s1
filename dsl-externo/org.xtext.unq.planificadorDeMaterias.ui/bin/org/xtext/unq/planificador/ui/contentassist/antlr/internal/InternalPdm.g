@@ -2639,15 +2639,15 @@ rule__ElementosSecundarios__Alternatives
     }
 :
 (
-{ before(grammarAccess.getElementosSecundariosAccess().getAulaParserRuleCall_0()); }
-	ruleAula
-{ after(grammarAccess.getElementosSecundariosAccess().getAulaParserRuleCall_0()); }
+{ before(grammarAccess.getElementosSecundariosAccess().getRecursoParserRuleCall_0()); }
+	ruleRecurso
+{ after(grammarAccess.getElementosSecundariosAccess().getRecursoParserRuleCall_0()); }
 )
 
     |(
-{ before(grammarAccess.getElementosSecundariosAccess().getRecursoParserRuleCall_1()); }
-	ruleRecurso
-{ after(grammarAccess.getElementosSecundariosAccess().getRecursoParserRuleCall_1()); }
+{ before(grammarAccess.getElementosSecundariosAccess().getAulaParserRuleCall_1()); }
+	ruleAula
+{ after(grammarAccess.getElementosSecundariosAccess().getAulaParserRuleCall_1()); }
 )
 
 ;

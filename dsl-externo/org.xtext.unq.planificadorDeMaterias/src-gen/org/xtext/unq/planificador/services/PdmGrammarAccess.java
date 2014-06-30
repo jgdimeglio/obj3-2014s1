@@ -82,21 +82,21 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	public class ElementosSecundariosElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ElementosSecundarios");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cAulaParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cRecursoParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cRecursoParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cAulaParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//ElementosSecundarios:
-		//	Aula | Recurso;
+		//	Recurso | Aula;
 		public ParserRule getRule() { return rule; }
 
-		//Aula | Recurso
+		//Recurso | Aula
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//Aula
-		public RuleCall getAulaParserRuleCall_0() { return cAulaParserRuleCall_0; }
-
 		//Recurso
-		public RuleCall getRecursoParserRuleCall_1() { return cRecursoParserRuleCall_1; }
+		public RuleCall getRecursoParserRuleCall_0() { return cRecursoParserRuleCall_0; }
+
+		//Aula
+		public RuleCall getAulaParserRuleCall_1() { return cAulaParserRuleCall_1; }
 	}
 
 	public class ProfesorElements extends AbstractParserRuleElementFinder {
@@ -818,7 +818,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ElementosSecundarios:
-	//	Aula | Recurso;
+	//	Recurso | Aula;
 	public ElementosSecundariosElements getElementosSecundariosAccess() {
 		return (pElementosSecundarios != null) ? pElementosSecundarios : (pElementosSecundarios = new ElementosSecundariosElements());
 	}
@@ -1203,8 +1203,8 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	//	feature=[types::JvmIdentifiableElement|FeatureCallID] OpSingleAssign) value=XAssignment | =>
 	//	({XMemberFeatureCall.memberCallTarget=current} ("." | nullSafe?="?." | explicitStatic?="::")) ("<"
 	//	typeArguments+=JvmArgumentTypeReference ("," typeArguments+=JvmArgumentTypeReference)* ">")?
-	//	feature=[types::JvmIdentifiableElement|IdOrSuper] (=> explicitOperationCall?="(" (memberCallArguments+=XShortClosure |
-	//	memberCallArguments+=XExpression ("," memberCallArguments+=XExpression)*)? ")")? memberCallArguments+=XClosure?)*;
+	//	feature=[types::JvmIdentifiableElement|IdOrSuper] (=> explicitOperationCall?="(" (memberCallArguments+=XShortClosure
+	//	| memberCallArguments+=XExpression ("," memberCallArguments+=XExpression)*)? ")")? memberCallArguments+=XClosure?)*;
 	public XbaseGrammarAccess.XMemberFeatureCallElements getXMemberFeatureCallAccess() {
 		return gaXbase.getXMemberFeatureCallAccess();
 	}
@@ -1319,8 +1319,8 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 
 	//XSwitchExpression returns XExpression:
 	//	{XSwitchExpression} "switch" (=> ("(" declaredParam=JvmFormalParameter ":") switch=XExpression ")" | =>
-	//	(declaredParam=JvmFormalParameter ":")? switch=XExpression) "{" cases+=XCasePart* ("default" ":" default=XExpression)?
-	//	"}";
+	//	(declaredParam=JvmFormalParameter ":")? switch=XExpression) "{" cases+=XCasePart* ("default" ":"
+	//	default=XExpression)? "}";
 	public XbaseGrammarAccess.XSwitchExpressionElements getXSwitchExpressionAccess() {
 		return gaXbase.getXSwitchExpressionAccess();
 	}
@@ -1602,7 +1602,8 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	/// **
 	// * Dummy rule, for "better" downwards compatibility, since GrammarAccess generates non-static inner classes, 
 	// * which makes downstream grammars break on classloading, when a rule is removed.
-	// * / StaticQualifier:
+	// * /
+	//StaticQualifier:
 	//	(ValidID "::")+;
 	public XbaseGrammarAccess.StaticQualifierElements getStaticQualifierAccess() {
 		return gaXbase.getStaticQualifierAccess();

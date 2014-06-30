@@ -12,6 +12,8 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -21,94 +23,109 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso
  */
 class PdmValidator extends AbstractPdmValidator {
 
-
 	@Check
-	def validateMateriasAsignadas(Planificacion p){
-		var model = p.eContainer as Model
-		for(Materia m : model.elementosPrimarios.filter(Materia)){
-			p.estaAsignado(m)
+	def validateHorario(Model m) {
+	}
+
+	def esHorarioValido(Horario horario) {
+		if (horario.desde < 0 || horario.desde > 24) {
+			error("Horario desde tiene formato invalido", horario,
+				PlanificadorDeMateriasDslPackage.Literals.HORARIO__DESDE)
+		}
+
+		if (horario.hasta < 0 || horario.hasta > 24) {
+			error("Horario hasta tiene formato invalido", horario,
+				PlanificadorDeMateriasDslPackage.Literals.HORARIO__HASTA)
 		}
 	}
-	
-	def estaAsignado(Planificacion p,Materia m) {
-		if(!p.asignaciones.exists[ a | a.materia.name.equals(m.name)]){
+
+	@Check
+	def validateMateriasAsignadas(Planificacion p) {
+		var model = p.eContainer as Model
+		for (Materia m : model.elementosPrimarios.filter(Materia)) {
+			p.estaAsignado(m)
+
+		}
+	}
+
+	def estaAsignado(Planificacion p, Materia m) {
+		if (!p.asignaciones.exists[a|a.materia.name.equals(m.name)]) {
 			error("Falta asignar una materia", m, PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME)
 		}
 	}
-	
+
 	@Check
-	def validateMateriasRepetidas(Model m){
+	def validateMateriasRepetidas(Model m) {
 		val materias = m.elementosPrimarios.filter(Materia)
-		materias.forEach[ materia | estaRepetido(materia,materias)]
+		materias.forEach[materia|estaRepetido(materia, materias)]
 	}
-	
-	def estaRepetido(Materia materia, Iterable<Materia> m){
+
+	def estaRepetido(Materia materia, Iterable<Materia> m) {
 		var count = 0
-		for(Materia mat : m){
-			if(mat.name.equals(materia.name)){
+		for (Materia mat : m) {
+			if (mat.name.equals(materia.name)) {
 				count = count + 1
 			}
 		}
-		if(count >= 2){
+		if (count >= 2) {
 			error("Materia repetida", materia, PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME)
 		}
-	}	
-	
+	}
+
 	@Check
-	def validateTieneLosRecursosNecesarios(Planificacion p){
+	def validateTieneLosRecursosNecesarios(Planificacion p) {
 		var model = p.eContainer as Model
-		for(Materia m : model.elementosPrimarios.filter(Materia)){
-			if(m.tieneRecursos){
+		for (Materia m : model.elementosPrimarios.filter(Materia)) {
+			if (m.tieneRecursos) {
 				m.verificarRecursosEnMateria(p.asignaciones)
 			}
 		}
 	}
-	
-	def verificarRecursosEnMateria(Materia m, List<Asignacion> asignaciones){
-		asignaciones.forEach[ a | 
-			if(a.materia.name.equals(m.name)){
-				a.aulaHorarios.forEach[ aulaHorario |
+
+	def verificarRecursosEnMateria(Materia m, List<Asignacion> asignaciones) {
+		asignaciones.forEach [ a |
+			if (a.materia.name.equals(m.name)) {
+				a.aulaHorarios.forEach [ aulaHorario |
 					m.tieneLosRecursosNecesarios(aulaHorario.aula.recursos)
 				]
 			}
 		]
 	}
-	
-	def tieneLosRecursosNecesarios(Materia m, List<Recurso> recursos){
-		recursos.forEach[ r |
-			if(!m.recursos.exists[rec | rec.name.equals(r.name)]){
+
+	def tieneLosRecursosNecesarios(Materia m, List<Recurso> recursos) {
+		recursos.forEach [ r |
+			if (!m.recursos.exists[rec|rec.name.equals(r.name)]) {
 				error("La materia esta siendo asignada sin los recursos necesarios", m,
 					PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME)
 			}
 		]
 	}
-	
-	def tieneRecursos(Materia m){
+
+	def tieneRecursos(Materia m) {
 		m.recursos.size > 0
 	}
-	
-//	@Check
-//	def validateMateriasAsignadas(Planificacion p){
-//		var exist = true;
-//		for(Materia m : p.materias){
-//			exist = exist && estaAsignado(m,p)
-//		}
-//		if(!exist){
-//			error("Falta asignar una materia", p, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__HORARIO)
-//		}
-//	}
-//	
-//	def estaAsignado(Materia m, Planificacion p) {
-//		p.horario.horarios.exists[ h | (h.materia.name.equals(m.name))]
-//	}
-//	
 
+	//	@Check
+	//	def validateMateriasAsignadas(Planificacion p){
+	//		var exist = true;
+	//		for(Materia m : p.materias){
+	//			exist = exist && estaAsignado(m,p)
+	//		}
+	//		if(!exist){
+	//			error("Falta asignar una materia", p, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__HORARIO)
+	//		}
+	//	}
+	//	
+	//	def estaAsignado(Materia m, Planificacion p) {
+	//		p.horario.horarios.exists[ h | (h.materia.name.equals(m.name))]
+	//	}
+	//	
 	@Check
-	def validateDedicacion(Profesor p){
+	def validateDedicacion(Profesor p) {
 		p.materiasQueDicta(p.eContainer as Model)
 	}
-	
-	def validarDedicacion(Profesor p, int materiasQueDicta, Planificacion pl){
+
+	def validarDedicacion(Profesor p, int materiasQueDicta, Planificacion pl) {
 		if ((p.dedicacion.eClass.name.equals("EXCLUSIVA")) && (materiasQueDicta < 2 || materiasQueDicta > 5)) {
 			error('''Tiene «materiasQueDicta» materia asignada y necesita de 2 hasta 5 materias''', p,
 				PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NAME)
@@ -128,8 +145,8 @@ class PdmValidator extends AbstractPdmValidator {
 				PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES)
 		}
 	}
-	
-	def materiasQueDicta(Profesor p , Model model) {
+
+	def materiasQueDicta(Profesor p, Model model) {
 		var planificaciones = model.planificacion
 		var count = 0
 		for (Planificacion planificacion : planificaciones) {
@@ -142,6 +159,48 @@ class PdmValidator extends AbstractPdmValidator {
 			count = 0
 		}
 	}
+
+	@Check
+	def validateSuperposicionDeMateriasEnAulas(Model m) {
+		val model = m
+		var planificaciones = model.planificacion
+		for (Planificacion planificacion : planificaciones) {
+
+			for (Asignacion asignacion : planificacion.asignaciones) {
+
+				for (AulaHorario aulaHorario : asignacion.aulaHorarios) {
+
+					chequearHorarioSuperpuesto(planificacion, aulaHorario)
+
+				}
+
+			}
+		}
+	}
+
+	def chequearHorarioSuperpuesto(Planificacion planificacion, AulaHorario aulaHorario) {
+
+		for (Asignacion asignacion : planificacion.asignaciones) {
+
+			val desde = aulaHorario.horario.desde
+			val hasta = aulaHorario.horario.hasta
+			var existe = asignacion.aulaHorarios.exists [ aHorario |
+				( (aHorario.horario.desde < desde && aHorario.horario.hasta > desde) ||
+					(aHorario.horario.desde < hasta && aHorario.horario.hasta > hasta)) &&
+					aulaHorario.aula.name.equals(aHorario.aula.name) &&
+					aulaHorario.dia.eClass.name.equals(aHorario.dia.eClass.name) &&
+					!(aulaHorario.hashCode.equals(aHorario.hashCode))
+			]
+
+			if (existe) {
+				error('''El horario en el aula ya esta en uso''', asignacion,
+					PlanificadorDeMateriasDslPackage.Literals.ASIGNACION__AULA_HORARIOS)
+			}
+
+		}
+
+	}
+
 //	@Check
 //	def validateMateriasRepetidas(Planificacion m){
 //		for(Materia materia : m.materias){

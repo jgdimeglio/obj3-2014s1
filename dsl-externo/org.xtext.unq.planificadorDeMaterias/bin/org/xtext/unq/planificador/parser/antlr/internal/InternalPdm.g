@@ -204,21 +204,21 @@ ruleElementosSecundarios returns [EObject current=null]
     @after { leaveRule(); }:
 (
     { 
-        newCompositeNode(grammarAccess.getElementosSecundariosAccess().getAulaParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getElementosSecundariosAccess().getRecursoParserRuleCall_0()); 
     }
-    this_Aula_0=ruleAula
+    this_Recurso_0=ruleRecurso
     { 
-        $current = $this_Aula_0.current; 
+        $current = $this_Recurso_0.current; 
         afterParserOrEnumRuleCall();
     }
 
     |
     { 
-        newCompositeNode(grammarAccess.getElementosSecundariosAccess().getRecursoParserRuleCall_1()); 
+        newCompositeNode(grammarAccess.getElementosSecundariosAccess().getAulaParserRuleCall_1()); 
     }
-    this_Recurso_1=ruleRecurso
+    this_Aula_1=ruleAula
     { 
-        $current = $this_Recurso_1.current; 
+        $current = $this_Aula_1.current; 
         afterParserOrEnumRuleCall();
     }
 )

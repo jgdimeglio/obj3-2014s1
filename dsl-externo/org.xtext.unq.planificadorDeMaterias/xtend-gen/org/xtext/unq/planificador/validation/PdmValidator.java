@@ -17,7 +17,9 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dedicacion;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dia;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosPrimarios;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion;
@@ -33,6 +35,42 @@ import org.xtext.unq.planificador.validation.AbstractPdmValidator;
  */
 @SuppressWarnings("all")
 public class PdmValidator extends AbstractPdmValidator {
+  @Check
+  public Object validateHorario(final Model m) {
+    return null;
+  }
+  
+  public void esHorarioValido(final Horario horario) {
+    boolean _or = false;
+    int _desde = horario.getDesde();
+    boolean _lessThan = (_desde < 0);
+    if (_lessThan) {
+      _or = true;
+    } else {
+      int _desde_1 = horario.getDesde();
+      boolean _greaterThan = (_desde_1 > 24);
+      _or = _greaterThan;
+    }
+    if (_or) {
+      this.error("Horario desde tiene formato invalido", horario, 
+        PlanificadorDeMateriasDslPackage.Literals.HORARIO__DESDE);
+    }
+    boolean _or_1 = false;
+    int _hasta = horario.getHasta();
+    boolean _lessThan_1 = (_hasta < 0);
+    if (_lessThan_1) {
+      _or_1 = true;
+    } else {
+      int _hasta_1 = horario.getHasta();
+      boolean _greaterThan_1 = (_hasta_1 > 24);
+      _or_1 = _greaterThan_1;
+    }
+    if (_or_1) {
+      this.error("Horario hasta tiene formato invalido", horario, 
+        PlanificadorDeMateriasDslPackage.Literals.HORARIO__HASTA);
+    }
+  }
+  
   @Check
   public void validateMateriasAsignadas(final Planificacion p) {
     EObject _eContainer = p.eContainer();
@@ -257,6 +295,110 @@ public class PdmValidator extends AbstractPdmValidator {
         }
         this.validarDedicacion(p, count, planificacion);
         count = 0;
+      }
+    }
+  }
+  
+  @Check
+  public void validateSuperposicionDeMateriasEnAulas(final Model m) {
+    final Model model = m;
+    EList<Planificacion> planificaciones = model.getPlanificacion();
+    for (final Planificacion planificacion : planificaciones) {
+      EList<Asignacion> _asignaciones = planificacion.getAsignaciones();
+      for (final Asignacion asignacion : _asignaciones) {
+        EList<AulaHorario> _aulaHorarios = asignacion.getAulaHorarios();
+        for (final AulaHorario aulaHorario : _aulaHorarios) {
+          this.chequearHorarioSuperpuesto(planificacion, aulaHorario);
+        }
+      }
+    }
+  }
+  
+  public void chequearHorarioSuperpuesto(final Planificacion planificacion, final AulaHorario aulaHorario) {
+    EList<Asignacion> _asignaciones = planificacion.getAsignaciones();
+    for (final Asignacion asignacion : _asignaciones) {
+      {
+        Horario _horario = aulaHorario.getHorario();
+        final int desde = _horario.getDesde();
+        Horario _horario_1 = aulaHorario.getHorario();
+        final int hasta = _horario_1.getHasta();
+        EList<AulaHorario> _aulaHorarios = asignacion.getAulaHorarios();
+        final Function1<AulaHorario, Boolean> _function = new Function1<AulaHorario, Boolean>() {
+          public Boolean apply(final AulaHorario aHorario) {
+            boolean _and = false;
+            boolean _and_1 = false;
+            boolean _and_2 = false;
+            boolean _or = false;
+            boolean _and_3 = false;
+            Horario _horario = aHorario.getHorario();
+            int _desde = _horario.getDesde();
+            boolean _lessThan = (_desde < desde);
+            if (!_lessThan) {
+              _and_3 = false;
+            } else {
+              Horario _horario_1 = aHorario.getHorario();
+              int _hasta = _horario_1.getHasta();
+              boolean _greaterThan = (_hasta > desde);
+              _and_3 = _greaterThan;
+            }
+            if (_and_3) {
+              _or = true;
+            } else {
+              boolean _and_4 = false;
+              Horario _horario_2 = aHorario.getHorario();
+              int _desde_1 = _horario_2.getDesde();
+              boolean _lessThan_1 = (_desde_1 < hasta);
+              if (!_lessThan_1) {
+                _and_4 = false;
+              } else {
+                Horario _horario_3 = aHorario.getHorario();
+                int _hasta_1 = _horario_3.getHasta();
+                boolean _greaterThan_1 = (_hasta_1 > hasta);
+                _and_4 = _greaterThan_1;
+              }
+              _or = _and_4;
+            }
+            if (!_or) {
+              _and_2 = false;
+            } else {
+              Aula _aula = aulaHorario.getAula();
+              String _name = _aula.getName();
+              Aula _aula_1 = aHorario.getAula();
+              String _name_1 = _aula_1.getName();
+              boolean _equals = _name.equals(_name_1);
+              _and_2 = _equals;
+            }
+            if (!_and_2) {
+              _and_1 = false;
+            } else {
+              Dia _dia = aulaHorario.getDia();
+              EClass _eClass = _dia.eClass();
+              String _name_2 = _eClass.getName();
+              Dia _dia_1 = aHorario.getDia();
+              EClass _eClass_1 = _dia_1.eClass();
+              String _name_3 = _eClass_1.getName();
+              boolean _equals_1 = _name_2.equals(_name_3);
+              _and_1 = _equals_1;
+            }
+            if (!_and_1) {
+              _and = false;
+            } else {
+              int _hashCode = aulaHorario.hashCode();
+              int _hashCode_1 = aHorario.hashCode();
+              boolean _equals_2 = Integer.valueOf(_hashCode).equals(Integer.valueOf(_hashCode_1));
+              boolean _not = (!_equals_2);
+              _and = _not;
+            }
+            return Boolean.valueOf(_and);
+          }
+        };
+        boolean existe = IterableExtensions.<AulaHorario>exists(_aulaHorarios, _function);
+        if (existe) {
+          StringConcatenation _builder = new StringConcatenation();
+          _builder.append("El horario en el aula ya esta en uso");
+          this.error(_builder.toString(), asignacion, 
+            PlanificadorDeMateriasDslPackage.Literals.ASIGNACION__AULA_HORARIOS);
+        }
       }
     }
   }

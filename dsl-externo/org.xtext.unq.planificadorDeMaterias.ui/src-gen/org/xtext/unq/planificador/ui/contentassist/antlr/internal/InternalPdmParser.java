@@ -7966,20 +7966,20 @@ public class InternalPdmParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ElementosSecundarios__Alternatives"
-    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:2636:1: rule__ElementosSecundarios__Alternatives : ( ( ruleAula ) | ( ruleRecurso ) );
+    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:2636:1: rule__ElementosSecundarios__Alternatives : ( ( ruleRecurso ) | ( ruleAula ) );
     public final void rule__ElementosSecundarios__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:2640:1: ( ( ruleAula ) | ( ruleRecurso ) )
+            // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:2640:1: ( ( ruleRecurso ) | ( ruleAula ) )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==65) ) {
+            if ( (LA3_0==86) ) {
                 alt3=1;
             }
-            else if ( (LA3_0==86) ) {
+            else if ( (LA3_0==65) ) {
                 alt3=2;
             }
             else {
@@ -7991,21 +7991,21 @@ public class InternalPdmParser extends AbstractInternalContentAssistParser {
             }
             switch (alt3) {
                 case 1 :
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:2641:1: ( ruleAula )
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:2641:1: ( ruleRecurso )
                     {
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:2641:1: ( ruleAula )
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:2642:1: ruleAula
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:2641:1: ( ruleRecurso )
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:2642:1: ruleRecurso
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getElementosSecundariosAccess().getAulaParserRuleCall_0()); 
+                       before(grammarAccess.getElementosSecundariosAccess().getRecursoParserRuleCall_0()); 
                     }
-                    pushFollow(FOLLOW_ruleAula_in_rule__ElementosSecundarios__Alternatives5578);
-                    ruleAula();
+                    pushFollow(FOLLOW_ruleRecurso_in_rule__ElementosSecundarios__Alternatives5578);
+                    ruleRecurso();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getElementosSecundariosAccess().getAulaParserRuleCall_0()); 
+                       after(grammarAccess.getElementosSecundariosAccess().getRecursoParserRuleCall_0()); 
                     }
 
                     }
@@ -8014,21 +8014,21 @@ public class InternalPdmParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:2647:6: ( ruleRecurso )
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:2647:6: ( ruleAula )
                     {
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:2647:6: ( ruleRecurso )
-                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:2648:1: ruleRecurso
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:2647:6: ( ruleAula )
+                    // ../org.xtext.unq.planificadorDeMaterias.ui/src-gen/org/xtext/unq/planificador/ui/contentassist/antlr/internal/InternalPdm.g:2648:1: ruleAula
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getElementosSecundariosAccess().getRecursoParserRuleCall_1()); 
+                       before(grammarAccess.getElementosSecundariosAccess().getAulaParserRuleCall_1()); 
                     }
-                    pushFollow(FOLLOW_ruleRecurso_in_rule__ElementosSecundarios__Alternatives5595);
-                    ruleRecurso();
+                    pushFollow(FOLLOW_ruleAula_in_rule__ElementosSecundarios__Alternatives5595);
+                    ruleAula();
 
                     state._fsp--;
                     if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getElementosSecundariosAccess().getRecursoParserRuleCall_1()); 
+                       after(grammarAccess.getElementosSecundariosAccess().getAulaParserRuleCall_1()); 
                     }
 
                     }
@@ -65718,8 +65718,8 @@ public class InternalPdmParser extends AbstractInternalContentAssistParser {
     static final String DFA71_specialS =
         "\1\uffff\1\0\114\uffff}>";
     static final String[] DFA71_transitionS = {
-            "\5\2\5\uffff\46\2\33\uffff\1\2\4\uffff\1\2\2\uffff\7\2\1\1\22"+
-            "\2\2\uffff\2\2\1\uffff\2\2",
+            "\5\2\5\uffff\46\2\33\uffff\1\2\4\uffff\1\2\2\uffff\7\2\1\1"+
+            "\22\2\2\uffff\2\2\1\uffff\2\2",
             "\1\uffff",
             "",
             "",
@@ -65871,8 +65871,8 @@ public class InternalPdmParser extends AbstractInternalContentAssistParser {
     static final String DFA72_specialS =
         "\1\uffff\1\0\114\uffff}>";
     static final String[] DFA72_transitionS = {
-            "\5\2\5\uffff\46\2\33\uffff\1\2\4\uffff\1\2\2\uffff\4\2\1\1\25"+
-            "\2\2\uffff\2\2\1\uffff\2\2",
+            "\5\2\5\uffff\46\2\33\uffff\1\2\4\uffff\1\2\2\uffff\4\2\1\1"+
+            "\25\2\2\uffff\2\2\1\uffff\2\2",
             "\1\uffff",
             "",
             "",
@@ -66278,8 +66278,8 @@ public class InternalPdmParser extends AbstractInternalContentAssistParser {
     static final String DFA103_specialS =
         "\1\uffff\1\0\114\uffff}>";
     static final String[] DFA103_transitionS = {
-            "\5\2\5\uffff\46\2\33\uffff\1\2\4\uffff\1\2\2\uffff\7\2\1\1\22"+
-            "\2\2\uffff\2\2\1\uffff\2\2",
+            "\5\2\5\uffff\46\2\33\uffff\1\2\4\uffff\1\2\2\uffff\7\2\1\1"+
+            "\22\2\2\uffff\2\2\1\uffff\2\2",
             "\1\uffff",
             "",
             "",
@@ -66431,8 +66431,8 @@ public class InternalPdmParser extends AbstractInternalContentAssistParser {
     static final String DFA104_specialS =
         "\1\uffff\1\0\114\uffff}>";
     static final String[] DFA104_transitionS = {
-            "\5\2\5\uffff\46\2\33\uffff\1\2\4\uffff\1\2\2\uffff\4\2\1\1\25"+
-            "\2\2\uffff\2\2\1\uffff\2\2",
+            "\5\2\5\uffff\46\2\33\uffff\1\2\4\uffff\1\2\2\uffff\4\2\1\1"+
+            "\25\2\2\uffff\2\2\1\uffff\2\2",
             "\1\uffff",
             "",
             "",
@@ -66737,8 +66737,8 @@ public class InternalPdmParser extends AbstractInternalContentAssistParser {
     static final String DFA109_specialS =
         "\1\uffff\1\0\114\uffff}>";
     static final String[] DFA109_transitionS = {
-            "\5\2\5\uffff\46\2\33\uffff\1\2\4\uffff\1\2\2\uffff\7\2\1\1\22"+
-            "\2\2\uffff\2\2\1\uffff\2\2",
+            "\5\2\5\uffff\46\2\33\uffff\1\2\4\uffff\1\2\2\uffff\7\2\1\1"+
+            "\22\2\2\uffff\2\2\1\uffff\2\2",
             "\1\uffff",
             "",
             "",
@@ -66890,8 +66890,8 @@ public class InternalPdmParser extends AbstractInternalContentAssistParser {
     static final String DFA110_specialS =
         "\1\uffff\1\0\114\uffff}>";
     static final String[] DFA110_transitionS = {
-            "\5\2\5\uffff\46\2\33\uffff\1\2\4\uffff\1\2\2\uffff\4\2\1\1\25"+
-            "\2\2\uffff\2\2\1\uffff\2\2",
+            "\5\2\5\uffff\46\2\33\uffff\1\2\4\uffff\1\2\2\uffff\4\2\1\1"+
+            "\25\2\2\uffff\2\2\1\uffff\2\2",
             "\1\uffff",
             "",
             "",
@@ -67041,9 +67041,9 @@ public class InternalPdmParser extends AbstractInternalContentAssistParser {
     static final String DFA115_acceptS =
         "\41\uffff\1\2\53\uffff\1\1";
     static final String DFA115_specialS =
-        "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14"+
-        "\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31"+
-        "\1\32\1\33\1\34\1\35\1\36\1\37\55\uffff}>";
+        "\1\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1"+
+        "\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30"+
+        "\1\31\1\32\1\33\1\34\1\35\1\36\1\37\55\uffff}>";
     static final String[] DFA115_transitionS = {
             "\1\1\1\23\1\24\1\25\1\27\5\uffff\15\41\1\15\6\41\1\10\1\7\4"+
             "\41\1\6\5\41\1\2\1\3\1\4\1\5\1\16\1\21\33\uffff\1\41\4\uffff"+
@@ -68082,8 +68082,8 @@ public class InternalPdmParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_ruleProfesor_in_rule__ElementosPrimarios__Alternatives5512 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAsignacion_in_rule__ElementosPrimarios__Alternatives5529 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMateria_in_rule__ElementosPrimarios__Alternatives5546 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAula_in_rule__ElementosSecundarios__Alternatives5578 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRecurso_in_rule__ElementosSecundarios__Alternatives5595 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRecurso_in_rule__ElementosSecundarios__Alternatives5578 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAula_in_rule__ElementosSecundarios__Alternatives5595 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Dedicacion__Group_0__0_in_rule__Dedicacion__Alternatives5627 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Dedicacion__Group_1__0_in_rule__Dedicacion__Alternatives5645 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Dedicacion__Group_2__0_in_rule__Dedicacion__Alternatives5663 = new BitSet(new long[]{0x0000000000000002L});
@@ -68294,12 +68294,12 @@ public class InternalPdmParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__Materia__CargaHorariaAssignment_3_in_rule__Materia__Group__3__Impl10462 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Materia__Group__4__Impl_in_rule__Materia__Group__410492 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Materia__Group_4__0_in_rule__Materia__Group__4__Impl10519 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Materia__Group_4__0__Impl_in_rule__Materia__Group_4__010560 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400002L});
+    public static final BitSet FOLLOW_rule__Materia__Group_4__0__Impl_in_rule__Materia__Group_4__010560 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
     public static final BitSet FOLLOW_rule__Materia__Group_4__1_in_rule__Materia__Group_4__010563 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_64_in_rule__Materia__Group_4__0__Impl10591 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Materia__Group_4__1__Impl_in_rule__Materia__Group_4__110622 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Materia__RecursosAssignment_4_1_in_rule__Materia__Group_4__1__Impl10651 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400002L});
-    public static final BitSet FOLLOW_rule__Materia__RecursosAssignment_4_1_in_rule__Materia__Group_4__1__Impl10663 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400002L});
+    public static final BitSet FOLLOW_rule__Materia__RecursosAssignment_4_1_in_rule__Materia__Group_4__1__Impl10651 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400000L});
+    public static final BitSet FOLLOW_rule__Materia__RecursosAssignment_4_1_in_rule__Materia__Group_4__1__Impl10663 = new BitSet(new long[]{0x0000000000000002L,0x0000000000400000L});
     public static final BitSet FOLLOW_rule__Aula__Group__0__Impl_in_rule__Aula__Group__010700 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__Aula__Group__1_in_rule__Aula__Group__010703 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_65_in_rule__Aula__Group__0__Impl10731 = new BitSet(new long[]{0x0000000000000002L});
@@ -68314,7 +68314,7 @@ public class InternalPdmParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_66_in_rule__Aula__Group__3__Impl10914 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Aula__Group__4__Impl_in_rule__Aula__Group__410945 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Aula__CapacidadAssignment_4_in_rule__Aula__Group__4__Impl10972 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Aula__Group_2__0__Impl_in_rule__Aula__Group_2__011012 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400002L});
+    public static final BitSet FOLLOW_rule__Aula__Group_2__0__Impl_in_rule__Aula__Group_2__011012 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
     public static final BitSet FOLLOW_rule__Aula__Group_2__1_in_rule__Aula__Group_2__011015 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_67_in_rule__Aula__Group_2__0__Impl11043 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Aula__Group_2__1__Impl_in_rule__Aula__Group_2__111074 = new BitSet(new long[]{0x0000000000000002L});
