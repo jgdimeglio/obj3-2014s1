@@ -103,6 +103,7 @@ public class PdmParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDiaAccess().getGroup_4(), "rule__Dia__Group_4__0");
 					put(grammarAccess.getDiaAccess().getGroup_5(), "rule__Dia__Group_5__0");
 					put(grammarAccess.getAsignacionAccess().getGroup(), "rule__Asignacion__Group__0");
+					put(grammarAccess.getAsignacionAccess().getGroup_3(), "rule__Asignacion__Group_3__0");
 					put(grammarAccess.getAulaHorarioAccess().getGroup(), "rule__AulaHorario__Group__0");
 					put(grammarAccess.getPlanificacionAccess().getGroup(), "rule__Planificacion__Group__0");
 					put(grammarAccess.getRecursoAccess().getGroup(), "rule__Recurso__Group__0");
@@ -301,7 +302,7 @@ public class PdmParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSemestreAccess().getNumeroAssignment_2(), "rule__Semestre__NumeroAssignment_2");
 					put(grammarAccess.getAsignacionAccess().getMateriaAssignment_0(), "rule__Asignacion__MateriaAssignment_0");
 					put(grammarAccess.getAsignacionAccess().getProfesoresAssignment_2(), "rule__Asignacion__ProfesoresAssignment_2");
-					put(grammarAccess.getAsignacionAccess().getAulaHorariosAssignment_4(), "rule__Asignacion__AulaHorariosAssignment_4");
+					put(grammarAccess.getAsignacionAccess().getAulaHorariosAssignment_3_1(), "rule__Asignacion__AulaHorariosAssignment_3_1");
 					put(grammarAccess.getAulaHorarioAccess().getDiaAssignment_1(), "rule__AulaHorario__DiaAssignment_1");
 					put(grammarAccess.getAulaHorarioAccess().getHorarioAssignment_3(), "rule__AulaHorario__HorarioAssignment_3");
 					put(grammarAccess.getAulaHorarioAccess().getAulaAssignment_5(), "rule__AulaHorario__AulaAssignment_5");

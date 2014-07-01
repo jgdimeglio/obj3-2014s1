@@ -46,7 +46,7 @@ Materia:
 
 Aula:
 	'aula' name=ID
-	(('recurso' recursos+=Recurso)+)?
+	(('recursos:' recursos+=Recurso)*)?
 	'capacidad' capacidad=INT	
 ;
 	
@@ -73,7 +73,7 @@ Semestre:
 
 Asignacion:
 	materia=[Materia] 'la dicta' profesores+=[Profesor]+ 	
-	'se dicta:' aulaHorarios+=AulaHorario+ 
+	('se dicta {' aulaHorarios+=AulaHorario+ '}') 
 ;
 
 AulaHorario:

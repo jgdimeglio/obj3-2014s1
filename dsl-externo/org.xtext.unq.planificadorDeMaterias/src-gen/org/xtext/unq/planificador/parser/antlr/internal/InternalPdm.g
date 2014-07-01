@@ -600,9 +600,9 @@ ruleAula returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_2='recurso' 
+)(	otherlv_2='recursos:' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getAulaAccess().getRecursoKeyword_2_0());
+    	newLeafNode(otherlv_2, grammarAccess.getAulaAccess().getRecursosKeyword_2_0());
     }
 (
 (
@@ -968,14 +968,14 @@ ruleAsignacion returns [EObject current=null]
 	}
 
 )
-)+	otherlv_3='se dicta:' 
+)+(	otherlv_3='se dicta {' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getAsignacionAccess().getSeDictaKeyword_3());
+    	newLeafNode(otherlv_3, grammarAccess.getAsignacionAccess().getSeDictaKeyword_3_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAsignacionAccess().getAulaHorariosAulaHorarioParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getAsignacionAccess().getAulaHorariosAulaHorarioParserRuleCall_3_1_0()); 
 	    }
 		lv_aulaHorarios_4_0=ruleAulaHorario		{
 	        if ($current==null) {
@@ -990,7 +990,11 @@ ruleAsignacion returns [EObject current=null]
 	    }
 
 )
-)+)
+)+	otherlv_5='}' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getAsignacionAccess().getRightCurlyBracketKeyword_3_2());
+    }
+))
 ;
 
 

@@ -3,14 +3,15 @@
  */
 package org.xtext.unq.planificador.validation
 
+import java.util.List
 import org.eclipse.xtext.validation.Check
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
-
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -53,29 +54,39 @@ class PdmValidator extends AbstractPdmValidator {
 		}
 	}	
 	
-//	@Check
-//	def validateTieneLosRecursosNecesarios(Planificacion p){
-//		for(Horario h : p.horario.horarios){
-//			if(h.materia.tieneRecursos){
-//				if(!h.materia.verificarRecursos(h.aula)){
-//					error("No tiene los recursos necesarios",p, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__HORARIO)
-//				}
-//			}
-//		}
-//	}
-//	
-//	def verificarRecursos(Materia m, Aula a){
-//		var exist = true
-//		for(Recurso r : m.recursosMateria){
-//			exist = exist && a.recursosAula.exists[rec | rec.name.equals(r.name)]
-//		}
-//		exist
-//	}
-//	
-//	def tieneRecursos(Materia m){
-//		m.recursosMateria.size > 0
-//	}
-//	
+	@Check
+	def validateTieneLosRecursosNecesarios(Planificacion p){
+		var model = p.eContainer as Model
+		for(Materia m : model.elementosPrimarios.filter(Materia)){
+			if(m.tieneRecursos){
+				m.verificarRecursosEnMateria(p.asignaciones)
+			}
+		}
+	}
+	
+	def verificarRecursosEnMateria(Materia m, List<Asignacion> asignaciones){
+		asignaciones.forEach[ a | 
+			if(a.materia.name.equals(m.name)){
+				a.aulaHorarios.forEach[ aulaHorario |
+					m.tieneLosRecursosNecesarios(aulaHorario.aula.recursos)
+				]
+			}
+		]
+	}
+	
+	def tieneLosRecursosNecesarios(Materia m, List<Recurso> recursos){
+		recursos.forEach[ r |
+			if(!m.recursos.exists[rec | rec.name.equals(r.name)]){
+				error("La materia esta siendo asignada sin los recursos necesarios", m,
+					PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME)
+			}
+		]
+	}
+	
+	def tieneRecursos(Materia m){
+		m.recursos.size > 0
+	}
+	
 //	@Check
 //	def validateMateriasAsignadas(Planificacion p){
 //		var exist = true;

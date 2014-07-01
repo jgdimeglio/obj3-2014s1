@@ -4,6 +4,7 @@
 package org.xtext.unq.planificador.validation;
 
 import com.google.common.collect.Iterables;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -13,6 +14,8 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dedicacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosPrimarios;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia;
@@ -20,6 +23,7 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso;
 import org.xtext.unq.planificador.validation.AbstractPdmValidator;
 
 /**
@@ -82,6 +86,72 @@ public class PdmValidator extends AbstractPdmValidator {
     if ((count >= 2)) {
       this.error("Materia repetida", materia, PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME);
     }
+  }
+  
+  @Check
+  public void validateTieneLosRecursosNecesarios(final Planificacion p) {
+    EObject _eContainer = p.eContainer();
+    Model model = ((Model) _eContainer);
+    EList<ElementosPrimarios> _elementosPrimarios = model.getElementosPrimarios();
+    Iterable<Materia> _filter = Iterables.<Materia>filter(_elementosPrimarios, Materia.class);
+    for (final Materia m : _filter) {
+      boolean _tieneRecursos = this.tieneRecursos(m);
+      if (_tieneRecursos) {
+        EList<Asignacion> _asignaciones = p.getAsignaciones();
+        this.verificarRecursosEnMateria(m, _asignaciones);
+      }
+    }
+  }
+  
+  public void verificarRecursosEnMateria(final Materia m, final List<Asignacion> asignaciones) {
+    final Procedure1<Asignacion> _function = new Procedure1<Asignacion>() {
+      public void apply(final Asignacion a) {
+        Materia _materia = a.getMateria();
+        String _name = _materia.getName();
+        String _name_1 = m.getName();
+        boolean _equals = _name.equals(_name_1);
+        if (_equals) {
+          EList<AulaHorario> _aulaHorarios = a.getAulaHorarios();
+          final Procedure1<AulaHorario> _function = new Procedure1<AulaHorario>() {
+            public void apply(final AulaHorario aulaHorario) {
+              Aula _aula = aulaHorario.getAula();
+              EList<Recurso> _recursos = _aula.getRecursos();
+              PdmValidator.this.tieneLosRecursosNecesarios(m, _recursos);
+            }
+          };
+          IterableExtensions.<AulaHorario>forEach(_aulaHorarios, _function);
+        }
+      }
+    };
+    IterableExtensions.<Asignacion>forEach(asignaciones, _function);
+  }
+  
+  public void tieneLosRecursosNecesarios(final Materia m, final List<Recurso> recursos) {
+    final Procedure1<Recurso> _function = new Procedure1<Recurso>() {
+      public void apply(final Recurso r) {
+        EList<Recurso> _recursos = m.getRecursos();
+        final Function1<Recurso, Boolean> _function = new Function1<Recurso, Boolean>() {
+          public Boolean apply(final Recurso rec) {
+            String _name = rec.getName();
+            String _name_1 = r.getName();
+            return Boolean.valueOf(_name.equals(_name_1));
+          }
+        };
+        boolean _exists = IterableExtensions.<Recurso>exists(_recursos, _function);
+        boolean _not = (!_exists);
+        if (_not) {
+          PdmValidator.this.error("La materia esta siendo asignada sin los recursos necesarios", m, 
+            PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME);
+        }
+      }
+    };
+    IterableExtensions.<Recurso>forEach(recursos, _function);
+  }
+  
+  public boolean tieneRecursos(final Materia m) {
+    EList<Recurso> _recursos = m.getRecursos();
+    int _size = _recursos.size();
+    return (_size > 0);
   }
   
   @Check
