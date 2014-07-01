@@ -64,7 +64,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="dia" eType="#//Dia" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="horario" eType="#//Horario"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="aula" eType="#//Aula" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aula" eType="#//Aula"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Planificacion">
     <eStructuralFeatures xsi:type="ecore:EReference" name="semestre" eType="#//Semestre"

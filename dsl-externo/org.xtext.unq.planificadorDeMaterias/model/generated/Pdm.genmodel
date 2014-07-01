@@ -58,7 +58,7 @@
     <genClasses ecoreClass="Pdm.ecore#//AulaHorario">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//AulaHorario/dia"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//AulaHorario/horario"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//AulaHorario/aula"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pdm.ecore#//AulaHorario/aula"/>
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Planificacion">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Planificacion/semestre"/>

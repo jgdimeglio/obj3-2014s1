@@ -382,13 +382,13 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDiasSemanalesINTTerminalRuleCall_3_0 = (RuleCall)cDiasSemanalesAssignment_3.eContents().get(0);
 		
 		//CargaHoraria:
-		//	"horasSemanales" cantHoras=INT "cantidadDeDias" diasSemanales=INT;
+		//	"horas semanales" cantHoras=INT "cantidad de dias" diasSemanales=INT;
 		public ParserRule getRule() { return rule; }
 
-		//"horasSemanales" cantHoras=INT "cantidadDeDias" diasSemanales=INT
+		//"horas semanales" cantHoras=INT "cantidad de dias" diasSemanales=INT
 		public Group getGroup() { return cGroup; }
 
-		//"horasSemanales"
+		//"horas semanales"
 		public Keyword getHorasSemanalesKeyword_0() { return cHorasSemanalesKeyword_0; }
 
 		//cantHoras=INT
@@ -397,7 +397,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getCantHorasINTTerminalRuleCall_1_0() { return cCantHorasINTTerminalRuleCall_1_0; }
 
-		//"cantidadDeDias"
+		//"cantidad de dias"
 		public Keyword getCantidadDeDiasKeyword_2() { return cCantidadDeDiasKeyword_2; }
 
 		//diasSemanales=INT
@@ -620,13 +620,14 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cHorarioHorarioParserRuleCall_3_0 = (RuleCall)cHorarioAssignment_3.eContents().get(0);
 		private final Keyword cEnKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cAulaAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cAulaAulaParserRuleCall_5_0 = (RuleCall)cAulaAssignment_5.eContents().get(0);
+		private final CrossReference cAulaAulaCrossReference_5_0 = (CrossReference)cAulaAssignment_5.eContents().get(0);
+		private final RuleCall cAulaAulaIDTerminalRuleCall_5_0_1 = (RuleCall)cAulaAulaCrossReference_5_0.eContents().get(1);
 		
 		//AulaHorario:
-		//	"los" dia=Dia "en el horario" horario=Horario "en" aula=Aula;
+		//	"los" dia=Dia "en el horario" horario=Horario "en" aula=[Aula];
 		public ParserRule getRule() { return rule; }
 
-		//"los" dia=Dia "en el horario" horario=Horario "en" aula=Aula
+		//"los" dia=Dia "en el horario" horario=Horario "en" aula=[Aula]
 		public Group getGroup() { return cGroup; }
 
 		//"los"
@@ -650,11 +651,14 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		//"en"
 		public Keyword getEnKeyword_4() { return cEnKeyword_4; }
 
-		//aula=Aula
+		//aula=[Aula]
 		public Assignment getAulaAssignment_5() { return cAulaAssignment_5; }
 
-		//Aula
-		public RuleCall getAulaAulaParserRuleCall_5_0() { return cAulaAulaParserRuleCall_5_0; }
+		//[Aula]
+		public CrossReference getAulaAulaCrossReference_5_0() { return cAulaAulaCrossReference_5_0; }
+
+		//ID
+		public RuleCall getAulaAulaIDTerminalRuleCall_5_0_1() { return cAulaAulaIDTerminalRuleCall_5_0_1; }
 	}
 
 	public class PlanificacionElements extends AbstractParserRuleElementFinder {
@@ -668,12 +672,13 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cAsignacionesAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cAsignacionesAsignacionParserRuleCall_4_0 = (RuleCall)cAsignacionesAssignment_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Planificacion:
-		//	"planificacion" semestre=Semestre "{" "asignaciones" asignaciones+=Asignacion* "}";
+		//	"planificacion" semestre=Semestre "{" "asignaciones {" asignaciones+=Asignacion* "}" "}";
 		public ParserRule getRule() { return rule; }
 
-		//"planificacion" semestre=Semestre "{" "asignaciones" asignaciones+=Asignacion* "}"
+		//"planificacion" semestre=Semestre "{" "asignaciones {" asignaciones+=Asignacion* "}" "}"
 		public Group getGroup() { return cGroup; }
 
 		//"planificacion"
@@ -688,7 +693,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//"asignaciones"
+		//"asignaciones {"
 		public Keyword getAsignacionesKeyword_3() { return cAsignacionesKeyword_3; }
 
 		//asignaciones+=Asignacion*
@@ -699,6 +704,9 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class RecursoElements extends AbstractParserRuleElementFinder {
@@ -862,7 +870,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CargaHoraria:
-	//	"horasSemanales" cantHoras=INT "cantidadDeDias" diasSemanales=INT;
+	//	"horas semanales" cantHoras=INT "cantidad de dias" diasSemanales=INT;
 	public CargaHorariaElements getCargaHorariaAccess() {
 		return (pCargaHoraria != null) ? pCargaHoraria : (pCargaHoraria = new CargaHorariaElements());
 	}
@@ -913,7 +921,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AulaHorario:
-	//	"los" dia=Dia "en el horario" horario=Horario "en" aula=Aula;
+	//	"los" dia=Dia "en el horario" horario=Horario "en" aula=[Aula];
 	public AulaHorarioElements getAulaHorarioAccess() {
 		return (pAulaHorario != null) ? pAulaHorario : (pAulaHorario = new AulaHorarioElements());
 	}
@@ -923,7 +931,7 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Planificacion:
-	//	"planificacion" semestre=Semestre "{" "asignaciones" asignaciones+=Asignacion* "}";
+	//	"planificacion" semestre=Semestre "{" "asignaciones {" asignaciones+=Asignacion* "}" "}";
 	public PlanificacionElements getPlanificacionAccess() {
 		return (pPlanificacion != null) ? pPlanificacion : (pPlanificacion = new PlanificacionElements());
 	}

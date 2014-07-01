@@ -665,7 +665,7 @@ ruleCargaHoraria returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='horasSemanales' 
+(	otherlv_0='horas semanales' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getCargaHorariaAccess().getHorasSemanalesKeyword_0());
     }
@@ -687,7 +687,7 @@ ruleCargaHoraria returns [EObject current=null]
 	    }
 
 )
-)	otherlv_2='cantidadDeDias' 
+)	otherlv_2='cantidad de dias' 
     {
     	newLeafNode(otherlv_2, grammarAccess.getCargaHorariaAccess().getCantidadDeDiasKeyword_2());
     }
@@ -1061,20 +1061,15 @@ ruleAulaHorario returns [EObject current=null]
     }
 (
 (
-		{ 
-	        newCompositeNode(grammarAccess.getAulaHorarioAccess().getAulaAulaParserRuleCall_5_0()); 
-	    }
-		lv_aula_5_0=ruleAula		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getAulaHorarioRule());
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAulaHorarioRule());
 	        }
-       		set(
-       			$current, 
-       			"aula",
-        		lv_aula_5_0, 
-        		"Aula");
-	        afterParserOrEnumRuleCall();
-	    }
+        }
+	otherlv_5=RULE_ID
+	{
+		newLeafNode(otherlv_5, grammarAccess.getAulaHorarioAccess().getAulaAulaCrossReference_5_0()); 
+	}
 
 )
 ))
@@ -1124,7 +1119,7 @@ rulePlanificacion returns [EObject current=null]
     {
     	newLeafNode(otherlv_2, grammarAccess.getPlanificacionAccess().getLeftCurlyBracketKeyword_2());
     }
-	otherlv_3='asignaciones' 
+	otherlv_3='asignaciones {' 
     {
     	newLeafNode(otherlv_3, grammarAccess.getPlanificacionAccess().getAsignacionesKeyword_3());
     }
@@ -1149,6 +1144,10 @@ rulePlanificacion returns [EObject current=null]
 )*	otherlv_5='}' 
     {
     	newLeafNode(otherlv_5, grammarAccess.getPlanificacionAccess().getRightCurlyBracketKeyword_5());
+    }
+	otherlv_6='}' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getPlanificacionAccess().getRightCurlyBracketKeyword_6());
     }
 )
 ;

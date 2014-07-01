@@ -10,10 +10,6 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso
-import java.util.List
 
 
 //import org.eclipse.xtext.validation.Check
@@ -25,32 +21,28 @@ import java.util.List
 class PdmValidator extends AbstractPdmValidator {
 
 
-//	@Check
-//	def validateMateriasAsignadas(Planificacion p){
-//		var exist = true;
-//		for(Materia m : p.materias){
-//			exist = exist && estaAsignado(m,p)
-//		}
-//		if(!exist){
-//			error("Falta asignar una materia", p, PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__HORARIO)
-//		}
-//	}
-//	
-//	def estaAsignado(Materia m, Planificacion p) {
-//		p.horario.horarios.exists[ h | (h.materia.name.equals(m.name))]
-//	}
-//	
-
+	@Check
+	def validateMateriasAsignadas(Planificacion p){
+		var model = p.eContainer as Model
+		for(Materia m : model.elementosPrimarios.filter(Materia)){
+			p.estaAsignado(m)
+		}
+	}
+	
+	def estaAsignado(Planificacion p,Materia m) {
+		if(!p.asignaciones.exists[ a | a.materia.name.equals(m.name)]){
+			error("Falta asignar una materia", m, PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME)
+		}
+	}
+	
 	@Check
 	def validateMateriasRepetidas(Model m){
-		for(Materia materia : m.elementosPrimarios.filter(Materia)){
-			estaRepetido(materia, m.elementosPrimarios.filter(Materia))
-		}
+		val materias = m.elementosPrimarios.filter(Materia)
+		materias.forEach[ materia | estaRepetido(materia,materias)]
 	}
 	
 	def estaRepetido(Materia materia, Iterable<Materia> m){
 		var count = 0
-		var ret = false
 		for(Materia mat : m){
 			if(mat.name.equals(materia.name)){
 				count = count + 1
@@ -106,18 +98,18 @@ class PdmValidator extends AbstractPdmValidator {
 		
 	}
 	
-	def validarDedicacion(Profesor p, Planificacion planificacion, int materiasQueDicta){
+	def validarDedicacion(Profesor p, int materiasQueDicta){
 		if ((p.dedicacion.eClass.name.equals("EXCLUSIVA")) && (materiasQueDicta < 2 || materiasQueDicta > 5)) {
-			error('''Tiene «materiasQueDicta» y necesita de 2 hasta 5 materias''', planificacion,
-			PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES)
+			error('''Tiene «materiasQueDicta» materia asignada y necesita de 2 hasta 5 materias''', p,
+			PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NAME)
 		}
 		if ((p.dedicacion.eClass.name.equals("SEMI")) && (materiasQueDicta != 2)) {
-			error('''Tiene «materiasQueDicta» y necesita de 2 materias''', planificacion,
-				PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES)
+			error('''Tiene «materiasQueDicta» materia asignada y necesita de 2 materias''', p,
+				PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NAME)
 		}
 		if (p.dedicacion.eClass.name.equals("SIMPLE") && (materiasQueDicta != 1)) {
-			error('''Tiene «materiasQueDicta» y necesita de 1 materia''', planificacion,
-				PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES)
+			error('''Tiene «materiasQueDicta» materia asignada y necesita de 1 materia''', p,
+				PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NAME)
 		}
 	}
 	
@@ -131,7 +123,7 @@ class PdmValidator extends AbstractPdmValidator {
 				}
 			}
 		
-			p.validarDedicacion(planificacion, count)
+			p.validarDedicacion(count)
 		}
 	
 	}

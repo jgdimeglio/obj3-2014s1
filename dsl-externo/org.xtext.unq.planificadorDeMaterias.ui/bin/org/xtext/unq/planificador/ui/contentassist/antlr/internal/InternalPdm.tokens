@@ -117,9 +117,9 @@ RULE_WS=11
 '>='=25
 '=='=21
 'extension'=49
+'horas semanales'=68
 ';'=92
 '==='=23
-'horasSemanales'=68
 'return'=107
 'recurso'=67
 '<>'=32
@@ -153,12 +153,12 @@ RULE_WS=11
 'requiere:'=64
 'Semi'=60
 'aula'=65
-'asignaciones'=84
 '%'=39
 '->'=28
 'super'=50
 'case'=99
 'Martes'=72
+'cantidad de dias'=69
 '!=='=24
 '!='=22
 '--'=42
@@ -189,7 +189,7 @@ RULE_WS=11
 'Simple'=59
 'as'=87
 '?'=112
-'cantidadDeDias'=69
+'asignaciones {'=84
 'if'=94
 '-'=35
 'while'=101

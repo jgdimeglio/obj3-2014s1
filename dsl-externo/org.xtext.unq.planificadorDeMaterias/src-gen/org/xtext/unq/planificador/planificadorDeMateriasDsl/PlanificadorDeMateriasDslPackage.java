@@ -557,7 +557,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   int AULA_HORARIO__HORARIO = 1;
 
   /**
-   * The feature id for the '<em><b>Aula</b></em>' containment reference.
+   * The feature id for the '<em><b>Aula</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1238,10 +1238,10 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   EReference getAulaHorario_Horario();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario#getAula <em>Aula</em>}'.
+   * Returns the meta object for the reference '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario#getAula <em>Aula</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Aula</em>'.
+   * @return the meta object for the reference '<em>Aula</em>'.
    * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario#getAula()
    * @see #getAulaHorario()
    * @generated
@@ -1752,7 +1752,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
     EReference AULA_HORARIO__HORARIO = eINSTANCE.getAulaHorario_Horario();
 
     /**
-     * The meta object literal for the '<em><b>Aula</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Aula</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

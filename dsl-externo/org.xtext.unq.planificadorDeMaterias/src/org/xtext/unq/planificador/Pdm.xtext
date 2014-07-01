@@ -77,12 +77,12 @@ Asignacion:
 ;
 
 AulaHorario:
-	'los' dia=Dia 'en el horario' horario=Horario 'en' aula=Aula
+	'los' dia=Dia 'en el horario' horario=Horario 'en' aula=[Aula]
 ;
 
 Planificacion:
 	'planificacion' semestre=Semestre '{'
-	'asignaciones' (asignaciones+=Asignacion)*
+	'asignaciones {' (asignaciones+=Asignacion)* '}'
 	'}'
 ;
 

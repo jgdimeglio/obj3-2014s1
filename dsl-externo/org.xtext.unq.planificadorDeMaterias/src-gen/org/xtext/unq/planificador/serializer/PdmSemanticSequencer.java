@@ -1327,7 +1327,7 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (dia=Dia horario=Horario aula=Aula)
+	 *     (dia=Dia horario=Horario aula=[Aula|ID])
 	 */
 	protected void sequence_AulaHorario(EObject context, AulaHorario semanticObject) {
 		if(errorAcceptor != null) {
@@ -1342,7 +1342,7 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getAulaHorarioAccess().getDiaDiaParserRuleCall_1_0(), semanticObject.getDia());
 		feeder.accept(grammarAccess.getAulaHorarioAccess().getHorarioHorarioParserRuleCall_3_0(), semanticObject.getHorario());
-		feeder.accept(grammarAccess.getAulaHorarioAccess().getAulaAulaParserRuleCall_5_0(), semanticObject.getAula());
+		feeder.accept(grammarAccess.getAulaHorarioAccess().getAulaAulaIDTerminalRuleCall_5_0_1(), semanticObject.getAula());
 		feeder.finish();
 	}
 	

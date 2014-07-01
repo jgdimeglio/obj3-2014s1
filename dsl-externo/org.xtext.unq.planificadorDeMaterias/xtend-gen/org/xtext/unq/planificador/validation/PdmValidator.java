@@ -11,6 +11,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dedicacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosPrimarios;
@@ -29,19 +30,47 @@ import org.xtext.unq.planificador.validation.AbstractPdmValidator;
 @SuppressWarnings("all")
 public class PdmValidator extends AbstractPdmValidator {
   @Check
+  public void validateMateriasAsignadas(final Planificacion p) {
+    EObject _eContainer = p.eContainer();
+    Model model = ((Model) _eContainer);
+    EList<ElementosPrimarios> _elementosPrimarios = model.getElementosPrimarios();
+    Iterable<Materia> _filter = Iterables.<Materia>filter(_elementosPrimarios, Materia.class);
+    for (final Materia m : _filter) {
+      this.estaAsignado(p, m);
+    }
+  }
+  
+  public void estaAsignado(final Planificacion p, final Materia m) {
+    EList<Asignacion> _asignaciones = p.getAsignaciones();
+    final Function1<Asignacion, Boolean> _function = new Function1<Asignacion, Boolean>() {
+      public Boolean apply(final Asignacion a) {
+        Materia _materia = a.getMateria();
+        String _name = _materia.getName();
+        String _name_1 = m.getName();
+        return Boolean.valueOf(_name.equals(_name_1));
+      }
+    };
+    boolean _exists = IterableExtensions.<Asignacion>exists(_asignaciones, _function);
+    boolean _not = (!_exists);
+    if (_not) {
+      this.error("Falta asignar una materia", m, PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME);
+    }
+  }
+  
+  @Check
   public void validateMateriasRepetidas(final Model m) {
     EList<ElementosPrimarios> _elementosPrimarios = m.getElementosPrimarios();
-    Iterable<Materia> _filter = Iterables.<Materia>filter(_elementosPrimarios, Materia.class);
-    for (final Materia materia : _filter) {
-      EList<ElementosPrimarios> _elementosPrimarios_1 = m.getElementosPrimarios();
-      Iterable<Materia> _filter_1 = Iterables.<Materia>filter(_elementosPrimarios_1, Materia.class);
-      this.estaRepetido(materia, _filter_1);
-    }
+    final Iterable<Materia> materias = Iterables.<Materia>filter(_elementosPrimarios, Materia.class);
+    final Procedure1<Materia> _function = new Procedure1<Materia>() {
+      public void apply(final Materia materia) {
+        PdmValidator.this.estaRepetido(materia, materias);
+      }
+    };
+    IterableExtensions.<Materia>forEach(materias, _function);
   }
   
   public void estaRepetido(final Materia materia, final Iterable<Materia> m) {
     int count = 0;
-    boolean ret = false;
     for (final Materia mat : m) {
       String _name = mat.getName();
       String _name_1 = materia.getName();
@@ -61,7 +90,7 @@ public class PdmValidator extends AbstractPdmValidator {
     this.materiasQueDicta(p, ((Model) _eContainer));
   }
   
-  public void validarDedicacion(final Profesor p, final Planificacion planificacion, final int materiasQueDicta) {
+  public void validarDedicacion(final Profesor p, final int materiasQueDicta) {
     boolean _and = false;
     Dedicacion _dedicacion = p.getDedicacion();
     EClass _eClass = _dedicacion.eClass();
@@ -76,9 +105,9 @@ public class PdmValidator extends AbstractPdmValidator {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Tiene ");
       _builder.append(materiasQueDicta, "");
-      _builder.append(" y necesita de 2 hasta 5 materias");
-      this.error(_builder.toString(), planificacion, 
-        PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES);
+      _builder.append(" materia asignada y necesita de 2 hasta 5 materias");
+      this.error(_builder.toString(), p, 
+        PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NAME);
     }
     boolean _and_1 = false;
     Dedicacion _dedicacion_1 = p.getDedicacion();
@@ -94,9 +123,9 @@ public class PdmValidator extends AbstractPdmValidator {
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append("Tiene ");
       _builder_1.append(materiasQueDicta, "");
-      _builder_1.append(" y necesita de 2 materias");
-      this.error(_builder_1.toString(), planificacion, 
-        PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES);
+      _builder_1.append(" materia asignada y necesita de 2 materias");
+      this.error(_builder_1.toString(), p, 
+        PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NAME);
     }
     boolean _and_2 = false;
     Dedicacion _dedicacion_2 = p.getDedicacion();
@@ -112,9 +141,9 @@ public class PdmValidator extends AbstractPdmValidator {
       StringConcatenation _builder_2 = new StringConcatenation();
       _builder_2.append("Tiene ");
       _builder_2.append(materiasQueDicta, "");
-      _builder_2.append(" y necesita de 1 materia");
-      this.error(_builder_2.toString(), planificacion, 
-        PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES);
+      _builder_2.append(" materia asignada y necesita de 1 materia");
+      this.error(_builder_2.toString(), p, 
+        PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NAME);
     }
   }
   
@@ -138,7 +167,7 @@ public class PdmValidator extends AbstractPdmValidator {
             count = (count + 1);
           }
         }
-        this.validarDedicacion(p, planificacion, count);
+        this.validarDedicacion(p, count);
       }
     }
   }

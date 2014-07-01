@@ -5223,7 +5223,7 @@ rule__CargaHoraria__Group__0__Impl
 (
 { before(grammarAccess.getCargaHorariaAccess().getHorasSemanalesKeyword_0()); }
 
-	'horasSemanales' 
+	'horas semanales' 
 
 { after(grammarAccess.getCargaHorariaAccess().getHorasSemanalesKeyword_0()); }
 )
@@ -5283,7 +5283,7 @@ rule__CargaHoraria__Group__2__Impl
 (
 { before(grammarAccess.getCargaHorariaAccess().getCantidadDeDiasKeyword_2()); }
 
-	'cantidadDeDias' 
+	'cantidad de dias' 
 
 { after(grammarAccess.getCargaHorariaAccess().getCantidadDeDiasKeyword_2()); }
 )
@@ -6382,7 +6382,7 @@ rule__Planificacion__Group__3__Impl
 (
 { before(grammarAccess.getPlanificacionAccess().getAsignacionesKeyword_3()); }
 
-	'asignaciones' 
+	'asignaciones {' 
 
 { after(grammarAccess.getPlanificacionAccess().getAsignacionesKeyword_3()); }
 )
@@ -6428,6 +6428,7 @@ rule__Planificacion__Group__5
     }
 :
 	rule__Planificacion__Group__5__Impl
+	rule__Planificacion__Group__6
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -6450,6 +6451,38 @@ rule__Planificacion__Group__5__Impl
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__Planificacion__Group__6
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Planificacion__Group__6__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Planificacion__Group__6__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getPlanificacionAccess().getRightCurlyBracketKeyword_6()); }
+
+	'}' 
+
+{ after(grammarAccess.getPlanificacionAccess().getRightCurlyBracketKeyword_6()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 
@@ -19887,8 +19920,12 @@ rule__AulaHorario__AulaAssignment_5
     }
 :
 (
-{ before(grammarAccess.getAulaHorarioAccess().getAulaAulaParserRuleCall_5_0()); }
-	ruleAula{ after(grammarAccess.getAulaHorarioAccess().getAulaAulaParserRuleCall_5_0()); }
+{ before(grammarAccess.getAulaHorarioAccess().getAulaAulaCrossReference_5_0()); }
+(
+{ before(grammarAccess.getAulaHorarioAccess().getAulaAulaIDTerminalRuleCall_5_0_1()); }
+	RULE_ID{ after(grammarAccess.getAulaHorarioAccess().getAulaAulaIDTerminalRuleCall_5_0_1()); }
+)
+{ after(grammarAccess.getAulaHorarioAccess().getAulaAulaCrossReference_5_0()); }
 )
 
 ;
