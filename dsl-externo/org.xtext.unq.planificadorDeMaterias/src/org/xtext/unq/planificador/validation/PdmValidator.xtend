@@ -95,21 +95,26 @@ class PdmValidator extends AbstractPdmValidator {
 	@Check
 	def validateDedicacion(Profesor p){
 		p.materiasQueDicta(p.eContainer as Model)
-		
 	}
 	
-	def validarDedicacion(Profesor p, int materiasQueDicta){
+	def validarDedicacion(Profesor p, int materiasQueDicta, Planificacion pl){
 		if ((p.dedicacion.eClass.name.equals("EXCLUSIVA")) && (materiasQueDicta < 2 || materiasQueDicta > 5)) {
 			error('''Tiene «materiasQueDicta» materia asignada y necesita de 2 hasta 5 materias''', p,
-			PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NAME)
+				PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NAME)
+			error('''Tiene «materiasQueDicta» materia asignada y necesita de 2 hasta 5 materias''', pl,
+				PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES)
 		}
 		if ((p.dedicacion.eClass.name.equals("SEMI")) && (materiasQueDicta != 2)) {
 			error('''Tiene «materiasQueDicta» materia asignada y necesita de 2 materias''', p,
 				PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NAME)
+			error('''Tiene «materiasQueDicta» materia asignada y necesita de 2 materias''', pl,
+				PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES)
 		}
 		if (p.dedicacion.eClass.name.equals("SIMPLE") && (materiasQueDicta != 1)) {
 			error('''Tiene «materiasQueDicta» materia asignada y necesita de 1 materia''', p,
 				PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NAME)
+			error('''Tiene «materiasQueDicta» materia asignada y necesita de 1 materia''', pl,
+				PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES)
 		}
 	}
 	
@@ -122,10 +127,9 @@ class PdmValidator extends AbstractPdmValidator {
 					count = count + 1
 				}
 			}
-		
-			p.validarDedicacion(count)
+			p.validarDedicacion(count, planificacion)
+			count = 0
 		}
-	
 	}
 //	@Check
 //	def validateMateriasRepetidas(Planificacion m){

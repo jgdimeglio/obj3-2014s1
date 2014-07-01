@@ -90,7 +90,7 @@ public class PdmValidator extends AbstractPdmValidator {
     this.materiasQueDicta(p, ((Model) _eContainer));
   }
   
-  public void validarDedicacion(final Profesor p, final int materiasQueDicta) {
+  public void validarDedicacion(final Profesor p, final int materiasQueDicta, final Planificacion pl) {
     boolean _and = false;
     Dedicacion _dedicacion = p.getDedicacion();
     EClass _eClass = _dedicacion.eClass();
@@ -108,6 +108,12 @@ public class PdmValidator extends AbstractPdmValidator {
       _builder.append(" materia asignada y necesita de 2 hasta 5 materias");
       this.error(_builder.toString(), p, 
         PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NAME);
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Tiene ");
+      _builder_1.append(materiasQueDicta, "");
+      _builder_1.append(" materia asignada y necesita de 2 hasta 5 materias");
+      this.error(_builder_1.toString(), pl, 
+        PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES);
     }
     boolean _and_1 = false;
     Dedicacion _dedicacion_1 = p.getDedicacion();
@@ -120,12 +126,18 @@ public class PdmValidator extends AbstractPdmValidator {
       _and_1 = (materiasQueDicta != 2);
     }
     if (_and_1) {
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Tiene ");
-      _builder_1.append(materiasQueDicta, "");
-      _builder_1.append(" materia asignada y necesita de 2 materias");
-      this.error(_builder_1.toString(), p, 
+      StringConcatenation _builder_2 = new StringConcatenation();
+      _builder_2.append("Tiene ");
+      _builder_2.append(materiasQueDicta, "");
+      _builder_2.append(" materia asignada y necesita de 2 materias");
+      this.error(_builder_2.toString(), p, 
         PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NAME);
+      StringConcatenation _builder_3 = new StringConcatenation();
+      _builder_3.append("Tiene ");
+      _builder_3.append(materiasQueDicta, "");
+      _builder_3.append(" materia asignada y necesita de 2 materias");
+      this.error(_builder_3.toString(), pl, 
+        PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES);
     }
     boolean _and_2 = false;
     Dedicacion _dedicacion_2 = p.getDedicacion();
@@ -138,12 +150,18 @@ public class PdmValidator extends AbstractPdmValidator {
       _and_2 = (materiasQueDicta != 1);
     }
     if (_and_2) {
-      StringConcatenation _builder_2 = new StringConcatenation();
-      _builder_2.append("Tiene ");
-      _builder_2.append(materiasQueDicta, "");
-      _builder_2.append(" materia asignada y necesita de 1 materia");
-      this.error(_builder_2.toString(), p, 
+      StringConcatenation _builder_4 = new StringConcatenation();
+      _builder_4.append("Tiene ");
+      _builder_4.append(materiasQueDicta, "");
+      _builder_4.append(" materia asignada y necesita de 1 materia");
+      this.error(_builder_4.toString(), p, 
         PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NAME);
+      StringConcatenation _builder_5 = new StringConcatenation();
+      _builder_5.append("Tiene ");
+      _builder_5.append(materiasQueDicta, "");
+      _builder_5.append(" materia asignada y necesita de 1 materia");
+      this.error(_builder_5.toString(), pl, 
+        PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES);
     }
   }
   
@@ -167,7 +185,8 @@ public class PdmValidator extends AbstractPdmValidator {
             count = (count + 1);
           }
         }
-        this.validarDedicacion(p, count);
+        this.validarDedicacion(p, count, planificacion);
+        count = 0;
       }
     }
   }
