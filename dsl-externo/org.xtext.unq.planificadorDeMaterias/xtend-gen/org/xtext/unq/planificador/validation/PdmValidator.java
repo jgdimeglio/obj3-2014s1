@@ -105,13 +105,13 @@ public class PdmValidator extends AbstractPdmValidator {
     final Iterable<Materia> materias = Iterables.<Materia>filter(_elementosPrimarios, Materia.class);
     final Procedure1<Materia> _function = new Procedure1<Materia>() {
       public void apply(final Materia materia) {
-        PdmValidator.this.estaRepetido(materia, materias);
+        PdmValidator.this.estaRepetidaLaMateria(materia, materias);
       }
     };
     IterableExtensions.<Materia>forEach(materias, _function);
   }
   
-  public void estaRepetido(final Materia materia, final Iterable<Materia> m) {
+  public void estaRepetidaLaMateria(final Materia materia, final Iterable<Materia> m) {
     int count = 0;
     for (final Materia mat : m) {
       String _name = mat.getName();
@@ -303,15 +303,24 @@ public class PdmValidator extends AbstractPdmValidator {
   public void validateSuperposicionDeMateriasEnAulas(final Model m) {
     final Model model = m;
     EList<Planificacion> planificaciones = model.getPlanificacion();
-    for (final Planificacion planificacion : planificaciones) {
-      EList<Asignacion> _asignaciones = planificacion.getAsignaciones();
-      for (final Asignacion asignacion : _asignaciones) {
-        EList<AulaHorario> _aulaHorarios = asignacion.getAulaHorarios();
-        for (final AulaHorario aulaHorario : _aulaHorarios) {
-          this.chequearHorarioSuperpuesto(planificacion, aulaHorario);
-        }
+    final Procedure1<Planificacion> _function = new Procedure1<Planificacion>() {
+      public void apply(final Planificacion planificacion) {
+        EList<Asignacion> _asignaciones = planificacion.getAsignaciones();
+        final Procedure1<Asignacion> _function = new Procedure1<Asignacion>() {
+          public void apply(final Asignacion asignacion) {
+            EList<AulaHorario> _aulaHorarios = asignacion.getAulaHorarios();
+            final Procedure1<AulaHorario> _function = new Procedure1<AulaHorario>() {
+              public void apply(final AulaHorario aulaHorario) {
+                PdmValidator.this.chequearHorarioSuperpuesto(planificacion, aulaHorario);
+              }
+            };
+            IterableExtensions.<AulaHorario>forEach(_aulaHorarios, _function);
+          }
+        };
+        IterableExtensions.<Asignacion>forEach(_asignaciones, _function);
       }
-    }
+    };
+    IterableExtensions.<Planificacion>forEach(planificaciones, _function);
   }
   
   public void chequearHorarioSuperpuesto(final Planificacion planificacion, final AulaHorario aulaHorario) {
@@ -332,14 +341,14 @@ public class PdmValidator extends AbstractPdmValidator {
             boolean _and_3 = false;
             Horario _horario = aHorario.getHorario();
             int _desde = _horario.getDesde();
-            boolean _lessThan = (_desde < desde);
-            if (!_lessThan) {
+            boolean _lessEqualsThan = (_desde <= desde);
+            if (!_lessEqualsThan) {
               _and_3 = false;
             } else {
               Horario _horario_1 = aHorario.getHorario();
               int _hasta = _horario_1.getHasta();
-              boolean _greaterThan = (_hasta > desde);
-              _and_3 = _greaterThan;
+              boolean _greaterEqualsThan = (_hasta >= desde);
+              _and_3 = _greaterEqualsThan;
             }
             if (_and_3) {
               _or = true;
@@ -347,14 +356,14 @@ public class PdmValidator extends AbstractPdmValidator {
               boolean _and_4 = false;
               Horario _horario_2 = aHorario.getHorario();
               int _desde_1 = _horario_2.getDesde();
-              boolean _lessThan_1 = (_desde_1 < hasta);
-              if (!_lessThan_1) {
+              boolean _lessEqualsThan_1 = (_desde_1 <= hasta);
+              if (!_lessEqualsThan_1) {
                 _and_4 = false;
               } else {
                 Horario _horario_3 = aHorario.getHorario();
                 int _hasta_1 = _horario_3.getHasta();
-                boolean _greaterThan_1 = (_hasta_1 > hasta);
-                _and_4 = _greaterThan_1;
+                boolean _greaterEqualsThan_1 = (_hasta_1 >= hasta);
+                _and_4 = _greaterEqualsThan_1;
               }
               _or = _and_4;
             }
@@ -398,6 +407,45 @@ public class PdmValidator extends AbstractPdmValidator {
           _builder.append("El horario en el aula ya esta en uso");
           this.error(_builder.toString(), asignacion, 
             PlanificadorDeMateriasDslPackage.Literals.ASIGNACION__AULA_HORARIOS);
+        }
+      }
+    }
+  }
+  
+  @Check
+  public void validateDiasRepetidos(final Planificacion p) {
+    EList<Asignacion> _asignaciones = p.getAsignaciones();
+    final Procedure1<Asignacion> _function = new Procedure1<Asignacion>() {
+      public void apply(final Asignacion asignacion) {
+        EList<AulaHorario> _aulaHorarios = asignacion.getAulaHorarios();
+        final Procedure1<AulaHorario> _function = new Procedure1<AulaHorario>() {
+          public void apply(final AulaHorario aulaHorario) {
+            Dia _dia = aulaHorario.getDia();
+            EList<AulaHorario> _aulaHorarios = asignacion.getAulaHorarios();
+            PdmValidator.this.estaRepetidoElDia(_dia, _aulaHorarios);
+          }
+        };
+        IterableExtensions.<AulaHorario>forEach(_aulaHorarios, _function);
+      }
+    };
+    IterableExtensions.<Asignacion>forEach(_asignaciones, _function);
+  }
+  
+  public void estaRepetidoElDia(final Dia dia, final Iterable<AulaHorario> aulaHorarios) {
+    int count = 0;
+    for (final AulaHorario ah : aulaHorarios) {
+      {
+        Dia _dia = ah.getDia();
+        EClass _eClass = _dia.eClass();
+        String _name = _eClass.getName();
+        EClass _eClass_1 = dia.eClass();
+        String _name_1 = _eClass_1.getName();
+        boolean _equals = _name.equals(_name_1);
+        if (_equals) {
+          count = (count + 1);
+        }
+        if ((count >= 2)) {
+          this.error("Dia repetido", ah, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__DIA);
         }
       }
     }
