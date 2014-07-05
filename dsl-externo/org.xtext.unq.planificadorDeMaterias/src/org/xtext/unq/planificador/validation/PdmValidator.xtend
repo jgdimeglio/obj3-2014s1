@@ -166,11 +166,12 @@ class PdmValidator extends AbstractPdmValidator {
 			val desde = aulaHorario.horario.desde
 			val hasta = aulaHorario.horario.hasta
 			var existe = asignacion.aulaHorarios.exists [ aHorario |
-				( (aHorario.horario.desde <= desde && aHorario.horario.hasta >= desde) ||
-					(aHorario.horario.desde <= hasta && aHorario.horario.hasta >= hasta)) &&
-					aulaHorario.aula.name.equals(aHorario.aula.name) &&
-					aulaHorario.dia.eClass.name.equals(aHorario.dia.eClass.name) &&
-					!(aulaHorario.hashCode.equals(aHorario.hashCode))
+				( (aHorario.horario.desde > desde && aHorario.horario.desde < hasta) ||
+				  (aHorario.horario.hasta > desde && aHorario.horario.hasta < hasta) ||
+				  (aHorario.horario.desde == desde && aHorario.horario.hasta == hasta)) &&
+				  (aulaHorario.aula.name.equals(aHorario.aula.name)) &&
+				  (aulaHorario.dia.eClass.name.equals(aHorario.dia.eClass.name)) &&
+				  (!(aulaHorario.hashCode.equals(aHorario.hashCode)))
 			]
 
 			if (existe) {

@@ -339,34 +339,52 @@ public class PdmValidator extends AbstractPdmValidator {
             boolean _and_1 = false;
             boolean _and_2 = false;
             boolean _or = false;
+            boolean _or_1 = false;
             boolean _and_3 = false;
             Horario _horario = aHorario.getHorario();
             int _desde = _horario.getDesde();
-            boolean _lessEqualsThan = (_desde <= desde);
-            if (!_lessEqualsThan) {
+            boolean _greaterThan = (_desde > desde);
+            if (!_greaterThan) {
               _and_3 = false;
             } else {
               Horario _horario_1 = aHorario.getHorario();
-              int _hasta = _horario_1.getHasta();
-              boolean _greaterEqualsThan = (_hasta >= desde);
-              _and_3 = _greaterEqualsThan;
+              int _desde_1 = _horario_1.getDesde();
+              boolean _lessThan = (_desde_1 < hasta);
+              _and_3 = _lessThan;
             }
             if (_and_3) {
-              _or = true;
+              _or_1 = true;
             } else {
               boolean _and_4 = false;
               Horario _horario_2 = aHorario.getHorario();
-              int _desde_1 = _horario_2.getDesde();
-              boolean _lessEqualsThan_1 = (_desde_1 <= hasta);
-              if (!_lessEqualsThan_1) {
+              int _hasta = _horario_2.getHasta();
+              boolean _greaterThan_1 = (_hasta > desde);
+              if (!_greaterThan_1) {
                 _and_4 = false;
               } else {
                 Horario _horario_3 = aHorario.getHorario();
                 int _hasta_1 = _horario_3.getHasta();
-                boolean _greaterEqualsThan_1 = (_hasta_1 >= hasta);
-                _and_4 = _greaterEqualsThan_1;
+                boolean _lessThan_1 = (_hasta_1 < hasta);
+                _and_4 = _lessThan_1;
               }
-              _or = _and_4;
+              _or_1 = _and_4;
+            }
+            if (_or_1) {
+              _or = true;
+            } else {
+              boolean _and_5 = false;
+              Horario _horario_4 = aHorario.getHorario();
+              int _desde_2 = _horario_4.getDesde();
+              boolean _equals = (_desde_2 == desde);
+              if (!_equals) {
+                _and_5 = false;
+              } else {
+                Horario _horario_5 = aHorario.getHorario();
+                int _hasta_2 = _horario_5.getHasta();
+                boolean _equals_1 = (_hasta_2 == hasta);
+                _and_5 = _equals_1;
+              }
+              _or = _and_5;
             }
             if (!_or) {
               _and_2 = false;
@@ -375,8 +393,8 @@ public class PdmValidator extends AbstractPdmValidator {
               String _name = _aula.getName();
               Aula _aula_1 = aHorario.getAula();
               String _name_1 = _aula_1.getName();
-              boolean _equals = _name.equals(_name_1);
-              _and_2 = _equals;
+              boolean _equals_2 = _name.equals(_name_1);
+              _and_2 = _equals_2;
             }
             if (!_and_2) {
               _and_1 = false;
@@ -387,16 +405,16 @@ public class PdmValidator extends AbstractPdmValidator {
               Dia _dia_1 = aHorario.getDia();
               EClass _eClass_1 = _dia_1.eClass();
               String _name_3 = _eClass_1.getName();
-              boolean _equals_1 = _name_2.equals(_name_3);
-              _and_1 = _equals_1;
+              boolean _equals_3 = _name_2.equals(_name_3);
+              _and_1 = _equals_3;
             }
             if (!_and_1) {
               _and = false;
             } else {
               int _hashCode = aulaHorario.hashCode();
               int _hashCode_1 = aHorario.hashCode();
-              boolean _equals_2 = Integer.valueOf(_hashCode).equals(Integer.valueOf(_hashCode_1));
-              boolean _not = (!_equals_2);
+              boolean _equals_4 = Integer.valueOf(_hashCode).equals(Integer.valueOf(_hashCode_1));
+              boolean _not = (!_equals_4);
               _and = _not;
             }
             return Boolean.valueOf(_and);
