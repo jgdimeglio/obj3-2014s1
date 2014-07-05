@@ -202,6 +202,58 @@ class PdmValidator extends AbstractPdmValidator {
 			}
 		}
 	}
+	
+	@Check
+	def validateCargaHorariaMaterias(Planificacion p){
+		p.asignaciones.forEach[asignacion |
+			asignacion.chequearCantidadDiasSemanales
+			asignacion.chequearCantidadHorasSemanales
+		]
+	}
+	
+	def chequearCantidadHorasSemanales(Asignacion asignacion){
+		var horasSemanales = asignacion.horasSemanales() 
+		var String mensajeDeError = ""
+		var horasAsignadas = asignacion.materia.cargaHoraria.cantHoras
+		if(horasSemanales != horasAsignadas){
+			if(horasSemanales == 1){
+				mensajeDeError = '''La materia se dicta «horasSemanales» hora a la semana, y tiene asignadas «horasAsignadas» horas'''
+			}else{
+				if(horasAsignadas == 1){
+					mensajeDeError = '''La materia se dicta «horasSemanales» horas a la semana, y tiene asignada «horasAsignadas» hora'''	
+				}else{
+						mensajeDeError = '''La materia se dicta «horasSemanales» horas a la semana, y tiene asignadas «horasAsignadas» horas'''
+				}
+			}
+			error(mensajeDeError, asignacion, PlanificadorDeMateriasDslPackage.Literals.ASIGNACION__MATERIA)
+		}
+	}
+	
+	def chequearCantidadDiasSemanales(Asignacion asignacion){
+		var String mensajeDeError = ""
+		var diasSemanales = asignacion.materia.cargaHoraria.diasSemanales
+		var diasAsignados = asignacion.aulaHorarios.size
+		if( diasSemanales != diasAsignados){
+			if(diasSemanales == 1){
+				mensajeDeError = '''La materia se dicta «diasSemanales» dia a la semana, y tiene asignados «diasAsignados» dias'''
+			}else{
+				if(diasAsignados == 1){
+					mensajeDeError = '''La materia se dicta «diasSemanales» dias a la semana, y tiene asignado «diasAsignados» dia'''	
+				}else{
+					mensajeDeError = '''La materia se dicta «diasSemanales» dias a la semana, y tiene asignados «diasAsignados» dias'''
+				}
+			}
+			error(mensajeDeError, asignacion, PlanificadorDeMateriasDslPackage.Literals.ASIGNACION__MATERIA)
+		}
+	}
+	
+	def horasSemanales(Asignacion asignacion){
+		var horas = 0
+		for(AulaHorario aulaHorario : asignacion.aulaHorarios){
+			horas = horas + (aulaHorario.horario.hasta - aulaHorario.horario.desde)
+		}
+		horas
+	}
 }
 
 

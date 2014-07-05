@@ -16,6 +16,7 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dedicacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dia;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosPrimarios;
@@ -449,5 +450,113 @@ public class PdmValidator extends AbstractPdmValidator {
         }
       }
     }
+  }
+  
+  @Check
+  public void validateCargaHorariaMaterias(final Planificacion p) {
+    EList<Asignacion> _asignaciones = p.getAsignaciones();
+    final Procedure1<Asignacion> _function = new Procedure1<Asignacion>() {
+      public void apply(final Asignacion asignacion) {
+        PdmValidator.this.chequearCantidadDiasSemanales(asignacion);
+        PdmValidator.this.chequearCantidadHorasSemanales(asignacion);
+      }
+    };
+    IterableExtensions.<Asignacion>forEach(_asignaciones, _function);
+  }
+  
+  public void chequearCantidadHorasSemanales(final Asignacion asignacion) {
+    int horasSemanales = this.horasSemanales(asignacion);
+    String mensajeDeError = "";
+    Materia _materia = asignacion.getMateria();
+    CargaHoraria _cargaHoraria = _materia.getCargaHoraria();
+    int horasAsignadas = _cargaHoraria.getCantHoras();
+    if ((horasSemanales != horasAsignadas)) {
+      if ((horasSemanales == 1)) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("La materia se dicta ");
+        _builder.append(horasSemanales, "");
+        _builder.append(" hora a la semana, y tiene asignadas ");
+        _builder.append(horasAsignadas, "");
+        _builder.append(" horas");
+        mensajeDeError = _builder.toString();
+      } else {
+        if ((horasAsignadas == 1)) {
+          StringConcatenation _builder_1 = new StringConcatenation();
+          _builder_1.append("La materia se dicta ");
+          _builder_1.append(horasSemanales, "");
+          _builder_1.append(" horas a la semana, y tiene asignada ");
+          _builder_1.append(horasAsignadas, "");
+          _builder_1.append(" hora");
+          mensajeDeError = _builder_1.toString();
+        } else {
+          StringConcatenation _builder_2 = new StringConcatenation();
+          _builder_2.append("La materia se dicta ");
+          _builder_2.append(horasSemanales, "");
+          _builder_2.append(" horas a la semana, y tiene asignadas ");
+          _builder_2.append(horasAsignadas, "");
+          _builder_2.append(" horas");
+          mensajeDeError = _builder_2.toString();
+        }
+      }
+      this.error(mensajeDeError, asignacion, PlanificadorDeMateriasDslPackage.Literals.ASIGNACION__MATERIA);
+    }
+  }
+  
+  public void chequearCantidadDiasSemanales(final Asignacion asignacion) {
+    String mensajeDeError = "";
+    Materia _materia = asignacion.getMateria();
+    CargaHoraria _cargaHoraria = _materia.getCargaHoraria();
+    int diasSemanales = _cargaHoraria.getDiasSemanales();
+    EList<AulaHorario> _aulaHorarios = asignacion.getAulaHorarios();
+    int diasAsignados = _aulaHorarios.size();
+    if ((diasSemanales != diasAsignados)) {
+      if ((diasSemanales == 1)) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("La materia se dicta ");
+        _builder.append(diasSemanales, "");
+        _builder.append(" dia a la semana, y tiene asignados ");
+        _builder.append(diasAsignados, "");
+        _builder.append(" dias");
+        mensajeDeError = _builder.toString();
+      } else {
+        if ((diasAsignados == 1)) {
+          StringConcatenation _builder_1 = new StringConcatenation();
+          _builder_1.append("La materia se dicta ");
+          _builder_1.append(diasSemanales, "");
+          _builder_1.append(" dias a la semana, y tiene asignado ");
+          _builder_1.append(diasAsignados, "");
+          _builder_1.append(" dia");
+          mensajeDeError = _builder_1.toString();
+        } else {
+          StringConcatenation _builder_2 = new StringConcatenation();
+          _builder_2.append("La materia se dicta ");
+          _builder_2.append(diasSemanales, "");
+          _builder_2.append(" dias a la semana, y tiene asignados ");
+          _builder_2.append(diasAsignados, "");
+          _builder_2.append(" dias");
+          mensajeDeError = _builder_2.toString();
+        }
+      }
+      this.error(mensajeDeError, asignacion, PlanificadorDeMateriasDslPackage.Literals.ASIGNACION__MATERIA);
+    }
+  }
+  
+  public int horasSemanales(final Asignacion asignacion) {
+    int _xblockexpression = (int) 0;
+    {
+      int horas = 0;
+      EList<AulaHorario> _aulaHorarios = asignacion.getAulaHorarios();
+      for (final AulaHorario aulaHorario : _aulaHorarios) {
+        Horario _horario = aulaHorario.getHorario();
+        int _hasta = _horario.getHasta();
+        Horario _horario_1 = aulaHorario.getHorario();
+        int _desde = _horario_1.getDesde();
+        int _minus = (_hasta - _desde);
+        int _plus = (horas + _minus);
+        horas = _plus;
+      }
+      _xblockexpression = horas;
+    }
+    return _xblockexpression;
   }
 }
