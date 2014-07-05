@@ -30,6 +30,10 @@ class PlanificadorDeMateriasInterpreter {
 		m.elementosPrimarios.filter(Profesor)
 	}
 	
+	def planificaciones(Model m){
+		m.planificacion
+	}
+	
 	/*
 	 * Extension methods ElementosSecundarios
 	 */
@@ -66,7 +70,8 @@ class PlanificadorDeMateriasInterpreter {
 	}
 	
 	def aulaMasUtilizada(Model m){
-		return this.getMax(generarMapDeOcurrenciasDeAulas(m))
+		var aulaConOcurrencias = this.getMax(generarMapDeOcurrenciasDeAulas(m)).entrySet
+		System.out.println('''Aula mas utilizada: «aulaConOcurrencias.get(0).key», con «aulaConOcurrencias.get(0).value» ocurrencias''')
 	}
 	
 
@@ -83,20 +88,46 @@ class PlanificadorDeMateriasInterpreter {
 		
 	}
 	
-	def private getMax(Map<Aula,Integer> aulas){
-		val l = aulas.entrySet.fold(null) [Entry<Aula,Integer> x,y | if(x.value > y.value) return x else return y]
-		return l.key
+	def private getMax(Map<String,Integer> aulas){
+		val aulasSet = aulas.entrySet
+		var String aulaIndex = ""
+		var int max = 0
+		if(aulasSet.size > 1){
+			max = aulasSet.get(0).value
+			aulaIndex = aulasSet.get(0).key
+			for(Entry<String,Integer> entry : aulasSet){
+				if(entry.value > max){
+					max = entry.value
+					aulaIndex = entry.key
+				}
+			}
+		}else{
+			if(aulasSet.size == 1){
+				aulaIndex = aulasSet.get(0).key
+				max = aulasSet.get(0).value
+			}
+		}
+		var ret = new HashMap<String,Integer>()
+		ret.put(aulaIndex,max)
+		return ret
+		//val l = aulas.entrySet.fold(null) [Entry<Aula,Integer> x,y | if(x.value > y.value) return x else return y]
+		//return l.key
 	}
 	
 	def private generarMapDeOcurrenciasDeAulas(Model  m){
-		val aulas = new HashMap<Aula,Integer>()
-		m.aulas.forEach[ e |
-			if(! aulas.containsKey(e)){
-				aulas.put(e,1)
-			}
-			else{
-				aulas.put(e,(aulas.get(e) + 1))
-			}
+		val aulas = new HashMap<String,Integer>()
+		m.planificacion.forEach[ planificacion |
+			planificacion.asignaciones.forEach[ asignacion |
+				asignacion.aulaHorarios.forEach[aulaHorario |
+					if(! aulas.containsKey(aulaHorario.aula.name)){
+						aulas.put(aulaHorario.aula.name,1)
+					}
+					else{
+						aulas.put(aulaHorario.aula.name,(aulas.get(aulaHorario.aula.name) + 1))
+					}
+			
+				]
+			]
 		]
 		return aulas
 	}
