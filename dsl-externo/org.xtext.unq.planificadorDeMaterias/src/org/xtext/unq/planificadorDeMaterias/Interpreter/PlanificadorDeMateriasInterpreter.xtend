@@ -1,50 +1,17 @@
 package org.xtext.unq.planificadorDeMaterias.Interpreter
 
+import ExtensionMethods.ExtensionMethodsInterpreter
 import java.util.HashMap
 import java.util.Map
 import java.util.Map.Entry
 import org.eclipse.emf.common.util.URI
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.xtext.unq.planificador.PdmStandaloneSetup
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso
 
 class PlanificadorDeMateriasInterpreter {
 	
-	/*
-	 * Extension methods ElementosPrimarios
-	 */
-	def materias(Model m){
-		m.elementosPrimarios.filter(Materia)
-	}
-	
-	def asignaciones(Model m){
-		m.elementosPrimarios.filter(Asignacion)
-	}
-	
-	def profesores(Model m){
-		m.elementosPrimarios.filter(Profesor)
-	}
-	
-	def planificaciones(Model m){
-		m.planificacion
-	}
-	
-	/*
-	 * Extension methods ElementosSecundarios
-	 */
-	
-	def aulas(Model m){
-		m.elementosSecundarios.filter(Aula)
-	}
-	
-	def recursos(Model m){
-		m.elementosSecundarios.filter(Recurso)
-	}
+	extension ExtensionMethodsInterpreter = new ExtensionMethodsInterpreter
 	
 	def static void main(String[] args) {
 		
@@ -77,7 +44,9 @@ class PlanificadorDeMateriasInterpreter {
 
 	
 	def horariosLibres(Model m){
-		
+		m.planificacion.forEach[planificacion |
+			
+		]
 	}
 	
 	def porcentajeDeAsignacionesPorTurno(Model m){
