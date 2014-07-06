@@ -1,0 +1,5 @@
+package ExtensionMethods
+
+class ExtensionMethodsValidation {
+	
+}

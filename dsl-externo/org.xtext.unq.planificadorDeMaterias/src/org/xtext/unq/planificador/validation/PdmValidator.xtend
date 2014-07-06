@@ -25,7 +25,7 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula
  */
 class PdmValidator extends AbstractPdmValidator {
 
-
+	@Check
 	def esHorarioValido(Horario horario) {
 		if (horario.desde < 0 || horario.desde > 24) {
 			error("Horario desde tiene formato invalido", horario,
@@ -38,6 +38,7 @@ class PdmValidator extends AbstractPdmValidator {
 		}
 	}
 
+	// Valida si las materias creadas estan asignadas a la planificacion
 	@Check
 	def validateMateriasAsignadas(Planificacion p) {
 		var model = p.eContainer as Model
@@ -52,7 +53,9 @@ class PdmValidator extends AbstractPdmValidator {
 			error("Falta asignar una materia", m, PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME)
 		}
 	}
+	//*************************************************************************************************
 
+	//Valida que las aulas no esten repetidas.
 	@Check
 	def validateAulasRepetidas(Model m){
 		val aulas = m.elementosSecundarios.filter(Aula)
@@ -72,7 +75,9 @@ class PdmValidator extends AbstractPdmValidator {
 			error("Aula repetida", aula, PlanificadorDeMateriasDslPackage.Literals.AULA__CAPACIDAD)
 		}
 	}
-
+	//*************************************************************************************************
+	
+	//Valida que las materias creadas no esten repetidas
 	@Check
 	def validateMateriasRepetidas(Model m) {
 		val materias = m.elementosPrimarios.filter(Materia)
@@ -90,10 +95,26 @@ class PdmValidator extends AbstractPdmValidator {
 			error("Materia repetida", materia, PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME)
 		}
 	}
-
+	//*************************************************************************************************
+	
+	//Valida, segun la dedicacion del profesor, que tenga asignada la cantidad correcta de materias.
 	@Check
 	def validateDedicacion(Profesor p) {
 		p.materiasQueDicta(p.eContainer as Model)
+	}
+
+	def materiasQueDicta(Profesor p, Model model) {
+		var planificaciones = model.planificacion
+		var count = 0
+		for (Planificacion planificacion : planificaciones) {
+			for (Asignacion a : planificacion.asignaciones) {
+				if (a.profesores.exists[profe|profe.name.equals(p.name)]) {
+					count = count + 1
+				}
+			}
+			p.validarDedicacion(count, planificacion)
+			count = 0
+		}
 	}
 
 	def validarDedicacion(Profesor p, int materiasQueDicta, Planificacion pl) {
@@ -116,21 +137,9 @@ class PdmValidator extends AbstractPdmValidator {
 				PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES)
 		}
 	}
-
-	def materiasQueDicta(Profesor p, Model model) {
-		var planificaciones = model.planificacion
-		var count = 0
-		for (Planificacion planificacion : planificaciones) {
-			for (Asignacion a : planificacion.asignaciones) {
-				if (a.profesores.exists[profe|profe.name.equals(p.name)]) {
-					count = count + 1
-				}
-			}
-			p.validarDedicacion(count, planificacion)
-			count = 0
-		}
-	}
-
+	//*************************************************************************************************
+	
+	//Valida que las aulas asignadas no se superpongan con el horario en que se dictan las materias.
 	@Check
 	def validateSuperposicionDeMateriasEnAulas(Model m) {
 		val model = m
@@ -167,7 +176,9 @@ class PdmValidator extends AbstractPdmValidator {
 		}
 
 	}
+	//*************************************************************************************************
 
+	//Valida que en la asignacion de materias no tenga dias repetidos.
 	@Check
 	def validateDiasRepetidos(Planificacion p){
 		p.asignaciones.forEach[asignacion | 
@@ -188,7 +199,9 @@ class PdmValidator extends AbstractPdmValidator {
 			}
 		}
 	}
+	//*************************************************************************************************
 	
+	//Valida que los dias y horas que se dicta la materia en la semana sean asignados correctamente.
 	@Check
 	def validateCargaHorariaMaterias(Planificacion p){
 		p.asignaciones.forEach[asignacion |
@@ -240,7 +253,9 @@ class PdmValidator extends AbstractPdmValidator {
 		}
 		horas
 	}
+	//*************************************************************************************************
 	
+	//Valida que el aula cuente con la capacidad suficiente de inscriptos a una materia determinada.
 	@Check
 	def validateCantidadInscriptos(Planificacion p){
 		p.asignaciones.forEach[asignacion |
@@ -251,7 +266,9 @@ class PdmValidator extends AbstractPdmValidator {
 			]
 		]
 	}
+	//*************************************************************************************************
 	
+	//Valida que el aula cuente con los recursos necesarios que la materia asignada necesite.
 	@Check
 	def validateRecursos(Planificacion planificacion){
 		planificacion.asignaciones.forEach[asignacion |
@@ -268,6 +285,7 @@ class PdmValidator extends AbstractPdmValidator {
 			]
 		]
 	}
+	//*************************************************************************************************
 }
 
 

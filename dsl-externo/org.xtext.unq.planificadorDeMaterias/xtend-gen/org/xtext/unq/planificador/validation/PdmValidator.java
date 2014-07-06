@@ -37,6 +37,7 @@ import org.xtext.unq.planificador.validation.AbstractPdmValidator;
  */
 @SuppressWarnings("all")
 public class PdmValidator extends AbstractPdmValidator {
+  @Check
   public void esHorarioValido(final Horario horario) {
     boolean _or = false;
     int _desde = horario.getDesde();
@@ -156,6 +157,32 @@ public class PdmValidator extends AbstractPdmValidator {
     this.materiasQueDicta(p, ((Model) _eContainer));
   }
   
+  public void materiasQueDicta(final Profesor p, final Model model) {
+    EList<Planificacion> planificaciones = model.getPlanificacion();
+    int count = 0;
+    for (final Planificacion planificacion : planificaciones) {
+      {
+        EList<Asignacion> _asignaciones = planificacion.getAsignaciones();
+        for (final Asignacion a : _asignaciones) {
+          EList<Profesor> _profesores = a.getProfesores();
+          final Function1<Profesor, Boolean> _function = new Function1<Profesor, Boolean>() {
+            public Boolean apply(final Profesor profe) {
+              String _name = profe.getName();
+              String _name_1 = p.getName();
+              return Boolean.valueOf(_name.equals(_name_1));
+            }
+          };
+          boolean _exists = IterableExtensions.<Profesor>exists(_profesores, _function);
+          if (_exists) {
+            count = (count + 1);
+          }
+        }
+        this.validarDedicacion(p, count, planificacion);
+        count = 0;
+      }
+    }
+  }
+  
   public void validarDedicacion(final Profesor p, final int materiasQueDicta, final Planificacion pl) {
     boolean _and = false;
     Dedicacion _dedicacion = p.getDedicacion();
@@ -228,32 +255,6 @@ public class PdmValidator extends AbstractPdmValidator {
       _builder_5.append(" materia asignada y necesita de 1 materia");
       this.error(_builder_5.toString(), pl, 
         PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES);
-    }
-  }
-  
-  public void materiasQueDicta(final Profesor p, final Model model) {
-    EList<Planificacion> planificaciones = model.getPlanificacion();
-    int count = 0;
-    for (final Planificacion planificacion : planificaciones) {
-      {
-        EList<Asignacion> _asignaciones = planificacion.getAsignaciones();
-        for (final Asignacion a : _asignaciones) {
-          EList<Profesor> _profesores = a.getProfesores();
-          final Function1<Profesor, Boolean> _function = new Function1<Profesor, Boolean>() {
-            public Boolean apply(final Profesor profe) {
-              String _name = profe.getName();
-              String _name_1 = p.getName();
-              return Boolean.valueOf(_name.equals(_name_1));
-            }
-          };
-          boolean _exists = IterableExtensions.<Profesor>exists(_profesores, _function);
-          if (_exists) {
-            count = (count + 1);
-          }
-        }
-        this.validarDedicacion(p, count, planificacion);
-        count = 0;
-      }
     }
   }
   
