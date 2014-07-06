@@ -1349,7 +1349,7 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ID recursos+=Recurso? capacidad=INT)
+	 *     (name=ID capacidad=INT recursos+=Recurso*)
 	 */
 	protected void sequence_Aula(EObject context, Aula semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -20,6 +20,7 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dedicacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dia;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosPrimarios;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosSecundarios;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model;
@@ -36,11 +37,6 @@ import org.xtext.unq.planificador.validation.AbstractPdmValidator;
  */
 @SuppressWarnings("all")
 public class PdmValidator extends AbstractPdmValidator {
-  @Check
-  public Object validateHorario(final Model m) {
-    return null;
-  }
-  
   public void esHorarioValido(final Horario horario) {
     boolean _or = false;
     int _desde = horario.getDesde();
@@ -101,6 +97,33 @@ public class PdmValidator extends AbstractPdmValidator {
   }
   
   @Check
+  public void validateAulasRepetidas(final Model m) {
+    EList<ElementosSecundarios> _elementosSecundarios = m.getElementosSecundarios();
+    final Iterable<Aula> aulas = Iterables.<Aula>filter(_elementosSecundarios, Aula.class);
+    final Procedure1<Aula> _function = new Procedure1<Aula>() {
+      public void apply(final Aula aula) {
+        PdmValidator.this.estaRepetidaElAula(aula, aulas);
+      }
+    };
+    IterableExtensions.<Aula>forEach(aulas, _function);
+  }
+  
+  public void estaRepetidaElAula(final Aula aula, final Iterable<Aula> aulas) {
+    int count = 0;
+    for (final Aula a : aulas) {
+      String _name = aula.getName();
+      String _name_1 = a.getName();
+      boolean _equals = _name.equals(_name_1);
+      if (_equals) {
+        count = (count + 1);
+      }
+    }
+    if ((count >= 2)) {
+      this.error("Aula repetida", aula, PlanificadorDeMateriasDslPackage.Literals.AULA__CAPACIDAD);
+    }
+  }
+  
+  @Check
   public void validateMateriasRepetidas(final Model m) {
     EList<ElementosPrimarios> _elementosPrimarios = m.getElementosPrimarios();
     final Iterable<Materia> materias = Iterables.<Materia>filter(_elementosPrimarios, Materia.class);
@@ -125,72 +148,6 @@ public class PdmValidator extends AbstractPdmValidator {
     if ((count >= 2)) {
       this.error("Materia repetida", materia, PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME);
     }
-  }
-  
-  @Check
-  public void validateTieneLosRecursosNecesarios(final Planificacion p) {
-    EObject _eContainer = p.eContainer();
-    Model model = ((Model) _eContainer);
-    EList<ElementosPrimarios> _elementosPrimarios = model.getElementosPrimarios();
-    Iterable<Materia> _filter = Iterables.<Materia>filter(_elementosPrimarios, Materia.class);
-    for (final Materia m : _filter) {
-      boolean _tieneRecursos = this.tieneRecursos(m);
-      if (_tieneRecursos) {
-        EList<Asignacion> _asignaciones = p.getAsignaciones();
-        this.verificarRecursosEnMateria(m, _asignaciones);
-      }
-    }
-  }
-  
-  public void verificarRecursosEnMateria(final Materia m, final List<Asignacion> asignaciones) {
-    final Procedure1<Asignacion> _function = new Procedure1<Asignacion>() {
-      public void apply(final Asignacion a) {
-        Materia _materia = a.getMateria();
-        String _name = _materia.getName();
-        String _name_1 = m.getName();
-        boolean _equals = _name.equals(_name_1);
-        if (_equals) {
-          EList<AulaHorario> _aulaHorarios = a.getAulaHorarios();
-          final Procedure1<AulaHorario> _function = new Procedure1<AulaHorario>() {
-            public void apply(final AulaHorario aulaHorario) {
-              Aula _aula = aulaHorario.getAula();
-              EList<Recurso> _recursos = _aula.getRecursos();
-              PdmValidator.this.tieneLosRecursosNecesarios(m, _recursos);
-            }
-          };
-          IterableExtensions.<AulaHorario>forEach(_aulaHorarios, _function);
-        }
-      }
-    };
-    IterableExtensions.<Asignacion>forEach(asignaciones, _function);
-  }
-  
-  public void tieneLosRecursosNecesarios(final Materia m, final List<Recurso> recursos) {
-    final Procedure1<Recurso> _function = new Procedure1<Recurso>() {
-      public void apply(final Recurso r) {
-        EList<Recurso> _recursos = m.getRecursos();
-        final Function1<Recurso, Boolean> _function = new Function1<Recurso, Boolean>() {
-          public Boolean apply(final Recurso rec) {
-            String _name = rec.getName();
-            String _name_1 = r.getName();
-            return Boolean.valueOf(_name.equals(_name_1));
-          }
-        };
-        boolean _exists = IterableExtensions.<Recurso>exists(_recursos, _function);
-        boolean _not = (!_exists);
-        if (_not) {
-          PdmValidator.this.error("La materia esta siendo asignada sin los recursos necesarios", m, 
-            PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME);
-        }
-      }
-    };
-    IterableExtensions.<Recurso>forEach(recursos, _function);
-  }
-  
-  public boolean tieneRecursos(final Materia m) {
-    EList<Recurso> _recursos = m.getRecursos();
-    int _size = _recursos.size();
-    return (_size > 0);
   }
   
   @Check
@@ -608,5 +565,46 @@ public class PdmValidator extends AbstractPdmValidator {
       }
     };
     IterableExtensions.<Asignacion>forEach(_asignaciones, _function);
+  }
+  
+  @Check
+  public void validateRecursos(final Planificacion planificacion) {
+    EList<Asignacion> _asignaciones = planificacion.getAsignaciones();
+    final Procedure1<Asignacion> _function = new Procedure1<Asignacion>() {
+      public void apply(final Asignacion asignacion) {
+        Materia _materia = asignacion.getMateria();
+        EList<AulaHorario> _aulaHorarios = asignacion.getAulaHorarios();
+        PdmValidator.this.tieneLosRecursosNecesarios(_materia, _aulaHorarios);
+      }
+    };
+    IterableExtensions.<Asignacion>forEach(_asignaciones, _function);
+  }
+  
+  public void tieneLosRecursosNecesarios(final Materia materia, final List<AulaHorario> aulaHorarios) {
+    EList<Recurso> _recursos = materia.getRecursos();
+    final Procedure1<Recurso> _function = new Procedure1<Recurso>() {
+      public void apply(final Recurso recurso) {
+        final Procedure1<AulaHorario> _function = new Procedure1<AulaHorario>() {
+          public void apply(final AulaHorario aHorario) {
+            Aula _aula = aHorario.getAula();
+            EList<Recurso> _recursos = _aula.getRecursos();
+            final Function1<Recurso, Boolean> _function = new Function1<Recurso, Boolean>() {
+              public Boolean apply(final Recurso rec) {
+                String _name = rec.getName();
+                String _name_1 = recurso.getName();
+                return Boolean.valueOf(_name.equals(_name_1));
+              }
+            };
+            boolean _exists = IterableExtensions.<Recurso>exists(_recursos, _function);
+            boolean _not = (!_exists);
+            if (_not) {
+              PdmValidator.this.error("El aula no tiene los recursos necesarios para la materia", aHorario, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__AULA);
+            }
+          }
+        };
+        IterableExtensions.<AulaHorario>forEach(aulaHorarios, _function);
+      }
+    };
+    IterableExtensions.<Recurso>forEach(_recursos, _function);
   }
 }

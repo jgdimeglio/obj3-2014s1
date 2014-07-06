@@ -18,7 +18,9 @@ import org.xtext.unq.planificador.services.PdmGrammarAccess;
 public class PdmSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected PdmGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Aula___RecursosKeyword_4_0_RightCurlyBracketKeyword_4_2__q;
 	protected AbstractElementAlias match_Disponibilidad_NoPuedeKeyword_0_0_q;
+	protected AbstractElementAlias match_Materia___RequiereKeyword_4_0_RightCurlyBracketKeyword_4_2__q;
 	protected AbstractElementAlias match_XBlockExpression_SemicolonKeyword_2_1_q;
 	protected AbstractElementAlias match_XExpressionInClosure_SemicolonKeyword_1_1_q;
 	protected AbstractElementAlias match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q;
@@ -29,7 +31,9 @@ public class PdmSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (PdmGrammarAccess) access;
+		match_Aula___RecursosKeyword_4_0_RightCurlyBracketKeyword_4_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getAulaAccess().getRecursosKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getAulaAccess().getRightCurlyBracketKeyword_4_2()));
 		match_Disponibilidad_NoPuedeKeyword_0_0_q = new TokenAlias(false, true, grammarAccess.getDisponibilidadAccess().getNoPuedeKeyword_0_0());
+		match_Materia___RequiereKeyword_4_0_RightCurlyBracketKeyword_4_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getMateriaAccess().getRequiereKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getMateriaAccess().getRightCurlyBracketKeyword_4_2()));
 		match_XBlockExpression_SemicolonKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getXBlockExpressionAccess().getSemicolonKeyword_2_1());
 		match_XExpressionInClosure_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getXExpressionInClosureAccess().getSemicolonKeyword_1_1());
 		match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getXFunctionTypeRefAccess().getLeftParenthesisKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getXFunctionTypeRefAccess().getRightParenthesisKeyword_0_2()));
@@ -75,8 +79,12 @@ public class PdmSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_Disponibilidad_NoPuedeKeyword_0_0_q.equals(syntax))
+			if(match_Aula___RecursosKeyword_4_0_RightCurlyBracketKeyword_4_2__q.equals(syntax))
+				emit_Aula___RecursosKeyword_4_0_RightCurlyBracketKeyword_4_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Disponibilidad_NoPuedeKeyword_0_0_q.equals(syntax))
 				emit_Disponibilidad_NoPuedeKeyword_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Materia___RequiereKeyword_4_0_RightCurlyBracketKeyword_4_2__q.equals(syntax))
+				emit_Materia___RequiereKeyword_4_0_RightCurlyBracketKeyword_4_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_XBlockExpression_SemicolonKeyword_2_1_q.equals(syntax))
 				emit_XBlockExpression_SemicolonKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_XExpressionInClosure_SemicolonKeyword_1_1_q.equals(syntax))
@@ -95,9 +103,25 @@ public class PdmSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Syntax:
+	 *     ('recursos {' '}')?
+	 */
+	protected void emit_Aula___RecursosKeyword_4_0_RightCurlyBracketKeyword_4_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
 	 *     'no puede'?
 	 */
 	protected void emit_Disponibilidad_NoPuedeKeyword_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ('requiere {' '}')?
+	 */
+	protected void emit_Materia___RequiereKeyword_4_0_RightCurlyBracketKeyword_4_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

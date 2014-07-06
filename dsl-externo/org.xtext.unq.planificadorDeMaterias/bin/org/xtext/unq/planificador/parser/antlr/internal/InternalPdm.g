@@ -477,6 +477,97 @@ ruleDedicacion returns [EObject current=null]
 
 
 
+// Entry rule entryRuleAula
+entryRuleAula returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getAulaRule()); }
+	 iv_ruleAula=ruleAula 
+	 { $current=$iv_ruleAula.current; } 
+	 EOF 
+;
+
+// Rule Aula
+ruleAula returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='aula' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getAulaAccess().getAulaKeyword_0());
+    }
+(
+(
+		lv_name_1_0=RULE_ID
+		{
+			newLeafNode(lv_name_1_0, grammarAccess.getAulaAccess().getNameIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAulaRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"ID");
+	    }
+
+)
+)	otherlv_2='capacidad' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getAulaAccess().getCapacidadKeyword_2());
+    }
+(
+(
+		lv_capacidad_3_0=RULE_INT
+		{
+			newLeafNode(lv_capacidad_3_0, grammarAccess.getAulaAccess().getCapacidadINTTerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAulaRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"capacidad",
+        		lv_capacidad_3_0, 
+        		"INT");
+	    }
+
+)
+)(	otherlv_4='recursos {' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getAulaAccess().getRecursosKeyword_4_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAulaAccess().getRecursosRecursoParserRuleCall_4_1_0()); 
+	    }
+		lv_recursos_5_0=ruleRecurso		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAulaRule());
+	        }
+       		add(
+       			$current, 
+       			"recursos",
+        		lv_recursos_5_0, 
+        		"Recurso");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_6='}' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getAulaAccess().getRightCurlyBracketKeyword_4_2());
+    }
+)?)
+;
+
+
+
+
+
 // Entry rule entryRuleMateria
 entryRuleMateria returns [EObject current=null] 
 	:
@@ -535,7 +626,7 @@ ruleMateria returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_4='requiere:' 
+)(	otherlv_4='requiere {' 
     {
     	newLeafNode(otherlv_4, grammarAccess.getMateriaAccess().getRequiereKeyword_4_0());
     }
@@ -557,94 +648,11 @@ ruleMateria returns [EObject current=null]
 	    }
 
 )
-)+)?)
-;
-
-
-
-
-
-// Entry rule entryRuleAula
-entryRuleAula returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getAulaRule()); }
-	 iv_ruleAula=ruleAula 
-	 { $current=$iv_ruleAula.current; } 
-	 EOF 
-;
-
-// Rule Aula
-ruleAula returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-(	otherlv_0='aula' 
+)*	otherlv_6='}' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getAulaAccess().getAulaKeyword_0());
+    	newLeafNode(otherlv_6, grammarAccess.getMateriaAccess().getRightCurlyBracketKeyword_4_2());
     }
-(
-(
-		lv_name_1_0=RULE_ID
-		{
-			newLeafNode(lv_name_1_0, grammarAccess.getAulaAccess().getNameIDTerminalRuleCall_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getAulaRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_1_0, 
-        		"ID");
-	    }
-
-)
-)(	otherlv_2='recursos:' 
-    {
-    	newLeafNode(otherlv_2, grammarAccess.getAulaAccess().getRecursosKeyword_2_0());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getAulaAccess().getRecursosRecursoParserRuleCall_2_1_0()); 
-	    }
-		lv_recursos_3_0=ruleRecurso		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getAulaRule());
-	        }
-       		add(
-       			$current, 
-       			"recursos",
-        		lv_recursos_3_0, 
-        		"Recurso");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))?	otherlv_4='capacidad' 
-    {
-    	newLeafNode(otherlv_4, grammarAccess.getAulaAccess().getCapacidadKeyword_3());
-    }
-(
-(
-		lv_capacidad_5_0=RULE_INT
-		{
-			newLeafNode(lv_capacidad_5_0, grammarAccess.getAulaAccess().getCapacidadINTTerminalRuleCall_4_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getAulaRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"capacidad",
-        		lv_capacidad_5_0, 
-        		"INT");
-	    }
-
-)
-))
+)?)
 ;
 
 

@@ -28,17 +28,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dedicacion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Aula" eSuperTypes="#//ElementosSecundarios">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacidad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="recursos" upperBound="-1"
+        eType="#//Recurso" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Materia" eSuperTypes="#//ElementosPrimarios">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cargaHoraria" eType="#//CargaHoraria"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="recursos" upperBound="-1"
         eType="#//Recurso" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Aula" eSuperTypes="#//ElementosSecundarios">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="recursos" upperBound="-1"
-        eType="#//Recurso" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacidad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CargaHoraria">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cantHoras" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

@@ -28,8 +28,8 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.AulaImpl#getRecursos <em>Recursos</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.AulaImpl#getCapacidad <em>Capacidad</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.AulaImpl#getRecursos <em>Recursos</em>}</li>
  * </ul>
  * </p>
  *
@@ -37,16 +37,6 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso;
  */
 public class AulaImpl extends ElementosSecundariosImpl implements Aula
 {
-  /**
-   * The cached value of the '{@link #getRecursos() <em>Recursos</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRecursos()
-   * @generated
-   * @ordered
-   */
-  protected EList<Recurso> recursos;
-
   /**
    * The default value of the '{@link #getCapacidad() <em>Capacidad</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -68,6 +58,16 @@ public class AulaImpl extends ElementosSecundariosImpl implements Aula
   protected int capacidad = CAPACIDAD_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getRecursos() <em>Recursos</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRecursos()
+   * @generated
+   * @ordered
+   */
+  protected EList<Recurso> recursos;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -86,20 +86,6 @@ public class AulaImpl extends ElementosSecundariosImpl implements Aula
   protected EClass eStaticClass()
   {
     return PlanificadorDeMateriasDslPackage.Literals.AULA;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Recurso> getRecursos()
-  {
-    if (recursos == null)
-    {
-      recursos = new EObjectContainmentEList<Recurso>(Recurso.class, this, PlanificadorDeMateriasDslPackage.AULA__RECURSOS);
-    }
-    return recursos;
   }
 
   /**
@@ -130,6 +116,20 @@ public class AulaImpl extends ElementosSecundariosImpl implements Aula
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Recurso> getRecursos()
+  {
+    if (recursos == null)
+    {
+      recursos = new EObjectContainmentEList<Recurso>(Recurso.class, this, PlanificadorDeMateriasDslPackage.AULA__RECURSOS);
+    }
+    return recursos;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -151,10 +151,10 @@ public class AulaImpl extends ElementosSecundariosImpl implements Aula
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.AULA__RECURSOS:
-        return getRecursos();
       case PlanificadorDeMateriasDslPackage.AULA__CAPACIDAD:
         return getCapacidad();
+      case PlanificadorDeMateriasDslPackage.AULA__RECURSOS:
+        return getRecursos();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -170,12 +170,12 @@ public class AulaImpl extends ElementosSecundariosImpl implements Aula
   {
     switch (featureID)
     {
+      case PlanificadorDeMateriasDslPackage.AULA__CAPACIDAD:
+        setCapacidad((Integer)newValue);
+        return;
       case PlanificadorDeMateriasDslPackage.AULA__RECURSOS:
         getRecursos().clear();
         getRecursos().addAll((Collection<? extends Recurso>)newValue);
-        return;
-      case PlanificadorDeMateriasDslPackage.AULA__CAPACIDAD:
-        setCapacidad((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -191,11 +191,11 @@ public class AulaImpl extends ElementosSecundariosImpl implements Aula
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.AULA__RECURSOS:
-        getRecursos().clear();
-        return;
       case PlanificadorDeMateriasDslPackage.AULA__CAPACIDAD:
         setCapacidad(CAPACIDAD_EDEFAULT);
+        return;
+      case PlanificadorDeMateriasDslPackage.AULA__RECURSOS:
+        getRecursos().clear();
         return;
     }
     super.eUnset(featureID);
@@ -211,10 +211,10 @@ public class AulaImpl extends ElementosSecundariosImpl implements Aula
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.AULA__RECURSOS:
-        return recursos != null && !recursos.isEmpty();
       case PlanificadorDeMateriasDslPackage.AULA__CAPACIDAD:
         return capacidad != CAPACIDAD_EDEFAULT;
+      case PlanificadorDeMateriasDslPackage.AULA__RECURSOS:
+        return recursos != null && !recursos.isEmpty();
     }
     return super.eIsSet(featureID);
   }

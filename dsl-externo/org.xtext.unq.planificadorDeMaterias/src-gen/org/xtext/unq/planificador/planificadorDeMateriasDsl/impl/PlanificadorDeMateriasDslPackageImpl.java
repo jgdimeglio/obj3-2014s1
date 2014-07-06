@@ -89,14 +89,14 @@ public class PlanificadorDeMateriasDslPackageImpl extends EPackageImpl implement
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass materiaEClass = null;
+  private EClass aulaEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass aulaEClass = null;
+  private EClass materiaEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -445,6 +445,36 @@ public class PlanificadorDeMateriasDslPackageImpl extends EPackageImpl implement
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getAula()
+  {
+    return aulaEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAula_Capacidad()
+  {
+    return (EAttribute)aulaEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAula_Recursos()
+  {
+    return (EReference)aulaEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMateria()
   {
     return materiaEClass;
@@ -478,36 +508,6 @@ public class PlanificadorDeMateriasDslPackageImpl extends EPackageImpl implement
   public EReference getMateria_Recursos()
   {
     return (EReference)materiaEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getAula()
-  {
-    return aulaEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getAula_Recursos()
-  {
-    return (EReference)aulaEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAula_Capacidad()
-  {
-    return (EAttribute)aulaEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -882,14 +882,14 @@ public class PlanificadorDeMateriasDslPackageImpl extends EPackageImpl implement
 
     dedicacionEClass = createEClass(DEDICACION);
 
+    aulaEClass = createEClass(AULA);
+    createEAttribute(aulaEClass, AULA__CAPACIDAD);
+    createEReference(aulaEClass, AULA__RECURSOS);
+
     materiaEClass = createEClass(MATERIA);
     createEAttribute(materiaEClass, MATERIA__NAME);
     createEReference(materiaEClass, MATERIA__CARGA_HORARIA);
     createEReference(materiaEClass, MATERIA__RECURSOS);
-
-    aulaEClass = createEClass(AULA);
-    createEReference(aulaEClass, AULA__RECURSOS);
-    createEAttribute(aulaEClass, AULA__CAPACIDAD);
 
     cargaHorariaEClass = createEClass(CARGA_HORARIA);
     createEAttribute(cargaHorariaEClass, CARGA_HORARIA__CANT_HORAS);
@@ -971,8 +971,8 @@ public class PlanificadorDeMateriasDslPackageImpl extends EPackageImpl implement
 
     // Add supertypes to classes
     profesorEClass.getESuperTypes().add(this.getElementosPrimarios());
-    materiaEClass.getESuperTypes().add(this.getElementosPrimarios());
     aulaEClass.getESuperTypes().add(this.getElementosSecundarios());
+    materiaEClass.getESuperTypes().add(this.getElementosPrimarios());
     asignacionEClass.getESuperTypes().add(this.getElementosPrimarios());
     recursoEClass.getESuperTypes().add(this.getElementosSecundarios());
     simpleEClass.getESuperTypes().add(this.getDedicacion());
@@ -1008,14 +1008,14 @@ public class PlanificadorDeMateriasDslPackageImpl extends EPackageImpl implement
 
     initEClass(dedicacionEClass, Dedicacion.class, "Dedicacion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(aulaEClass, Aula.class, "Aula", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAula_Capacidad(), ecorePackage.getEInt(), "capacidad", null, 0, 1, Aula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAula_Recursos(), this.getRecurso(), null, "recursos", null, 0, -1, Aula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(materiaEClass, Materia.class, "Materia", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMateria_Name(), ecorePackage.getEString(), "name", null, 0, 1, Materia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMateria_CargaHoraria(), this.getCargaHoraria(), null, "cargaHoraria", null, 0, 1, Materia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMateria_Recursos(), this.getRecurso(), null, "recursos", null, 0, -1, Materia.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(aulaEClass, Aula.class, "Aula", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAula_Recursos(), this.getRecurso(), null, "recursos", null, 0, -1, Aula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAula_Capacidad(), ecorePackage.getEInt(), "capacidad", null, 0, 1, Aula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(cargaHorariaEClass, CargaHoraria.class, "CargaHoraria", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCargaHoraria_CantHoras(), ecorePackage.getEInt(), "cantHoras", null, 0, 1, CargaHoraria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

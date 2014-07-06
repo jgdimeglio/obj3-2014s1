@@ -31,15 +31,17 @@ Dedicacion:
 	{SEMI} 'Semi' |
 	{EXCLUSIVA} 'Exclusiva';
 
+Aula:
+	'aula' name=ID
+	'capacidad' capacidad=INT
+	('recursos {' (recursos+=Recurso)* '}')?
+;
+
 Materia:
 	'materia' name=ID
 	'con' cargaHoraria=CargaHoraria
-	('requiere:' (recursos+=Recurso)+)?;
-
-Aula:
-	'aula' name=ID
-	(('recursos:' recursos+=Recurso)*)?
-	'capacidad' capacidad=INT;
+	('requiere {' (recursos+=Recurso)* '}')?
+;
 
 CargaHoraria:
 	'horas semanales' cantHoras=INT

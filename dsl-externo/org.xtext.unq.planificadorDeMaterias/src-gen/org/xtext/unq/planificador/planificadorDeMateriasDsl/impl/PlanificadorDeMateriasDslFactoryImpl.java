@@ -70,8 +70,8 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
       case PlanificadorDeMateriasDslPackage.PROFESOR: return createProfesor();
       case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD: return createDisponibilidad();
       case PlanificadorDeMateriasDslPackage.DEDICACION: return createDedicacion();
-      case PlanificadorDeMateriasDslPackage.MATERIA: return createMateria();
       case PlanificadorDeMateriasDslPackage.AULA: return createAula();
+      case PlanificadorDeMateriasDslPackage.MATERIA: return createMateria();
       case PlanificadorDeMateriasDslPackage.CARGA_HORARIA: return createCargaHoraria();
       case PlanificadorDeMateriasDslPackage.HORARIO: return createHorario();
       case PlanificadorDeMateriasDslPackage.SEMESTRE: return createSemestre();
@@ -165,10 +165,10 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public Materia createMateria()
+  public Aula createAula()
   {
-    MateriaImpl materia = new MateriaImpl();
-    return materia;
+    AulaImpl aula = new AulaImpl();
+    return aula;
   }
 
   /**
@@ -176,10 +176,10 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public Aula createAula()
+  public Materia createMateria()
   {
-    AulaImpl aula = new AulaImpl();
-    return aula;
+    MateriaImpl materia = new MateriaImpl();
+    return materia;
   }
 
   /**

@@ -115,19 +115,19 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PlanificadorDeMateriasDslPackage.MATERIA:
-      {
-        Materia materia = (Materia)theEObject;
-        T result = caseMateria(materia);
-        if (result == null) result = caseElementosPrimarios(materia);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case PlanificadorDeMateriasDslPackage.AULA:
       {
         Aula aula = (Aula)theEObject;
         T result = caseAula(aula);
         if (result == null) result = caseElementosSecundarios(aula);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PlanificadorDeMateriasDslPackage.MATERIA:
+      {
+        Materia materia = (Materia)theEObject;
+        T result = caseMateria(materia);
+        if (result == null) result = caseElementosPrimarios(materia);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -362,22 +362,6 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Materia</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Materia</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMateria(Materia object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Aula</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -389,6 +373,22 @@ public class PlanificadorDeMateriasDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAula(Aula object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Materia</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Materia</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMateria(Materia object)
   {
     return null;
   }

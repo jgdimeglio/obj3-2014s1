@@ -105,14 +105,14 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
         return createDedicacionAdapter();
       }
       @Override
-      public Adapter caseMateria(Materia object)
-      {
-        return createMateriaAdapter();
-      }
-      @Override
       public Adapter caseAula(Aula object)
       {
         return createAulaAdapter();
+      }
+      @Override
+      public Adapter caseMateria(Materia object)
+      {
+        return createMateriaAdapter();
       }
       @Override
       public Adapter caseCargaHoraria(CargaHoraria object)
@@ -312,21 +312,6 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia <em>Materia</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
-   * @generated
-   */
-  public Adapter createMateriaAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula <em>Aula</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -337,6 +322,21 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAulaAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia <em>Materia</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
+   * @generated
+   */
+  public Adapter createMateriaAdapter()
   {
     return null;
   }

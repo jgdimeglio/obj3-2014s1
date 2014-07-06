@@ -15,6 +15,7 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -24,9 +25,6 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso
  */
 class PdmValidator extends AbstractPdmValidator {
 
-	@Check
-	def validateHorario(Model m) {
-	}
 
 	def esHorarioValido(Horario horario) {
 		if (horario.desde < 0 || horario.desde > 24) {
@@ -56,6 +54,26 @@ class PdmValidator extends AbstractPdmValidator {
 	}
 
 	@Check
+	def validateAulasRepetidas(Model m){
+		val aulas = m.elementosSecundarios.filter(Aula)
+		aulas.forEach[aula |
+			estaRepetidaElAula(aula, aulas)
+		]
+	}
+
+	def estaRepetidaElAula(Aula aula, Iterable<Aula> aulas){
+		var count = 0
+		for(Aula a : aulas){
+			if(aula.name.equals(a.name)){
+				count = count + 1
+			}
+		}
+		if (count >= 2) {
+			error("Aula repetida", aula, PlanificadorDeMateriasDslPackage.Literals.AULA__CAPACIDAD)
+		}
+	}
+
+	@Check
 	def validateMateriasRepetidas(Model m) {
 		val materias = m.elementosPrimarios.filter(Materia)
 		materias.forEach[materia|estaRepetidaLaMateria(materia, materias)]
@@ -71,39 +89,6 @@ class PdmValidator extends AbstractPdmValidator {
 		if (count >= 2) {
 			error("Materia repetida", materia, PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME)
 		}
-	}
-
-	@Check
-	def validateTieneLosRecursosNecesarios(Planificacion p) {
-		var model = p.eContainer as Model
-		for (Materia m : model.elementosPrimarios.filter(Materia)) {
-			if (m.tieneRecursos) {
-				m.verificarRecursosEnMateria(p.asignaciones)
-			}
-		}
-	}
-
-	def verificarRecursosEnMateria(Materia m, List<Asignacion> asignaciones) {
-		asignaciones.forEach [ a |
-			if (a.materia.name.equals(m.name)) {
-				a.aulaHorarios.forEach [ aulaHorario |
-					m.tieneLosRecursosNecesarios(aulaHorario.aula.recursos)
-				]
-			}
-		]
-	}
-
-	def tieneLosRecursosNecesarios(Materia m, List<Recurso> recursos) {
-		recursos.forEach [ r |
-			if (!m.recursos.exists[rec|rec.name.equals(r.name)]) {
-				error("La materia esta siendo asignada sin los recursos necesarios", m,
-					PlanificadorDeMateriasDslPackage.Literals.MATERIA__NAME)
-			}
-		]
-	}
-
-	def tieneRecursos(Materia m) {
-		m.recursos.size > 0
 	}
 
 	@Check
@@ -262,6 +247,23 @@ class PdmValidator extends AbstractPdmValidator {
 			asignacion.aulaHorarios.forEach[aulaHorario |
 				if(aulaHorario.aula.capacidad < asignacion.inscriptos){
 					error('''El aula no tiene la capacidad («aulaHorario.aula.capacidad») necesaria para «asignacion.inscriptos» inscriptos''', asignacion, PlanificadorDeMateriasDslPackage.Literals.ASIGNACION__INSCRIPTOS)
+				}
+			]
+		]
+	}
+	
+	@Check
+	def validateRecursos(Planificacion planificacion){
+		planificacion.asignaciones.forEach[asignacion |
+			tieneLosRecursosNecesarios(asignacion.materia, asignacion.aulaHorarios)
+		]
+	}
+
+	def tieneLosRecursosNecesarios(Materia materia, List<AulaHorario> aulaHorarios){
+		materia.recursos.forEach[recurso | 
+			aulaHorarios.forEach[aHorario |
+				if(!(aHorario.aula.recursos.exists[rec | rec.name.equals(recurso.name)])){
+					error("El aula no tiene los recursos necesarios para la materia", aHorario, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__AULA)
 				}
 			]
 		]

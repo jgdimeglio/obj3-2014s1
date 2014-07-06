@@ -28,14 +28,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Disponibilidad/fin"/>
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Dedicacion"/>
+    <genClasses ecoreClass="Pdm.ecore#//Aula">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Aula/capacidad"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Aula/recursos"/>
+    </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Materia">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Materia/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Materia/cargaHoraria"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Materia/recursos"/>
-    </genClasses>
-    <genClasses ecoreClass="Pdm.ecore#//Aula">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Aula/recursos"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Aula/capacidad"/>
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//CargaHoraria">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//CargaHoraria/cantHoras"/>

@@ -77,15 +77,6 @@ public interface PlanificadorDeMateriasDslFactory extends EFactory
   Dedicacion createDedicacion();
 
   /**
-   * Returns a new object of class '<em>Materia</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Materia</em>'.
-   * @generated
-   */
-  Materia createMateria();
-
-  /**
    * Returns a new object of class '<em>Aula</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -93,6 +84,15 @@ public interface PlanificadorDeMateriasDslFactory extends EFactory
    * @generated
    */
   Aula createAula();
+
+  /**
+   * Returns a new object of class '<em>Materia</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Materia</em>'.
+   * @generated
+   */
+  Materia createMateria();
 
   /**
    * Returns a new object of class '<em>Carga Horaria</em>'.
