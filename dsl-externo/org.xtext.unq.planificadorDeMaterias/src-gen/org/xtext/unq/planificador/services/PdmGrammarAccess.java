@@ -563,21 +563,26 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cMateriaAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cMateriaMateriaCrossReference_0_0 = (CrossReference)cMateriaAssignment_0.eContents().get(0);
 		private final RuleCall cMateriaMateriaIDTerminalRuleCall_0_0_1 = (RuleCall)cMateriaMateriaCrossReference_0_0.eContents().get(1);
-		private final Keyword cLaDictaKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cProfesoresAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cProfesoresProfesorCrossReference_2_0 = (CrossReference)cProfesoresAssignment_2.eContents().get(0);
-		private final RuleCall cProfesoresProfesorIDTerminalRuleCall_2_0_1 = (RuleCall)cProfesoresProfesorCrossReference_2_0.eContents().get(1);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cSeDictaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cAulaHorariosAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cAulaHorariosAulaHorarioParserRuleCall_3_1_0 = (RuleCall)cAulaHorariosAssignment_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Keyword cInscriptosKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cInscriptosAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cInscriptosINTTerminalRuleCall_2_0 = (RuleCall)cInscriptosAssignment_2.eContents().get(0);
+		private final Keyword cLaDictaKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cProfesoresAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cProfesoresProfesorCrossReference_4_0 = (CrossReference)cProfesoresAssignment_4.eContents().get(0);
+		private final RuleCall cProfesoresProfesorIDTerminalRuleCall_4_0_1 = (RuleCall)cProfesoresProfesorCrossReference_4_0.eContents().get(1);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cSeDictaKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cAulaHorariosAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cAulaHorariosAulaHorarioParserRuleCall_5_1_0 = (RuleCall)cAulaHorariosAssignment_5_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
 		
 		//Asignacion:
-		//	materia=[Materia] "la dicta" profesores+=[Profesor]+ ("se dicta {" aulaHorarios+=AulaHorario+ "}");
+		//	materia=[Materia] "inscriptos" inscriptos=INT "la dicta" profesores+=[Profesor]+ ("se dicta {"
+		//	aulaHorarios+=AulaHorario+ "}");
 		public ParserRule getRule() { return rule; }
 
-		//materia=[Materia] "la dicta" profesores+=[Profesor]+ ("se dicta {" aulaHorarios+=AulaHorario+ "}")
+		//materia=[Materia] "inscriptos" inscriptos=INT "la dicta" profesores+=[Profesor]+ ("se dicta {"
+		//aulaHorarios+=AulaHorario+ "}")
 		public Group getGroup() { return cGroup; }
 
 		//materia=[Materia]
@@ -589,32 +594,41 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getMateriaMateriaIDTerminalRuleCall_0_0_1() { return cMateriaMateriaIDTerminalRuleCall_0_0_1; }
 
+		//"inscriptos"
+		public Keyword getInscriptosKeyword_1() { return cInscriptosKeyword_1; }
+
+		//inscriptos=INT
+		public Assignment getInscriptosAssignment_2() { return cInscriptosAssignment_2; }
+
+		//INT
+		public RuleCall getInscriptosINTTerminalRuleCall_2_0() { return cInscriptosINTTerminalRuleCall_2_0; }
+
 		//"la dicta"
-		public Keyword getLaDictaKeyword_1() { return cLaDictaKeyword_1; }
+		public Keyword getLaDictaKeyword_3() { return cLaDictaKeyword_3; }
 
 		//profesores+=[Profesor]+
-		public Assignment getProfesoresAssignment_2() { return cProfesoresAssignment_2; }
+		public Assignment getProfesoresAssignment_4() { return cProfesoresAssignment_4; }
 
 		//[Profesor]
-		public CrossReference getProfesoresProfesorCrossReference_2_0() { return cProfesoresProfesorCrossReference_2_0; }
+		public CrossReference getProfesoresProfesorCrossReference_4_0() { return cProfesoresProfesorCrossReference_4_0; }
 
 		//ID
-		public RuleCall getProfesoresProfesorIDTerminalRuleCall_2_0_1() { return cProfesoresProfesorIDTerminalRuleCall_2_0_1; }
+		public RuleCall getProfesoresProfesorIDTerminalRuleCall_4_0_1() { return cProfesoresProfesorIDTerminalRuleCall_4_0_1; }
 
 		//"se dicta {" aulaHorarios+=AulaHorario+ "}"
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_5() { return cGroup_5; }
 
 		//"se dicta {"
-		public Keyword getSeDictaKeyword_3_0() { return cSeDictaKeyword_3_0; }
+		public Keyword getSeDictaKeyword_5_0() { return cSeDictaKeyword_5_0; }
 
 		//aulaHorarios+=AulaHorario+
-		public Assignment getAulaHorariosAssignment_3_1() { return cAulaHorariosAssignment_3_1; }
+		public Assignment getAulaHorariosAssignment_5_1() { return cAulaHorariosAssignment_5_1; }
 
 		//AulaHorario
-		public RuleCall getAulaHorariosAulaHorarioParserRuleCall_3_1_0() { return cAulaHorariosAulaHorarioParserRuleCall_3_1_0; }
+		public RuleCall getAulaHorariosAulaHorarioParserRuleCall_5_1_0() { return cAulaHorariosAulaHorarioParserRuleCall_5_1_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_3_2() { return cRightCurlyBracketKeyword_3_2; }
+		public Keyword getRightCurlyBracketKeyword_5_2() { return cRightCurlyBracketKeyword_5_2; }
 	}
 
 	public class AulaHorarioElements extends AbstractParserRuleElementFinder {
@@ -919,7 +933,8 @@ public class PdmGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Asignacion:
-	//	materia=[Materia] "la dicta" profesores+=[Profesor]+ ("se dicta {" aulaHorarios+=AulaHorario+ "}");
+	//	materia=[Materia] "inscriptos" inscriptos=INT "la dicta" profesores+=[Profesor]+ ("se dicta {"
+	//	aulaHorarios+=AulaHorario+ "}");
 	public AsignacionElements getAsignacionAccess() {
 		return (pAsignacion != null) ? pAsignacion : (pAsignacion = new AsignacionElements());
 	}

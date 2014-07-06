@@ -951,9 +951,31 @@ ruleAsignacion returns [EObject current=null]
 	}
 
 )
-)	otherlv_1='la dicta' 
+)	otherlv_1='inscriptos' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getAsignacionAccess().getLaDictaKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getAsignacionAccess().getInscriptosKeyword_1());
+    }
+(
+(
+		lv_inscriptos_2_0=RULE_INT
+		{
+			newLeafNode(lv_inscriptos_2_0, grammarAccess.getAsignacionAccess().getInscriptosINTTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAsignacionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"inscriptos",
+        		lv_inscriptos_2_0, 
+        		"INT");
+	    }
+
+)
+)	otherlv_3='la dicta' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getAsignacionAccess().getLaDictaKeyword_3());
     }
 (
 (
@@ -962,37 +984,37 @@ ruleAsignacion returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getAsignacionRule());
 	        }
         }
-	otherlv_2=RULE_ID
+	otherlv_4=RULE_ID
 	{
-		newLeafNode(otherlv_2, grammarAccess.getAsignacionAccess().getProfesoresProfesorCrossReference_2_0()); 
+		newLeafNode(otherlv_4, grammarAccess.getAsignacionAccess().getProfesoresProfesorCrossReference_4_0()); 
 	}
 
 )
-)+(	otherlv_3='se dicta {' 
+)+(	otherlv_5='se dicta {' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getAsignacionAccess().getSeDictaKeyword_3_0());
+    	newLeafNode(otherlv_5, grammarAccess.getAsignacionAccess().getSeDictaKeyword_5_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAsignacionAccess().getAulaHorariosAulaHorarioParserRuleCall_3_1_0()); 
+	        newCompositeNode(grammarAccess.getAsignacionAccess().getAulaHorariosAulaHorarioParserRuleCall_5_1_0()); 
 	    }
-		lv_aulaHorarios_4_0=ruleAulaHorario		{
+		lv_aulaHorarios_6_0=ruleAulaHorario		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAsignacionRule());
 	        }
        		add(
        			$current, 
        			"aulaHorarios",
-        		lv_aulaHorarios_4_0, 
+        		lv_aulaHorarios_6_0, 
         		"AulaHorario");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+	otherlv_5='}' 
+)+	otherlv_7='}' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getAsignacionAccess().getRightCurlyBracketKeyword_3_2());
+    	newLeafNode(otherlv_7, grammarAccess.getAsignacionAccess().getRightCurlyBracketKeyword_5_2());
     }
 ))
 ;

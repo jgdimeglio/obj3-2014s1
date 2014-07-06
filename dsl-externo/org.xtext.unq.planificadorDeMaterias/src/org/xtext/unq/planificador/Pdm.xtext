@@ -60,7 +60,7 @@ Dia:
 	{Sabado} 'Sabado';
 
 Asignacion:
-	materia=[Materia] 'la dicta' profesores+=[Profesor]+
+	materia=[Materia] 'inscriptos' inscriptos=INT 'la dicta' profesores+=[Profesor]+
 	('se dicta {' aulaHorarios+=AulaHorario+ '}');
 
 AulaHorario:

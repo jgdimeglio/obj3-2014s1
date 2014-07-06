@@ -1318,7 +1318,7 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (materia=[Materia|ID] profesores+=[Profesor|ID]+ aulaHorarios+=AulaHorario+)
+	 *     (materia=[Materia|ID] inscriptos=INT profesores+=[Profesor|ID]+ aulaHorarios+=AulaHorario+)
 	 */
 	protected void sequence_Asignacion(EObject context, Asignacion semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

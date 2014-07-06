@@ -502,13 +502,22 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   int ASIGNACION__MATERIA = ELEMENTOS_PRIMARIOS_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Inscriptos</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASIGNACION__INSCRIPTOS = ELEMENTOS_PRIMARIOS_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Profesores</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASIGNACION__PROFESORES = ELEMENTOS_PRIMARIOS_FEATURE_COUNT + 1;
+  int ASIGNACION__PROFESORES = ELEMENTOS_PRIMARIOS_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Aula Horarios</b></em>' containment reference list.
@@ -517,7 +526,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASIGNACION__AULA_HORARIOS = ELEMENTOS_PRIMARIOS_FEATURE_COUNT + 2;
+  int ASIGNACION__AULA_HORARIOS = ELEMENTOS_PRIMARIOS_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Asignacion</em>' class.
@@ -526,7 +535,7 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASIGNACION_FEATURE_COUNT = ELEMENTOS_PRIMARIOS_FEATURE_COUNT + 3;
+  int ASIGNACION_FEATURE_COUNT = ELEMENTOS_PRIMARIOS_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.AulaHorarioImpl <em>Aula Horario</em>}' class.
@@ -1184,6 +1193,17 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
   EReference getAsignacion_Materia();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion#getInscriptos <em>Inscriptos</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Inscriptos</em>'.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion#getInscriptos()
+   * @see #getAsignacion()
+   * @generated
+   */
+  EAttribute getAsignacion_Inscriptos();
+
+  /**
    * Returns the meta object for the reference list '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion#getProfesores <em>Profesores</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1708,6 +1728,14 @@ public interface PlanificadorDeMateriasDslPackage extends EPackage
      * @generated
      */
     EReference ASIGNACION__MATERIA = eINSTANCE.getAsignacion_Materia();
+
+    /**
+     * The meta object literal for the '<em><b>Inscriptos</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASIGNACION__INSCRIPTOS = eINSTANCE.getAsignacion_Inscriptos();
 
     /**
      * The meta object literal for the '<em><b>Profesores</b></em>' reference list feature.

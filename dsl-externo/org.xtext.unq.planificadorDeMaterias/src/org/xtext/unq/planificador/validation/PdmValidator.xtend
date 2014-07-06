@@ -255,6 +255,17 @@ class PdmValidator extends AbstractPdmValidator {
 		}
 		horas
 	}
+	
+	@Check
+	def validateCantidadInscriptos(Planificacion p){
+		p.asignaciones.forEach[asignacion |
+			asignacion.aulaHorarios.forEach[aulaHorario |
+				if(aulaHorario.aula.capacidad < asignacion.inscriptos){
+					error('''El aula no tiene la capacidad («aulaHorario.aula.capacidad») necesaria para «asignacion.inscriptos» inscriptos''', asignacion, PlanificadorDeMateriasDslPackage.Literals.ASIGNACION__INSCRIPTOS)
+				}
+			]
+		]
+	}
 }
 
 

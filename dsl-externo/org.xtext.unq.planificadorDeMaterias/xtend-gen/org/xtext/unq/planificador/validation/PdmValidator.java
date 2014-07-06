@@ -577,4 +577,36 @@ public class PdmValidator extends AbstractPdmValidator {
     }
     return _xblockexpression;
   }
+  
+  @Check
+  public void validateCantidadInscriptos(final Planificacion p) {
+    EList<Asignacion> _asignaciones = p.getAsignaciones();
+    final Procedure1<Asignacion> _function = new Procedure1<Asignacion>() {
+      public void apply(final Asignacion asignacion) {
+        EList<AulaHorario> _aulaHorarios = asignacion.getAulaHorarios();
+        final Procedure1<AulaHorario> _function = new Procedure1<AulaHorario>() {
+          public void apply(final AulaHorario aulaHorario) {
+            Aula _aula = aulaHorario.getAula();
+            int _capacidad = _aula.getCapacidad();
+            int _inscriptos = asignacion.getInscriptos();
+            boolean _lessThan = (_capacidad < _inscriptos);
+            if (_lessThan) {
+              StringConcatenation _builder = new StringConcatenation();
+              _builder.append("El aula no tiene la capacidad (");
+              Aula _aula_1 = aulaHorario.getAula();
+              int _capacidad_1 = _aula_1.getCapacidad();
+              _builder.append(_capacidad_1, "");
+              _builder.append(") necesaria para ");
+              int _inscriptos_1 = asignacion.getInscriptos();
+              _builder.append(_inscriptos_1, "");
+              _builder.append(" inscriptos");
+              PdmValidator.this.error(_builder.toString(), asignacion, PlanificadorDeMateriasDslPackage.Literals.ASIGNACION__INSCRIPTOS);
+            }
+          }
+        };
+        IterableExtensions.<AulaHorario>forEach(_aulaHorarios, _function);
+      }
+    };
+    IterableExtensions.<Asignacion>forEach(_asignaciones, _function);
+  }
 }

@@ -55,6 +55,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Dia"/>
   <eClassifiers xsi:type="ecore:EClass" name="Asignacion" eSuperTypes="#//ElementosPrimarios">
     <eStructuralFeatures xsi:type="ecore:EReference" name="materia" eType="#//Materia"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inscriptos" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profesores" unique="false"
         upperBound="-1" eType="#//Profesor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="aulaHorarios" upperBound="-1"

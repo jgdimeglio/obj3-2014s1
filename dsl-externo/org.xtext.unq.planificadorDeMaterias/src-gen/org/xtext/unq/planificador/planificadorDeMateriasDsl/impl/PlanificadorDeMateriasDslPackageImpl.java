@@ -635,9 +635,19 @@ public class PlanificadorDeMateriasDslPackageImpl extends EPackageImpl implement
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getAsignacion_Inscriptos()
+  {
+    return (EAttribute)asignacionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getAsignacion_Profesores()
   {
-    return (EReference)asignacionEClass.getEStructuralFeatures().get(1);
+    return (EReference)asignacionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -647,7 +657,7 @@ public class PlanificadorDeMateriasDslPackageImpl extends EPackageImpl implement
    */
   public EReference getAsignacion_AulaHorarios()
   {
-    return (EReference)asignacionEClass.getEStructuralFeatures().get(2);
+    return (EReference)asignacionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -897,6 +907,7 @@ public class PlanificadorDeMateriasDslPackageImpl extends EPackageImpl implement
 
     asignacionEClass = createEClass(ASIGNACION);
     createEReference(asignacionEClass, ASIGNACION__MATERIA);
+    createEAttribute(asignacionEClass, ASIGNACION__INSCRIPTOS);
     createEReference(asignacionEClass, ASIGNACION__PROFESORES);
     createEReference(asignacionEClass, ASIGNACION__AULA_HORARIOS);
 
@@ -1022,6 +1033,7 @@ public class PlanificadorDeMateriasDslPackageImpl extends EPackageImpl implement
 
     initEClass(asignacionEClass, Asignacion.class, "Asignacion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAsignacion_Materia(), this.getMateria(), null, "materia", null, 0, 1, Asignacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAsignacion_Inscriptos(), ecorePackage.getEInt(), "inscriptos", null, 0, 1, Asignacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAsignacion_Profesores(), this.getProfesor(), null, "profesores", null, 0, -1, Asignacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAsignacion_AulaHorarios(), this.getAulaHorario(), null, "aulaHorarios", null, 0, -1, Asignacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

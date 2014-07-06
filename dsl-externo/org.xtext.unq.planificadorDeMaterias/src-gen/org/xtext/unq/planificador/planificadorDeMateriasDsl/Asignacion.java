@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion#getMateria <em>Materia</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion#getInscriptos <em>Inscriptos</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion#getProfesores <em>Profesores</em>}</li>
  *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion#getAulaHorarios <em>Aula Horarios</em>}</li>
  * </ul>
@@ -49,6 +50,32 @@ public interface Asignacion extends ElementosPrimarios
    * @generated
    */
   void setMateria(Materia value);
+
+  /**
+   * Returns the value of the '<em><b>Inscriptos</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Inscriptos</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Inscriptos</em>' attribute.
+   * @see #setInscriptos(int)
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage#getAsignacion_Inscriptos()
+   * @model
+   * @generated
+   */
+  int getInscriptos();
+
+  /**
+   * Sets the value of the '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion#getInscriptos <em>Inscriptos</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Inscriptos</em>' attribute.
+   * @see #getInscriptos()
+   * @generated
+   */
+  void setInscriptos(int value);
 
   /**
    * Returns the value of the '<em><b>Profesores</b></em>' reference list.

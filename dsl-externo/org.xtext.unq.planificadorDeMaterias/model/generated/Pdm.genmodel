@@ -52,6 +52,7 @@
     <genClasses ecoreClass="Pdm.ecore#//Dia"/>
     <genClasses ecoreClass="Pdm.ecore#//Asignacion">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pdm.ecore#//Asignacion/materia"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Asignacion/inscriptos"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Pdm.ecore#//Asignacion/profesores"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Asignacion/aulaHorarios"/>
     </genClasses>
