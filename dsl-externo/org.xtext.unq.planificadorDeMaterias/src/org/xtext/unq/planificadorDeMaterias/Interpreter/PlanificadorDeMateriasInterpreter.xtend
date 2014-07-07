@@ -136,7 +136,7 @@ class PlanificadorDeMateriasInterpreter {
 				for(AulaHorario ah : a.aulaHorarios){
 					if(ah.dia.eClass.name.equals(dia)){
 						var listMap = map.get(dia)
-						listMap.add(new HorarioPlanificacion(ah.horario.desde,ah.horario.hasta))
+						listMap = order(listMap,new HorarioPlanificacion(ah.horario.desde,ah.horario.hasta))//.add(new HorarioPlanificacion(ah.horario.desde,ah.horario.hasta))
 						map.put(dia,(listMap))
 					}
 				}
@@ -144,6 +144,28 @@ class PlanificadorDeMateriasInterpreter {
 			list = new ArrayList<HorarioPlanificacion>
 		}
 		map
+	}
+	
+	def order(ArrayList<HorarioPlanificacion> hs, HorarioPlanificacion h){
+		var ret = new ArrayList<HorarioPlanificacion>
+		if(hs.empty){
+			ret.add(h)
+		}else{
+		for(HorarioPlanificacion hora : hs){
+			if(h.inicio < hora.inicio){
+				if(hs.indexOf(hora) == 0){
+					ret.add(0,h)
+				}else{
+				ret.add(hs.indexOf(hora)-1,h)
+				ret.addAll(hs)
+				}
+			}else{
+				ret.add(hora)
+			}
+		}
+		
+		}
+		ret
 	}
 	
 	def init(){
@@ -157,53 +179,75 @@ class PlanificadorDeMateriasInterpreter {
 	def horariosDisponible(Planificacion p){
 		var horariosNoDisponiblesMap = new HashMap<String,ArrayList<HorarioPlanificacion>> 
 		horariosNoDisponiblesMap = horarios(p)
-		var modificar = false
-		var HorarioPlanificacion horaABorrar = new HorarioPlanificacion
-		var HorarioPlanificacion horaNueva1 = new HorarioPlanificacion
-		var HorarioPlanificacion horaNueva2 = new HorarioPlanificacion
 		for(String dia : dias){
-			var list = new ArrayList<HorarioPlanificacion>
+			var buffer = new ArrayList<HorarioPlanificacion>
+			var listaHorariosNoDisponibles = new ArrayList<HorarioPlanificacion>
 			var listaRet = new ArrayList<HorarioPlanificacion>
-			list = horariosNoDisponiblesMap.get(dia)
+			listaHorariosNoDisponibles = horariosNoDisponiblesMap.get(dia)
 			var hora = new HorarioPlanificacion(8,22)
 			listaRet.add(hora)
-			for(HorarioPlanificacion h : list){
+			for(HorarioPlanificacion h : listaHorariosNoDisponibles){
 				for(HorarioPlanificacion hp : listaRet){
-						if(h.inicio == hp.inicio){
-							var x = new HorarioPlanificacion(h.fin, hp.fin)
+					if(h.inicio == hp.inicio){
+						var x = new HorarioPlanificacion(h.fin, hp.fin)
+						hp.setInicio(x.inicio)
+						hp.setFin(x.fin)
+					}else{
+						if(h.fin == hp.fin){
+							var x = new HorarioPlanificacion(hp.inicio, h.inicio)
 							hp.setInicio(x.inicio)
 							hp.setFin(x.fin)
 						}else{
-							if(h.fin == hp.fin){
-								var x = new HorarioPlanificacion(hp.inicio, h.inicio)
-								hp.setInicio(x.inicio)
-								hp.setFin(x.fin)
+							if(h.estaEnElRango(hp)){
+								buffer.addAll(addInBuffer(hp,h))
 							}else{
-								if(h.estaEnElRango(hp)){
-									horaABorrar = hp 
-									horaNueva1 = new HorarioPlanificacion(hp.inicio,h.inicio)
-									horaNueva2 = new HorarioPlanificacion(h.fin,hp.fin)
-									modificar = true
-									}
+								var aux = superponer(h,hp)
+								hp.setInicio(aux.inicio)
+								hp.setFin(aux.fin)
 							}
 						}
+					}
 				}
-				if(modificar){
-					listaRet.remove(horaABorrar)
-					listaRet.add(horaNueva1)
-					listaRet.add(horaNueva2)
-					modificar = false
-				}
+				listaRet = changeBuffer(listaRet, buffer)
+				buffer = new ArrayList<HorarioPlanificacion>
 			}
 			horariosNoDisponiblesMap.put(dia,listaRet)
 		}
 		horariosNoDisponiblesMap
 	}
 	
+	def changeBuffer(ArrayList<HorarioPlanificacion> lista, ArrayList<HorarioPlanificacion> buffer){
+		var count = 0
+		while(count < buffer.size - 1){
+			lista.remove(buffer.get(count))
+			lista.add(buffer.get(count = count +1))
+			lista.add(buffer.get(count = count + 1))
+		}
+		lista
+	}
+	
+	def addInBuffer(HorarioPlanificacion hp, HorarioPlanificacion h){
+		var ret = new ArrayList<HorarioPlanificacion>
+		ret.add(hp)
+		ret.add(new HorarioPlanificacion(hp.inicio,h.inicio))
+		ret.add(new HorarioPlanificacion(h.fin,hp.fin))
+		ret
+	}
+	
 	def estaEnElRango(HorarioPlanificacion h,HorarioPlanificacion hp){
 		(hp.inicio < h.inicio && hp.fin > h.fin)
 	}
 	
+	def superponer(HorarioPlanificacion h, HorarioPlanificacion hp){
+		var ret = new HorarioPlanificacion
+		if(h.inicio < hp.inicio && (h.fin > hp.inicio && h.fin < hp.fin)){
+			ret.setInicio(h.fin)
+			ret.setFin(hp.fin)
+		}else{
+			ret = hp
+		}
+		ret
+	}
 	//************************************************************************************************
 	
 	//************************************************************************************************
