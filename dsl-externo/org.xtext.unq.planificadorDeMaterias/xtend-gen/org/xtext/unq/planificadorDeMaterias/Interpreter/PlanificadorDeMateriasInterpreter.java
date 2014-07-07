@@ -3,6 +3,7 @@ package org.xtext.unq.planificadorDeMaterias.Interpreter;
 import ExtensionMethods.ExtensionMethodsInterpreter;
 import com.google.common.collect.Maps;
 import com.google.inject.Injector;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -17,14 +18,19 @@ import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.xtext.unq.planificador.PdmStandaloneSetup;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor;
 
 @SuppressWarnings("all")
 public class PlanificadorDeMateriasInterpreter {
@@ -42,6 +48,9 @@ public class PlanificadorDeMateriasInterpreter {
     _planificadorDeMateriasInterpreter.interpret(model);
   }
   
+  /**
+   * Metodos del Interprete
+   */
   public static Model parse(final String fileName) {
     try {
       PdmStandaloneSetup _pdmStandaloneSetup = new PdmStandaloneSetup();
@@ -61,51 +70,121 @@ public class PlanificadorDeMateriasInterpreter {
     }
   }
   
-  public Object interpret(final Model m) {
-    Object _xblockexpression = null;
+  public void interpret(final Model m) {
+    this.aulaMasUtilizada(m);
+    this.horariosLibres(m);
+    this.porcentajeDeAsignacionesPorTurno(m);
+    this.profesoresYMaterias(m);
+  }
+  
+  /**
+   * Metodos de comportamiento del Interprete
+   */
+  public String aulaMasUtilizada(final Model m) {
+    String _xblockexpression = null;
     {
-      this.aulaMasUtilizada(m);
-      this.horariosLibres(m);
-      this.porcentajeDeAsignacionesPorTurno(m);
-      _xblockexpression = this.profesoresYMaterias(m);
+      HashMap<String, Integer> _generarMapDeOcurrenciasDeAulas = this.generarMapDeOcurrenciasDeAulas(m);
+      HashMap<String, Integer> _max = this.getMax(_generarMapDeOcurrenciasDeAulas);
+      Set<Map.Entry<String, Integer>> aulaConOcurrencias = _max.entrySet();
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Aula mas utilizada: ");
+      final Set<Map.Entry<String, Integer>> _converted_aulaConOcurrencias = (Set<Map.Entry<String, Integer>>)aulaConOcurrencias;
+      Map.Entry<String, Integer> _get = ((Map.Entry<String, Integer>[])Conversions.unwrapArray(_converted_aulaConOcurrencias, Map.Entry.class))[0];
+      String _key = _get.getKey();
+      _builder.append(_key, "");
+      _builder.append(", con ");
+      final Set<Map.Entry<String, Integer>> _converted_aulaConOcurrencias_1 = (Set<Map.Entry<String, Integer>>)aulaConOcurrencias;
+      Map.Entry<String, Integer> _get_1 = ((Map.Entry<String, Integer>[])Conversions.unwrapArray(_converted_aulaConOcurrencias_1, Map.Entry.class))[0];
+      Integer _value = _get_1.getValue();
+      _builder.append(_value, "");
+      _builder.append(" ocurrencias");
+      _xblockexpression = InputOutput.<String>println(_builder.toString());
     }
     return _xblockexpression;
   }
   
-  public void aulaMasUtilizada(final Model m) {
-    HashMap<String, Integer> _generarMapDeOcurrenciasDeAulas = this.generarMapDeOcurrenciasDeAulas(m);
-    HashMap<String, Integer> _max = this.getMax(_generarMapDeOcurrenciasDeAulas);
-    Set<Map.Entry<String, Integer>> aulaConOcurrencias = _max.entrySet();
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("Aula mas utilizada: ");
-    final Set<Map.Entry<String, Integer>> _converted_aulaConOcurrencias = (Set<Map.Entry<String, Integer>>)aulaConOcurrencias;
-    Map.Entry<String, Integer> _get = ((Map.Entry<String, Integer>[])Conversions.unwrapArray(_converted_aulaConOcurrencias, Map.Entry.class))[0];
-    String _key = _get.getKey();
-    _builder.append(_key, "");
-    _builder.append(", con ");
-    final Set<Map.Entry<String, Integer>> _converted_aulaConOcurrencias_1 = (Set<Map.Entry<String, Integer>>)aulaConOcurrencias;
-    Map.Entry<String, Integer> _get_1 = ((Map.Entry<String, Integer>[])Conversions.unwrapArray(_converted_aulaConOcurrencias_1, Map.Entry.class))[0];
-    Integer _value = _get_1.getValue();
-    _builder.append(_value, "");
-    _builder.append(" ocurrencias");
-    System.out.println(_builder);
+  public Object horariosLibres(final Model m) {
+    return null;
   }
   
-  public void horariosLibres(final Model m) {
+  public String porcentajeDeAsignacionesPorTurno(final Model m) {
+    String _xblockexpression = null;
+    {
+      final int mañana = this.porcentajeDeMateriasEn(m, 8, 13);
+      final int tarde = this.porcentajeDeMateriasEn(m, 13, 18);
+      final int noche = this.porcentajeDeMateriasEn(m, 18, 22);
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Turno Mañana: ");
+      _builder.append(mañana, "");
+      InputOutput.<String>println(_builder.toString());
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Turno Tarde : ");
+      _builder_1.append(tarde, "");
+      InputOutput.<String>println(_builder_1.toString());
+      StringConcatenation _builder_2 = new StringConcatenation();
+      _builder_2.append("Turno Noche : ");
+      _builder_2.append(noche, "");
+      _xblockexpression = InputOutput.<String>println(_builder_2.toString());
+    }
+    return _xblockexpression;
+  }
+  
+  public void profesoresYMaterias(final Model m) {
     EList<Planificacion> _planificacion = m.getPlanificacion();
     final Procedure1<Planificacion> _function = new Procedure1<Planificacion>() {
-      public void apply(final Planificacion planificacion) {
+      public void apply(final Planificacion p) {
+        PlanificadorDeMateriasInterpreter.this.mostrarTablaDeProfesoresYMaterias(p);
       }
     };
     IterableExtensions.<Planificacion>forEach(_planificacion, _function);
   }
   
-  public Object porcentajeDeAsignacionesPorTurno(final Model m) {
-    return null;
+  /**
+   * Metodos Privados
+   */
+  private ArrayList<Materia> materiasQueDicta(final Profesor profesor, final List<Asignacion> asignaciones) {
+    final ArrayList<Materia> materias = new ArrayList<Materia>();
+    Iterable<Asignacion> _asignacionesDelProfesor = this.asignacionesDelProfesor(profesor, asignaciones);
+    final Procedure1<Asignacion> _function = new Procedure1<Asignacion>() {
+      public void apply(final Asignacion a) {
+        Materia _materia = a.getMateria();
+        materias.add(_materia);
+      }
+    };
+    IterableExtensions.<Asignacion>forEach(_asignacionesDelProfesor, _function);
+    return materias;
   }
   
-  public Object profesoresYMaterias(final Model m) {
-    return null;
+  public void mostrarTablaDeProfesoresYMaterias(final Planificacion planificacion) {
+    List<Profesor> _profesores = this._extensionMethodsInterpreter.profesores(planificacion);
+    final Procedure1<Profesor> _function = new Procedure1<Profesor>() {
+      public void apply(final Profesor p) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("El Profesor: ");
+        String _name = p.getName();
+        _builder.append(_name, "");
+        _builder.append(", dicta: ");
+        EList<Asignacion> _asignaciones = planificacion.getAsignaciones();
+        ArrayList<Materia> _materiasQueDicta = PlanificadorDeMateriasInterpreter.this.materiasQueDicta(p, _asignaciones);
+        _builder.append(_materiasQueDicta, "");
+        InputOutput.<String>println(_builder.toString());
+      }
+    };
+    IterableExtensions.<Profesor>forEach(_profesores, _function);
+  }
+  
+  private boolean laDicta(final Asignacion asignacion, final Profesor profesor) {
+    EList<Profesor> _profesores = asignacion.getProfesores();
+    return _profesores.contains(profesor);
+  }
+  
+  private Iterable<Asignacion> asignacionesDelProfesor(final Profesor profesor, final List<Asignacion> asignaciones) {
+    final Function1<Asignacion, Boolean> _function = new Function1<Asignacion, Boolean>() {
+      public Boolean apply(final Asignacion a) {
+        return Boolean.valueOf(PlanificadorDeMateriasInterpreter.this.laDicta(a, profesor));
+      }
+    };
+    return IterableExtensions.<Asignacion>filter(asignaciones, _function);
   }
   
   private HashMap<String, Integer> getMax(final Map<String, Integer> aulas) {
@@ -186,5 +265,53 @@ public class PlanificadorDeMateriasInterpreter {
     };
     IterableExtensions.<Planificacion>forEach(_planificacion, _function);
     return aulas;
+  }
+  
+  private int cantidadDeMateriasAsignadasEn(final Model m, final int inicio, final int fin) {
+    Iterable<Asignacion> _asignaciones = this._extensionMethodsInterpreter.asignaciones(m);
+    final Function1<Asignacion, Boolean> _function = new Function1<Asignacion, Boolean>() {
+      public Boolean apply(final Asignacion a) {
+        EList<AulaHorario> _aulaHorarios = a.getAulaHorarios();
+        return Boolean.valueOf(PlanificadorDeMateriasInterpreter.this.hayAlMenosUnaMateriaAsignadaEn(_aulaHorarios, inicio, fin));
+      }
+    };
+    final Iterable<Asignacion> materiasAsignadas = IterableExtensions.<Asignacion>filter(_asignaciones, _function);
+    return IterableExtensions.size(materiasAsignadas);
+  }
+  
+  private boolean hayAlMenosUnaMateriaAsignadaEn(final List<AulaHorario> ah, final int inicio, final int fin) {
+    final Function1<AulaHorario, Boolean> _function = new Function1<AulaHorario, Boolean>() {
+      public Boolean apply(final AulaHorario x) {
+        boolean _and = false;
+        Horario _horario = x.getHorario();
+        int _desde = _horario.getDesde();
+        boolean _greaterEqualsThan = (_desde >= inicio);
+        if (!_greaterEqualsThan) {
+          _and = false;
+        } else {
+          Horario _horario_1 = x.getHorario();
+          int _hasta = _horario_1.getHasta();
+          boolean _lessEqualsThan = (_hasta <= fin);
+          _and = _lessEqualsThan;
+        }
+        return Boolean.valueOf(_and);
+      }
+    };
+    final Iterable<AulaHorario> x = IterableExtensions.<AulaHorario>filter(ah, _function);
+    int _size = IterableExtensions.size(x);
+    return (_size > 0);
+  }
+  
+  private int cantidadDeMateriasAsignadas(final Model m) {
+    Iterable<Materia> _materias = this._extensionMethodsInterpreter.materias(m);
+    Set<Materia> _set = IterableExtensions.<Materia>toSet(_materias);
+    return _set.size();
+  }
+  
+  private int porcentajeDeMateriasEn(final Model m, final int inicio, final int fin) {
+    int _cantidadDeMateriasAsignadasEn = this.cantidadDeMateriasAsignadasEn(m, inicio, fin);
+    int _cantidadDeMateriasAsignadas = this.cantidadDeMateriasAsignadas(m);
+    int _multiply = (_cantidadDeMateriasAsignadasEn * _cantidadDeMateriasAsignadas);
+    return (_multiply / 100);
   }
 }

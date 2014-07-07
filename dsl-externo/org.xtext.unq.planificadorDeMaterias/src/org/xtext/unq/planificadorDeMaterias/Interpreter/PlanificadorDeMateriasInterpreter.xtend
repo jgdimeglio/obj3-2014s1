@@ -8,6 +8,13 @@ import org.eclipse.emf.common.util.URI
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.xtext.unq.planificador.PdmStandaloneSetup
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario
+import java.util.List
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
+import java.util.ArrayList
 
 class PlanificadorDeMateriasInterpreter {
 	
@@ -21,6 +28,10 @@ class PlanificadorDeMateriasInterpreter {
 		new PlanificadorDeMateriasInterpreter().interpret(model)
 	}
 	
+	/*
+	 * Metodos del Interprete
+	 */
+	 
 	def static parse(String fileName){
 		val injector = new PdmStandaloneSetup().createInjectorAndDoEMFRegistration()
 		val resourceSet = injector.getInstance(XtextResourceSet)
@@ -36,25 +47,65 @@ class PlanificadorDeMateriasInterpreter {
 		this.profesoresYMaterias(m)
 	}
 	
+	/*
+	 * Metodos de comportamiento del Interprete
+	 */
+	 
+	// Busca el aula mas utilizada
 	def aulaMasUtilizada(Model m){
 		var aulaConOcurrencias = this.getMax(generarMapDeOcurrenciasDeAulas(m)).entrySet
-		System.out.println('''Aula mas utilizada: «aulaConOcurrencias.get(0).key», con «aulaConOcurrencias.get(0).value» ocurrencias''')
+		println('''Aula mas utilizada: «aulaConOcurrencias.get(0).key», con «aulaConOcurrencias.get(0).value» ocurrencias''')
 	}
 	
-
-	
+	// Genera una lista con los horarios libres
 	def horariosLibres(Model m){
-		m.planificacion.forEach[planificacion |
-			
+		
+		
+	}
+	
+	// Genera una tabla de Turno -> Porcentaje de materias que se dictan
+	def porcentajeDeAsignacionesPorTurno(Model m){
+		val mañana = porcentajeDeMateriasEn(m,8,13)
+		val tarde = porcentajeDeMateriasEn(m,13,18)
+		val noche = porcentajeDeMateriasEn(m,18,22)
+		println('''Turno Mañana: «mañana»''')
+		println('''Turno Tarde : «tarde»''')
+		println('''Turno Noche : «noche»''')
+	}
+	
+	// Genera una tabla de Profesores -> Materias que dicta
+	def profesoresYMaterias(Model m){
+		m.planificacion.forEach[p |
+			mostrarTablaDeProfesoresYMaterias(p)
 		]
 	}
 	
-	def porcentajeDeAsignacionesPorTurno(Model m){
+	/*
+	 * Metodos Privados
+	 */
+	 
+	def private materiasQueDicta(Profesor profesor, List<Asignacion> asignaciones){
+		val materias = new ArrayList<Materia>
 		
+		asignacionesDelProfesor(profesor,asignaciones).forEach[a | 
+			materias.add(a.materia)
+		]
+		
+		return materias
 	}
 	
-	def profesoresYMaterias(Model m){
-		
+	def mostrarTablaDeProfesoresYMaterias(Planificacion planificacion){
+		planificacion.profesores.forEach[p |
+			println('''El Profesor: «p.name», dicta: «materiasQueDicta(p,planificacion.asignaciones)»''')
+		]
+	}
+	
+	def private boolean laDicta(Asignacion asignacion,Profesor profesor){	
+		return asignacion.profesores.contains(profesor)
+	}
+	
+	def private asignacionesDelProfesor(Profesor profesor, List<Asignacion> asignaciones){
+		return asignaciones.filter[a | laDicta(a,profesor) ]
 	}
 	
 	def private getMax(Map<String,Integer> aulas){
@@ -101,4 +152,21 @@ class PlanificadorDeMateriasInterpreter {
 		return aulas
 	}
 
+	def private int cantidadDeMateriasAsignadasEn(Model m, int inicio, int fin){
+		val materiasAsignadas = m.asignaciones.filter[a | hayAlMenosUnaMateriaAsignadaEn(a.aulaHorarios,inicio,fin) ]
+		return materiasAsignadas.size
+	}
+	
+	def private boolean hayAlMenosUnaMateriaAsignadaEn(List<AulaHorario> ah, int inicio, int fin){
+		val x = ah.filter[x | x.horario.desde >= inicio && x.horario.hasta <= fin]
+		return x.size > 0
+	}
+	
+	def private int cantidadDeMateriasAsignadas(Model m){
+		return m.materias.toSet.size
+	}
+	
+	def private int porcentajeDeMateriasEn(Model m,int inicio,int fin){
+		return (cantidadDeMateriasAsignadasEn(m,inicio,fin) * cantidadDeMateriasAsignadas(m)) / 100
+	}
 }
