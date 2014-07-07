@@ -147,11 +147,32 @@ public class PlanificadorDeMateriasInterpreter {
     EList<Planificacion> planificaciones = m.getPlanificacion();
     final Procedure1<Planificacion> _function = new Procedure1<Planificacion>() {
       public void apply(final Planificacion planificacion) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("Horarios disponibles para la planificacion del ");
+        Semestre _semestre = planificacion.getSemestre();
+        int _anho = _semestre.getAnho();
+        _builder.append(_anho, "");
+        _builder.append(" semestre ");
+        Semestre _semestre_1 = planificacion.getSemestre();
+        int _numero = _semestre_1.getNumero();
+        _builder.append(_numero, "");
+        _builder.append(":");
+        InputOutput.<String>println(_builder.toString());
         HashMap<String, ArrayList<HorarioPlanificacion>> _horariosDisponible = PlanificadorDeMateriasInterpreter.this.horariosDisponible(planificacion);
         PlanificadorDeMateriasInterpreter.this.printMap(_horariosDisponible);
       }
     };
     IterableExtensions.<Planificacion>forEach(planificaciones, _function);
+  }
+  
+  public void profesoresYMaterias(final Model m) {
+    EList<Planificacion> _planificacion = m.getPlanificacion();
+    final Procedure1<Planificacion> _function = new Procedure1<Planificacion>() {
+      public void apply(final Planificacion p) {
+        PlanificadorDeMateriasInterpreter.this.mostrarTablaDeProfesoresYMaterias(p);
+      }
+    };
+    IterableExtensions.<Planificacion>forEach(_planificacion, _function);
   }
   
   public void printMap(final Map<String, ArrayList<HorarioPlanificacion>> map) {
@@ -231,26 +252,14 @@ public class PlanificadorDeMateriasInterpreter {
               String _name = _eClass.getName();
               boolean _equals = _name.equals(dia);
               if (_equals) {
-                boolean _containsKey = map.containsKey(dia);
-                boolean _not = (!_containsKey);
-                if (_not) {
-                  Horario _horario = ah.getHorario();
-                  int _desde = _horario.getDesde();
-                  Horario _horario_1 = ah.getHorario();
-                  int _hasta = _horario_1.getHasta();
-                  HorarioPlanificacion _horarioPlanificacion = new HorarioPlanificacion(_desde, _hasta);
-                  list.add(_horarioPlanificacion);
-                  map.put(dia, list);
-                } else {
-                  ArrayList<HorarioPlanificacion> listMap = map.get(dia);
-                  Horario _horario_2 = ah.getHorario();
-                  int _desde_1 = _horario_2.getDesde();
-                  Horario _horario_3 = ah.getHorario();
-                  int _hasta_1 = _horario_3.getHasta();
-                  HorarioPlanificacion _horarioPlanificacion_1 = new HorarioPlanificacion(_desde_1, _hasta_1);
-                  listMap.add(_horarioPlanificacion_1);
-                  map.put(dia, listMap);
-                }
+                ArrayList<HorarioPlanificacion> listMap = map.get(dia);
+                Horario _horario = ah.getHorario();
+                int _desde = _horario.getDesde();
+                Horario _horario_1 = ah.getHorario();
+                int _hasta = _horario_1.getHasta();
+                HorarioPlanificacion _horarioPlanificacion = new HorarioPlanificacion(_desde, _hasta);
+                listMap.add(_horarioPlanificacion);
+                map.put(dia, listMap);
               }
             }
           }
@@ -340,8 +349,7 @@ public class PlanificadorDeMateriasInterpreter {
                 }
               }
               if (modificar) {
-                ArrayList<HorarioPlanificacion> _remover = this.remover(listaRet, horaABorrar);
-                listaRet = _remover;
+                listaRet.remove(horaABorrar);
                 listaRet.add(horaNueva1);
                 listaRet.add(horaNueva2);
                 modificar = false;
@@ -352,32 +360,6 @@ public class PlanificadorDeMateriasInterpreter {
         }
       }
       _xblockexpression = horariosNoDisponiblesMap;
-    }
-    return _xblockexpression;
-  }
-  
-  public ArrayList<HorarioPlanificacion> remover(final ArrayList<HorarioPlanificacion> h, final HorarioPlanificacion hp) {
-    ArrayList<HorarioPlanificacion> _xblockexpression = null;
-    {
-      ArrayList<HorarioPlanificacion> ret = new ArrayList<HorarioPlanificacion>();
-      for (final HorarioPlanificacion horario : h) {
-        boolean _or = false;
-        int _inicio = horario.getInicio();
-        int _inicio_1 = hp.getInicio();
-        boolean _notEquals = (_inicio != _inicio_1);
-        if (_notEquals) {
-          _or = true;
-        } else {
-          int _fin = horario.getFin();
-          int _fin_1 = hp.getFin();
-          boolean _notEquals_1 = (_fin != _fin_1);
-          _or = _notEquals_1;
-        }
-        if (_or) {
-          ret.add(horario);
-        }
-      }
-      _xblockexpression = ret;
     }
     return _xblockexpression;
   }
@@ -398,14 +380,22 @@ public class PlanificadorDeMateriasInterpreter {
     return _and;
   }
   
-  public void profesoresYMaterias(final Model m) {
-    EList<Planificacion> _planificacion = m.getPlanificacion();
-    final Procedure1<Planificacion> _function = new Procedure1<Planificacion>() {
-      public void apply(final Planificacion p) {
-        PlanificadorDeMateriasInterpreter.this.mostrarTablaDeProfesoresYMaterias(p);
+  public void mostrarTablaDeProfesoresYMaterias(final Planificacion planificacion) {
+    List<Profesor> _profesores = this._extensionMethodsInterpreter.profesores(planificacion);
+    final Procedure1<Profesor> _function = new Procedure1<Profesor>() {
+      public void apply(final Profesor p) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("El Profesor: ");
+        String _name = p.getName();
+        _builder.append(_name, "");
+        _builder.append(", dicta: ");
+        EList<Asignacion> _asignaciones = planificacion.getAsignaciones();
+        ArrayList<String> _materiasQueDicta = PlanificadorDeMateriasInterpreter.this.materiasQueDicta(p, _asignaciones);
+        _builder.append(_materiasQueDicta, "");
+        InputOutput.<String>println(_builder.toString());
       }
     };
-    IterableExtensions.<Planificacion>forEach(_planificacion, _function);
+    IterableExtensions.<Profesor>forEach(_profesores, _function);
   }
   
   /**
@@ -423,24 +413,6 @@ public class PlanificadorDeMateriasInterpreter {
     };
     IterableExtensions.<Asignacion>forEach(_asignacionesDelProfesor, _function);
     return materias;
-  }
-  
-  public void mostrarTablaDeProfesoresYMaterias(final Planificacion planificacion) {
-    List<Profesor> _profesores = this._extensionMethodsInterpreter.profesores(planificacion);
-    final Procedure1<Profesor> _function = new Procedure1<Profesor>() {
-      public void apply(final Profesor p) {
-        StringConcatenation _builder = new StringConcatenation();
-        _builder.append("El Profesor: ");
-        String _name = p.getName();
-        _builder.append(_name, "");
-        _builder.append(", dicta: ");
-        EList<Asignacion> _asignaciones = planificacion.getAsignaciones();
-        ArrayList<String> _materiasQueDicta = PlanificadorDeMateriasInterpreter.this.materiasQueDicta(p, _asignaciones);
-        _builder.append(_materiasQueDicta, "");
-        InputOutput.<String>println(_builder.toString());
-      }
-    };
-    IterableExtensions.<Profesor>forEach(_profesores, _function);
   }
   
   private boolean laDicta(final Asignacion asignacion, final Profesor profesor) {

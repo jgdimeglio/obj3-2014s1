@@ -49,6 +49,7 @@ class PlanificadorDeMateriasInterpreter {
 		this.profesoresYMaterias(m)
 	}
 	
+	//*************************************************************************************************
 	/*
 	 * Metodos de comportamiento del Interprete
 	 */
@@ -78,14 +79,25 @@ class PlanificadorDeMateriasInterpreter {
 	def horariosLibres(Model m){
 		var planificaciones = m.planificacion
 		planificaciones.forEach[planificacion |
+			println('''Horarios disponibles para la planificacion del «planificacion.semestre.anho» semestre «planificacion.semestre.numero»:''')
 			printMap(horariosDisponible(planificacion))
 		]
 	}
 	
+	
+	// Genera una tabla de Profesores -> Materias que dicta
+	def profesoresYMaterias(Model m){
+		m.planificacion.forEach[p |
+			mostrarTablaDeProfesoresYMaterias(p)
+		]
+	}
+	//************************************************************************************************
+	
+	//************************************************************************************************
+	//                          Metodos de horarios libres
 	//************************************************************************************************
 	def printMap(Map<String,ArrayList<HorarioPlanificacion>> map){
 		for(String dia : dias){
-				//println('''«dia» : [«map.get(dia)»]''')
 			println('''«dia» : «stringHorarios(map,dia)»''')
 		}
 		println()
@@ -96,10 +108,10 @@ class PlanificadorDeMateriasInterpreter {
 		var list = map.get(dia)
 		if(!list.empty){
 			string = "["
-		for(HorarioPlanificacion h : list){
-			string = string + ''' («h.inicio»,«h.fin») '''
-		}
-		string = string + ''']'''
+			for(HorarioPlanificacion h : list){
+				string = string + ''' («h.inicio»,«h.fin») '''
+			}
+			string = string + ''']'''
 		}
 		string
 	}
@@ -123,15 +135,9 @@ class PlanificadorDeMateriasInterpreter {
 			for(Asignacion a : p.asignaciones){
 				for(AulaHorario ah : a.aulaHorarios){
 					if(ah.dia.eClass.name.equals(dia)){
-						if(!map.containsKey(dia)){
-							list.add(new HorarioPlanificacion(ah.horario.desde,ah.horario.hasta))
-							map.put(dia,list)
-						}
-						else{
-							var listMap = map.get(dia)
-							listMap.add(new HorarioPlanificacion(ah.horario.desde,ah.horario.hasta))
-							map.put(dia,(listMap))
-						}
+						var listMap = map.get(dia)
+						listMap.add(new HorarioPlanificacion(ah.horario.desde,ah.horario.hasta))
+						map.put(dia,(listMap))
 					}
 				}
 			}
@@ -183,7 +189,7 @@ class PlanificadorDeMateriasInterpreter {
 						}
 				}
 				if(modificar){
-					listaRet = remover(listaRet,horaABorrar)
+					listaRet.remove(horaABorrar)
 					listaRet.add(horaNueva1)
 					listaRet.add(horaNueva2)
 					modificar = false
@@ -194,26 +200,19 @@ class PlanificadorDeMateriasInterpreter {
 		horariosNoDisponiblesMap
 	}
 	
-	def remover(ArrayList<HorarioPlanificacion> h, HorarioPlanificacion hp){
-		var ret = new ArrayList<HorarioPlanificacion>
-		for(HorarioPlanificacion horario : h){
-			if(horario.inicio != hp.inicio || horario.fin != hp.fin){
-				ret.add(horario)
-			}
-		}
-		ret
-	}
-	
 	def estaEnElRango(HorarioPlanificacion h,HorarioPlanificacion hp){
 		(hp.inicio < h.inicio && hp.fin > h.fin)
 	}
 	
 	//************************************************************************************************
 	
-	// Genera una tabla de Profesores -> Materias que dicta
-	def profesoresYMaterias(Model m){
-		m.planificacion.forEach[p |
-			mostrarTablaDeProfesoresYMaterias(p)
+	//************************************************************************************************
+	//							Metodos de profesoresYMaterias 
+	//************************************************************************************************
+	
+	def mostrarTablaDeProfesoresYMaterias(Planificacion planificacion){
+		planificacion.profesores.forEach[p |
+			println('''El Profesor: «p.name», dicta: «materiasQueDicta(p,planificacion.asignaciones)»''')
 		]
 	}
 	
@@ -231,12 +230,6 @@ class PlanificadorDeMateriasInterpreter {
 		return materias
 	}
 	
-	def mostrarTablaDeProfesoresYMaterias(Planificacion planificacion){
-		planificacion.profesores.forEach[p |
-			println('''El Profesor: «p.name», dicta: «materiasQueDicta(p,planificacion.asignaciones)»''')
-		]
-	}
-	
 	def private boolean laDicta(Asignacion asignacion,Profesor profesor){	
 		return asignacion.profesores.contains(profesor)
 	}
@@ -244,7 +237,12 @@ class PlanificadorDeMateriasInterpreter {
 	def private asignacionesDelProfesor(Profesor profesor, List<Asignacion> asignaciones){
 		return asignaciones.filter[a | laDicta(a,profesor) ]
 	}
+	//************************************************************************************************
 	
+	
+	//************************************************************************************************
+	//							Metodos de aulaMasUtilizada
+	//************************************************************************************************
 	def private getMax(Map<String,Integer> aulas){
 		val aulasSet = aulas.entrySet
 		var String aulaIndex = ""
@@ -267,8 +265,6 @@ class PlanificadorDeMateriasInterpreter {
 		var ret = new HashMap<String,Integer>()
 		ret.put(aulaIndex,max)
 		return ret
-		//val l = aulas.entrySet.fold(null) [Entry<Aula,Integer> x,y | if(x.value > y.value) return x else return y]
-		//return l.key
 	}
 	
 	def private generarMapDeOcurrenciasDeAulas(Model  m){
@@ -288,7 +284,11 @@ class PlanificadorDeMateriasInterpreter {
 		]
 		return aulas
 	}
-
+	//************************************************************************************************
+	
+	//************************************************************************************************
+	//							Metodos de porcentaje de materias por turnos
+	//************************************************************************************************
 	def private int cantidadDeMateriasAsignadasEn(Planificacion p, int inicio, int fin){
 		val materiasAsignadas = p.asignaciones.filter[a | hayAlMenosUnaMateriaAsignadaEn(a.aulaHorarios,inicio,fin) ]
 		return materiasAsignadas.size
@@ -310,4 +310,5 @@ class PlanificadorDeMateriasInterpreter {
 	def private int porcentajeDeMateriasEn(Planificacion p,int inicio,int fin){
 		return (cantidadDeMateriasAsignadasEn(p,inicio,fin) * 100) / cantidadDeHorariosPorAsignaciones(p)
 	}
+	//************************************************************************************************
 }
