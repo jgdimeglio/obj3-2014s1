@@ -23,8 +23,12 @@ Profesor:
 	('disponibilidad' (disponibilidad=Disponibilidad))?;
 
 Disponibilidad:
-	('no puede' (dias+=Dia)*)?
-	('puede' (dias+=Dia)* 'de' inicio=INT 'a' fin=INT);
+	('no puede' (diasNoPuede+=Dia)*)?
+	'puede {' (diasHorario+=DiaHorario)+ '}';
+	
+DiaHorario:
+	diaPuede=Dia 'de' horario=Horario
+;
 
 Dedicacion:
 	{SIMPLE} 'Simple' |
