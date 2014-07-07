@@ -136,7 +136,7 @@ class PlanificadorDeMateriasInterpreter {
 				for(AulaHorario ah : a.aulaHorarios){
 					if(ah.dia.eClass.name.equals(dia)){
 						var listMap = map.get(dia)
-						listMap = order(listMap,new HorarioPlanificacion(ah.horario.desde,ah.horario.hasta))//.add(new HorarioPlanificacion(ah.horario.desde,ah.horario.hasta))
+						listMap.add(new HorarioPlanificacion(ah.horario.desde,ah.horario.hasta))//.add(new HorarioPlanificacion(ah.horario.desde,ah.horario.hasta))
 						map.put(dia,(listMap))
 					}
 				}
@@ -145,29 +145,30 @@ class PlanificadorDeMateriasInterpreter {
 		}
 		map
 	}
-	
-	def order(ArrayList<HorarioPlanificacion> hs, HorarioPlanificacion h){
-		var ret = new ArrayList<HorarioPlanificacion>
-		if(hs.empty){
-			ret.add(h)
-		}else{
-		for(HorarioPlanificacion hora : hs){
-			if(h.inicio < hora.inicio){
-				if(hs.indexOf(hora) == 0){
-					ret.add(0,h)
-				}else{
-				ret.add(hs.indexOf(hora)-1,h)
-				ret.addAll(hs)
-				}
-			}else{
-				ret.add(hora)
-			}
-		}
-		
-		}
-		ret
-	}
-	
+//	
+//	def order(ArrayList<HorarioPlanificacion> hs, HorarioPlanificacion h){
+//		var ret = new ArrayList<HorarioPlanificacion>
+//		if(hs.empty){
+//			ret.add(h)
+//		}else{
+//		for(HorarioPlanificacion hora : hs){
+//			if(h.inicio < hora.inicio){
+//				if(hs.indexOf(hora) == 0){
+//					ret.add(0,h)
+//				}else{
+//				ret.add(hs.indexOf(hora)-1,h)
+//				ret.addAll(hs)
+//				}
+//			}else{
+//				ret.add(hora)
+//				ret.add(h)
+//			}
+//		}
+//		
+//		}
+//		ret
+//	}
+//	
 	def init(){
 		var map = new HashMap<String,ArrayList<HorarioPlanificacion>>
 		for(String dia : dias){

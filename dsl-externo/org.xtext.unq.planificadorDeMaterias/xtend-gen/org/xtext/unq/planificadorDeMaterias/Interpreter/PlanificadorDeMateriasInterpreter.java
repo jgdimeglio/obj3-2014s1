@@ -258,8 +258,7 @@ public class PlanificadorDeMateriasInterpreter {
                 Horario _horario_1 = ah.getHorario();
                 int _hasta = _horario_1.getHasta();
                 HorarioPlanificacion _horarioPlanificacion = new HorarioPlanificacion(_desde, _hasta);
-                ArrayList<HorarioPlanificacion> _order = this.order(listMap, _horarioPlanificacion);
-                listMap = _order;
+                listMap.add(_horarioPlanificacion);
                 map.put(dia, listMap);
               }
             }
@@ -269,39 +268,6 @@ public class PlanificadorDeMateriasInterpreter {
         }
       }
       _xblockexpression = map;
-    }
-    return _xblockexpression;
-  }
-  
-  public ArrayList<HorarioPlanificacion> order(final ArrayList<HorarioPlanificacion> hs, final HorarioPlanificacion h) {
-    ArrayList<HorarioPlanificacion> _xblockexpression = null;
-    {
-      ArrayList<HorarioPlanificacion> ret = new ArrayList<HorarioPlanificacion>();
-      boolean _isEmpty = hs.isEmpty();
-      if (_isEmpty) {
-        ret.add(h);
-      } else {
-        for (final HorarioPlanificacion hora : hs) {
-          int _inicio = h.getInicio();
-          int _inicio_1 = hora.getInicio();
-          boolean _lessThan = (_inicio < _inicio_1);
-          if (_lessThan) {
-            int _indexOf = hs.indexOf(hora);
-            boolean _equals = (_indexOf == 0);
-            if (_equals) {
-              ret.add(0, h);
-            } else {
-              int _indexOf_1 = hs.indexOf(hora);
-              int _minus = (_indexOf_1 - 1);
-              ret.add(_minus, h);
-              ret.addAll(hs);
-            }
-          } else {
-            ret.add(hora);
-          }
-        }
-      }
-      _xblockexpression = ret;
     }
     return _xblockexpression;
   }
