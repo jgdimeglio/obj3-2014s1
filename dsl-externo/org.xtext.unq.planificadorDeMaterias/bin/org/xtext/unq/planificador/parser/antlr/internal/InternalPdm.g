@@ -336,88 +336,109 @@ ruleDisponibilidad returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDisponibilidadAccess().getDiasDiaParserRuleCall_0_1_0()); 
+	        newCompositeNode(grammarAccess.getDisponibilidadAccess().getDiasNoPuedeDiaParserRuleCall_0_1_0()); 
 	    }
-		lv_dias_1_0=ruleDia		{
+		lv_diasNoPuede_1_0=ruleDia		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDisponibilidadRule());
 	        }
        		add(
        			$current, 
-       			"dias",
-        		lv_dias_1_0, 
+       			"diasNoPuede",
+        		lv_diasNoPuede_1_0, 
         		"Dia");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*)?(	otherlv_2='puede' 
+)*)?	otherlv_2='puede {' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getDisponibilidadAccess().getPuedeKeyword_1_0());
+    	newLeafNode(otherlv_2, grammarAccess.getDisponibilidadAccess().getPuedeKeyword_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDisponibilidadAccess().getDiasDiaParserRuleCall_1_1_0()); 
+	        newCompositeNode(grammarAccess.getDisponibilidadAccess().getDiasHorarioDiaHorarioParserRuleCall_2_0()); 
 	    }
-		lv_dias_3_0=ruleDia		{
+		lv_diasHorario_3_0=ruleDiaHorario		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDisponibilidadRule());
 	        }
        		add(
        			$current, 
-       			"dias",
-        		lv_dias_3_0, 
+       			"diasHorario",
+        		lv_diasHorario_3_0, 
+        		"DiaHorario");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)+	otherlv_4='}' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getDisponibilidadAccess().getRightCurlyBracketKeyword_3());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleDiaHorario
+entryRuleDiaHorario returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getDiaHorarioRule()); }
+	 iv_ruleDiaHorario=ruleDiaHorario 
+	 { $current=$iv_ruleDiaHorario.current; } 
+	 EOF 
+;
+
+// Rule DiaHorario
+ruleDiaHorario returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDiaHorarioAccess().getDiaPuedeDiaParserRuleCall_0_0()); 
+	    }
+		lv_diaPuede_0_0=ruleDia		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDiaHorarioRule());
+	        }
+       		set(
+       			$current, 
+       			"diaPuede",
+        		lv_diaPuede_0_0, 
         		"Dia");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_4='de' 
+)	otherlv_1='de' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getDisponibilidadAccess().getDeKeyword_1_2());
+    	newLeafNode(otherlv_1, grammarAccess.getDiaHorarioAccess().getDeKeyword_1());
     }
 (
 (
-		lv_inicio_5_0=RULE_INT
-		{
-			newLeafNode(lv_inicio_5_0, grammarAccess.getDisponibilidadAccess().getInicioINTTerminalRuleCall_1_3_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getDiaHorarioAccess().getHorarioHorarioParserRuleCall_2_0()); 
+	    }
+		lv_horario_2_0=ruleHorario		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDisponibilidadRule());
+	            $current = createModelElementForParent(grammarAccess.getDiaHorarioRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
-       			"inicio",
-        		lv_inicio_5_0, 
-        		"INT");
+       			"horario",
+        		lv_horario_2_0, 
+        		"Horario");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_6='a' 
-    {
-    	newLeafNode(otherlv_6, grammarAccess.getDisponibilidadAccess().getAKeyword_1_4());
-    }
-(
-(
-		lv_fin_7_0=RULE_INT
-		{
-			newLeafNode(lv_fin_7_0, grammarAccess.getDisponibilidadAccess().getFinINTTerminalRuleCall_1_5_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDisponibilidadRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"fin",
-        		lv_fin_7_0, 
-        		"INT");
-	    }
-
-)
-)))
+))
 ;
 
 

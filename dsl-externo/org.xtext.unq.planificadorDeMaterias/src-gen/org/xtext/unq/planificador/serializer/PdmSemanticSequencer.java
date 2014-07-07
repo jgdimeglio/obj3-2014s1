@@ -61,6 +61,7 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.DiaHorario;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Disponibilidad;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.EXCLUSIVA;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario;
@@ -112,6 +113,12 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 			case PlanificadorDeMateriasDslPackage.CARGA_HORARIA:
 				if(context == grammarAccess.getCargaHorariaRule()) {
 					sequence_CargaHoraria(context, (CargaHoraria) semanticObject); 
+					return; 
+				}
+				else break;
+			case PlanificadorDeMateriasDslPackage.DIA_HORARIO:
+				if(context == grammarAccess.getDiaHorarioRule()) {
+					sequence_DiaHorario(context, (DiaHorario) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1404,6 +1411,25 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (diaPuede=Dia horario=Horario)
+	 */
+	protected void sequence_DiaHorario(EObject context, DiaHorario semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.DIA_HORARIO__DIA_PUEDE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.DIA_HORARIO__DIA_PUEDE));
+			if(transientValues.isValueTransient(semanticObject, PlanificadorDeMateriasDslPackage.Literals.DIA_HORARIO__HORARIO) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlanificadorDeMateriasDslPackage.Literals.DIA_HORARIO__HORARIO));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getDiaHorarioAccess().getDiaPuedeDiaParserRuleCall_0_0(), semanticObject.getDiaPuede());
+		feeder.accept(grammarAccess.getDiaHorarioAccess().getHorarioHorarioParserRuleCall_2_0(), semanticObject.getHorario());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     {Jueves}
 	 */
 	protected void sequence_Dia(EObject context, Jueves semanticObject) {
@@ -1458,7 +1484,7 @@ public class PdmSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (dias+=Dia* dias+=Dia* inicio=INT fin=INT)
+	 *     (diasNoPuede+=Dia* diasHorario+=DiaHorario+)
 	 */
 	protected void sequence_Disponibilidad(EObject context, Disponibilidad semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

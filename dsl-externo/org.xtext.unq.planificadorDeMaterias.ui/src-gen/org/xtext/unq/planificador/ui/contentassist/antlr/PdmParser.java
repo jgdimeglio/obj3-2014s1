@@ -85,7 +85,7 @@ public class PdmParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProfesorAccess().getGroup_4(), "rule__Profesor__Group_4__0");
 					put(grammarAccess.getDisponibilidadAccess().getGroup(), "rule__Disponibilidad__Group__0");
 					put(grammarAccess.getDisponibilidadAccess().getGroup_0(), "rule__Disponibilidad__Group_0__0");
-					put(grammarAccess.getDisponibilidadAccess().getGroup_1(), "rule__Disponibilidad__Group_1__0");
+					put(grammarAccess.getDiaHorarioAccess().getGroup(), "rule__DiaHorario__Group__0");
 					put(grammarAccess.getDedicacionAccess().getGroup_0(), "rule__Dedicacion__Group_0__0");
 					put(grammarAccess.getDedicacionAccess().getGroup_1(), "rule__Dedicacion__Group_1__0");
 					put(grammarAccess.getDedicacionAccess().getGroup_2(), "rule__Dedicacion__Group_2__0");
@@ -284,10 +284,10 @@ public class PdmParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProfesorAccess().getNameAssignment_1(), "rule__Profesor__NameAssignment_1");
 					put(grammarAccess.getProfesorAccess().getDedicacionAssignment_3(), "rule__Profesor__DedicacionAssignment_3");
 					put(grammarAccess.getProfesorAccess().getDisponibilidadAssignment_4_1(), "rule__Profesor__DisponibilidadAssignment_4_1");
-					put(grammarAccess.getDisponibilidadAccess().getDiasAssignment_0_1(), "rule__Disponibilidad__DiasAssignment_0_1");
-					put(grammarAccess.getDisponibilidadAccess().getDiasAssignment_1_1(), "rule__Disponibilidad__DiasAssignment_1_1");
-					put(grammarAccess.getDisponibilidadAccess().getInicioAssignment_1_3(), "rule__Disponibilidad__InicioAssignment_1_3");
-					put(grammarAccess.getDisponibilidadAccess().getFinAssignment_1_5(), "rule__Disponibilidad__FinAssignment_1_5");
+					put(grammarAccess.getDisponibilidadAccess().getDiasNoPuedeAssignment_0_1(), "rule__Disponibilidad__DiasNoPuedeAssignment_0_1");
+					put(grammarAccess.getDisponibilidadAccess().getDiasHorarioAssignment_2(), "rule__Disponibilidad__DiasHorarioAssignment_2");
+					put(grammarAccess.getDiaHorarioAccess().getDiaPuedeAssignment_0(), "rule__DiaHorario__DiaPuedeAssignment_0");
+					put(grammarAccess.getDiaHorarioAccess().getHorarioAssignment_2(), "rule__DiaHorario__HorarioAssignment_2");
 					put(grammarAccess.getAulaAccess().getNameAssignment_1(), "rule__Aula__NameAssignment_1");
 					put(grammarAccess.getAulaAccess().getCapacidadAssignment_3(), "rule__Aula__CapacidadAssignment_3");
 					put(grammarAccess.getAulaAccess().getRecursosAssignment_4_1(), "rule__Aula__RecursosAssignment_4_1");

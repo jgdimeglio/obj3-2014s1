@@ -4,7 +4,6 @@ package org.xtext.unq.planificador.planificadorDeMateriasDsl.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,13 +11,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dia;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.DiaHorario;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Disponibilidad;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage;
 
@@ -29,9 +28,8 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateri
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.DisponibilidadImpl#getDias <em>Dias</em>}</li>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.DisponibilidadImpl#getInicio <em>Inicio</em>}</li>
- *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.DisponibilidadImpl#getFin <em>Fin</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.DisponibilidadImpl#getDiasNoPuede <em>Dias No Puede</em>}</li>
+ *   <li>{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.impl.DisponibilidadImpl#getDiasHorario <em>Dias Horario</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,54 +38,24 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateri
 public class DisponibilidadImpl extends MinimalEObjectImpl.Container implements Disponibilidad
 {
   /**
-   * The cached value of the '{@link #getDias() <em>Dias</em>}' containment reference list.
+   * The cached value of the '{@link #getDiasNoPuede() <em>Dias No Puede</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDias()
+   * @see #getDiasNoPuede()
    * @generated
    * @ordered
    */
-  protected EList<Dia> dias;
+  protected EList<Dia> diasNoPuede;
 
   /**
-   * The default value of the '{@link #getInicio() <em>Inicio</em>}' attribute.
+   * The cached value of the '{@link #getDiasHorario() <em>Dias Horario</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInicio()
+   * @see #getDiasHorario()
    * @generated
    * @ordered
    */
-  protected static final int INICIO_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getInicio() <em>Inicio</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInicio()
-   * @generated
-   * @ordered
-   */
-  protected int inicio = INICIO_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getFin() <em>Fin</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFin()
-   * @generated
-   * @ordered
-   */
-  protected static final int FIN_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getFin() <em>Fin</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFin()
-   * @generated
-   * @ordered
-   */
-  protected int fin = FIN_EDEFAULT;
+  protected EList<DiaHorario> diasHorario;
 
   /**
    * <!-- begin-user-doc -->
@@ -115,13 +83,13 @@ public class DisponibilidadImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Dia> getDias()
+  public EList<Dia> getDiasNoPuede()
   {
-    if (dias == null)
+    if (diasNoPuede == null)
     {
-      dias = new EObjectContainmentEList<Dia>(Dia.class, this, PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS);
+      diasNoPuede = new EObjectContainmentEList<Dia>(Dia.class, this, PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS_NO_PUEDE);
     }
-    return dias;
+    return diasNoPuede;
   }
 
   /**
@@ -129,45 +97,13 @@ public class DisponibilidadImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getInicio()
+  public EList<DiaHorario> getDiasHorario()
   {
-    return inicio;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setInicio(int newInicio)
-  {
-    int oldInicio = inicio;
-    inicio = newInicio;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__INICIO, oldInicio, inicio));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public int getFin()
-  {
-    return fin;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFin(int newFin)
-  {
-    int oldFin = fin;
-    fin = newFin;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__FIN, oldFin, fin));
+    if (diasHorario == null)
+    {
+      diasHorario = new EObjectContainmentEList<DiaHorario>(DiaHorario.class, this, PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS_HORARIO);
+    }
+    return diasHorario;
   }
 
   /**
@@ -180,8 +116,10 @@ public class DisponibilidadImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS:
-        return ((InternalEList<?>)getDias()).basicRemove(otherEnd, msgs);
+      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS_NO_PUEDE:
+        return ((InternalEList<?>)getDiasNoPuede()).basicRemove(otherEnd, msgs);
+      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS_HORARIO:
+        return ((InternalEList<?>)getDiasHorario()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -196,12 +134,10 @@ public class DisponibilidadImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS:
-        return getDias();
-      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__INICIO:
-        return getInicio();
-      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__FIN:
-        return getFin();
+      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS_NO_PUEDE:
+        return getDiasNoPuede();
+      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS_HORARIO:
+        return getDiasHorario();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -217,15 +153,13 @@ public class DisponibilidadImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS:
-        getDias().clear();
-        getDias().addAll((Collection<? extends Dia>)newValue);
+      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS_NO_PUEDE:
+        getDiasNoPuede().clear();
+        getDiasNoPuede().addAll((Collection<? extends Dia>)newValue);
         return;
-      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__INICIO:
-        setInicio((Integer)newValue);
-        return;
-      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__FIN:
-        setFin((Integer)newValue);
+      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS_HORARIO:
+        getDiasHorario().clear();
+        getDiasHorario().addAll((Collection<? extends DiaHorario>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -241,14 +175,11 @@ public class DisponibilidadImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS:
-        getDias().clear();
+      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS_NO_PUEDE:
+        getDiasNoPuede().clear();
         return;
-      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__INICIO:
-        setInicio(INICIO_EDEFAULT);
-        return;
-      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__FIN:
-        setFin(FIN_EDEFAULT);
+      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS_HORARIO:
+        getDiasHorario().clear();
         return;
     }
     super.eUnset(featureID);
@@ -264,33 +195,12 @@ public class DisponibilidadImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS:
-        return dias != null && !dias.isEmpty();
-      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__INICIO:
-        return inicio != INICIO_EDEFAULT;
-      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__FIN:
-        return fin != FIN_EDEFAULT;
+      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS_NO_PUEDE:
+        return diasNoPuede != null && !diasNoPuede.isEmpty();
+      case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD__DIAS_HORARIO:
+        return diasHorario != null && !diasHorario.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (inicio: ");
-    result.append(inicio);
-    result.append(", fin: ");
-    result.append(fin);
-    result.append(')');
-    return result.toString();
   }
 
 } //DisponibilidadImpl

@@ -110,20 +110,20 @@ public class PlanificadorDeMateriasInterpreter {
   public String porcentajeDeAsignacionesPorTurno(final Model m) {
     String _xblockexpression = null;
     {
+      final int mañana = this.porcentajeDeMateriasEn(m, 8, 13);
+      final int tarde = this.porcentajeDeMateriasEn(m, 13, 18);
+      final int noche = this.porcentajeDeMateriasEn(m, 18, 22);
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Turno Mañana: ");
-      int _porcentajeDeMateriasEn = this.porcentajeDeMateriasEn(m, 8, 13);
-      _builder.append(_porcentajeDeMateriasEn, "");
+      _builder.append(mañana, "");
       InputOutput.<String>println(_builder.toString());
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append("Turno Tarde : ");
-      int _porcentajeDeMateriasEn_1 = this.porcentajeDeMateriasEn(m, 13, 18);
-      _builder_1.append(_porcentajeDeMateriasEn_1, "");
+      _builder_1.append(tarde, "");
       InputOutput.<String>println(_builder_1.toString());
       StringConcatenation _builder_2 = new StringConcatenation();
       _builder_2.append("Turno Noche : ");
-      int _porcentajeDeMateriasEn_2 = this.porcentajeDeMateriasEn(m, 18, 22);
-      _builder_2.append(_porcentajeDeMateriasEn_2, "");
+      _builder_2.append(noche, "");
       _xblockexpression = InputOutput.<String>println(_builder_2.toString());
     }
     return _xblockexpression;
@@ -142,21 +142,20 @@ public class PlanificadorDeMateriasInterpreter {
   /**
    * Metodos Privados
    */
-  private ArrayList<String> materiasQueDicta(final Profesor profesor, final List<Asignacion> asignaciones) {
-    final ArrayList<String> materias = new ArrayList<String>();
+  private ArrayList<Materia> materiasQueDicta(final Profesor profesor, final List<Asignacion> asignaciones) {
+    final ArrayList<Materia> materias = new ArrayList<Materia>();
     Iterable<Asignacion> _asignacionesDelProfesor = this.asignacionesDelProfesor(profesor, asignaciones);
     final Procedure1<Asignacion> _function = new Procedure1<Asignacion>() {
       public void apply(final Asignacion a) {
         Materia _materia = a.getMateria();
-        String _name = _materia.getName();
-        materias.add(_name);
+        materias.add(_materia);
       }
     };
     IterableExtensions.<Asignacion>forEach(_asignacionesDelProfesor, _function);
     return materias;
   }
   
-  private void mostrarTablaDeProfesoresYMaterias(final Planificacion planificacion) {
+  public void mostrarTablaDeProfesoresYMaterias(final Planificacion planificacion) {
     List<Profesor> _profesores = this._extensionMethodsInterpreter.profesores(planificacion);
     final Procedure1<Profesor> _function = new Procedure1<Profesor>() {
       public void apply(final Profesor p) {
@@ -166,7 +165,7 @@ public class PlanificadorDeMateriasInterpreter {
         _builder.append(_name, "");
         _builder.append(", dicta: ");
         EList<Asignacion> _asignaciones = planificacion.getAsignaciones();
-        ArrayList<String> _materiasQueDicta = PlanificadorDeMateriasInterpreter.this.materiasQueDicta(p, _asignaciones);
+        ArrayList<Materia> _materiasQueDicta = PlanificadorDeMateriasInterpreter.this.materiasQueDicta(p, _asignaciones);
         _builder.append(_materiasQueDicta, "");
         InputOutput.<String>println(_builder.toString());
       }
@@ -298,8 +297,8 @@ public class PlanificadorDeMateriasInterpreter {
         return Boolean.valueOf(_and);
       }
     };
-    final Iterable<AulaHorario> materiasAsignadas = IterableExtensions.<AulaHorario>filter(ah, _function);
-    int _size = IterableExtensions.size(materiasAsignadas);
+    final Iterable<AulaHorario> x = IterableExtensions.<AulaHorario>filter(ah, _function);
+    int _size = IterableExtensions.size(x);
     return (_size > 0);
   }
   

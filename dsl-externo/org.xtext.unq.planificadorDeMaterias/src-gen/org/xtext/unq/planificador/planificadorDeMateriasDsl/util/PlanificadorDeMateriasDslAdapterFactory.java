@@ -100,6 +100,11 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
         return createDisponibilidadAdapter();
       }
       @Override
+      public Adapter caseDiaHorario(DiaHorario object)
+      {
+        return createDiaHorarioAdapter();
+      }
+      @Override
       public Adapter caseDedicacion(Dedicacion object)
       {
         return createDedicacionAdapter();
@@ -292,6 +297,21 @@ public class PlanificadorDeMateriasDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDisponibilidadAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.unq.planificador.planificadorDeMateriasDsl.DiaHorario <em>Dia Horario</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.unq.planificador.planificadorDeMateriasDsl.DiaHorario
+   * @generated
+   */
+  public Adapter createDiaHorarioAdapter()
   {
     return null;
   }

@@ -197,6 +197,34 @@ finally {
 
 
 
+// Entry rule entryRuleDiaHorario
+entryRuleDiaHorario 
+:
+{ before(grammarAccess.getDiaHorarioRule()); }
+	 ruleDiaHorario
+{ after(grammarAccess.getDiaHorarioRule()); } 
+	 EOF 
+;
+
+// Rule DiaHorario
+ruleDiaHorario
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getDiaHorarioAccess().getGroup()); }
+(rule__DiaHorario__Group__0)
+{ after(grammarAccess.getDiaHorarioAccess().getGroup()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 // Entry rule entryRuleDedicacion
 entryRuleDedicacion 
 :
@@ -4279,6 +4307,7 @@ rule__Disponibilidad__Group__1
     }
 :
 	rule__Disponibilidad__Group__1__Impl
+	rule__Disponibilidad__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -4290,15 +4319,87 @@ rule__Disponibilidad__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getDisponibilidadAccess().getGroup_1()); }
-(rule__Disponibilidad__Group_1__0)
-{ after(grammarAccess.getDisponibilidadAccess().getGroup_1()); }
+{ before(grammarAccess.getDisponibilidadAccess().getPuedeKeyword_1()); }
+
+	'puede {' 
+
+{ after(grammarAccess.getDisponibilidadAccess().getPuedeKeyword_1()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__Disponibilidad__Group__2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Disponibilidad__Group__2__Impl
+	rule__Disponibilidad__Group__3
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Disponibilidad__Group__2__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+(
+{ before(grammarAccess.getDisponibilidadAccess().getDiasHorarioAssignment_2()); }
+(rule__Disponibilidad__DiasHorarioAssignment_2)
+{ after(grammarAccess.getDisponibilidadAccess().getDiasHorarioAssignment_2()); }
+)
+(
+{ before(grammarAccess.getDisponibilidadAccess().getDiasHorarioAssignment_2()); }
+(rule__Disponibilidad__DiasHorarioAssignment_2)*
+{ after(grammarAccess.getDisponibilidadAccess().getDiasHorarioAssignment_2()); }
+)
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Disponibilidad__Group__3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Disponibilidad__Group__3__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Disponibilidad__Group__3__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getDisponibilidadAccess().getRightCurlyBracketKeyword_3()); }
+
+	'}' 
+
+{ after(grammarAccess.getDisponibilidadAccess().getRightCurlyBracketKeyword_3()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
 
 
 
@@ -4353,9 +4454,9 @@ rule__Disponibilidad__Group_0__1__Impl
     }
 :
 (
-{ before(grammarAccess.getDisponibilidadAccess().getDiasAssignment_0_1()); }
-(rule__Disponibilidad__DiasAssignment_0_1)*
-{ after(grammarAccess.getDisponibilidadAccess().getDiasAssignment_0_1()); }
+{ before(grammarAccess.getDisponibilidadAccess().getDiasNoPuedeAssignment_0_1()); }
+(rule__Disponibilidad__DiasNoPuedeAssignment_0_1)*
+{ after(grammarAccess.getDisponibilidadAccess().getDiasNoPuedeAssignment_0_1()); }
 )
 
 ;
@@ -4368,29 +4469,27 @@ finally {
 
 
 
-rule__Disponibilidad__Group_1__0
+rule__DiaHorario__Group__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__Disponibilidad__Group_1__0__Impl
-	rule__Disponibilidad__Group_1__1
+	rule__DiaHorario__Group__0__Impl
+	rule__DiaHorario__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Disponibilidad__Group_1__0__Impl
+rule__DiaHorario__Group__0__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDisponibilidadAccess().getPuedeKeyword_1_0()); }
-
-	'puede' 
-
-{ after(grammarAccess.getDisponibilidadAccess().getPuedeKeyword_1_0()); }
+{ before(grammarAccess.getDiaHorarioAccess().getDiaPuedeAssignment_0()); }
+(rule__DiaHorario__DiaPuedeAssignment_0)
+{ after(grammarAccess.getDiaHorarioAccess().getDiaPuedeAssignment_0()); }
 )
 
 ;
@@ -4399,58 +4498,29 @@ finally {
 }
 
 
-rule__Disponibilidad__Group_1__1
+rule__DiaHorario__Group__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__Disponibilidad__Group_1__1__Impl
-	rule__Disponibilidad__Group_1__2
+	rule__DiaHorario__Group__1__Impl
+	rule__DiaHorario__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Disponibilidad__Group_1__1__Impl
+rule__DiaHorario__Group__1__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDisponibilidadAccess().getDiasAssignment_1_1()); }
-(rule__Disponibilidad__DiasAssignment_1_1)*
-{ after(grammarAccess.getDisponibilidadAccess().getDiasAssignment_1_1()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__Disponibilidad__Group_1__2
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__Disponibilidad__Group_1__2__Impl
-	rule__Disponibilidad__Group_1__3
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Disponibilidad__Group_1__2__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getDisponibilidadAccess().getDeKeyword_1_2()); }
+{ before(grammarAccess.getDiaHorarioAccess().getDeKeyword_1()); }
 
 	'de' 
 
-{ after(grammarAccess.getDisponibilidadAccess().getDeKeyword_1_2()); }
+{ after(grammarAccess.getDiaHorarioAccess().getDeKeyword_1()); }
 )
 
 ;
@@ -4459,98 +4529,32 @@ finally {
 }
 
 
-rule__Disponibilidad__Group_1__3
+rule__DiaHorario__Group__2
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__Disponibilidad__Group_1__3__Impl
-	rule__Disponibilidad__Group_1__4
+	rule__DiaHorario__Group__2__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Disponibilidad__Group_1__3__Impl
+rule__DiaHorario__Group__2__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDisponibilidadAccess().getInicioAssignment_1_3()); }
-(rule__Disponibilidad__InicioAssignment_1_3)
-{ after(grammarAccess.getDisponibilidadAccess().getInicioAssignment_1_3()); }
+{ before(grammarAccess.getDiaHorarioAccess().getHorarioAssignment_2()); }
+(rule__DiaHorario__HorarioAssignment_2)
+{ after(grammarAccess.getDiaHorarioAccess().getHorarioAssignment_2()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
-
-
-rule__Disponibilidad__Group_1__4
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__Disponibilidad__Group_1__4__Impl
-	rule__Disponibilidad__Group_1__5
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Disponibilidad__Group_1__4__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getDisponibilidadAccess().getAKeyword_1_4()); }
-
-	'a' 
-
-{ after(grammarAccess.getDisponibilidadAccess().getAKeyword_1_4()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__Disponibilidad__Group_1__5
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__Disponibilidad__Group_1__5__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Disponibilidad__Group_1__5__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getDisponibilidadAccess().getFinAssignment_1_5()); }
-(rule__Disponibilidad__FinAssignment_1_5)
-{ after(grammarAccess.getDisponibilidadAccess().getFinAssignment_1_5()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
-
-
-
 
 
 
@@ -19777,14 +19781,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Disponibilidad__DiasAssignment_0_1
+rule__Disponibilidad__DiasNoPuedeAssignment_0_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDisponibilidadAccess().getDiasDiaParserRuleCall_0_1_0()); }
-	ruleDia{ after(grammarAccess.getDisponibilidadAccess().getDiasDiaParserRuleCall_0_1_0()); }
+{ before(grammarAccess.getDisponibilidadAccess().getDiasNoPuedeDiaParserRuleCall_0_1_0()); }
+	ruleDia{ after(grammarAccess.getDisponibilidadAccess().getDiasNoPuedeDiaParserRuleCall_0_1_0()); }
 )
 
 ;
@@ -19792,14 +19796,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Disponibilidad__DiasAssignment_1_1
+rule__Disponibilidad__DiasHorarioAssignment_2
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDisponibilidadAccess().getDiasDiaParserRuleCall_1_1_0()); }
-	ruleDia{ after(grammarAccess.getDisponibilidadAccess().getDiasDiaParserRuleCall_1_1_0()); }
+{ before(grammarAccess.getDisponibilidadAccess().getDiasHorarioDiaHorarioParserRuleCall_2_0()); }
+	ruleDiaHorario{ after(grammarAccess.getDisponibilidadAccess().getDiasHorarioDiaHorarioParserRuleCall_2_0()); }
 )
 
 ;
@@ -19807,14 +19811,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Disponibilidad__InicioAssignment_1_3
+rule__DiaHorario__DiaPuedeAssignment_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDisponibilidadAccess().getInicioINTTerminalRuleCall_1_3_0()); }
-	RULE_INT{ after(grammarAccess.getDisponibilidadAccess().getInicioINTTerminalRuleCall_1_3_0()); }
+{ before(grammarAccess.getDiaHorarioAccess().getDiaPuedeDiaParserRuleCall_0_0()); }
+	ruleDia{ after(grammarAccess.getDiaHorarioAccess().getDiaPuedeDiaParserRuleCall_0_0()); }
 )
 
 ;
@@ -19822,14 +19826,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Disponibilidad__FinAssignment_1_5
+rule__DiaHorario__HorarioAssignment_2
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDisponibilidadAccess().getFinINTTerminalRuleCall_1_5_0()); }
-	RULE_INT{ after(grammarAccess.getDisponibilidadAccess().getFinINTTerminalRuleCall_1_5_0()); }
+{ before(grammarAccess.getDiaHorarioAccess().getHorarioHorarioParserRuleCall_2_0()); }
+	ruleHorario{ after(grammarAccess.getDiaHorarioAccess().getHorarioHorarioParserRuleCall_2_0()); }
 )
 
 ;

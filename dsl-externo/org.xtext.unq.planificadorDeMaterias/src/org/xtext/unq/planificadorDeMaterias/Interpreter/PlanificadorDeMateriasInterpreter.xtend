@@ -13,6 +13,7 @@ import java.util.List
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
 import java.util.ArrayList
 
 class PlanificadorDeMateriasInterpreter {
@@ -64,9 +65,12 @@ class PlanificadorDeMateriasInterpreter {
 	
 	// Genera una tabla de Turno -> Porcentaje de materias que se dictan
 	def porcentajeDeAsignacionesPorTurno(Model m){
-		println('''Turno Mañana: «porcentajeDeMateriasEn(m,8,13)»''')
-		println('''Turno Tarde : «porcentajeDeMateriasEn(m,13,18)»''')
-		println('''Turno Noche : «porcentajeDeMateriasEn(m,18,22)»''')
+		val mañana = porcentajeDeMateriasEn(m,8,13)
+		val tarde = porcentajeDeMateriasEn(m,13,18)
+		val noche = porcentajeDeMateriasEn(m,18,22)
+		println('''Turno Mañana: «mañana»''')
+		println('''Turno Tarde : «tarde»''')
+		println('''Turno Noche : «noche»''')
 	}
 	
 	// Genera una tabla de Profesores -> Materias que dicta
@@ -81,16 +85,16 @@ class PlanificadorDeMateriasInterpreter {
 	 */
 	 
 	def private materiasQueDicta(Profesor profesor, List<Asignacion> asignaciones){
-		val materias = new ArrayList<String>
+		val materias = new ArrayList<Materia>
 		
 		asignacionesDelProfesor(profesor,asignaciones).forEach[a | 
-			materias.add(a.materia.name)
+			materias.add(a.materia)
 		]
 		
 		return materias
 	}
 	
-	def private mostrarTablaDeProfesoresYMaterias(Planificacion planificacion){
+	def mostrarTablaDeProfesoresYMaterias(Planificacion planificacion){
 		planificacion.profesores.forEach[p |
 			println('''El Profesor: «p.name», dicta: «materiasQueDicta(p,planificacion.asignaciones)»''')
 		]
@@ -148,21 +152,21 @@ class PlanificadorDeMateriasInterpreter {
 		return aulas
 	}
 
-	def private cantidadDeMateriasAsignadasEn(Model m, int inicio, int fin){
+	def private int cantidadDeMateriasAsignadasEn(Model m, int inicio, int fin){
 		val materiasAsignadas = m.asignaciones.filter[a | hayAlMenosUnaMateriaAsignadaEn(a.aulaHorarios,inicio,fin) ]
 		return materiasAsignadas.size
 	}
 	
-	def private hayAlMenosUnaMateriaAsignadaEn(List<AulaHorario> ah, int inicio, int fin){
-		val materiasAsignadas = ah.filter[x | (x.horario.desde >= inicio) && (x.horario.hasta <= fin)]
-		return (materiasAsignadas.size > 0)
+	def private boolean hayAlMenosUnaMateriaAsignadaEn(List<AulaHorario> ah, int inicio, int fin){
+		val x = ah.filter[x | x.horario.desde >= inicio && x.horario.hasta <= fin]
+		return x.size > 0
 	}
 	
-	def private cantidadDeMateriasAsignadas(Model m){
+	def private int cantidadDeMateriasAsignadas(Model m){
 		return m.materias.toSet.size
 	}
 	
-	def private porcentajeDeMateriasEn(Model m,int inicio,int fin){
-		return ((cantidadDeMateriasAsignadasEn(m,inicio,fin) * cantidadDeMateriasAsignadas(m)) / 100)
+	def private int porcentajeDeMateriasEn(Model m,int inicio,int fin){
+		return (cantidadDeMateriasAsignadasEn(m,inicio,fin) * cantidadDeMateriasAsignadas(m)) / 100
 	}
 }

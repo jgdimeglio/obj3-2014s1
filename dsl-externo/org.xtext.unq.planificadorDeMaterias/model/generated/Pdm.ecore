@@ -22,10 +22,16 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Disponibilidad">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dias" upperBound="-1" eType="#//Dia"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="diasNoPuede" upperBound="-1"
+        eType="#//Dia" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="diasHorario" upperBound="-1"
+        eType="#//DiaHorario" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DiaHorario">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="diaPuede" eType="#//Dia"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inicio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="horario" eType="#//Horario"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dedicacion"/>
   <eClassifiers xsi:type="ecore:EClass" name="Aula" eSuperTypes="#//ElementosSecundarios">

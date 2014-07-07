@@ -68,6 +68,15 @@ public interface PlanificadorDeMateriasDslFactory extends EFactory
   Disponibilidad createDisponibilidad();
 
   /**
+   * Returns a new object of class '<em>Dia Horario</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dia Horario</em>'.
+   * @generated
+   */
+  DiaHorario createDiaHorario();
+
+  /**
    * Returns a new object of class '<em>Dedicacion</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

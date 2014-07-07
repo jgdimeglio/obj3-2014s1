@@ -23,9 +23,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Profesor/disponibilidad"/>
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Disponibilidad">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Disponibilidad/dias"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Disponibilidad/inicio"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pdm.ecore#//Disponibilidad/fin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Disponibilidad/diasNoPuede"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//Disponibilidad/diasHorario"/>
+    </genClasses>
+    <genClasses ecoreClass="Pdm.ecore#//DiaHorario">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//DiaHorario/diaPuede"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pdm.ecore#//DiaHorario/horario"/>
     </genClasses>
     <genClasses ecoreClass="Pdm.ecore#//Dedicacion"/>
     <genClasses ecoreClass="Pdm.ecore#//Aula">

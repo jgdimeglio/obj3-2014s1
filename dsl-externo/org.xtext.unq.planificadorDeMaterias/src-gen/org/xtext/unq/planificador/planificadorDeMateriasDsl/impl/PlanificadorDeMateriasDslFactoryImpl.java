@@ -69,6 +69,7 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
       case PlanificadorDeMateriasDslPackage.ELEMENTOS_SECUNDARIOS: return createElementosSecundarios();
       case PlanificadorDeMateriasDslPackage.PROFESOR: return createProfesor();
       case PlanificadorDeMateriasDslPackage.DISPONIBILIDAD: return createDisponibilidad();
+      case PlanificadorDeMateriasDslPackage.DIA_HORARIO: return createDiaHorario();
       case PlanificadorDeMateriasDslPackage.DEDICACION: return createDedicacion();
       case PlanificadorDeMateriasDslPackage.AULA: return createAula();
       case PlanificadorDeMateriasDslPackage.MATERIA: return createMateria();
@@ -147,6 +148,17 @@ public class PlanificadorDeMateriasDslFactoryImpl extends EFactoryImpl implement
   {
     DisponibilidadImpl disponibilidad = new DisponibilidadImpl();
     return disponibilidad;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DiaHorario createDiaHorario()
+  {
+    DiaHorarioImpl diaHorario = new DiaHorarioImpl();
+    return diaHorario;
   }
 
   /**

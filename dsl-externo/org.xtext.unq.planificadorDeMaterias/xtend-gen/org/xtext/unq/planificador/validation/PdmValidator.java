@@ -19,6 +19,8 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dedicacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dia;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.DiaHorario;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Disponibilidad;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosPrimarios;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosSecundarios;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario;
@@ -607,5 +609,101 @@ public class PdmValidator extends AbstractPdmValidator {
       }
     };
     IterableExtensions.<Recurso>forEach(_recursos, _function);
+  }
+  
+  @Check
+  public void validateProfesorConCurso(final Model m) {
+    Model model = m;
+    EList<Planificacion> planificaciones = model.getPlanificacion();
+    for (final Planificacion planificaion : planificaciones) {
+      EList<Asignacion> _asignaciones = planificaion.getAsignaciones();
+      for (final Asignacion asignacion : _asignaciones) {
+        EList<Profesor> _profesores = asignacion.getProfesores();
+        for (final Profesor profesor : _profesores) {
+          this.chequearDisponibilidadAsignacion(profesor, asignacion);
+        }
+      }
+    }
+  }
+  
+  public void chequearDisponibilidadAsignacion(final Profesor profesor, final Asignacion asignacion) {
+    EList<Profesor> _profesores = asignacion.getProfesores();
+    final Function1<Profesor, Boolean> _function = new Function1<Profesor, Boolean>() {
+      public Boolean apply(final Profesor p) {
+        String _name = p.getName();
+        String _name_1 = profesor.getName();
+        return Boolean.valueOf(_name.equals(_name_1));
+      }
+    };
+    boolean _exists = IterableExtensions.<Profesor>exists(_profesores, _function);
+    if (_exists) {
+      EList<AulaHorario> _aulaHorarios = asignacion.getAulaHorarios();
+      for (final AulaHorario aulaHorario : _aulaHorarios) {
+        {
+          Disponibilidad _disponibilidad = profesor.getDisponibilidad();
+          EList<Dia> _diasNoPuede = _disponibilidad.getDiasNoPuede();
+          final Function1<Dia, Boolean> _function_1 = new Function1<Dia, Boolean>() {
+            public Boolean apply(final Dia d) {
+              Class<? extends Dia> _class = d.getClass();
+              String _name = _class.getName();
+              Dia _dia = aulaHorario.getDia();
+              Class<? extends Dia> _class_1 = _dia.getClass();
+              String _name_1 = _class_1.getName();
+              return Boolean.valueOf(_name.equals(_name_1));
+            }
+          };
+          boolean _exists_1 = IterableExtensions.<Dia>exists(_diasNoPuede, _function_1);
+          if (_exists_1) {
+            this.error("El profesor especifico que no puede asistir ese dia", aulaHorario, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__DIA);
+          }
+          Disponibilidad _disponibilidad_1 = profesor.getDisponibilidad();
+          EList<DiaHorario> _diasHorario = _disponibilidad_1.getDiasHorario();
+          final Function1<DiaHorario, Boolean> _function_2 = new Function1<DiaHorario, Boolean>() {
+            public Boolean apply(final DiaHorario dh) {
+              boolean _and = false;
+              Dia _diaPuede = dh.getDiaPuede();
+              Class<? extends Dia> _class = _diaPuede.getClass();
+              String _name = _class.getName();
+              Dia _dia = aulaHorario.getDia();
+              Class<? extends Dia> _class_1 = _dia.getClass();
+              String _name_1 = _class_1.getName();
+              boolean _equals = _name.equals(_name_1);
+              if (!_equals) {
+                _and = false;
+              } else {
+                boolean _coincidenHorariosDisponibles = PdmValidator.this.coincidenHorariosDisponibles(dh, aulaHorario);
+                _and = _coincidenHorariosDisponibles;
+              }
+              return Boolean.valueOf(_and);
+            }
+          };
+          boolean _exists_2 = IterableExtensions.<DiaHorario>exists(_diasHorario, _function_2);
+          boolean _not = (!_exists_2);
+          if (_not) {
+            this.warning("Puede ser que el profesor no pueda asistir,debido a que el dia no fue especificado en su disponibilidad", aulaHorario, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__DIA);
+          }
+        }
+      }
+    }
+  }
+  
+  public boolean coincidenHorariosDisponibles(final DiaHorario diaHorario, final AulaHorario ahorario) {
+    boolean _and = false;
+    Horario _horario = ahorario.getHorario();
+    int _desde = _horario.getDesde();
+    Horario _horario_1 = diaHorario.getHorario();
+    int _desde_1 = _horario_1.getDesde();
+    boolean _greaterEqualsThan = (_desde >= _desde_1);
+    if (!_greaterEqualsThan) {
+      _and = false;
+    } else {
+      Horario _horario_2 = ahorario.getHorario();
+      int _hasta = _horario_2.getHasta();
+      Horario _horario_3 = diaHorario.getHorario();
+      int _hasta_1 = _horario_3.getHasta();
+      boolean _lessEqualsThan = (_hasta <= _hasta_1);
+      _and = _lessEqualsThan;
+    }
+    return _and;
   }
 }

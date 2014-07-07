@@ -6,18 +6,16 @@ package org.xtext.unq.planificador.validation
 import java.util.List
 import org.eclipse.xtext.validation.Check
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dia
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.DiaHorario
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.DiaHorario
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Semestre
 
 //import org.eclipse.xtext.validation.Check
 /**

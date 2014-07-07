@@ -115,10 +115,10 @@ T__37=37
 T__38=38
 T__39=39
 RULE_WS=11
-'materia'=27
+'materia'=26
 '>='=57
 '=='=60
-'horas semanales'=30
+'horas semanales'=29
 'extension'=106
 ';'=91
 'return'=114
@@ -151,7 +151,7 @@ RULE_WS=11
 'val'=102
 'la dicta'=40
 'planificacion'=45
-'con'=28
+'con'=27
 'no puede'=16
 '='=49
 'Semi'=21
@@ -160,18 +160,19 @@ RULE_WS=11
 '%'=76
 'super'=107
 'case'=97
+'puede {'=17
 'Martes'=34
-'cantidad de dias'=31
+'cantidad de dias'=30
 '!='=61
 '!=='=63
-'requiere {'=29
+'requiere {'=28
 '<'=55
 '--'=80
 'Exclusiva'=22
 '['=88
 '&'=120
 'instanceof'=64
-'de'=18
+'de'=19
 '#'=87
 'en'=44
 '/'=75
@@ -183,7 +184,7 @@ RULE_WS=11
 '&&'=59
 '+'=71
 '.'=81
-'a'=19
+'a'=31
 'import'=105
 '?:'=70
 '++'=79
@@ -217,9 +218,8 @@ RULE_WS=11
 ')'=86
 '*='=52
 'do'=100
-'}'=26
+'}'=18
 'Sabado'=38
 'semestre'=32
-'puede'=17
 'false'=109
 '*'=73

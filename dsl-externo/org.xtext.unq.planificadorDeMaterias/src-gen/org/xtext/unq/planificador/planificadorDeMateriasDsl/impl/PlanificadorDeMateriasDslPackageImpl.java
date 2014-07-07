@@ -15,6 +15,7 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.CargaHoraria;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dedicacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dia;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.DiaHorario;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Disponibilidad;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosPrimarios;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.ElementosSecundarios;
@@ -76,6 +77,13 @@ public class PlanificadorDeMateriasDslPackageImpl extends EPackageImpl implement
    * @generated
    */
   private EClass disponibilidadEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass diaHorarioEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -405,7 +413,7 @@ public class PlanificadorDeMateriasDslPackageImpl extends EPackageImpl implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDisponibilidad_Dias()
+  public EReference getDisponibilidad_DiasNoPuede()
   {
     return (EReference)disponibilidadEClass.getEStructuralFeatures().get(0);
   }
@@ -415,9 +423,9 @@ public class PlanificadorDeMateriasDslPackageImpl extends EPackageImpl implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDisponibilidad_Inicio()
+  public EReference getDisponibilidad_DiasHorario()
   {
-    return (EAttribute)disponibilidadEClass.getEStructuralFeatures().get(1);
+    return (EReference)disponibilidadEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -425,9 +433,29 @@ public class PlanificadorDeMateriasDslPackageImpl extends EPackageImpl implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDisponibilidad_Fin()
+  public EClass getDiaHorario()
   {
-    return (EAttribute)disponibilidadEClass.getEStructuralFeatures().get(2);
+    return diaHorarioEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDiaHorario_DiaPuede()
+  {
+    return (EReference)diaHorarioEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDiaHorario_Horario()
+  {
+    return (EReference)diaHorarioEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -876,9 +904,12 @@ public class PlanificadorDeMateriasDslPackageImpl extends EPackageImpl implement
     createEReference(profesorEClass, PROFESOR__DISPONIBILIDAD);
 
     disponibilidadEClass = createEClass(DISPONIBILIDAD);
-    createEReference(disponibilidadEClass, DISPONIBILIDAD__DIAS);
-    createEAttribute(disponibilidadEClass, DISPONIBILIDAD__INICIO);
-    createEAttribute(disponibilidadEClass, DISPONIBILIDAD__FIN);
+    createEReference(disponibilidadEClass, DISPONIBILIDAD__DIAS_NO_PUEDE);
+    createEReference(disponibilidadEClass, DISPONIBILIDAD__DIAS_HORARIO);
+
+    diaHorarioEClass = createEClass(DIA_HORARIO);
+    createEReference(diaHorarioEClass, DIA_HORARIO__DIA_PUEDE);
+    createEReference(diaHorarioEClass, DIA_HORARIO__HORARIO);
 
     dedicacionEClass = createEClass(DEDICACION);
 
@@ -1002,9 +1033,12 @@ public class PlanificadorDeMateriasDslPackageImpl extends EPackageImpl implement
     initEReference(getProfesor_Disponibilidad(), this.getDisponibilidad(), null, "disponibilidad", null, 0, 1, Profesor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(disponibilidadEClass, Disponibilidad.class, "Disponibilidad", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDisponibilidad_Dias(), this.getDia(), null, "dias", null, 0, -1, Disponibilidad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDisponibilidad_Inicio(), ecorePackage.getEInt(), "inicio", null, 0, 1, Disponibilidad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDisponibilidad_Fin(), ecorePackage.getEInt(), "fin", null, 0, 1, Disponibilidad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDisponibilidad_DiasNoPuede(), this.getDia(), null, "diasNoPuede", null, 0, -1, Disponibilidad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDisponibilidad_DiasHorario(), this.getDiaHorario(), null, "diasHorario", null, 0, -1, Disponibilidad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(diaHorarioEClass, DiaHorario.class, "DiaHorario", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDiaHorario_DiaPuede(), this.getDia(), null, "diaPuede", null, 0, 1, DiaHorario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDiaHorario_Horario(), this.getHorario(), null, "horario", null, 0, 1, DiaHorario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dedicacionEClass, Dedicacion.class, "Dedicacion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
