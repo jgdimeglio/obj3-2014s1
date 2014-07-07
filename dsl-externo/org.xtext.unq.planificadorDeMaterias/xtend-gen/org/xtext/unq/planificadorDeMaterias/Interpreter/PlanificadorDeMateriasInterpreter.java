@@ -1,6 +1,7 @@
 package org.xtext.unq.planificadorDeMaterias.Interpreter;
 
 import ExtensionMethods.ExtensionMethodsInterpreter;
+import ExtensionMethods.HorarioPlanificacion;
 import com.google.common.collect.Maps;
 import com.google.inject.Injector;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -26,6 +28,7 @@ import org.xtext.unq.planificador.PdmStandaloneSetup;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.AulaHorario;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Dia;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model;
@@ -101,10 +104,6 @@ public class PlanificadorDeMateriasInterpreter {
     InputOutput.println();
   }
   
-  public Object horariosLibres(final Model m) {
-    return null;
-  }
-  
   public void porcentajeDeAsignacionesPorTurno(final Model m) {
     EList<Planificacion> _planificacion = m.getPlanificacion();
     final Procedure1<Planificacion> _function = new Procedure1<Planificacion>() {
@@ -142,6 +141,261 @@ public class PlanificadorDeMateriasInterpreter {
       }
     };
     IterableExtensions.<Planificacion>forEach(_planificacion, _function);
+  }
+  
+  public void horariosLibres(final Model m) {
+    EList<Planificacion> planificaciones = m.getPlanificacion();
+    final Procedure1<Planificacion> _function = new Procedure1<Planificacion>() {
+      public void apply(final Planificacion planificacion) {
+        HashMap<String, ArrayList<HorarioPlanificacion>> _horariosDisponible = PlanificadorDeMateriasInterpreter.this.horariosDisponible(planificacion);
+        PlanificadorDeMateriasInterpreter.this.printMap(_horariosDisponible);
+      }
+    };
+    IterableExtensions.<Planificacion>forEach(planificaciones, _function);
+  }
+  
+  public void printMap(final Map<String, ArrayList<HorarioPlanificacion>> map) {
+    ArrayList<String> _dias = this.dias();
+    for (final String dia : _dias) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append(dia, "");
+      _builder.append(" : ");
+      String _stringHorarios = this.stringHorarios(map, dia);
+      _builder.append(_stringHorarios, "");
+      InputOutput.<String>println(_builder.toString());
+    }
+    InputOutput.println();
+  }
+  
+  public String stringHorarios(final Map<String, ArrayList<HorarioPlanificacion>> map, final String dia) {
+    String _xblockexpression = null;
+    {
+      String string = "[ ]";
+      ArrayList<HorarioPlanificacion> list = map.get(dia);
+      boolean _isEmpty = list.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        string = "[";
+        for (final HorarioPlanificacion h : list) {
+          StringConcatenation _builder = new StringConcatenation();
+          _builder.append(" ");
+          _builder.append("(");
+          int _inicio = h.getInicio();
+          _builder.append(_inicio, " ");
+          _builder.append(",");
+          int _fin = h.getFin();
+          _builder.append(_fin, " ");
+          _builder.append(") ");
+          String _plus = (string + _builder);
+          string = _plus;
+        }
+        StringConcatenation _builder_1 = new StringConcatenation();
+        _builder_1.append("]");
+        String _plus_1 = (string + _builder_1);
+        string = _plus_1;
+      }
+      _xblockexpression = string;
+    }
+    return _xblockexpression;
+  }
+  
+  public ArrayList<String> dias() {
+    ArrayList<String> _xblockexpression = null;
+    {
+      ArrayList<String> dias = new ArrayList<String>();
+      dias.add("Lunes");
+      dias.add("Martes");
+      dias.add("Miercoles");
+      dias.add("Jueves");
+      dias.add("Viernes");
+      dias.add("Sabado");
+      _xblockexpression = dias;
+    }
+    return _xblockexpression;
+  }
+  
+  public HashMap<String, ArrayList<HorarioPlanificacion>> horarios(final Planificacion p) {
+    HashMap<String, ArrayList<HorarioPlanificacion>> _xblockexpression = null;
+    {
+      ArrayList<HorarioPlanificacion> list = new ArrayList<HorarioPlanificacion>();
+      HashMap<String, ArrayList<HorarioPlanificacion>> map = this.init();
+      ArrayList<String> dias = this.dias();
+      for (final String dia : dias) {
+        {
+          EList<Asignacion> _asignaciones = p.getAsignaciones();
+          for (final Asignacion a : _asignaciones) {
+            EList<AulaHorario> _aulaHorarios = a.getAulaHorarios();
+            for (final AulaHorario ah : _aulaHorarios) {
+              Dia _dia = ah.getDia();
+              EClass _eClass = _dia.eClass();
+              String _name = _eClass.getName();
+              boolean _equals = _name.equals(dia);
+              if (_equals) {
+                boolean _containsKey = map.containsKey(dia);
+                boolean _not = (!_containsKey);
+                if (_not) {
+                  Horario _horario = ah.getHorario();
+                  int _desde = _horario.getDesde();
+                  Horario _horario_1 = ah.getHorario();
+                  int _hasta = _horario_1.getHasta();
+                  HorarioPlanificacion _horarioPlanificacion = new HorarioPlanificacion(_desde, _hasta);
+                  list.add(_horarioPlanificacion);
+                  map.put(dia, list);
+                } else {
+                  ArrayList<HorarioPlanificacion> listMap = map.get(dia);
+                  Horario _horario_2 = ah.getHorario();
+                  int _desde_1 = _horario_2.getDesde();
+                  Horario _horario_3 = ah.getHorario();
+                  int _hasta_1 = _horario_3.getHasta();
+                  HorarioPlanificacion _horarioPlanificacion_1 = new HorarioPlanificacion(_desde_1, _hasta_1);
+                  listMap.add(_horarioPlanificacion_1);
+                  map.put(dia, listMap);
+                }
+              }
+            }
+          }
+          ArrayList<HorarioPlanificacion> _arrayList = new ArrayList<HorarioPlanificacion>();
+          list = _arrayList;
+        }
+      }
+      _xblockexpression = map;
+    }
+    return _xblockexpression;
+  }
+  
+  public HashMap<String, ArrayList<HorarioPlanificacion>> init() {
+    HashMap<String, ArrayList<HorarioPlanificacion>> _xblockexpression = null;
+    {
+      HashMap<String, ArrayList<HorarioPlanificacion>> map = new HashMap<String, ArrayList<HorarioPlanificacion>>();
+      ArrayList<String> _dias = this.dias();
+      for (final String dia : _dias) {
+        ArrayList<HorarioPlanificacion> _arrayList = new ArrayList<HorarioPlanificacion>();
+        map.put(dia, _arrayList);
+      }
+      _xblockexpression = map;
+    }
+    return _xblockexpression;
+  }
+  
+  public HashMap<String, ArrayList<HorarioPlanificacion>> horariosDisponible(final Planificacion p) {
+    HashMap<String, ArrayList<HorarioPlanificacion>> _xblockexpression = null;
+    {
+      HashMap<String, ArrayList<HorarioPlanificacion>> horariosNoDisponiblesMap = new HashMap<String, ArrayList<HorarioPlanificacion>>();
+      HashMap<String, ArrayList<HorarioPlanificacion>> _horarios = this.horarios(p);
+      horariosNoDisponiblesMap = _horarios;
+      boolean modificar = false;
+      HorarioPlanificacion horaABorrar = new HorarioPlanificacion();
+      HorarioPlanificacion horaNueva1 = new HorarioPlanificacion();
+      HorarioPlanificacion horaNueva2 = new HorarioPlanificacion();
+      ArrayList<String> _dias = this.dias();
+      for (final String dia : _dias) {
+        {
+          ArrayList<HorarioPlanificacion> list = new ArrayList<HorarioPlanificacion>();
+          ArrayList<HorarioPlanificacion> listaRet = new ArrayList<HorarioPlanificacion>();
+          ArrayList<HorarioPlanificacion> _get = horariosNoDisponiblesMap.get(dia);
+          list = _get;
+          HorarioPlanificacion hora = new HorarioPlanificacion(8, 22);
+          listaRet.add(hora);
+          for (final HorarioPlanificacion h : list) {
+            {
+              for (final HorarioPlanificacion hp : listaRet) {
+                int _inicio = h.getInicio();
+                int _inicio_1 = hp.getInicio();
+                boolean _equals = (_inicio == _inicio_1);
+                if (_equals) {
+                  int _fin = h.getFin();
+                  int _fin_1 = hp.getFin();
+                  HorarioPlanificacion x = new HorarioPlanificacion(_fin, _fin_1);
+                  int _inicio_2 = x.getInicio();
+                  hp.setInicio(_inicio_2);
+                  int _fin_2 = x.getFin();
+                  hp.setFin(_fin_2);
+                } else {
+                  int _fin_3 = h.getFin();
+                  int _fin_4 = hp.getFin();
+                  boolean _equals_1 = (_fin_3 == _fin_4);
+                  if (_equals_1) {
+                    int _inicio_3 = hp.getInicio();
+                    int _inicio_4 = h.getInicio();
+                    HorarioPlanificacion x_1 = new HorarioPlanificacion(_inicio_3, _inicio_4);
+                    int _inicio_5 = x_1.getInicio();
+                    hp.setInicio(_inicio_5);
+                    int _fin_5 = x_1.getFin();
+                    hp.setFin(_fin_5);
+                  } else {
+                    boolean _estaEnElRango = this.estaEnElRango(h, hp);
+                    if (_estaEnElRango) {
+                      horaABorrar = hp;
+                      int _inicio_6 = hp.getInicio();
+                      int _inicio_7 = h.getInicio();
+                      HorarioPlanificacion _horarioPlanificacion = new HorarioPlanificacion(_inicio_6, _inicio_7);
+                      horaNueva1 = _horarioPlanificacion;
+                      int _fin_6 = h.getFin();
+                      int _fin_7 = hp.getFin();
+                      HorarioPlanificacion _horarioPlanificacion_1 = new HorarioPlanificacion(_fin_6, _fin_7);
+                      horaNueva2 = _horarioPlanificacion_1;
+                      modificar = true;
+                    }
+                  }
+                }
+              }
+              if (modificar) {
+                ArrayList<HorarioPlanificacion> _remover = this.remover(listaRet, horaABorrar);
+                listaRet = _remover;
+                listaRet.add(horaNueva1);
+                listaRet.add(horaNueva2);
+                modificar = false;
+              }
+            }
+          }
+          horariosNoDisponiblesMap.put(dia, listaRet);
+        }
+      }
+      _xblockexpression = horariosNoDisponiblesMap;
+    }
+    return _xblockexpression;
+  }
+  
+  public ArrayList<HorarioPlanificacion> remover(final ArrayList<HorarioPlanificacion> h, final HorarioPlanificacion hp) {
+    ArrayList<HorarioPlanificacion> _xblockexpression = null;
+    {
+      ArrayList<HorarioPlanificacion> ret = new ArrayList<HorarioPlanificacion>();
+      for (final HorarioPlanificacion horario : h) {
+        boolean _or = false;
+        int _inicio = horario.getInicio();
+        int _inicio_1 = hp.getInicio();
+        boolean _notEquals = (_inicio != _inicio_1);
+        if (_notEquals) {
+          _or = true;
+        } else {
+          int _fin = horario.getFin();
+          int _fin_1 = hp.getFin();
+          boolean _notEquals_1 = (_fin != _fin_1);
+          _or = _notEquals_1;
+        }
+        if (_or) {
+          ret.add(horario);
+        }
+      }
+      _xblockexpression = ret;
+    }
+    return _xblockexpression;
+  }
+  
+  public boolean estaEnElRango(final HorarioPlanificacion h, final HorarioPlanificacion hp) {
+    boolean _and = false;
+    int _inicio = hp.getInicio();
+    int _inicio_1 = h.getInicio();
+    boolean _lessThan = (_inicio < _inicio_1);
+    if (!_lessThan) {
+      _and = false;
+    } else {
+      int _fin = hp.getFin();
+      int _fin_1 = h.getFin();
+      boolean _greaterThan = (_fin > _fin_1);
+      _and = _greaterThan;
+    }
+    return _and;
   }
   
   public void profesoresYMaterias(final Model m) {

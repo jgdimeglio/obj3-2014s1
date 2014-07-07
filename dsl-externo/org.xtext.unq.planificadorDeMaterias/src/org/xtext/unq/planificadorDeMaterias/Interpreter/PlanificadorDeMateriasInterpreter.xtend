@@ -15,6 +15,8 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
 import java.util.ArrayList
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Horario
+import ExtensionMethods.HorarioPlanificacion
 
 class PlanificadorDeMateriasInterpreter {
 	
@@ -58,25 +60,155 @@ class PlanificadorDeMateriasInterpreter {
 		println()
 	}
 	
-	// Genera una lista con los horarios libres
-	def horariosLibres(Model m){
-		
-		
-	}
-	
 	// Genera una tabla de Turno -> Porcentaje de materias que se dictan
 	def porcentajeDeAsignacionesPorTurno(Model m){
 		m.planificacion.forEach[p |
-		println('''Porcentajes de turnos sobre la planificacion del «p.semestre.anho» semestre «p.semestre.numero»:''') 
-		val mañana = porcentajeDeMateriasEn(p,8,13)
-		val tarde = porcentajeDeMateriasEn(p,13,18)
-		val noche = porcentajeDeMateriasEn(p,18,22)
-		println('''Turno Mañana: «mañana» %''')
-		println('''Turno Tarde : «tarde» %''')
-		println('''Turno Noche : «noche» %''')
-		println()
+			println('''Porcentajes de turnos sobre la planificacion del «p.semestre.anho» semestre «p.semestre.numero»:''') 
+			val mañana = porcentajeDeMateriasEn(p,8,13)
+			val tarde = porcentajeDeMateriasEn(p,13,18)
+			val noche = porcentajeDeMateriasEn(p,18,22)
+			println('''Turno Mañana: «mañana» %''')
+			println('''Turno Tarde : «tarde» %''')
+			println('''Turno Noche : «noche» %''')
+			println()
 		]
 	}
+	
+	// Genera una lista con los horarios libres
+	def horariosLibres(Model m){
+		var planificaciones = m.planificacion
+		planificaciones.forEach[planificacion |
+			printMap(horariosDisponible(planificacion))
+		]
+	}
+	
+	//************************************************************************************************
+	def printMap(Map<String,ArrayList<HorarioPlanificacion>> map){
+		for(String dia : dias){
+				//println('''«dia» : [«map.get(dia)»]''')
+			println('''«dia» : «stringHorarios(map,dia)»''')
+		}
+		println()
+	}
+	
+	def stringHorarios(Map<String,ArrayList<HorarioPlanificacion>> map, String dia){
+		var string = "[ ]"
+		var list = map.get(dia)
+		if(!list.empty){
+			string = "["
+		for(HorarioPlanificacion h : list){
+			string = string + ''' («h.inicio»,«h.fin») '''
+		}
+		string = string + ''']'''
+		}
+		string
+	}
+	
+	def dias(){
+		var dias = new ArrayList<String>
+		dias.add("Lunes")
+		dias.add("Martes")
+		dias.add("Miercoles")
+		dias.add("Jueves")
+		dias.add("Viernes")
+		dias.add("Sabado")
+		dias
+	}
+	
+	def horarios(Planificacion p){
+		var list = new ArrayList<HorarioPlanificacion>
+		var map = init
+		var dias = dias()
+		for(String dia : dias){
+			for(Asignacion a : p.asignaciones){
+				for(AulaHorario ah : a.aulaHorarios){
+					if(ah.dia.eClass.name.equals(dia)){
+						if(!map.containsKey(dia)){
+							list.add(new HorarioPlanificacion(ah.horario.desde,ah.horario.hasta))
+							map.put(dia,list)
+						}
+						else{
+							var listMap = map.get(dia)
+							listMap.add(new HorarioPlanificacion(ah.horario.desde,ah.horario.hasta))
+							map.put(dia,(listMap))
+						}
+					}
+				}
+			}
+			list = new ArrayList<HorarioPlanificacion>
+		}
+		map
+	}
+	
+	def init(){
+		var map = new HashMap<String,ArrayList<HorarioPlanificacion>>
+		for(String dia : dias){
+			map.put(dia,new ArrayList<HorarioPlanificacion>)
+		}
+		map
+	}
+	
+	def horariosDisponible(Planificacion p){
+		var horariosNoDisponiblesMap = new HashMap<String,ArrayList<HorarioPlanificacion>> 
+		horariosNoDisponiblesMap = horarios(p)
+		var modificar = false
+		var HorarioPlanificacion horaABorrar = new HorarioPlanificacion
+		var HorarioPlanificacion horaNueva1 = new HorarioPlanificacion
+		var HorarioPlanificacion horaNueva2 = new HorarioPlanificacion
+		for(String dia : dias){
+			var list = new ArrayList<HorarioPlanificacion>
+			var listaRet = new ArrayList<HorarioPlanificacion>
+			list = horariosNoDisponiblesMap.get(dia)
+			var hora = new HorarioPlanificacion(8,22)
+			listaRet.add(hora)
+			for(HorarioPlanificacion h : list){
+				for(HorarioPlanificacion hp : listaRet){
+						if(h.inicio == hp.inicio){
+							var x = new HorarioPlanificacion(h.fin, hp.fin)
+							hp.setInicio(x.inicio)
+							hp.setFin(x.fin)
+						}else{
+							if(h.fin == hp.fin){
+								var x = new HorarioPlanificacion(hp.inicio, h.inicio)
+								hp.setInicio(x.inicio)
+								hp.setFin(x.fin)
+							}else{
+								if(h.estaEnElRango(hp)){
+									horaABorrar = hp 
+									horaNueva1 = new HorarioPlanificacion(hp.inicio,h.inicio)
+									horaNueva2 = new HorarioPlanificacion(h.fin,hp.fin)
+									modificar = true
+									}
+							}
+						}
+				}
+				if(modificar){
+					listaRet = remover(listaRet,horaABorrar)
+					listaRet.add(horaNueva1)
+					listaRet.add(horaNueva2)
+					modificar = false
+				}
+			}
+			horariosNoDisponiblesMap.put(dia,listaRet)
+		}
+		horariosNoDisponiblesMap
+	}
+	
+	def remover(ArrayList<HorarioPlanificacion> h, HorarioPlanificacion hp){
+		var ret = new ArrayList<HorarioPlanificacion>
+		for(HorarioPlanificacion horario : h){
+			if(horario.inicio != hp.inicio || horario.fin != hp.fin){
+				ret.add(horario)
+			}
+		}
+		ret
+	}
+	
+	def estaEnElRango(HorarioPlanificacion h,HorarioPlanificacion hp){
+		(hp.inicio < h.inicio && hp.fin > h.fin)
+	}
+	
+	//************************************************************************************************
 	
 	// Genera una tabla de Profesores -> Materias que dicta
 	def profesoresYMaterias(Model m){
