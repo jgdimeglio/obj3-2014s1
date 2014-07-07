@@ -16,6 +16,7 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Model
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.SEMI
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -124,7 +125,7 @@ class PdmValidator extends AbstractPdmValidator {
 			error('''Tiene «materiasQueDicta» materia asignada y necesita de 2 hasta 5 materias''', pl,
 				PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES)
 		}
-		if ((p.dedicacion.eClass.name.equals("SEMI")) && (materiasQueDicta != 2)) {
+		if (p.dedicacion instanceof SEMI && (materiasQueDicta != 2)) {
 			error('''Tiene «materiasQueDicta» materia asignada y necesita de 2 materias''', p,
 				PlanificadorDeMateriasDslPackage.Literals.PROFESOR__NAME)
 			error('''Tiene «materiasQueDicta» materia asignada y necesita de 2 materias''', pl,
@@ -137,6 +138,7 @@ class PdmValidator extends AbstractPdmValidator {
 				PlanificadorDeMateriasDslPackage.Literals.PLANIFICACION__ASIGNACIONES)
 		}
 	}
+	
 	//*************************************************************************************************
 	
 	//Valida que las aulas asignadas no se superpongan con el horario en que se dictan las materias.
@@ -152,6 +154,10 @@ class PdmValidator extends AbstractPdmValidator {
 			]
 		]
 	}
+	
+//	def validar(AulaHorario aulaHorario) {
+//		chequearHorarioSuperpuesto(aulaHorario.eContainer.eContainer as Planificacion, aulaHorario)
+//	}
 
 	def chequearHorarioSuperpuesto(Planificacion planificacion, AulaHorario aulaHorario) {
 
@@ -215,18 +221,12 @@ class PdmValidator extends AbstractPdmValidator {
 		var String mensajeDeError = ""
 		var horasAsignadas = asignacion.materia.cargaHoraria.cantHoras
 		if(horasSemanales != horasAsignadas){
-			if(horasSemanales == 1){
-				mensajeDeError = '''La materia se dicta «horasSemanales» hora a la semana, y tiene asignadas «horasAsignadas» horas'''
-			}else{
-				if(horasAsignadas == 1){
-					mensajeDeError = '''La materia se dicta «horasSemanales» horas a la semana, y tiene asignada «horasAsignadas» hora'''	
-				}else{
-						mensajeDeError = '''La materia se dicta «horasSemanales» horas a la semana, y tiene asignadas «horasAsignadas» horas'''
-				}
-			}
+			mensajeDeError = '''La materia se dicta «horasSemanales.horas» a la semana, y tiene asignadas «horasAsignadas.horas»'''
 			error(mensajeDeError, asignacion, PlanificadorDeMateriasDslPackage.Literals.ASIGNACION__MATERIA)
 		}
 	}
+	
+	def horas(Integer i) { i + if (i > 1) "horas" else "hora"  }
 	
 	def chequearCantidadDiasSemanales(Asignacion asignacion){
 		var String mensajeDeError = ""

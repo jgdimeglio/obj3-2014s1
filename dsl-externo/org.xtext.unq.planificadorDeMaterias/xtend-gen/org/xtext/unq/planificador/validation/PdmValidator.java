@@ -31,6 +31,7 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateriasDslPackage;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor;
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso;
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.SEMI;
 import org.xtext.unq.planificador.validation.AbstractPdmValidator;
 
 /**
@@ -213,10 +214,7 @@ public class PdmValidator extends AbstractPdmValidator {
     }
     boolean _and_1 = false;
     Dedicacion _dedicacion_1 = p.getDedicacion();
-    EClass _eClass_1 = _dedicacion_1.eClass();
-    String _name_1 = _eClass_1.getName();
-    boolean _equals_1 = _name_1.equals("SEMI");
-    if (!_equals_1) {
+    if (!(_dedicacion_1 instanceof SEMI)) {
       _and_1 = false;
     } else {
       _and_1 = (materiasQueDicta != 2);
@@ -237,10 +235,10 @@ public class PdmValidator extends AbstractPdmValidator {
     }
     boolean _and_2 = false;
     Dedicacion _dedicacion_2 = p.getDedicacion();
-    EClass _eClass_2 = _dedicacion_2.eClass();
-    String _name_2 = _eClass_2.getName();
-    boolean _equals_2 = _name_2.equals("SIMPLE");
-    if (!_equals_2) {
+    EClass _eClass_1 = _dedicacion_2.eClass();
+    String _name_1 = _eClass_1.getName();
+    boolean _equals_1 = _name_1.equals("SIMPLE");
+    if (!_equals_1) {
       _and_2 = false;
     } else {
       _and_2 = (materiasQueDicta != 1);
@@ -450,35 +448,26 @@ public class PdmValidator extends AbstractPdmValidator {
     CargaHoraria _cargaHoraria = _materia.getCargaHoraria();
     int horasAsignadas = _cargaHoraria.getCantHoras();
     if ((horasSemanales != horasAsignadas)) {
-      if ((horasSemanales == 1)) {
-        StringConcatenation _builder = new StringConcatenation();
-        _builder.append("La materia se dicta ");
-        _builder.append(horasSemanales, "");
-        _builder.append(" hora a la semana, y tiene asignadas ");
-        _builder.append(horasAsignadas, "");
-        _builder.append(" horas");
-        mensajeDeError = _builder.toString();
-      } else {
-        if ((horasAsignadas == 1)) {
-          StringConcatenation _builder_1 = new StringConcatenation();
-          _builder_1.append("La materia se dicta ");
-          _builder_1.append(horasSemanales, "");
-          _builder_1.append(" horas a la semana, y tiene asignada ");
-          _builder_1.append(horasAsignadas, "");
-          _builder_1.append(" hora");
-          mensajeDeError = _builder_1.toString();
-        } else {
-          StringConcatenation _builder_2 = new StringConcatenation();
-          _builder_2.append("La materia se dicta ");
-          _builder_2.append(horasSemanales, "");
-          _builder_2.append(" horas a la semana, y tiene asignadas ");
-          _builder_2.append(horasAsignadas, "");
-          _builder_2.append(" horas");
-          mensajeDeError = _builder_2.toString();
-        }
-      }
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("La materia se dicta ");
+      String _horas = this.horas(Integer.valueOf(horasSemanales));
+      _builder.append(_horas, "");
+      _builder.append(" a la semana, y tiene asignadas ");
+      String _horas_1 = this.horas(Integer.valueOf(horasAsignadas));
+      _builder.append(_horas_1, "");
+      mensajeDeError = _builder.toString();
       this.error(mensajeDeError, asignacion, PlanificadorDeMateriasDslPackage.Literals.ASIGNACION__MATERIA);
     }
+  }
+  
+  public String horas(final Integer i) {
+    String _xifexpression = null;
+    if (((i).intValue() > 1)) {
+      _xifexpression = "horas";
+    } else {
+      _xifexpression = "hora";
+    }
+    return (i + _xifexpression);
   }
   
   public void chequearCantidadDiasSemanales(final Asignacion asignacion) {

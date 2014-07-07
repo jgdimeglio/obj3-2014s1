@@ -187,6 +187,7 @@ class PlanificadorDeMateriasInterpreter {
 			listaHorariosNoDisponibles = horariosNoDisponiblesMap.get(dia)
 			var hora = new HorarioPlanificacion(8,22)
 			listaRet.add(hora)
+			//hacer otro metodo
 			for(HorarioPlanificacion h : listaHorariosNoDisponibles){
 				for(HorarioPlanificacion hp : listaRet){
 					if(h.inicio == hp.inicio){
@@ -242,10 +243,15 @@ class PlanificadorDeMateriasInterpreter {
 	def superponer(HorarioPlanificacion h, HorarioPlanificacion hp){
 		var ret = new HorarioPlanificacion
 		if(h.inicio < hp.inicio && (h.fin > hp.inicio && h.fin < hp.fin)){
-			ret.setInicio(h.fin)
+			ret.setInicio(h.inicio)
 			ret.setFin(hp.fin)
 		}else{
-			ret = hp
+			if(hp.inicio < h.inicio &&(hp.fin > h.inicio && hp.fin < h.fin)){
+				ret.setInicio(hp.inicio)
+				ret.setFin(h.fin)
+			}else{
+				ret = hp
+			}
 		}
 		ret
 	}
@@ -292,7 +298,10 @@ class PlanificadorDeMateriasInterpreter {
 		val aulasSet = aulas.entrySet
 		var String aulaIndex = ""
 		var int max = 0
-		if(aulasSet.size > 1){
+		if(aulasSet.size == 1){
+			aulaIndex = aulasSet.get(0).key
+			max = aulasSet.get(0).value
+		}else{
 			max = aulasSet.get(0).value
 			aulaIndex = aulasSet.get(0).key
 			for(Entry<String,Integer> entry : aulasSet){
@@ -300,11 +309,6 @@ class PlanificadorDeMateriasInterpreter {
 					max = entry.value
 					aulaIndex = entry.key
 				}
-			}
-		}else{
-			if(aulasSet.size == 1){
-				aulaIndex = aulasSet.get(0).key
-				max = aulasSet.get(0).value
 			}
 		}
 		var ret = new HashMap<String,Integer>()

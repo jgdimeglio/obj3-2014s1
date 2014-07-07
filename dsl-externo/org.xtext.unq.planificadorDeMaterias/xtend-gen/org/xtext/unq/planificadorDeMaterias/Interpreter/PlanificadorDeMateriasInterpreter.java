@@ -446,12 +446,40 @@ public class PlanificadorDeMateriasInterpreter {
         _and = _and_1;
       }
       if (_and) {
-        int _fin_3 = h.getFin();
-        ret.setInicio(_fin_3);
-        int _fin_4 = hp.getFin();
-        ret.setFin(_fin_4);
+        int _inicio_3 = h.getInicio();
+        ret.setInicio(_inicio_3);
+        int _fin_3 = hp.getFin();
+        ret.setFin(_fin_3);
       } else {
-        ret = hp;
+        boolean _and_2 = false;
+        int _inicio_4 = hp.getInicio();
+        int _inicio_5 = h.getInicio();
+        boolean _lessThan_2 = (_inicio_4 < _inicio_5);
+        if (!_lessThan_2) {
+          _and_2 = false;
+        } else {
+          boolean _and_3 = false;
+          int _fin_4 = hp.getFin();
+          int _inicio_6 = h.getInicio();
+          boolean _greaterThan_1 = (_fin_4 > _inicio_6);
+          if (!_greaterThan_1) {
+            _and_3 = false;
+          } else {
+            int _fin_5 = hp.getFin();
+            int _fin_6 = h.getFin();
+            boolean _lessThan_3 = (_fin_5 < _fin_6);
+            _and_3 = _lessThan_3;
+          }
+          _and_2 = _and_3;
+        }
+        if (_and_2) {
+          int _inicio_7 = hp.getInicio();
+          ret.setInicio(_inicio_7);
+          int _fin_7 = h.getFin();
+          ret.setFin(_fin_7);
+        } else {
+          ret = hp;
+        }
       }
       _xblockexpression = ret;
     }
@@ -512,34 +540,30 @@ public class PlanificadorDeMateriasInterpreter {
     String aulaIndex = "";
     int max = 0;
     int _size = aulasSet.size();
-    boolean _greaterThan = (_size > 1);
-    if (_greaterThan) {
+    boolean _equals = (_size == 1);
+    if (_equals) {
       Map.Entry<String, Integer> _get = ((Map.Entry<String, Integer>[])Conversions.unwrapArray(aulasSet, Map.Entry.class))[0];
-      Integer _value = _get.getValue();
-      max = (_value).intValue();
-      Map.Entry<String, Integer> _get_1 = ((Map.Entry<String, Integer>[])Conversions.unwrapArray(aulasSet, Map.Entry.class))[0];
-      String _key = _get_1.getKey();
+      String _key = _get.getKey();
       aulaIndex = _key;
-      for (final Map.Entry<String, Integer> entry : aulasSet) {
-        Integer _value_1 = entry.getValue();
-        boolean _greaterThan_1 = ((_value_1).intValue() > max);
-        if (_greaterThan_1) {
-          Integer _value_2 = entry.getValue();
-          max = (_value_2).intValue();
-          String _key_1 = entry.getKey();
-          aulaIndex = _key_1;
-        }
-      }
+      Map.Entry<String, Integer> _get_1 = ((Map.Entry<String, Integer>[])Conversions.unwrapArray(aulasSet, Map.Entry.class))[0];
+      Integer _value = _get_1.getValue();
+      max = (_value).intValue();
     } else {
-      int _size_1 = aulasSet.size();
-      boolean _equals = (_size_1 == 1);
-      if (_equals) {
-        Map.Entry<String, Integer> _get_2 = ((Map.Entry<String, Integer>[])Conversions.unwrapArray(aulasSet, Map.Entry.class))[0];
-        String _key_2 = _get_2.getKey();
-        aulaIndex = _key_2;
-        Map.Entry<String, Integer> _get_3 = ((Map.Entry<String, Integer>[])Conversions.unwrapArray(aulasSet, Map.Entry.class))[0];
-        Integer _value_3 = _get_3.getValue();
-        max = (_value_3).intValue();
+      Map.Entry<String, Integer> _get_2 = ((Map.Entry<String, Integer>[])Conversions.unwrapArray(aulasSet, Map.Entry.class))[0];
+      Integer _value_1 = _get_2.getValue();
+      max = (_value_1).intValue();
+      Map.Entry<String, Integer> _get_3 = ((Map.Entry<String, Integer>[])Conversions.unwrapArray(aulasSet, Map.Entry.class))[0];
+      String _key_1 = _get_3.getKey();
+      aulaIndex = _key_1;
+      for (final Map.Entry<String, Integer> entry : aulasSet) {
+        Integer _value_2 = entry.getValue();
+        boolean _greaterThan = ((_value_2).intValue() > max);
+        if (_greaterThan) {
+          Integer _value_3 = entry.getValue();
+          max = (_value_3).intValue();
+          String _key_2 = entry.getKey();
+          aulaIndex = _key_2;
+        }
       }
     }
     HashMap<String, Integer> ret = new HashMap<String, Integer>();
