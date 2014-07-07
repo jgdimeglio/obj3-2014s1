@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
@@ -620,7 +621,15 @@ public class PdmValidator extends AbstractPdmValidator {
       for (final Asignacion asignacion : _asignaciones) {
         EList<Profesor> _profesores = asignacion.getProfesores();
         for (final Profesor profesor : _profesores) {
-          this.chequearDisponibilidadAsignacion(profesor, asignacion);
+          try {
+            this.chequearDisponibilidadAsignacion(profesor, asignacion);
+          } catch (final Throwable _t) {
+            if (_t instanceof Exception) {
+              final Exception e = (Exception)_t;
+            } else {
+              throw Exceptions.sneakyThrow(_t);
+            }
+          }
         }
       }
     }
