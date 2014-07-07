@@ -49,10 +49,6 @@ public class ExtensionMethodsInterpreter {
     return IterableExtensions.<Profesor>toList(profesores);
   }
   
-  public EList<Planificacion> planificaciones(final Model m) {
-    return m.getPlanificacion();
-  }
-  
   /**
    * Extension methods ElementosSecundarios
    */

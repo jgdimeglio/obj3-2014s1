@@ -33,9 +33,9 @@ class ExtensionMethodsInterpreter {
 		return profesores.toList
 	}
 	
-	def planificaciones(Model m){
-		m.planificacion
-	}
+//	def planificaciones(Model m){
+//		m.planificacion
+//	}
 	
 	/*
 	 * Extension methods ElementosSecundarios
