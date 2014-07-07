@@ -312,12 +312,13 @@ class PdmValidator extends AbstractPdmValidator {
 			for(AulaHorario aulaHorario:asignacion.aulaHorarios){
 				if(profesor.disponibilidad.diasNoPuede.exists[d | d.eClass.name.equals(aulaHorario.dia.eClass.name)]){
 					error("El profesor especifico que no puede asistir ese dia", aulaHorario, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__DIA)
-				}
-				if(!profesor.disponibilidad.diasHorario.exists[dh | dh.diaPuede.class.name.equals(aulaHorario.dia.class.name)]){
-					warning("Puede ser que el profesor no pueda asistir,debido a que el dia no fue especificado en su disponibilidad", aulaHorario, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__DIA)
-				} else{
-					if(!profesor.disponibilidad.diasHorario.exists[dh | coincidenHorariosDisponibles(dh,aulaHorario)]){
-						error("El profesor no esta disponible en este horario", aulaHorario, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__DIA)
+				}else{
+					if(!profesor.disponibilidad.diasHorario.exists[dh | dh.diaPuede.class.name.equals(aulaHorario.dia.class.name)]){
+						warning("Puede ser que el profesor no pueda asistir,debido a que el dia no fue especificado en su disponibilidad", aulaHorario, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__DIA)
+					} else{
+						if(!profesor.disponibilidad.diasHorario.exists[dh | coincidenHorariosDisponibles(dh,aulaHorario)]){
+							error("El profesor no esta disponible en este horario", aulaHorario, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__DIA)
+						}
 					}
 				}
 			}

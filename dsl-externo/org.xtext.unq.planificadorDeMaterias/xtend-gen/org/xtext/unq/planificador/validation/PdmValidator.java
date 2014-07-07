@@ -648,23 +648,22 @@ public class PdmValidator extends AbstractPdmValidator {
     if (_exists) {
       EList<AulaHorario> _aulaHorarios = asignacion.getAulaHorarios();
       for (final AulaHorario aulaHorario : _aulaHorarios) {
-        {
-          Disponibilidad _disponibilidad = profesor.getDisponibilidad();
-          EList<Dia> _diasNoPuede = _disponibilidad.getDiasNoPuede();
-          final Function1<Dia, Boolean> _function_1 = new Function1<Dia, Boolean>() {
-            public Boolean apply(final Dia d) {
-              EClass _eClass = d.eClass();
-              String _name = _eClass.getName();
-              Dia _dia = aulaHorario.getDia();
-              EClass _eClass_1 = _dia.eClass();
-              String _name_1 = _eClass_1.getName();
-              return Boolean.valueOf(_name.equals(_name_1));
-            }
-          };
-          boolean _exists_1 = IterableExtensions.<Dia>exists(_diasNoPuede, _function_1);
-          if (_exists_1) {
-            this.error("El profesor especifico que no puede asistir ese dia", aulaHorario, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__DIA);
+        Disponibilidad _disponibilidad = profesor.getDisponibilidad();
+        EList<Dia> _diasNoPuede = _disponibilidad.getDiasNoPuede();
+        final Function1<Dia, Boolean> _function_1 = new Function1<Dia, Boolean>() {
+          public Boolean apply(final Dia d) {
+            EClass _eClass = d.eClass();
+            String _name = _eClass.getName();
+            Dia _dia = aulaHorario.getDia();
+            EClass _eClass_1 = _dia.eClass();
+            String _name_1 = _eClass_1.getName();
+            return Boolean.valueOf(_name.equals(_name_1));
           }
+        };
+        boolean _exists_1 = IterableExtensions.<Dia>exists(_diasNoPuede, _function_1);
+        if (_exists_1) {
+          this.error("El profesor especifico que no puede asistir ese dia", aulaHorario, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__DIA);
+        } else {
           Disponibilidad _disponibilidad_1 = profesor.getDisponibilidad();
           EList<DiaHorario> _diasHorario = _disponibilidad_1.getDiasHorario();
           final Function1<DiaHorario, Boolean> _function_2 = new Function1<DiaHorario, Boolean>() {
