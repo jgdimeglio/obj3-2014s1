@@ -644,11 +644,11 @@ public class PdmValidator extends AbstractPdmValidator {
           EList<Dia> _diasNoPuede = _disponibilidad.getDiasNoPuede();
           final Function1<Dia, Boolean> _function_1 = new Function1<Dia, Boolean>() {
             public Boolean apply(final Dia d) {
-              Class<? extends Dia> _class = d.getClass();
-              String _name = _class.getName();
+              EClass _eClass = d.eClass();
+              String _name = _eClass.getName();
               Dia _dia = aulaHorario.getDia();
-              Class<? extends Dia> _class_1 = _dia.getClass();
-              String _name_1 = _class_1.getName();
+              EClass _eClass_1 = _dia.eClass();
+              String _name_1 = _eClass_1.getName();
               return Boolean.valueOf(_name.equals(_name_1));
             }
           };
@@ -660,27 +660,32 @@ public class PdmValidator extends AbstractPdmValidator {
           EList<DiaHorario> _diasHorario = _disponibilidad_1.getDiasHorario();
           final Function1<DiaHorario, Boolean> _function_2 = new Function1<DiaHorario, Boolean>() {
             public Boolean apply(final DiaHorario dh) {
-              boolean _and = false;
               Dia _diaPuede = dh.getDiaPuede();
               Class<? extends Dia> _class = _diaPuede.getClass();
               String _name = _class.getName();
               Dia _dia = aulaHorario.getDia();
               Class<? extends Dia> _class_1 = _dia.getClass();
               String _name_1 = _class_1.getName();
-              boolean _equals = _name.equals(_name_1);
-              if (!_equals) {
-                _and = false;
-              } else {
-                boolean _coincidenHorariosDisponibles = PdmValidator.this.coincidenHorariosDisponibles(dh, aulaHorario);
-                _and = _coincidenHorariosDisponibles;
-              }
-              return Boolean.valueOf(_and);
+              return Boolean.valueOf(_name.equals(_name_1));
             }
           };
           boolean _exists_2 = IterableExtensions.<DiaHorario>exists(_diasHorario, _function_2);
           boolean _not = (!_exists_2);
           if (_not) {
             this.warning("Puede ser que el profesor no pueda asistir,debido a que el dia no fue especificado en su disponibilidad", aulaHorario, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__DIA);
+          } else {
+            Disponibilidad _disponibilidad_2 = profesor.getDisponibilidad();
+            EList<DiaHorario> _diasHorario_1 = _disponibilidad_2.getDiasHorario();
+            final Function1<DiaHorario, Boolean> _function_3 = new Function1<DiaHorario, Boolean>() {
+              public Boolean apply(final DiaHorario dh) {
+                return Boolean.valueOf(PdmValidator.this.coincidenHorariosDisponibles(dh, aulaHorario));
+              }
+            };
+            boolean _exists_3 = IterableExtensions.<DiaHorario>exists(_diasHorario_1, _function_3);
+            boolean _not_1 = (!_exists_3);
+            if (_not_1) {
+              this.error("El profesor no esta disponible en este horario", aulaHorario, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__DIA);
+            }
           }
         }
       }
