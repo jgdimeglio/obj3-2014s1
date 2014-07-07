@@ -13,7 +13,6 @@ import java.util.List
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Asignacion
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Planificacion
-import org.xtext.unq.planificador.planificadorDeMateriasDsl.Materia
 import java.util.ArrayList
 
 class PlanificadorDeMateriasInterpreter {
@@ -85,16 +84,16 @@ class PlanificadorDeMateriasInterpreter {
 	 */
 	 
 	def private materiasQueDicta(Profesor profesor, List<Asignacion> asignaciones){
-		val materias = new ArrayList<Materia>
+		val materias = new ArrayList<String>
 		
 		asignacionesDelProfesor(profesor,asignaciones).forEach[a | 
-			materias.add(a.materia)
+			materias.add(a.materia.name)
 		]
 		
 		return materias
 	}
 	
-	def mostrarTablaDeProfesoresYMaterias(Planificacion planificacion){
+	def private mostrarTablaDeProfesoresYMaterias(Planificacion planificacion){
 		planificacion.profesores.forEach[p |
 			println('''El Profesor: «p.name», dicta: «materiasQueDicta(p,planificacion.asignaciones)»''')
 		]
@@ -152,21 +151,21 @@ class PlanificadorDeMateriasInterpreter {
 		return aulas
 	}
 
-	def private int cantidadDeMateriasAsignadasEn(Model m, int inicio, int fin){
+	def private cantidadDeMateriasAsignadasEn(Model m, int inicio, int fin){
 		val materiasAsignadas = m.asignaciones.filter[a | hayAlMenosUnaMateriaAsignadaEn(a.aulaHorarios,inicio,fin) ]
 		return materiasAsignadas.size
 	}
 	
-	def private boolean hayAlMenosUnaMateriaAsignadaEn(List<AulaHorario> ah, int inicio, int fin){
-		val x = ah.filter[x | x.horario.desde >= inicio && x.horario.hasta <= fin]
-		return x.size > 0
+	def private hayAlMenosUnaMateriaAsignadaEn(List<AulaHorario> ah, int inicio, int fin){
+		val materiasAsignadas = ah.filter[x | (x.horario.desde >= inicio) && (x.horario.hasta <= fin)]
+		return (materiasAsignadas.size > 0)
 	}
 	
-	def private int cantidadDeMateriasAsignadas(Model m){
+	def private cantidadDeMateriasAsignadas(Model m){
 		return m.materias.toSet.size
 	}
 	
-	def private int porcentajeDeMateriasEn(Model m,int inicio,int fin){
-		return (cantidadDeMateriasAsignadasEn(m,inicio,fin) * cantidadDeMateriasAsignadas(m)) / 100
+	def private porcentajeDeMateriasEn(Model m,int inicio,int fin){
+		return ((cantidadDeMateriasAsignadasEn(m,inicio,fin) * cantidadDeMateriasAsignadas(m)) / 100)
 	}
 }

@@ -142,20 +142,21 @@ public class PlanificadorDeMateriasInterpreter {
   /**
    * Metodos Privados
    */
-  private ArrayList<Materia> materiasQueDicta(final Profesor profesor, final List<Asignacion> asignaciones) {
-    final ArrayList<Materia> materias = new ArrayList<Materia>();
+  private ArrayList<String> materiasQueDicta(final Profesor profesor, final List<Asignacion> asignaciones) {
+    final ArrayList<String> materias = new ArrayList<String>();
     Iterable<Asignacion> _asignacionesDelProfesor = this.asignacionesDelProfesor(profesor, asignaciones);
     final Procedure1<Asignacion> _function = new Procedure1<Asignacion>() {
       public void apply(final Asignacion a) {
         Materia _materia = a.getMateria();
-        materias.add(_materia);
+        String _name = _materia.getName();
+        materias.add(_name);
       }
     };
     IterableExtensions.<Asignacion>forEach(_asignacionesDelProfesor, _function);
     return materias;
   }
   
-  public void mostrarTablaDeProfesoresYMaterias(final Planificacion planificacion) {
+  private void mostrarTablaDeProfesoresYMaterias(final Planificacion planificacion) {
     List<Profesor> _profesores = this._extensionMethodsInterpreter.profesores(planificacion);
     final Procedure1<Profesor> _function = new Procedure1<Profesor>() {
       public void apply(final Profesor p) {
@@ -165,7 +166,7 @@ public class PlanificadorDeMateriasInterpreter {
         _builder.append(_name, "");
         _builder.append(", dicta: ");
         EList<Asignacion> _asignaciones = planificacion.getAsignaciones();
-        ArrayList<Materia> _materiasQueDicta = PlanificadorDeMateriasInterpreter.this.materiasQueDicta(p, _asignaciones);
+        ArrayList<String> _materiasQueDicta = PlanificadorDeMateriasInterpreter.this.materiasQueDicta(p, _asignaciones);
         _builder.append(_materiasQueDicta, "");
         InputOutput.<String>println(_builder.toString());
       }
@@ -297,8 +298,8 @@ public class PlanificadorDeMateriasInterpreter {
         return Boolean.valueOf(_and);
       }
     };
-    final Iterable<AulaHorario> x = IterableExtensions.<AulaHorario>filter(ah, _function);
-    int _size = IterableExtensions.size(x);
+    final Iterable<AulaHorario> materiasAsignadas = IterableExtensions.<AulaHorario>filter(ah, _function);
+    int _size = IterableExtensions.size(materiasAsignadas);
     return (_size > 0);
   }
   
