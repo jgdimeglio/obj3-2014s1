@@ -64,12 +64,9 @@ class PlanificadorDeMateriasInterpreter {
 	
 	// Genera una tabla de Turno -> Porcentaje de materias que se dictan
 	def porcentajeDeAsignacionesPorTurno(Model m){
-		val mañana = porcentajeDeMateriasEn(m,8,13)
-		val tarde = porcentajeDeMateriasEn(m,13,18)
-		val noche = porcentajeDeMateriasEn(m,18,22)
-		println('''Turno Mañana: «mañana»''')
-		println('''Turno Tarde : «tarde»''')
-		println('''Turno Noche : «noche»''')
+		println('''Turno Mañana: «porcentajeDeMateriasEn(m,8,13)»''')
+		println('''Turno Tarde : «porcentajeDeMateriasEn(m,13,18)»''')
+		println('''Turno Noche : «porcentajeDeMateriasEn(m,18,22)»''')
 	}
 	
 	// Genera una tabla de Profesores -> Materias que dicta

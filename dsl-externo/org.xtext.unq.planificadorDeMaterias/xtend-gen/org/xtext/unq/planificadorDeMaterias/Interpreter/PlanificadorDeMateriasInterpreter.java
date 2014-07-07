@@ -110,20 +110,20 @@ public class PlanificadorDeMateriasInterpreter {
   public String porcentajeDeAsignacionesPorTurno(final Model m) {
     String _xblockexpression = null;
     {
-      final int mañana = this.porcentajeDeMateriasEn(m, 8, 13);
-      final int tarde = this.porcentajeDeMateriasEn(m, 13, 18);
-      final int noche = this.porcentajeDeMateriasEn(m, 18, 22);
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Turno Mañana: ");
-      _builder.append(mañana, "");
+      int _porcentajeDeMateriasEn = this.porcentajeDeMateriasEn(m, 8, 13);
+      _builder.append(_porcentajeDeMateriasEn, "");
       InputOutput.<String>println(_builder.toString());
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append("Turno Tarde : ");
-      _builder_1.append(tarde, "");
+      int _porcentajeDeMateriasEn_1 = this.porcentajeDeMateriasEn(m, 13, 18);
+      _builder_1.append(_porcentajeDeMateriasEn_1, "");
       InputOutput.<String>println(_builder_1.toString());
       StringConcatenation _builder_2 = new StringConcatenation();
       _builder_2.append("Turno Noche : ");
-      _builder_2.append(noche, "");
+      int _porcentajeDeMateriasEn_2 = this.porcentajeDeMateriasEn(m, 18, 22);
+      _builder_2.append(_porcentajeDeMateriasEn_2, "");
       _xblockexpression = InputOutput.<String>println(_builder_2.toString());
     }
     return _xblockexpression;
