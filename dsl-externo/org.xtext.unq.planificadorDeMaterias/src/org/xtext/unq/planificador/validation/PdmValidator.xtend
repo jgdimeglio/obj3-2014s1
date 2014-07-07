@@ -16,6 +16,8 @@ import org.xtext.unq.planificador.planificadorDeMateriasDsl.PlanificadorDeMateri
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Profesor
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Recurso
 import org.xtext.unq.planificador.planificadorDeMateriasDsl.Aula
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.DiaHorario
+import org.xtext.unq.planificador.planificadorDeMateriasDsl.Semestre
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -285,6 +287,42 @@ class PdmValidator extends AbstractPdmValidator {
 			]
 		]
 	}
+	//*************************************************************************************************
+
+	//Valida que los horarios de los cursos asignados a cada profesor cumplan con la disponibilidad del profesor
+	@Check
+	def validateProfesorConCurso(Model m){
+		var model=m
+		var planificaciones=model.planificacion
+		for(Planificacion planificaion:planificaciones){
+			for(Asignacion asignacion:planificaion.asignaciones){
+				for(Profesor profesor:asignacion.profesores){
+					chequearDisponibilidadAsignacion(profesor,asignacion)
+				}
+			}
+		}
+	}
+	
+	def chequearDisponibilidadAsignacion(Profesor profesor, Asignacion asignacion) {
+		if(asignacion.profesores.exists[p | p.name.equals(profesor.name)]){
+			
+
+			for(AulaHorario aulaHorario:asignacion.aulaHorarios){
+				if(profesor.disponibilidad.diasNoPuede.exists[d | d.class.name.equals(aulaHorario.dia.class.name)]){
+					error("El profesor especifico que no puede asistir ese dia", aulaHorario, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__DIA)
+				}
+				if(!profesor.disponibilidad.diasHorario.exists[dh | dh.diaPuede.class.name.equals(aulaHorario.dia.class.name) && coincidenHorariosDisponibles(dh,aulaHorario)]){
+					warning("Puede ser que el profesor no pueda asistir,debido a que el dia no fue especificado en su disponibilidad", aulaHorario, PlanificadorDeMateriasDslPackage.Literals.AULA_HORARIO__DIA)
+				} 
+			}
+		}
+	}
+	
+	def coincidenHorariosDisponibles(DiaHorario diaHorario, AulaHorario ahorario) {
+		ahorario.horario.desde >= diaHorario.horario.desde && 
+		ahorario.horario.hasta <= diaHorario.horario.hasta
+	}
+
 	//*************************************************************************************************
 }
 
